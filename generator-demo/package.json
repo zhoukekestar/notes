@@ -1,0 +1,16 @@
+{
+  "name": "test-koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^1.1.2",
+    "thunkify": "^2.1.2",
+    "unirest": "^0.4.2"
+  }
+}
