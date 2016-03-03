@@ -1,26 +1,33 @@
 ## Express to KOA
-* È¥³ıexpress±äÁ¿, "var express     = require('express');"
-* ¸ü¸Ärouter±äÁ¿¸³Öµ, "var router      = express.Router();" ¸ÄÎª ¡°var router      = require('koa-router')();¡±
-* ¸üÕımodule.exports = router.routes();
-* ĞŞ¸Äfunction(req, res) Îª function* ()
-  ĞŞ¸ÄÂ·¾¶ÎªÈ«Â·¾¶ router.get('/:id') ¸ÄÎª router.get('/test/:id')
+* å»é™¤expresså˜é‡, "var express     = require('express');"
+* æ›´æ”¹routerå˜é‡èµ‹å€¼, "var router      = express.Router();" æ”¹ä¸º â€œvar router      = require('koa-router')();â€
+* æ›´æ­£module.exports = router.routes();
+* ä¿®æ”¹function(req, res) ä¸º function* ()
+ 
+  ä¿®æ”¹è·¯å¾„ä¸ºå…¨è·¯å¾„ router.get('/:id') æ”¹ä¸º router.get('/test/:id')
 
-* res.render ¸ÄÎª this.render
-  res.redirect ¸ÄÎª this.redirect
-  res.end ¸ÄÎª this.body
-  res.json ¸ÄÎª this.body
+* res.render æ”¹ä¸º this.render
+ 
+  res.redirect æ”¹ä¸º this.redirect
 
-* req.headers ¸ÄÎª this.request.headers
+  res.end æ”¹ä¸º this.body
+  
+  res.json æ”¹ä¸º this.body
 
-* req.params.xxx ¸ÄÎª this.params.xxx
-  req.query.xxx ¸ÄÎª this.query.xxx
+* req.headers æ”¹ä¸º this.request.headers
 
-* res.cookie ¸ÄÎª this.cookies.set
-  req.cookies ¸ÄÎª this.cookies.get
+* req.params.xxx æ”¹ä¸º this.params.xxx
 
-* req.body ¸ÄÎª this.request.body
+  req.query.xxx æ”¹ä¸º this.query.xxx
 
-* require('../lib/httpRequest.js') ¸ÄÎª require('../lib/httpRequest.v2.js');
+* res.cookie æ”¹ä¸º this.cookies.set
 
-* http.get µÄ»Øµ÷µ÷ÓÃ¸ÄÎª yield µ÷ÓÃ£¬²¢¸³ÖµÎªbody£¬
-  Èç var data = yield http.get.call(this, 'http://xxx/xxx'), data = data.body;
+  req.cookies æ”¹ä¸º this.cookies.get
+
+* req.body æ”¹ä¸º this.request.body
+
+* require('../lib/httpRequest.js') æ”¹ä¸º require('../lib/httpRequest.v2.js');
+
+* http.get çš„å›è°ƒè°ƒç”¨æ”¹ä¸º yield è°ƒç”¨ï¼Œå¹¶èµ‹å€¼ä¸ºbody
+
+  å¦‚ var data = yield http.get.call(this, 'http://xxx/xxx'), data = data.body;
