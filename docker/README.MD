@@ -8,6 +8,9 @@ docker login
 ## search
 docker search tutorial
 
+## build image
+docker build -t <username>/<name> .
+
 ## download image
 docker pull learn/tutorial
 
@@ -37,3 +40,6 @@ docker tag (<tagID> OR <name:tag>) <new-name>
 
 ## Run a container:
 docker start <container-id> && docker attach <container-id>
+
+## Speed up
+docker-machine ssh default "echo 'EXTRA_ARGS=\"--registry-mirror=https://rgx8z0xn.mirror.aliyuncs.com\"' | sudo tee -a /var/lib/boot2docker/profile"
