@@ -1,70 +1,44 @@
 
-run docker with cert.
-```bash
-docker --tlsverify --tlscacert=D:/docker/cert/ca.pem --tlscert=D:/docker/cert/cert.pem --tlskey=D:/docker/cert/key.pem -H=tcp://master1.cs-cn-shenzhen.aliyun.com:17360 ps
-```
 
-login
 ```bash
-docker login
-```
+docker login                          //login
 
-search
-```bash
-docker search tutorial
-```
+docker search tutorial                //search
 
-build image
-```bash
-docker build -t <username>/<name> .
-```
+docker build -t <username>/<name> .   //build image
 
-download image
-```bash
-docker pull learn/tutorial
-```
+docker pull learn/tutorial            //download image
 
-remove containers & remove images
-```bash
-docker rm <Container ID>
+docker rm <Container ID>              //remove containers
 docker rm $(docker ps -a -q)
-docker rmi <Container ID>
+docker rmi <image ID>                 // remove images
 docker rmi $(docker ps -a -q)
-```
 
-List all containers & List all images:
-```bash
-docker ps -a
-docker images
-```
+docker ps -a                          //List all containers 
+docker images                         //List all images
 
-Run bash & run in the background:
-```bash
-docker run -it node:4.2 bash
-docker run -p 49160:8080 -d <your username>/centos-node-hello
-```
+docker run -it node:4.2 bash          //Run bash
+docker run -p 49160:8080 -d <your username>/centos-node-hello //run in the background
 
-Save a container to an image.
-```bash
-docker commit <id> <name>
-```
+docker commit <id> <name>             //Save a container to an image.
 
-Publish image
-```bash
-docker push <name>
-```
+docker push <name>                    //Publish image
 
-Rename image
-```bash
-docker tag (<tagID> OR <name:tag>) <new-name>
-```
+docker tag (<tagID> OR <name:tag>) <new-name> Rename image
 
-Run a container:
-```bash
-docker start <container-id> && docker attach <container-id>
+docker start <container-id> && docker attach <container-id> //Run a container
+
+docker logs <container-id>              // see log
+
+docker-machine ip VM_NAME               // see machine's ip address. Example: docker-machine ip default 
 ```
 
 Speed up
 ```bash
 docker-machine ssh default "echo 'EXTRA_ARGS=\"--registry-mirror=https://rgx8z0xn.mirror.aliyuncs.com\"' | sudo tee -a /var/lib/boot2docker/profile"
+```
+
+run docker with cert.
+```bash
+docker --tlsverify --tlscacert=D:/docker/cert/ca.pem --tlscert=D:/docker/cert/cert.pem --tlskey=D:/docker/cert/key.pem -H=tcp://master1.cs-cn-shenzhen.aliyun.com:17360 ps
 ```
