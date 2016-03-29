@@ -24,38 +24,24 @@ download image
 docker pull learn/tutorial
 ```
 
-To remove a container
+remove containers & remove images
 ```bash
 docker rm <Container ID>
-```
-remove all containers: 
-```bash
 docker rm $(docker ps -a -q)
-```
-
-remove images
-```bash
 docker rmi <Container ID>
-```
-
-To remove all images: 
-```bash
 docker rmi $(docker ps -a -q)
 ```
 
-List all containers:
+List all containers & List all images:
 ```bash
 docker ps -a
-```
-
-List all images:
-```bash
 docker images
 ```
 
-Run bash:
+Run bash & run in the background:
 ```bash
 docker run -it node:4.2 bash
+docker run -p 49160:8080 -d <your username>/centos-node-hello
 ```
 
 Save a container to an image.
