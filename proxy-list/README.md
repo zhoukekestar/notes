@@ -55,7 +55,7 @@ for (var i = 0; i < eles.length; i++) {
       console.log(style.display);
     }
   }
-
+  ip = ip.replace(/\s/g, '');
   result.push(ip + ':' + eles[i].children[2].innerHTML);
 }
 result.join(',')
