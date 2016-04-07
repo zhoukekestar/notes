@@ -1,3 +1,41 @@
+# demo
+
+```js
+var request = require('request');
+var ips = '106.75.197.134:8081,117.21.182.110:80';
+ips = ips.split(',');
+
+var sendRequest = function(i) {
+	if (i >= ips.length) return;
+
+	process.env.HTTP_PROXY = 'http://' + ips[i];
+	// request('http://ip.chinaz.com/getip.aspx', {timeout: 1500}, function (error, response, body) {
+	//   if (!error && response.statusCode == 200) {
+	//     console.log(body);
+	//   } else {
+	//   	console.log(error)
+	//   }
+
+
+	  request('http://xhs.easy-cp.com:8080/newNetLottery_web3g/toupiao/insertDetail?userId=35', {timeout: 10000}, function (error, response, body) {
+		  if (!error && response.statusCode == 200) {
+		    console.log(body);
+		  } else {
+		  	console.log(error)
+		  }
+
+      sendRequest(i + 1)
+		})
+
+	// })
+
+}
+
+sendRequest(0);
+
+```
+
+
 # http://www.xicidaili.com/nt
 
 ```js
