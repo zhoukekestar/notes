@@ -1,6 +1,6 @@
 # http://www.xicidaili.com/nt
 
-···js
+```js
 var result = [];
 var eles = document.querySelectorAll('#ip_list tr + tr')
 for (var i = 0; i < eles.length; i++) {
@@ -12,7 +12,7 @@ result.join(',')
 
 # http://www.haodailiip.com/guonei
 
-···js
+```js
 var result = [];
 var eles = document.querySelectorAll('.proxy_table tr + tr')
 for (var i = 0; i < eles.length; i++) {
@@ -23,7 +23,7 @@ result.join(',')
 
 # https://www.us-proxy.org/
 
-···js
+```js
 var result = [];
 var eles = document.querySelectorAll('#proxylisttable tbody tr')
 for (var i = 0; i < eles.length; i++) {
@@ -35,7 +35,7 @@ result.join(',')
 
 # http://proxylist.hidemyass.com/
 
-···js
+```js
 var result = [];
 var eles = document.querySelectorAll('#listable tbody tr')
 i = 0;
