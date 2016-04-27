@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>phaser</title>
+  </head>
+  <body>
+    <div id="game-holder"></div>
+    <button onclick="game.bear.animations.play('ready');">Ready</button>
+    <button onclick="game.bear.animations.play('go');">Go</button>
+    <button onclick="game.jump.play()">Sound</button>
+    <script src='/lib/phaser/phaser.min.js'></script>
+    <script>
+
+
+      var game = null;
+      window.onload = function() {
+        game = new Phaser.Game(800, 600, Phaser.AUTO, "game-holder", {preload: preload, create: create, update: update, render: render});
+      }
+
+      var preload = function() {
+        game.load.baseURL = '//local.toomao.com:3004/html/games/phaser/assets/';
+        // images
+        game.load.image('block', 'block.png');
+        game.load.image('background', 'background.png');
+        // audio
+        game.load.audio('jump', 'jump.wav');
+        // sprite
+        game.load.spritesheet('bird', 'bird.png', 92, 64, 3);
+        game.load.spritesheet('bear', 'bear.png', 300, 360, 6);
+      }
+
+      var create = function() {
+        // audio
+        game.jump = game.add.audio('jump');
+
+        // block
+        var sprite = game.add.sprite(100, 0, 'block');
+
+        // bird
+        game.bird = game.add.sprite(100, 100, 'bird');
+        game.bird.animations.add('run'); // add(name, frames, frameRate, loop, useNumericIndex) @see http://phaser.io/docs/2.4.7/Phaser.AnimationManager.html
+        game.bird.animations.play('run', 15, true);  // play(name, frameRate, loop, killOnComplete)
+
+        // bear
+        game.bear = game.add.sprite(200, 200, 'bear');
+        game.bear.animations.add('ready', [5, 4, 3], 20, false)
+        game.bear.animations.add('go', [2, 1, 0], 10, false)
+      }
+
+      var update = function() {
+        // console.log(Date.now())
+      }
+
+      var render = function() {
+
+      }
+
+
+    </script>
+  </body>
+</html>
