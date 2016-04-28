@@ -11,7 +11,7 @@
     <button onclick="game.bear.animations.play('ready');">Bear Ready</button>
     <button onclick="game.bear.animations.play('go');">Bear Go</button>
     <button onclick="game.jump.play()">Play Sound</button>
-    <script src='/lib/phaser/phaser.min.js'></script>
+    <script src='//cdn.jsdelivr.net/phaser/2.4.7/phaser.min.js'></script>
     <script>
 
 
@@ -21,7 +21,7 @@
       }
 
       var preload = function() {
-        game.load.baseURL = '//local.toomao.com:3004/html/games/phaser/assets/';
+        game.load.baseURL = './assets/';
         // images
         game.load.image('block', 'block.png');
         game.load.image('background', 'background.png');
