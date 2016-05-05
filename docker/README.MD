@@ -32,6 +32,13 @@ docker start <container-id> && docker attach <container-id> //Run a container
 docker logs <container-id>              // see log
 
 docker-machine ip VM_NAME               // see machine's ip address. Example: docker-machine ip default 
+
+docker exec -it <CID> /bin/bash         // Get into a container
+exit                                    //  exit without killing current container
+
+docker cp file <CID>:/file              // Copy file to container
+docker cp abc.txt 49:/abc.txt
+
 ```
 
 Speed up
