@@ -13,6 +13,7 @@ docker rm <Container ID>              //remove containers
 docker rm $(docker ps -a -q)
 docker rmi <image ID>                 // remove images
 docker rmi $(docker ps -a -q)
+docker kill <Container ID>            // kill container
 
 docker ps -a                          //List all containers 
 docker images                         //List all images
