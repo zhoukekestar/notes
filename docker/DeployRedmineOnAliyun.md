@@ -15,7 +15,7 @@ docker run -p 3306:3306 -d --name redmine-mysql -e MYSQL_ROOT_PASSWORD=123456 -e
 docker run -p 80:3000 -d --name toomao-redmine --link redmine-mysql:mysql redmine:3.1
 ```
 
-## 使用
+## 使用RDS部署
 ```bash
 docker run -p 80:80 -d --name=toomao-redmine-rds 
 --env='DB_ADAPTER=mysql2' 
