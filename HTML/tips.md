@@ -32,3 +32,14 @@ location.search.match(/key=([^&=]*)/)[1]
 ```js
 //@ sourceURL=dynamicScript.js
 ```
+
+
+## 上下移动元素
+```js
+window.moveUp = function() {
+  this.parentNode.insertBefore(this, this.previousElementSibling || this);
+}
+window.moveDown = function() {
+  this.parentNode.insertBefore(this, this.nextElementSibling && this.nextElementSibling.nextElementSibling || null);
+}
+```
