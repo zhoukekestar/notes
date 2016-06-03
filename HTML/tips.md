@@ -66,3 +66,17 @@ window.moveDown = function() {
 }
 
 ```
+
+
+## 多行文本超出省略
+```css
+p {
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4; // 文本显示行数
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+}
+```
