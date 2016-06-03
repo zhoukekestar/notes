@@ -43,3 +43,26 @@ window.moveDown = function() {
   this.parentNode.insertBefore(this, this.nextElementSibling && this.nextElementSibling.nextElementSibling || null);
 }
 ```
+
+## 滚动条
+```css
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(188, 188, 188, 1);
+}
+
+```
