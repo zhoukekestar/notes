@@ -80,3 +80,24 @@ p {
   white-space: pre-wrap;
 }
 ```
+
+## 元素是否在当前可见范围
+```js
+  function elementInViewport(el) {
+    var rect = el.getBoundingClientRect()
+
+    // For invisible element.
+    if (rect.top + rect.bottom + rect.left + rect.right + rect.height + rect.width === 0) {
+      return false;
+    }
+
+    return (
+       rect.top   >= 0
+    // Pre load.
+    && rect.top   <= ((window.innerHeight || document.documentElement.clientHeight) + 100)
+    && rect.left  >= 0
+    // Hide carousel except first image. Do not add equal sign.
+    && rect.left  < (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+```
