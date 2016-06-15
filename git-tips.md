@@ -1,6 +1,7 @@
 
 ```bash
 git remote set-url origin https://github.com/user/repo2.git
+git remote show original
 git push
 
 // if you want to push all branches
