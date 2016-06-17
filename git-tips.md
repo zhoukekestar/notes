@@ -25,3 +25,5 @@ git checkout develop
 git tag -a 2.1.2-release -m 'Updated: xxx.'
 git push --tag
 ```
+
+** [git-commands](https://trello.com/b/qvYlSdKT/git-commands)
