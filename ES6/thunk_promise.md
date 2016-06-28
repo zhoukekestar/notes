@@ -22,4 +22,14 @@ Promise.coroutine(function* () {
   })
   console.log('res:' + res);
 })();
+
+co.wrap(function* () {
+  var res = yield new Promise(function(resolve, reject) {
+    setTimeout(function(){
+      resolve('Hello promise by co.')
+    }, 3000)
+  })
+  console.log('res:' + res);
+})();
+
 ```
