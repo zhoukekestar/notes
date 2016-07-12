@@ -1,7 +1,7 @@
 ## Express to Koa
 | Express | Koa |
 | ----- | ----- |
-| var express = require('express'), router = express.Router();| var router = require('koa-router')(); |
+| var express = require('express'), <br> router = express.Router();| var router = require('koa-router')(); |
 | module.exports = router | module.exports = router.routes() |
 | function(req, res) | function* () |
 | router.get('/:id') //relative path | router.get('/test/:id') // fullpath |
