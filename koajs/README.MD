@@ -8,16 +8,10 @@
 | res.render('') | this.render('') |
 | res.redirect('') | this.redirect('') |
 | res.end('') | this.body = '' |
-| req.headers | this.request.headers |
-| req.params.xxx | this.params.xxx |
-| req.query.xxx | this.query.xxx |
-| res.cookie | this.cookies.set |
-| req.cookies | this.cookies.get |
+| req.headers['key'] | this.request.headers['key'] |
+| req.params['key'] | this.params['key'] |
+| req.query['key'] | this.query['key'] |
+| res.cookie(key, value, options) | this.cookies.set(key, value, options) |
+| req.cookies['key'] | this.cookies.get('key', options) |
 | req.body | this.request.body |
-
-
-* require('../lib/httpRequest.js') 改为 require('../lib/httpRequest.v2.js');
-
-* http.get 的回调调用改为 yield 调用，并赋值为body
-
-  如 var data = yield http.get.call(this, 'http://xxx/xxx'), data = data.body;
+| value = method(params, callback) | value = yield method(params) |
