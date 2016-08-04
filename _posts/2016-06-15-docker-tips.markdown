@@ -1,6 +1,13 @@
+---
+layout: post
+title:  "Docker Tips"
+date:   2016-06-15 11:54:00 +0800
+categories: docker tips
+---
 
+# Tips
 
-```bash
+{% highlight bash %}
 docker login                          //login
 
 docker search tutorial                //search
@@ -42,14 +49,14 @@ docker cp abc.txt 49:/abc.txt
 docker run -it nginx /bin/bash
 docker run -it --entrypoint /bin/bash nginx
 
-```
+{% endhighlight %}
 
-Speed up
-```bash
+# Speed up
+{% highlight bash %}
 docker-machine ssh default "echo 'EXTRA_ARGS=\"--registry-mirror=https://rgx8z0xn.mirror.aliyuncs.com\"' | sudo tee -a /var/lib/boot2docker/profile"
-```
+{% endhighlight %}
 
-run docker with cert.
-```bash
+# run docker with cert.
+{% highlight bash %}
 docker --tlsverify --tlscacert=D:/docker/cert/ca.pem --tlscert=D:/docker/cert/cert.pem --tlskey=D:/docker/cert/key.pem -H=tcp://master1.cs-cn-shenzhen.aliyun.com:17360 ps
-```
+{% endhighlight %}

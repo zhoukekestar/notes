@@ -1,0 +1,113 @@
+---
+layout: post
+title:  "HTML tips"
+date:   2016-06-06 10:31:00 +0800
+categories: html tips
+---
+
+## inline
+[inline]({{ site.baseurl}}/html/inline.html)
+
+## ios&android弹数字键盘
+{% highlight html %}
+<input type="number" name='hello' pattern="[0-9]*">
+{% endhighlight %}
+
+## 获取cookie
+{% highlight js linenos %}
+var wechat = (wechat = (' ' + document.cookie).match(/[; ]wechat=([^;]*)/)) && wechat[1];
+{% endhighlight %}
+
+## 设置cookie(设置50分钟超时)
+{% highlight js linenos %}
+document.cookie = 'key=value; domain=.abc.com; path=/; expires=' + (new Date(Date.now() + 60 * 1000 * 50)).toUTCString();
+{% endhighlight %}
+
+## 删除cookie
+{% highlight js linenos %}
+document.cookie = 'key=; domain=.abc.com; path=/; expires=' + (new Date(0)).toUTCString();
+{% endhighlight %}
+
+## 获取url路径中的值
+{% highlight js linenos %}
+location.pathname.match(/\/path\/([\/]*)$/)[1]
+{% endhighlight %}
+
+## 获取url参数中的值
+{% highlight js linenos %}
+location.search.match(/key=([^&=]*)/)[1]
+{% endhighlight %}
+
+## 调试动态js
+{% highlight js linenos %}
+//@ sourceURL=dynamicScript.js
+{% endhighlight %}
+
+
+## 上下移动元素
+{% highlight js linenos %}
+window.moveUp = function() {
+  this.parentNode.insertBefore(this, this.previousElementSibling || this);
+}
+window.moveDown = function() {
+  this.parentNode.insertBefore(this, this.nextElementSibling && this.nextElementSibling.nextElementSibling || null);
+}
+{% endhighlight %}
+
+## 滚动条
+{% highlight css %}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(188, 188, 188, 1);
+}
+
+{% endhighlight %}
+
+
+## 多行文本超出省略
+{% highlight css %}
+p {
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4; // 文本显示行数
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+}
+{% endhighlight %}
+
+## 元素是否在当前可见范围
+{% highlight js linenos %}
+  function elementInViewport(el) {
+    var rect = el.getBoundingClientRect()
+
+    // For invisible element.
+    if (rect.top + rect.bottom + rect.left + rect.right + rect.height + rect.width === 0) {
+      return false;
+    }
+
+    return (
+       rect.top   >= 0
+    // Pre load.
+    && rect.top   <= ((window.innerHeight || document.documentElement.clientHeight) + 100)
+    && rect.left  >= 0
+    // Hide carousel except first image. Do not add equal sign.
+    && rect.left  < (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+{% endhighlight %}

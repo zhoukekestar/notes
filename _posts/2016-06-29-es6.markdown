@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "es6"
+date:   2016-06-29 14:13:00 +0800
+categories: es6
+---
+
+### List
+* [thunk vs promise](https://github.com/zhoukekestar/blog/blob/master/ES6/thunk_promise.md)
+* [multi-task](https://github.com/zhoukekestar/blog/blob/master/ES6/multi-task.md)

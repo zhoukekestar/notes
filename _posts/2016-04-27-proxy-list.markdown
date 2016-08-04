@@ -1,6 +1,12 @@
+---
+layout: post
+title:  "代理服务器列表"
+date:   2016-04-27 21:17:00 +0800
+categories: proxy
+---
 # demo
 
-```js
+{% highlight js linenos %}
 var request = require('request');
 var ips = '106.75.197.134:8081,117.21.182.110:80';
 ips = ips.split(',');
@@ -33,10 +39,12 @@ var sendRequest = function(i) {
 
 sendRequest(0);
 
-```
+{% endhighlight %}
 
-demo2
-```js
+
+#demo2
+
+{% highlight js linenos %}
 var request = require('request');
 var ips = [];
 
@@ -77,7 +85,7 @@ var getIPs = function() {
   //     setTimeout(function(){
   //       getIPs();  
   //     }, 2000)
-      
+
   //   }
   // })
 
@@ -93,54 +101,54 @@ var getIPs = function() {
       setTimeout(function(){
         getIPs();  
       }, 2000)
-      
+
     }
   })
 
 }
 
 getIPs();
-```
+{% endhighlight %}
 
 
 # http://www.xicidaili.com/nt
 
-```js
+{% highlight js linenos %}
 var result = [];
 var eles = document.querySelectorAll('#ip_list tr + tr')
 for (var i = 0; i < eles.length; i++) {
   result.push(eles[i].children[2].innerHTML + ':' + eles[i].children[3].innerHTML);
 }
 result.join(',')
-```
+{% endhighlight %}
 
 
 # http://www.haodailiip.com/guonei
 
-```js
+{% highlight js linenos %}
 var result = [];
 var eles = document.querySelectorAll('.proxy_table tr + tr')
 for (var i = 0; i < eles.length; i++) {
   result.push((eles[i].children[0].innerHTML + ':' + eles[i].children[1].innerHTML).replace(/[\r\n\s]*/g, ''));
 }
 result.join(',')
-```
+{% endhighlight %}
 
 # https://www.us-proxy.org/
 
-```js
+{% highlight js linenos %}
 var result = [];
 var eles = document.querySelectorAll('#proxylisttable tbody tr')
 for (var i = 0; i < eles.length; i++) {
   result.push((eles[i].children[0].innerHTML + ':' + eles[i].children[1].innerHTML).replace(/[\r\n\s]*/g, ''));
 }
 result.join(',')
-```
+{% endhighlight %}
 
 
 # http://proxylist.hidemyass.com/
 
-```js
+{% highlight js linenos %}
 var result = [];
 var eles = document.querySelectorAll('#listable tbody tr')
 i = 0;
@@ -168,4 +176,4 @@ for (var i = 0; i < eles.length; i++) {
   result.push((ip + ':' + eles[i].children[2].innerHTML).replace(/\s/g, ''));
 }
 result.join(',')
-```
+{% endhighlight %}

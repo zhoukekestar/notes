@@ -1,7 +1,17 @@
+---
+layout: post
+title:  "Git tips"
+date:   2016-07-21 10:52:39 +0800
+categories: git
+---
 # Clone and Change repo
 * http://stackoverflow.com/questions/22906917/how-to-move-git-repository-with-all-branches-from-bitbucket-to-github
 * http://stackoverflow.com/questions/2432764/change-the-uri-url-for-a-remote-git-repository
-```bash
+
+
+# Origin
+{% highlight bash %}
+
 git remote set-url origin https://github.com/user/repo2.git
 git remote show original
 git push
@@ -9,12 +19,11 @@ git push
 // if you want to push all branches
 git push --mirror
 
-```
-
+{% endhighlight %}
 
 
 # Tag
-```bash
+{% highlight bash %}
 // see local tags
 git tag
 
@@ -32,10 +41,10 @@ git tag --delete 2.1.2-release
 // Delete tag remotely
 git push --delete origin 2.1.2-release
 
-```
+{% endhighlight %}
 
 ## Branching and Merging
-```bash
+{% highlight bash %}
 
 // See branchs
 git branch
@@ -78,10 +87,10 @@ git commit -m 'merge finished'
 git add .
 git commit -m 'merge finished'
 
-```
+{% endhighlight %}
 
 Other Tips
-```bash
+{% highlight bash %}
 
 // See last 2 commit & its detail
 git log -p -2
@@ -93,7 +102,7 @@ git checkout -- README.md
 
 // See changes you just made.
 git diff
-````
+{% endhighlight %}
 
 ## Repos & Sites
 * [git-commands](https://trello.com/b/qvYlSdKT/git-commands)

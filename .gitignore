@@ -24,3 +24,6 @@ node_modules
 #run-www.cmd
 #run-admin.cmd
 #run-mobile.cmd
+_site
+.sass-cache
+.jekyll-metadata
