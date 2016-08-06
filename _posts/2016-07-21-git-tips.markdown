@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git tips"
-date:   2016-07-21 10:52:39 +0800
+date:   2016-08-05 10:24:39 +0800
 categories: git
 ---
 # Clone and Change repo
@@ -70,8 +70,12 @@ git push --set-upstream origin hotfix
 
 
 // Merge
+
 git merge hotfix
 
+// You can merge branch by follows if error [fatal: refusing to merge unrelated histories] occurred.
+git merge develop --allow-unrelated-histories
+// http://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories
 
 // See stutas if conflicts occurred
 git status
