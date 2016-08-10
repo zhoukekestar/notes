@@ -5,7 +5,7 @@ date:   2016-08-10 16:01:00 +0800
 categories: weex quickstart
 ---
 
-## [查看项目](https://github.com/zhoukekestar/weex-quick-start)
+## [查看项目及源码](https://github.com/zhoukekestar/weex-quick-start)
 
 ## app/libs，复制libs
 app/libs下有`inspector-[debug/release].aar`,`weex_debug-[debug/release].aar`,`weex_sdk-[debug/release].aar`等6个文件
@@ -104,3 +104,6 @@ project(":weex_sdk").projectDir = new File("D:\\Temp-Doc\\weex\\weex-repo\\andro
 // 采用方式2（即引入sdk目录自己构建的时候）引入WEEX_SDK时需要
 // ../weex-repo/android/sdk 目录为 https://github.com/alibaba/weex/tree/dev/android/sdk 在本地的目录
 {% endhighlight %}
+
+
+## [查看项目及源码](https://github.com/zhoukekestar/weex-quick-start)
