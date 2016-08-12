@@ -33,7 +33,7 @@
 	}
 
 	form .form-group .input-group label {
-		
+
 		width: auto;
 		margin-right: 20px;
 	}
@@ -55,10 +55,14 @@
 	form .form-group .subject input:checked + span + select {
 		display: inline-block;
 	}
+	#print {
+		display: none;
+	}
 </style>
 	<link rel="stylesheet" href="../lib/css/ui-switch.css" >
 	<link rel="stylesheet" href="./client.css" >
 	<link rel="stylesheet" href="./bootstrap.min.css">
+	<link rel="stylesheet" href="./print.css">
 </head>
 <body>
 
@@ -254,6 +258,8 @@
 
 	<div id="container"></div>
 
+	<div id="print" class='print'></div>
+
 	<script type='text/html' data-role='template' data-holder='#container' data-wrapper='table' id='tmpl-table'>
 		<table id="datatable" class='table table-striped'>
 			<thead>
@@ -265,6 +271,7 @@
 					<th style='font-size: 16px;  background-color: #fff;'>季度</th>
 					<th style='font-size: 16px;  background-color: #fff;'>年级</th>
 					<th style='font-size: 16px;  background-color: #fff;'>所选科目</th>
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -278,6 +285,10 @@
 						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.time%></td>
 						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.level%></td>
 						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub.join(',')%></td>
+						<td>
+							<bntton class="btn btn-danger" data-id='<%=item.id%>'>删除</bntton>
+							<button class='btn btn-success' data-id='<%=item.id%>'>打印</button>
+						</td>
 					</tr>
 				<% }) %>
 			</tbody>
@@ -289,6 +300,68 @@
 			<tr><%=tr2%></tr>
 		</table>
 	</script>
+
+	<script type='text/html' data-role='template' data-holder='#print' id='tmpl-print'>
+		<% var date = new Date(); %>
+		<p style='font-size: 30px;    font-weight: bold;    text-align: center;'>林笛工作室报名确认书</p>
+		<p style='text-align: right;'>填写日期：<%=date.getFullYear()%>&nbsp;年&nbsp;<%=date.getMonth() + 1%>&nbsp;月&nbsp;<%=date.getDate()%>&nbsp;日</p>
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>学校</td>
+				<td>年级</td>
+				<td>家长联系方式</td>
+			</tr>
+			<tr>
+				<td><%=obj.name%></td>
+				<td><%=obj.school || ''%></td>
+				<td><%=obj.level || ''%></td>
+				<td><%=obj.tel || ''%></td>
+			</tr>
+			<tr>
+				<td>在读学员</td>
+				<td><div class="box"></div></td>
+				<td>新报名学员</td>
+				<td><div class="box"></div></td>
+			</tr>
+			<tr>
+				<td rowspan="2">报名学科</td>
+				<td><%=obj.sub[0] || ''%></td>
+				<td><%=obj.sub[1] || ''%></td>
+				<td><%=obj.sub[2] || ''%></td>
+			</tr>
+			<tr>
+
+				<td><%=obj.sub[3] || '<span style="height:20px;display:block;"></span>'%></td>
+				<td><%=obj.sub[4] || ''%></td>
+				<td><%=obj.sub[5] || ''%></td>
+			</tr>
+		</table>
+		<p style='margin: 20px 0;'>以下为林笛工作室培训制度，如无异议，请签字确认：</p>
+		<p>学习，请各位家长、同学们仔细阅读以下制度，本机构按章办事，不予任何违反本机构制度的行为作任何说明，谢谢大家的配合，让我们营造更好的学习环境</p>
+		<p>1、报名制度：本机构只承认现场报名（填写报名确认书并签字确认），其他任何形式一律无效。本机构的老生为优先报名，一般是课表发布至第三天止，若老生这三天内未来报名，则与新生一视同仁。</p>
+		<p>2、试听制度：适用于本机构所有第一次听该科目老师课程的学生，即本机构所有学生面对首次接触的老师可试听2次。试听次数内不满意，该科目全额退款；超过试听次数，按实际课时收取费用包括2次试听课，任何时候凭收据均可退还余款。</p>
+		<p>3、签到制度：为保证安全且证明该学员准时在本机构听课，所有学生上课前必须签到，对于未签到的同学，本机构工作人员会一一回访该学员的家长，但对于未签到的同学，任何原因任何时候不再予以退款。</p>
+		<p>4、请假制度：任何原因导致的缺课，必须提前向本机构工作人员请假，未请假的同学任何时候任何原因导致的缺课，都将不予退款。因个人原因（如私事、小感冒等）导致的缺课需请假但不退费。因学校授课与本机构补课时间相冲突或因本机构调课原因造成的缺课，请预先填写请假条（一式两份），并由任课老师签字，一份交予本机构前台，另一份自己保留，待学期结束后凭请假条可退款，若请假条遗失，不予退款。</p>
+		<p>5、收费制度：所有课程均采取预收费制度。</p>
+		<p>6、退费制度：本机构学员退款时务必携带收据退回学费，若遗失中途不予退款，于学期末退还余款。</p>
+		<p>7、请各位家长及同学自行加以下的QQ群及微信,本学期开始本机构不会发信息通知上课时间及课时调动安排,另外我们也会不定时上传一些学习方法及学习资料。</p>
+		<p>8、 高一QQ群号:453217761  高二QQ群号:480786078  高三QQ群号:183097272</p>
+		<div>
+			<img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABPAFwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6R8Va7Z+GPD99rOqGQWVmnmSmNdzYzjgfjXDx/GbRZIlkj0Lxa8bAFWXRpSGHqKu/tB/8kZ8Wf9en/s4rxP4qad8T7nUdCfwNJ4iXSf7FtAf7Punjj8zac8Bhz0oA9s0L4s6Dq2ryaYtprNldpayXmy+sWhzFH1Iz1qXwP8VvC3jKw1K90y8e3tNOMYuJr5RAql87eScdq8ytzqFn8RvCL63HJJqkPgV2ukvPnLyjO4SZ685zXDW3igfED4Q634e8H/D7ydZufs/2+fRrSKC23LN5i5AO77qkDOec0AfSfg74ieGPFllb3Glarbq87tHHbTyrHOSGI/1ec9uKnsfGmmX1tqskaXi3GmiZ5bKSErcyJH1eOL7zqegI4J4rwH4g6z4M8L/GnwhpdloljoL6PdrPfXsVvHFG8ckQIyV5OM962bTxR4Zh8XPa3w8V2WuiT+07G8nuY/P1SIyfurKOQcmCQ8rEcDjrQB7doXi3RNahia01C2W5eLzXtJZVWeIYyRJHnKkdwelZfiP4l+EdB0W51K516wuIoCpaK0uY5pTlgOFByev5V5v4e8CS+Mdf1nxV4g0fVPCd/DcyJaxaZstZbyA/MftBG7zGOcE5ANZ/iIQto1yPDnwJji1Y7PIa90q2aEfMM7gpB+7np3xQB6zpfxH0LUvAFx4ytmuf7FgV2ctFh8IcH5c1hQ/GfRJoUmg0PxZJE4DI6aPKQ4PQg9xXzT8JNT1Cf4dfE/Tri7uDY2+kmSK0LnyomMhyVXOBXa/EvT/ibcx+EH8CP4gGlDw9Zh/7OuXjj83DZyARzjb+lAHufhj4p6J4g8SW+hQ2es2eozxNLGl/YvAHVepGa7+vn7wwmpw/FX4Yx6+bk6svhucXP2ly0vmd9xPU19A0AY/irStM1vw/e6drwRtLuI9k4aQxgrn+8CMV5Tq3wt8F20elNoekSalb3N6lrM3/AAkU0QgjPV1+c7yOP3Y5NdX+0H/yRnxZ/wBen/s4r5muPAPiPQvCGk2kes3VvqUU8esWA3kWM0hTMUVsdm570nGI8Yx3oA+gtJ+Hnh3w147VdM0IiC406VJdQn1iR5EBODGIWJJBHO8dKiXw74X0H4gfDm00TU/sK28V8LKwhiaZbxTGdxabPG3JIznPSvJtY1HxLrei6emp+Kvh9o3iCCzS0murnUJYtTjTH7yGYFSAxJO4Y65pvgPWz4C8QeD9Ol0vVPFRWK5EF1awC5RRsbP9mPldyHP7zcO3FAHT3vhG91DQbO/fT4fBen+G5ZLyC8hnXXnuWc4cFeDx6HPXGOK4dtF1uz+IWkaXZa3H4h0XTpYPF95MLSOGWKNZP3mBktwP+WQPfha6my8V+LtOgFv4f8OtPp+mkzac/hGCSfTryVjlo53Y5IBznZzuzVObV7/4QeLYb6w8KPfW+pxR3+r6k9nI00HnPumt0cEKAuzIDc56mldICp8UfEuka2k6/DvXtVhN3qUdxfWR06Z8z7+ZfNk/1YAx+7GAa2fHnh7xZYQahoWm6nL4u1bx2VcX8aiyjs/shD8YJQ7xkdV+73zV3UPFdnrXgvWZvCviHwloWqatfpfQwremKeeIjmO5UZ/fHoQvHvWX4V+LEdp408CeHr63fwbb6YLxNZsZVFtaAvGXhxuYnrz82OWpgemRaP4dg8L+I9Y8caHFo95cWQt9Ytre+Nwfs0fCH93jGRzwAa8S0288I3kdle23gO7Twxca0miRaifE9wuGbkN5R5A2fP6ds132n38fhv4Mazr/AI6tLV/FGoxzwsmsApJforny4yCQWG3GAO1cn8ENP0a98BXmueJtNv8AUdDm1uWJtHt4lksrEmNG+1sCQVWNNylsnAPSgDo/hndeFrL47S6JpHhO6tbq3W4jt9Wl1aa4EkajkpGwxg/U19J18/aPq2m6h8f/AAlbaBp1zaaTYaTdW9rK0QW3uY+z25BO6P3r6BoA5n4jacureCdYsJNNl1RZ4dhs45xA03I4Eh4X6mvmC31XUfiJoV1BrmvwW8fhCR9S/sOC3aO48m2GAouRxvIJUEZIPOK+rfFVppF94fvbXxJ9n/seRMXP2iTy49ue75GOcd6+Y4PCXw2tvDul6vpGs3+nTnxN9mtdYEC5ilHzIp3Nt8pDht59KAIdK8ax+GI7PUfGmi6Z/Zt9tfTtNnsY5ruW0k+7cyXQB3Ec5DYZjzXZ+GtY8O+K/jZ4eu9G8XWM1vpYuV0/R7bSZoCqyQHeDIQF7Fv0qDQtcf4ialq+j6nLqGq22gJNBbPBb+Za3s0I/d3Typ0lJ5CDg10HwfvNY0DwLqfinxf4fuRqN75LzvZxPLfXhDmPMkOBtIyOB2yaAKXw/wBV06T4ZaKfDtnPp2mSS3QWKafzXU+acgvgcE81c06y1C9ht4YL6LzrY+bc3BiCKYxnPf5e3PPSuH13S9O8I6h4l174e2r3egR2aPfQeZtszjG14JsP5jg7ww4xvIzW54G+LnhW0trG4httVg/tGeOzmup7YrZxSkZ2eaWPTJ/DkgDp4OJyutiMWqrl7n4r0MpQbl5DtT+B3hzWvEkGqXOoW0b3Fo0729i2PNP8NypBHAyM4HPXqa5i48A+RdSaB49sn8RapEAvh02kq202qj71yZJcn/VjbjzSOAQM5r2/xF4vstPt4HmnSKG5iDW90MG3ZScDEo+Qk9kzk9q4q1v7Sx+I/iTwZp9jfeFtV1uWI2OtW8Jk+2GKMyyufM+TgZXgfxV7sY8iSNTjvFWma1pfjG68N/DrQ7jV760himum1y8jvIgkgyBGs5AUg8Eg81vfGTxp4k+HvgbSItG8OWFkLpYft90scLQGZon82Awjv8gO7pgYpniGy1JPEt5pkuuar4j1PQokvXnltFE2nBxxLapGP30nbY3Fcd4Sbw54T8S+I7iK08Z65r2q6VcRy6deaMYjMsrAl2CncELrgkDvTA7f4HeOPDl/r2j6bY2xvNe1Kya7vbggqljKB80MSFflQ+iHFfQ1fOvwN8SeGNS8W2mnz2upReKbWCSO1s7i3McelRAfPboc5I92Ga+iqAMXxZ5f/COah52jf23H5fOnbEf7Rz93D8H15r5l+KPjzwLd6x4P8NaXpdjaaTZ61a6hqKx28a2yDJSaN4wOSB14IIFfQHxhvbTT/hp4gu9SsTqFnFb7pbUTtB5o3DjzF5X8K+fB4G0kwwTz/CnRoftMSzoJ/GckbFWGQcE5oA1/HzWhtft/hqPWfAmgowdNSsLgWen6hHkkERw8mSRcbWI6AZro9GvtV8U/DSDRdP8AFkmn3mvxh/D0t1PKdQCQybp/OmX7xwpGRjg4rN+Gmm6fpXxFttDXwTb6Bf3mlS3NreJrcmoxrH0BEbfKef5VD8SdOsLXWdAk+L09zJpejJNHBdWluwGpCQAF5PIx9m2PswMnd+dAHi+r+JNXuPC2oXutQanpujapGbfTLXRp/summWM4k3QZIIPU+pJNdT9gufhP4X0K51vSn1/S9QuIbmRLtVn05Y5U3FY4X+7dbUI8zptJFdf4P0cW3wy8YaTqXiFm8DR2e6ynlsEW5tmaQmV2gz5vXpuPI5FeW/DaPTLC9ttUFle+KrqLUlt7KzmEtrbQqrK0d00wyoxjBjYYAfJ6UAe7btS8YwaX4h0zwveR+ForQWdroLeX5chfmK7SMHywI8jnqMcV55Y+K9Q+HEvjmDxLrkGu+M9Ge0XRZdUMlyR5n+v8kudyZjYZwRnA610vxLsdHutNS2/4SC88Px6rjUdTsNKs31WIXWTk+cp+THTauBxnFbPgxrLRfhHdSWHxAF9BIif2dMNFie6tQJT5n7gktLvz/H0HNAHMeMZrGx0ix1HTfF95HY6y5t7PXoLuRbpZlHzi7mA3ywoeFQdK1fgtFdaZ4jGtLPrXjy8uVGmya3BdeZbW0LPGxjImxJlCNxxxh/WsiX4feDYPiV4u0mbSre6tbLTre6sLG61SW1SSeQZb5y/GfxxVabwn4J0/4jXdlFp0R02Hwo2p/wBmwaxKVe/EmPLEobJJHy4H1xQB3a+FNP8ADv7Uel3untcNNrFld3lz5rBgJDkfJwMD8699r5r/AGeNE8XWviqbUoLaDT/Bt95kxsTcx3M1uxX92hZv3oI9Dj3FfSlAHnn7Qf8AyRnxZ/16f+zivnD4oeHdJ8c6jo+p6f458IWccOk2trJFeXxSQOinPAU+vrX2XdW8N1A0NzDHPDIMMkihlP1BrO/4RfQP+gHpf/gJH/hQB4L4Em0+6+KvgzS9K1qz1B9P8IHT57nTpvMVJUOCVOPxGR6Vb1n4kaFZ+NrL4Z+ImGoaFb+bFq+oeIdrNIwTzYSGBAPzYHKemK91stF0qwm82x0yxtpsY3wwKjY+oFMuNA0e7nee60nT55nOWkkt0dm+pIoA4Twh4RtfDvga/l+I82mX99PGy6pqUrFlmgDHyxI7gEgDA5rx/SNXtz4gu9GfQPF1pCGe5TQ/DVugsL6x37RLLHIcsJB8jEYBGMV9UT28N1btDcQxzQOMMjqGUj3BpkNhaRXAmhtoEmEQhDrGAwjHRc+ntQB4B4Uv7fTtavf7L8O6vHp85e2bTfDduvlW2/j/AE9WPy3SjrtJAFVtW8L+FvhP8TvhYYZYLOzjXUftWoXZRHl/dYUyMAAeXwPrX0Vb2ltamaSCCKFpW8yVkQAu395sdTUN/pWn6kY/7RsbW72Z2efCsm3PXGRx0oA+RtI0vwlqnxj1S6+Ieq6vaW9pFDPBH4leJJbo/wByQYIMeOmMHFdRqHh3wfdfEKS98AxaJqSTaV9htLTSMSS2F6ZMpfSAcLFH8gMgJIJHFfRl3oWk3s5lvdLsLiYgDfLbq7YHTkinWGj6Zp87S6fp1lazEbC8MCoSPTIHTgUAeH/Cjw2/hv4jwQp49ttTv5oZZNd01r7fJLe4wXVNoyB6tzX0FVCLStPivWvYLG1S8fJadYlEjZ65bGav0Af/2Q==" alt="">
+			<span style="    display: inline-block;    vertical-align: middle;">扫一扫左边二维码或<br />者加微信15557625227</span>
+
+			<span style='    float: right;    margin: 10px 20px 0 0;'>
+				<input type="checkbox">
+				是否阅读此制度
+			</span>
+
+		</div>
+		<div style='    font-size: 18px;    text-align: right; margin-top: 20px;'>
+			报名签字确认：<span class='line'></span>
+		</div>
+	</script>
+
 	<button class='btn btn-primary' data-toggle="modal" data-target="#myModal">添加</button>
 	<a class='btn btn-success' id='btnExcel' download="报名.xls" href="#">导出Excel</a>
 

@@ -53,6 +53,7 @@ document.querySelector('.subjects').onchange = function(e) {
       alert('学科未填写')
       return null;
     }
+    d.id = Date.now() + (Math.random() + '').substring(2, 5);
     data.push(d);
     refresh();
     $('#myModal').modal('hide');
@@ -71,5 +72,45 @@ document.querySelector('.subjects').onchange = function(e) {
     setTimeout(function(){
       refresh();
     }, 100)
+  }
+
+
+  document.querySelector('#container').onclick = function(e) {
+
+    if (e.target.classList.contains('btn-danger')) {
+      if (!confirm('确认删除?')) {
+        return;
+      }
+      var ele = e.target
+        , id = ele.dataset.id;
+
+      for (var i = 0, len = data.length; i < len; i++) {
+        if (data[i].id === id) {
+
+          console.log(ele.dataset.id + ' ' + i)
+          data.splice(i, 1)
+          refresh();
+          return;
+        }
+      }
+
+    } else if (e.target.classList.contains('btn-success')) {
+      var ele = e.target
+        , id = ele.dataset.id
+        , tmplPrint = document.querySelector('#tmpl-print');
+
+      console.log(ele.dataset.id)
+
+      for (var i = 0, len = data.length; i < len; i++) {
+        if (data[i].id === id) {
+          console.log(ele.dataset.id + ' ' + i)
+          console.log(data[i])
+          tmplPrint._updateBy(data[i]);
+          window.print();
+          return;
+        }
+      }
+
+    }
   }
 })();
