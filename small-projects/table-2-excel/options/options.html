@@ -33,7 +33,7 @@
 	}
 
 	form .form-group .input-group label {
-		display: inline-block;
+		
 		width: auto;
 		margin-right: 20px;
 	}
@@ -45,6 +45,15 @@
     display: inline-block;
     box-shadow: none;
     height: auto;
+	}
+	form .form-group .subject {
+		display: block;
+	}
+	form .form-group .subject input + span + select {
+		display: none;
+	}
+	form .form-group .subject input:checked + span + select {
+		display: inline-block;
 	}
 </style>
 	<link rel="stylesheet" href="../lib/css/ui-switch.css" >
@@ -103,69 +112,131 @@
 							</select>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group subjects">
 							<label>所选科目</label>
 							<div class="input-group">
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学1班'>
-									数学1班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='数学1班' data-type='数学'>
+									<span>数学</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学2班'>
-									数学2班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='物理1班' data-type='物理'>
+									<span>物理</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学3班'>
-									数学3班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='英语1班' data-type='英语'>
+									<span>英语</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学4班'>
-									数学4班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='化学1班' data-type='化学'>
+									<span>化学</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学5班'>
-									数学5班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='生物1班' data-type='生物'>
+									<span>生物</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='数学6班'>
-									数学6班
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='政治1班' data-type='政治'>
+									<span>政治</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='物理'>
-									物理
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='历史1班' data-type='历史'>
+									<span>历史</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='英语'>
-									英语
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='地理1班' data-type='地理'>
+									<span>地理</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='化学'>
-									化学
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='语文1班' data-type='语文'>
+									<span>语文</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='生物'>
-									生物
+								<label class='subject'>
+									<input class='form-control' type="checkbox" name='sub.' value='技术1班' data-type='技术'>
+									<span>技术</span>
+									<select>
+										<option value='1班'>1班</option>
+										<option value='2班'>2班</option>
+										<option value='3班'>3班</option>
+										<option value='4班'>4班</option>
+										<option value='5班'>5班</option>
+										<option value='6班'>6班</option>
+									</select>
 								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='政治'>
-									政治
-								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='历史'>
-									历史
-								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='地理'>
-									地理
-								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='语文'>
-									语文
-								</label>
-								<label>
-									<input class='form-control' type="checkbox" name='sub.' value='技术'>
-									技术
-								</label>
+
+
 							</div>
 						</div>
 						<!-- <div class="form-group">
@@ -220,6 +291,7 @@
 	</script>
 	<button class='btn btn-primary' data-toggle="modal" data-target="#myModal">添加</button>
 	<a class='btn btn-success' id='btnExcel' download="报名.xls" href="#">导出Excel</a>
+
 
 	<script src='./jquery.min.js'></script>
 	<script src='./bootstrap.min.js'></script>

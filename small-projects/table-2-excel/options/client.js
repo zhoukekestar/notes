@@ -2,6 +2,15 @@ document.querySelector('#btnExcel').onclick = function() {
   ExcellentExport.excel(this, 'datatable', '报名表格1');
 }
 
+document.querySelector('.subjects').onchange = function(e) {
+
+  if (e.target.nodeName === 'SELECT') {
+
+    var input = e.target.parentNode.querySelector('input');
+    input.value = input.dataset.type + e.target.value;
+  }
+}
+
 !(function(){
   var data = JSON.parse(localStorage.getItem('data') || '[]');
   var form =document.querySelector('form');
@@ -36,14 +45,26 @@ document.querySelector('#btnExcel').onclick = function() {
   }
 
   form._data = function(d) {
+    if (!d.name) {
+      alert('姓名未填写')
+      return null;
+    }
+    if (!d.sub) {
+      alert('学科未填写')
+      return null;
+    }
     data.push(d);
     refresh();
+    $('#myModal').modal('hide');
+    setTimeout(function(){
+      form.reset();
+    }, 1000)
     return null;
   }
 
   document.querySelector('#btn-ok').onclick = function() {
     form.submit();
-    $('#myModal').modal('hide');
+
   }
 
   window.onload = function() {
