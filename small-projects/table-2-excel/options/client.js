@@ -19,31 +19,7 @@ document.querySelector('.subjects').onchange = function(e) {
   var refresh = function() {
     localStorage.setItem('data', JSON.stringify(data));
 
-    var tr1 = '<td>班级</td>', tr2 = '<td>人数</td>', tr3 = '<td>学费</td>';
-    try {
-      var sum = {};
-      for (var i = 0, len = data.length; i < len; i++) {
-        for (var j = 0, jlen = data[i].sub && data[i].sub.length; j < jlen; j++) {
-          var t = data[i].sub[j];
-          sum[t.name] = sum[t.name] || {number: 0, fee: 0};
-          sum[t.name].number++;
-          sum[t.name].fee += (+t.total);
-        }
-      }
-
-      for (var item in sum) {
-        tr1 += '<td>' + item + '</td>';
-        tr2 += '<td>' + sum[item].number + '</td>' ;
-        tr3 += '<td>' + sum[item].fee + '</td>' ;
-      }
-
-
-    } catch (e) {
-      console.log(e)
-    }
-
-
-    tmpl._updateBy({data: data, tr1: tr1, tr2: tr2, tr3: tr3});
+    tmpl._updateBy({data: data});
   }
 
   form._data = function(d) {
@@ -196,4 +172,32 @@ document.querySelector('.subjects').onchange = function(e) {
     // this.download = '.xls'
   }
 
+  // 导出汇总表
+  document.querySelector('#btnExcelSummary').onclick = function(e) {
+    var table = document.createElement('table');
+    var sum = {};
+    try {
+      for (var i = 0, len = data.length; i < len; i++) {
+        for (var j = 0, jlen = data[i].sub && data[i].sub.length; j < jlen; j++) {
+          var t = data[i].sub[j];
+          var name = data[i].level + '-' + t.name;
+
+          sum[name] = sum[name] || {number: 0, fee: 0};
+          sum[name].number++;
+          sum[name].fee += (+t.total);
+        }
+      }
+
+
+      table.innerHTML = '<td>班级</td><td>人数</td><td>费用</td>'
+      for (var item in sum) {
+        table.innerHTML += '<td>' + item + '</td><td>' + sum[item].number + '</td><td>' + sum[item].fee + '</td>';
+      }
+      this.download = '汇总表.xls';
+      ExcellentExport.excel(this, table, '汇总表.xls');
+    } catch (e) {
+      console.log(e)
+    }
+
+  }
 })();
