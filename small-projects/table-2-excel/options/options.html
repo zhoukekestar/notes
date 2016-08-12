@@ -10,7 +10,7 @@
 	}
 
 	form {
-		width: 400px;
+		width: 550px;
 		margin: 30px auto;
 		text-align: center;
 	}
@@ -22,12 +22,12 @@
 
 	form .form-group .form-control {
 		display: inline-block;
-		width: 17em;
+		width: 30em;
 	}
 
 	form .form-group .input-group {
 		display: inline-block;
-		width: 17em;
+		width: 30em;
 		text-align: left;
 		vertical-align: top;
 	}
@@ -49,12 +49,28 @@
 	form .form-group .subject {
 		display: block;
 	}
-	form .form-group .subject input + span + select {
+	form .form-group .subject input + span + select,
+	form .form-group .subject input + span + select + .other {
 		display: none;
 	}
 	form .form-group .subject input:checked + span + select {
-		display: inline-block;
+		margin-right: 10px;
 	}
+	form .form-group .subject input:checked + span + select,
+	form .form-group .subject input:checked + span + select + .other {
+		display: inline-block;
+
+	}
+	form .form-group .subject .other input {
+		width: 3em;
+    padding: 0;
+    line-height: 1em;
+    text-align: center;
+    border-radius: 2px;
+    border: solid 1px #cccccc;
+    margin-right: 10px;
+	}
+
 	#print {
 		display: none;
 	}
@@ -110,7 +126,7 @@
 								<option value="初中升高一">初中升高一</option>
 								<option value="高一">高一</option>
 								<option value="高一升高二">高一升高二</option>
-								<option value="高三">高三</option>
+								<option value="高二">高二</option>
 								<option value="高二升高三">高二升高三</option>
 								<option value="高三">高三</option>
 							</select>
@@ -120,8 +136,9 @@
 							<label>所选科目</label>
 							<div class="input-group">
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='数学1班' data-type='数学'>
+									<input class='form-control' type="checkbox" name='sub.s1.name' value='数学1班' data-type='数学'>
 									<span>数学</span>
+
 									<select>
 										<option value='1班'>1班</option>
 										<option value='2班'>2班</option>
@@ -130,9 +147,18 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s1.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s1.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s1.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='物理1班' data-type='物理'>
+									<input class='form-control' type="checkbox" name='sub.s2.name' value='物理1班' data-type='物理'>
 									<span>物理</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -142,9 +168,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s2.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s2.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s2.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='英语1班' data-type='英语'>
+									<input class='form-control' type="checkbox" name='sub.s3.name' value='英语1班' data-type='英语'>
 									<span>英语</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -154,9 +188,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s3.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s3.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s3.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='化学1班' data-type='化学'>
+									<input class='form-control' type="checkbox" name='sub.s4.name' value='化学1班' data-type='化学'>
 									<span>化学</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -166,9 +208,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s4.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s4.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s4.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='生物1班' data-type='生物'>
+									<input class='form-control' type="checkbox" name='sub.s5.name' value='生物1班' data-type='生物'>
 									<span>生物</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -178,9 +228,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s5.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s5.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s5.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='政治1班' data-type='政治'>
+									<input class='form-control' type="checkbox" name='sub.s6.name' value='政治1班' data-type='政治'>
 									<span>政治</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -190,9 +248,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s6.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s6.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s6.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='历史1班' data-type='历史'>
+									<input class='form-control' type="checkbox" name='sub.s7.name' value='历史1班' data-type='历史'>
 									<span>历史</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -202,9 +268,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s7.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s7.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s7.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='地理1班' data-type='地理'>
+									<input class='form-control' type="checkbox" name='sub.s8.name' value='地理1班' data-type='地理'>
 									<span>地理</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -214,9 +288,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s8.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s8.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s8.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='语文1班' data-type='语文'>
+									<input class='form-control' type="checkbox" name='sub.s9.name' value='语文1班' data-type='语文'>
 									<span>语文</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -226,9 +308,17 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s9.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s9.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s9.total'>
+									</span>
 								</label>
 								<label class='subject'>
-									<input class='form-control' type="checkbox" name='sub.' value='技术1班' data-type='技术'>
+									<input class='form-control' type="checkbox" name='sub.s10.name' value='技术1班' data-type='技术'>
 									<span>技术</span>
 									<select>
 										<option value='1班'>1班</option>
@@ -238,14 +328,23 @@
 										<option value='5班'>5班</option>
 										<option value='6班'>6班</option>
 									</select>
+									<span class="other">
+										<span>课时</span>
+										<input type="text" class='num' name='sub.s10.num'>
+										<span>单价</span>
+										<input type="text" class='price' name='sub.s10.price'>
+										<span>学费</span>
+										<input type="text" class='total' name='sub.s10.total'>
+									</span>
 								</label>
 
 
 							</div>
 						</div>
-						<!-- <div class="form-group">
-							<input class='btn btn-primary' type="submit" value='确定'>
-						</div> -->
+						<div class="form-group">
+							<span class='all-subjects-fee'>总学费</span>
+							<!-- <input class='btn btn-primary' type="submit" value='确定'> -->
+						</div>
 					</form>
 	      </div>
 	      <div class="modal-footer">
@@ -261,35 +360,55 @@
 	<div id="print" class='print'></div>
 
 	<script type='text/html' data-role='template' data-holder='#container' data-wrapper='table' id='tmpl-table'>
-		<table id="datatable" class='table table-striped'>
+		<table id="datatable" class='table'>
 			<thead>
 				<tr>
-					<th style='font-size: 16px;  background-color: #fff;'>姓名</th>
-					<th style='font-size: 16px;  background-color: #fff;'>联系方式</th>
-					<th style='font-size: 16px;  background-color: #fff;'>学校</th>
-					<th style='font-size: 16px;  background-color: #fff;'>校区</th>
-					<th style='font-size: 16px;  background-color: #fff;'>季度</th>
-					<th style='font-size: 16px;  background-color: #fff;'>年级</th>
-					<th style='font-size: 16px;  background-color: #fff;'>所选科目</th>
-					<th>操作</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>姓名</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>联系方式</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>学校</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>校区</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>季度</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>年级</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>班级</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>课时</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>单价</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>学费</th>
+					<th style='border: solid 1px #ddd; font-size: 16px;  background-color: #fff;'>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% data.forEach(function(item, index) {
-					 var bc = (index % 2 === 0 ? '#f9f9f9' : '#fff'); %>
+					 var bc = (index % 2 === 0 ? '#f9f9f9' : '#fff');
+					 var rowspan = item.sub.length;
+					%>
 					<tr>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.name%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.tel%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.school%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.place%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.time%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.level%></td>
-						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub.join(',')%></td>
-						<td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.name%></td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.tel%></td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.school%></td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.place%></td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.time%></td>
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>"><%=item.level%></td>
+
+
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[0].name%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[0].num%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[0].price%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[0].total%></td>
+
+
+						<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;' rowspan="<%=rowspan%>">
 							<bntton class="btn btn-danger" data-id='<%=item.id%>'>删除</bntton>
 							<button class='btn btn-success' data-id='<%=item.id%>'>打印</button>
 						</td>
 					</tr>
+					<% for(var i = 1; i < item.sub.length; i++) { %>
+						<tr>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[i].name%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[i].num%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[i].price%></td>
+							<td style='border: solid 1px #ddd; font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub[i].total%></td>
+						</tr>
+					<% } %>
 				<% }) %>
 			</tbody>
 		</table>
@@ -298,6 +417,7 @@
 		<table class='table table-striped'>
 			<tr><%=tr1%></tr>
 			<tr><%=tr2%></tr>
+			<tr><%=tr3%></tr>
 		</table>
 	</script>
 
@@ -326,15 +446,15 @@
 			</tr>
 			<tr>
 				<td rowspan="2">报名学科</td>
-				<td><%=obj.sub[0] || ''%></td>
-				<td><%=obj.sub[1] || ''%></td>
-				<td><%=obj.sub[2] || ''%></td>
+				<td><%=obj.sub[0] && obj.sub[0].name || ''%></td>
+				<td><%=obj.sub[1] && obj.sub[1].name || ''%></td>
+				<td><%=obj.sub[2] && obj.sub[2].name || ''%></td>
 			</tr>
 			<tr>
 
-				<td><%=obj.sub[3] || '<span style="height:20px;display:block;"></span>'%></td>
-				<td><%=obj.sub[4] || ''%></td>
-				<td><%=obj.sub[5] || ''%></td>
+				<td><%=obj.sub[3] && obj.sub[3].name || '<span style="height:20px;display:block;"></span>'%></td>
+				<td><%=obj.sub[4] && obj.sub[4].name || ''%></td>
+				<td><%=obj.sub[5] && obj.sub[5].name || ''%></td>
 			</tr>
 		</table>
 		<p style='margin: 20px 0;'>以下为林笛工作室培训制度，如无异议，请签字确认：</p>
@@ -364,7 +484,7 @@
 
 	<button class='btn btn-primary' data-toggle="modal" data-target="#myModal">添加</button>
 	<a class='btn btn-success' id='btnExcel' download="报名.xls" href="#">导出Excel</a>
-
+	<a class='btn btn-success' id='btnExcelAllClasses' href="#">导出班级信息表</a>
 
 	<script src='./jquery.min.js'></script>
 	<script src='./bootstrap.min.js'></script>

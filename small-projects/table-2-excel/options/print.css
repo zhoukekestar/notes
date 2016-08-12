@@ -1,7 +1,8 @@
 @media print {
   body > .modal,
   body > #container,
-  body > .btn {
+  body > .btn,
+  body > * {
     display: none;
   }
   body > #print {
