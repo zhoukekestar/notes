@@ -1,0 +1,232 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>报名</title>
+<style>
+	body {
+		margin: 0;
+		padding: 1em;
+	}
+
+	form {
+		width: 400px;
+		margin: 30px auto;
+		text-align: center;
+	}
+
+	form .form-group> label {
+		width: 6em;
+		text-align: left;
+	}
+
+	form .form-group .form-control {
+		display: inline-block;
+		width: 17em;
+	}
+
+	form .form-group .input-group {
+		display: inline-block;
+		width: 17em;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	form .form-group .input-group label {
+		display: inline-block;
+		width: auto;
+		margin-right: 20px;
+	}
+
+	form .form-group .input-group .form-control {
+		width: auto;
+    vertical-align: baseline;
+    float: none;
+    display: inline-block;
+    box-shadow: none;
+    height: auto;
+	}
+</style>
+	<link rel="stylesheet" href="../lib/css/ui-switch.css" >
+	<link rel="stylesheet" href="./client.css" >
+	<link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+
+	<div class="modal fade" id='myModal' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">报名</h4>
+	      </div>
+	      <div class="modal-body">
+					<form data-role='formJSON'>
+						<div class="form-group">
+							<label>姓名</label>
+							<input class='form-control' type="text" name='name'>
+						</div>
+						<div class="form-group">
+							<label>联系电话</label>
+							<input class='form-control' type="text" name='tel'>
+						</div>
+						<div class="form-group">
+							<label>在读学校</label>
+							<input class='form-control' type="text" name="school">
+						</div>
+						<div class="form-group">
+							<label>校区</label>
+							<select class="form-control" name='place'>
+								<option value="临海">临海</option>
+								<option value="椒江">椒江</option>
+								<option value="黄岩">黄岩</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>季度</label>
+							<select class="form-control" name='time'>
+								<option value="春季">春季</option>
+								<option value="暑假">暑假</option>
+								<option value="秋季">秋季</option>
+								<option value="寒假">寒假</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>年级</label>
+							<select class="form-control" name='level'>
+								<option value="初中升高一">初中升高一</option>
+								<option value="高一">高一</option>
+								<option value="高一升高二">高一升高二</option>
+								<option value="高三">高三</option>
+								<option value="高二升高三">高二升高三</option>
+								<option value="高三">高三</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>所选科目</label>
+							<div class="input-group">
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学1班'>
+									数学1班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学2班'>
+									数学2班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学3班'>
+									数学3班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学4班'>
+									数学4班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学5班'>
+									数学5班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='数学6班'>
+									数学6班
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='物理'>
+									物理
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='英语'>
+									英语
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='化学'>
+									化学
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='生物'>
+									生物
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='政治'>
+									政治
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='历史'>
+									历史
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='地理'>
+									地理
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='语文'>
+									语文
+								</label>
+								<label>
+									<input class='form-control' type="checkbox" name='sub.' value='技术'>
+									技术
+								</label>
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<input class='btn btn-primary' type="submit" value='确定'>
+						</div> -->
+					</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" id='btn-ok'>确定</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+
+	<div id="container"></div>
+
+	<script type='text/html' data-role='template' data-holder='#container' data-wrapper='table' id='tmpl-table'>
+		<table id="datatable" class='table table-striped'>
+			<thead>
+				<tr>
+					<th style='font-size: 16px;  background-color: #fff;'>姓名</th>
+					<th style='font-size: 16px;  background-color: #fff;'>联系方式</th>
+					<th style='font-size: 16px;  background-color: #fff;'>学校</th>
+					<th style='font-size: 16px;  background-color: #fff;'>校区</th>
+					<th style='font-size: 16px;  background-color: #fff;'>季度</th>
+					<th style='font-size: 16px;  background-color: #fff;'>年级</th>
+					<th style='font-size: 16px;  background-color: #fff;'>所选科目</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% data.forEach(function(item, index) {
+					 var bc = (index % 2 === 0 ? '#f9f9f9' : '#fff'); %>
+					<tr>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.name%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.tel%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.school%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.place%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.time%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.level%></td>
+						<td style='font-size: 16px; background-color: <%=bc%>;    border-top: 1px solid #ddd; padding: 10px;'><%=item.sub.join(',')%></td>
+					</tr>
+				<% }) %>
+			</tbody>
+		</table>
+
+		<p>报名人数统计：</p>
+		<table class='table table-striped'>
+			<tr><%=tr1%></tr>
+			<tr><%=tr2%></tr>
+		</table>
+	</script>
+	<button class='btn btn-primary' data-toggle="modal" data-target="#myModal">添加</button>
+	<a class='btn btn-success' id='btnExcel' download="报名.xls" href="#">导出Excel</a>
+
+	<script src='./jquery.min.js'></script>
+	<script src='./bootstrap.min.js'></script>
+	<script src='./formJSON.js'></script>
+	<script src='./template.js'></script>
+	<script src="./options.js"></script>
+	<script src="./excellentexport.js"></script>
+	<script src='./client.js'></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quick Start</title>
+    <style>
+      button,.btn {
+        width: 11em;
+        display: block;
+        padding: 8px 0;
+        border-radius: 5px;
+        border: none;
+        background-color: rgba(73,160,237,0.8);
+        color: #fff;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      button:hover,
+      .btn:hover {
+        background-color: rgba(73,160,237,1);
+      }
+      button + button,
+      button + .btn,
+      .btn + button,
+      .btn + .btn {
+        margin-top: 15px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <button id='btnRunCodeOnExtension'>在插件环境运行代码</button>
+    <button id='btnRunCodeOnPage'>在页面环境运行代码</button>
+    <button id='btnOptions'>打开配置页面</a>
+    <script src='popup.js'></script>
+  </body>
+</html>
