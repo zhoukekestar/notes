@@ -44,6 +44,18 @@ document.querySelector('.subjects').onchange = function(e) {
     refresh();
     $('#myModal').modal('hide');
     setTimeout(function(){
+
+      document.querySelector('input[name="sub.s1.name"]').value = '数学1班';
+      document.querySelector('input[name="sub.s2.name"]').value = '物理1班';
+      document.querySelector('input[name="sub.s3.name"]').value = '英语1班';
+      document.querySelector('input[name="sub.s4.name"]').value = '化学1班';
+      document.querySelector('input[name="sub.s5.name"]').value = '生物1班';
+      document.querySelector('input[name="sub.s6.name"]').value = '政治1班';
+      document.querySelector('input[name="sub.s7.name"]').value = '历史1班';
+      document.querySelector('input[name="sub.s8.name"]').value = '地理1班';
+      document.querySelector('input[name="sub.s9.name"]').value = '语文1班';
+      document.querySelector('input[name="sub.s10.name"]').value = '技术1班';
+
       form.reset();
     }, 1000)
     return null;
