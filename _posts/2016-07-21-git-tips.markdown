@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git tips"
-date:   2016-08-05 10:24:39 +0800
+date:   2016-08-13 09:04:00 +0800
 categories: git
 ---
 # Clone and Change repo
@@ -90,6 +90,11 @@ git commit -m 'merge finished'
 // edit file directly
 git add .
 git commit -m 'merge finished'
+
+// Cancel last commit
+// http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git
+git reset HEAD~
+
 
 {% endhighlight %}
 
