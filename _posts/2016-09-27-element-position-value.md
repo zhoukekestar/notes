@@ -6,12 +6,12 @@ categories: element position value
 ---
 
 # getBoundingClientRect
-![getBoundingClientRect]({{ site.url }}/assets/getBoundingClientRect.gif)
-![getBoundingClientRect2]({{ site.url }}/assets/getBoundingClientRect2.gif)
+![getBoundingClientRect]({{ site.baseurl }}/assets/getBoundingClientRect.gif)
+![getBoundingClientRect2]({{ site.baseurl }}/assets/getBoundingClientRect2.gif)
 Example:
 [getBoundingClientRect]({{ site.baseurl}}/html/getBoundingClientRect.html)
 
 # Event XY
-![eventXY]({{ site.url }}/assets/eventXY.png)
+![eventXY]({{ site.baseurl }}/assets/eventXY.png)
 Example:
 [eventXY]({{ site.baseurl}}/html/eventXY.html)
