@@ -21,6 +21,7 @@ categories: vue source code read note 笔记 learn 学习
   * [karma](https://github.com/karma-runner/karma) 用于单元测试
   * [de-indent](https://github.com/yyx990803/de-indent) 删除多余的空格
   * [he](https://www.npmjs.com/package/he) HTML实体的编码和解码
+  * [rollup](http://rollupjs.org/) 项目打包工具
 
 ## src目录结构
 * entries 构建dist和packages目录下的文件的脚本文件，具体配置在`build/config.js`中
