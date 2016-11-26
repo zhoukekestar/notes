@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vue 源码阅读学习(1)"
+title:  "Vue 学习笔记"
 date:   2016-10-28 10:42:00 +0800
 categories: vue source code read note 笔记 learn 学习
 ---
