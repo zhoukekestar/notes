@@ -95,6 +95,14 @@ git commit -m 'merge finished'
 // http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git
 git reset HEAD~
 
+// Undo cancel last commit
+// http://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1
+git reflog
+git reset --hard <id>
+
+// Discrad all changes
+// http://stackoverflow.com/questions/1090309/git-undo-all-working-dir-changes-including-new-files
+git reset --hard 
 
 {% endhighlight %}
 
