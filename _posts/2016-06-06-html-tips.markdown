@@ -30,12 +30,12 @@ document.cookie = 'key=; domain=.abc.com; path=/; expires=' + (new Date(0)).toUT
 
 ## 获取url路径中的值
 {% highlight js linenos %}
-location.pathname.match(/\/path\/([\/]*)$/)[1]
+var key = (key = location.pathname.match(/\/path\/([\/]*)$/)) && key[1]
 {% endhighlight %}
 
 ## 获取url参数中的值
 {% highlight js linenos %}
-location.search.match(/key=([^&=]*)/)[1]
+var key = (key = location.search.match(/key=([^&=]*)/)) && key[1];
 {% endhighlight %}
 
 ## 调试动态js
