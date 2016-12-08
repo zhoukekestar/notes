@@ -5,6 +5,15 @@ date:   2016-12-08 14:56:00 +0800
 categories: machine learn neural network
 ---
 
+<style type='text/css'>
+  li a {
+    line-height: 28px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+  }
+</style>
+
 # Projects
 * [synaptic](https://github.com/cazala/synaptic) <a class="github-button" href="https://github.com/cazala/synaptic" data-icon="octicon-star" data-style="mega" data-count-href="/cazala/synaptic/stargazers" data-count-api="/repos/cazala/synaptic#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star cazala/synaptic on GitHub">Star</a>
 * [tensorflow](https://github.com/tensorflow/tensorflow) <a class="github-button" href="https://github.com/tensorflow/tensorflow" data-icon="octicon-star" data-style="mega" data-count-href="/tensorflow/tensorflow/stargazers" data-count-api="/repos/tensorflow/tensorflow#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star tensorflow/tensorflow on GitHub">Star</a>
@@ -24,11 +33,3 @@ categories: machine learn neural network
 * [neural networks in javascript](http://blog.webkid.io/neural-networks-in-javascript/)
 
 <script src='https://buttons.github.io/buttons.js'>
-<style>
-  li a {
-    line-height: 28px;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 20px;
-  }
-</style>
