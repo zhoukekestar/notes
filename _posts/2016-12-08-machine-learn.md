@@ -7,6 +7,7 @@ categories: machine learn neural network
 
 # Projects
 * [synaptic](https://github.com/cazala/synaptic)
+* [tensorflow](https://github.com/tensorflow/tensorflow)
 * [convnetjs](https://github.com/karpathy/convnetjs)
 * [brain.js](https://github.com/harthur-org/brain.js)
 * [DN2A](https://github.com/dn2a/dn2a-javascript)
