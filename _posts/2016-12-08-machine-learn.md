@@ -6,7 +6,7 @@ categories: machine learn neural network
 ---
 
 # Projects
-* [synaptic](https://github.com/cazala/synaptic)
+* [synaptic](https://github.com/cazala/synaptic) <a class="github-button" href="https://github.com/cazala/synaptic" data-icon="octicon-star" data-style="mega" data-count-href="/cazala/synaptic/stargazers" data-count-api="/repos/cazala/synaptic#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star cazala/synaptic on GitHub">Star</a>
 * [tensorflow](https://github.com/tensorflow/tensorflow)
 * [convnetjs](https://github.com/karpathy/convnetjs)
 * [brain.js](https://github.com/harthur-org/brain.js)
