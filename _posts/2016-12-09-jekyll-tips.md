@@ -53,6 +53,7 @@ gem 'github-pages'
 
 # Add custom style to current page.
 The style needs to be placed before the content.
+
 ```html
 <style type='text/css'>
   li a {
