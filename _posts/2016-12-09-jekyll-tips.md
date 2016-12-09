@@ -10,6 +10,7 @@ categories: jekyll note
 1、Download Ruby & install
 
 2、gem install
+
 ```base
 gem install jekyll // Ruby: v2.3.1  jekyll: v3.2.1
 gem install bundler
@@ -24,6 +25,7 @@ Copy `Ruby23-x64/lib/ruby/gems/2.3.0/gems/minima-1.0.1/_layouts/*.html` TO `CURR
 I don't know why i should do this.... The files are exist, but jekyll can't find it.
 
 4、Run
+
 ```bash
 jekyll build
 jekyll serve
