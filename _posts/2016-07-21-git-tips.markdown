@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git tips"
-date:   2016-08-13 09:04:00 +0800
+date:   2016-12-16 17:55:00 +0800
 categories: git
 ---
 # Clone and Change repo
@@ -10,20 +10,16 @@ categories: git
 
 
 # Origin
-{% highlight bash %}
 
+```bash
 git remote set-url origin https://github.com/user/repo2.git
 git remote show original
 git push
-
-// if you want to push all branches
-git push --mirror
-
-{% endhighlight %}
-
+```
 
 # Tag
-{% highlight bash %}
+
+```bash
 // see local tags
 git tag
 
@@ -41,11 +37,11 @@ git tag --delete 2.1.2-release
 // Delete tag remotely
 git push --delete origin 2.1.2-release
 
-{% endhighlight %}
+```
 
 ## Branching and Merging
-{% highlight bash %}
 
+```bash
 // See branchs
 git branch
 
@@ -68,9 +64,7 @@ git push origin --delete hotfix
 git push --set-upstream origin hotfix
 
 
-
 // Merge
-
 git merge hotfix
 
 // You can merge branch by follows if error [fatal: refusing to merge unrelated histories] occurred.
@@ -102,12 +96,13 @@ git reset --hard <id>
 
 // Discrad all changes
 // http://stackoverflow.com/questions/1090309/git-undo-all-working-dir-changes-including-new-files
-git reset --hard 
+git reset --hard
 
-{% endhighlight %}
+```
 
-Other Tips
-{% highlight bash %}
+# Other Tips
+
+```bash
 
 // See last 2 commit & its detail
 git log -p -2
@@ -119,7 +114,12 @@ git checkout -- README.md
 
 // See changes you just made.
 git diff
-{% endhighlight %}
+
+// Disabled lf -> crlf
+// http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+git config core.autocrlf false
+
+```
 
 ## Repos & Sites
 * [git-commands](https://trello.com/b/qvYlSdKT/git-commands)
