@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git tips"
-date:   2016-12-16 17:55:00 +0800
+date:   2016-12-23 17:02:00 +0800
 categories: git
 ---
 # Clone and Change repo
@@ -97,6 +97,11 @@ git reset --hard <id>
 // Discrad all changes
 // http://stackoverflow.com/questions/1090309/git-undo-all-working-dir-changes-including-new-files
 git reset --hard
+
+
+// Change last commit message
+// http://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits
+git commit --amend -m "New commit message"
 
 ```
 
