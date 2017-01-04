@@ -5,6 +5,8 @@ date:   2017-01-04 10:32:00 +0800
 categories: node Attributes nodetype nodeName tagName
 ---
 
+# Attributes
+
 | Attr | Notes | Link |
 | --- | --- | --- |
 | Element.tagName | In XML (and XML-based languages such as XHTML), tagName preserves case. On HTML elements in DOM trees flagged as HTML documents, tagName returns the element name in the uppercase form. The value of tagName is the same as that of nodeName. | [https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName) |
@@ -14,6 +16,7 @@ categories: node Attributes nodetype nodeName tagName
 
 
 # Node Name
+
 | Interface | nodeName value |
 | --- | --- |
 | Attr | The value of Attr.name |
@@ -30,6 +33,7 @@ categories: node Attributes nodetype nodeName tagName
 | Text | "#text" |
 
 # Node type constants
+
 | Constant | Value | Description | Example |
 | --- | --- | --- |
 | Node.ELEMENT_NODE	| 1	 | An Element node such as &lt;p> or &lt;div>. | `document.createElement('div').nodeType` |
