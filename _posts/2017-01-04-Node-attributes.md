@@ -5,6 +5,17 @@ date:   2017-01-04 10:32:00 +0800
 categories: node Attributes nodetype nodeName tagName
 ---
 
+<style type='text/css'>
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  table td, table th {
+    border: solid 1px #ccc;
+    padding: 5px;
+  }
+</style>
+
 # Attributes
 
 | Attr | Notes | Link |
