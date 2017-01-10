@@ -17,6 +17,7 @@ categories: service worker cache pwa
 
 # PWA
 * [PWA offline](https://www.zhihu.com/question/46690207/answer/104851767)
+
 > Offline （离线能力）
 离线和弱网环境也能秒开的能力，但是这个就牛逼了。Hybrid 架构搞了那么久，不就为的这个吗？之前有个东西叫 Application Cache，但是那货就是个 shit。
 >
