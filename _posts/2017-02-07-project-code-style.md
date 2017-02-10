@@ -13,16 +13,49 @@ Use `.eslintrc` file to config your javascript code style. And we follow [airbnb
 
 ```json
 {
-  "extends": "airbnb"
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+
+  "globals": {
+    "jQuery": true
+  },
+
+  "extends": "airbnb",
+  "plugins": ["html"],
+  "setting": {
+    "html/html-extensions": [".html", ".we"]
+  }
 }
 ```
 
 ### How-to
-* `npm i -g eslint --save-dev` install eslint globally.
-* `npm i -g --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react` install plugins globally too.
-* `eslint app.js` to eslint one file.
+* `npm i eslint --save-dev` to install eslint.
+* `npm i --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react` to install plugins.
+* `eslint app.js` to eslint one file if you install eslint globally, OR, `./node_modules/.bin/eslint.cmd app.js` to eslint one file.
 * `eslint app.js --fix` to eslint one file & auto fix error.
 
+### Atom
+* install `linter`
+* install `linter-eslint`
+* [option] You can fix error on save.
+* [option] Use global ESLint installtion.
+
+### Sublime
+* `Ctrl + Shift + P`
+* Install packages
+* Package: `SublimeLinter`
+* Package: `SublimeLinter-contrib-eslint`
+* SublimeLinter Setting, set your node Path: (`where node` for windows,  `which node` for OSX)
+```json
+"path" {
+  "linux": [],
+  "osx": [],
+  "windows": ["C:/Program Files/nodejs/node.exe"]
+}
+```
 
 ## editorconfig
 ```
