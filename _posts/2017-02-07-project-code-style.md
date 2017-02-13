@@ -50,6 +50,13 @@ Use `.eslintrc` file to config your javascript code style. And we follow [airbnb
 * Package: `SublimeLinter-contrib-eslint`
 * SublimeLinter Setting, set your node Path: (`where node` for windows,  `which node` for OSX)
 ```json
+"linters": {
+    "eslint": {
+        "args": [
+            "--config", "/user/.eslintrc", "--no-eslintrc"
+        ]
+    }
+},
 "path" {
   "linux": [],
   "osx": [],
@@ -72,3 +79,8 @@ end_of_line = lf
 max_line_length = null
 
 ```
+
+
+## Project
+* [TGIdeas](http://tgideas.qq.com/webplat/info/news_version3/804/7104/7106/m5723/201701/548650.shtml)
+  ![1485166255_18_w4500_h2500]({{ site.baseurl }}/assets/project-code-style/1485166255_18_w4500_h2500.jpg)
