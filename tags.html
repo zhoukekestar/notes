@@ -4,12 +4,36 @@ title: Tags
 ---
 
 <div class="tags-expo">
+  <style media="screen">
+    .post-content h2 {
+      font-size: 24px;
+      margin: 40px 0 10px;
+    }
+    .post-tag {
+      background: #8adfff;
+      color: #fff;
+      padding: 5px 5px;
+      font-size: 14px;
+      border-radius: 5px;
+      margin-left: 5px;
+      text-decoration: none;
+    }
+    a.post-title {
+      font-size: 16px;
+      text-decoration: none;
+    }
+    small.post-date {
+      font-size: 12px;
+      color: #333;
+      margin-left: 5px;
+    }
+  </style>
   <div class="tags-expo-list">
     {% for tag in site.tags %}
     <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
     {% endfor %}
   </div>
-  <hr/>
+
   <div class="tags-expo-section">
     {% for tag in site.tags %}
     <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
