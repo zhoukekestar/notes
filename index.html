@@ -13,6 +13,31 @@ layout: default
     .post-list li article {
       font-size: 80%;
     }
+    .post-list span.post-tag {
+      background: #00b8ff;
+      color: #fff;
+      padding: 3px 5px;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+    .post-list > li + li:before {
+      position: relative;
+      width: 100%;
+      content: '';
+      height: 1px;
+      background: rgba(204, 204, 204, 0.32);
+      display: block;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+    .post-list > li > article {
+      font-size: 80%;
+      max-height: 200px;
+      overflow: hidden;
+      background: rgba(244, 244, 244, 0.67);
+      padding: 20px 10px;
+    }
   </style>
   <h1 class="page-heading">Posts</h1>
 

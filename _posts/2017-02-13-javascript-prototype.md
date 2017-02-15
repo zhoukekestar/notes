@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Javascript prototype"
+date: 2017-02-15
 tags: [javascript, prototype]
 ---
 
