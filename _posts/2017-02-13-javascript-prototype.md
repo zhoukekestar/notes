@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Javascript prototype"
-date:   2017-02-13 16:03:00 +0800
-categories: javascript prototype
+tags: [javascript, prototype]
 ---
 
 # Code

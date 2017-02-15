@@ -3,14 +3,29 @@ layout: default
 ---
 
 <div class="home">
-
+  <style>
+    .post-list li {
+      maring-bottom: 40px;
+    }
+    .post-list h2 {
+      margin-bottom: 0;
+    }
+    .post-list li article {
+      font-size: 80%;
+    }
+  </style>
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        {% if post.tags %} |
+        {% if post.tags %}
           {% for tag in post.tags %}
             <span class="post-tag">{{ tag }}</span>
           {% endfor %}
@@ -18,11 +33,8 @@ layout: default
 
         <article>
           {{ post.excerpt | markdownify }}
-        <article>
+        </article>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
       </li>
     {% endfor %}
   </ul>
