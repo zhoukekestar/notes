@@ -17,6 +17,8 @@ title: Tags
       border-radius: 5px;
       margin-left: 5px;
       text-decoration: none;
+      margin-bottom: 5px;
+      display: inline-block;
     }
     a.post-tag:hover {
       color: #fff;
@@ -35,21 +37,21 @@ title: Tags
   </style>
   <div class="tags-expo-list">
     {% for tag in site.tags %}
-    <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }} ({{tag[1].length}})</a>
+    <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
     {% endfor %}
   </div>
 
   <div class="tags-expo-section">
     {% for tag in site.tags %}
-    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }} ({{tag[1].length}})</h2>
+    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
     <ul class="tags-expo-posts">
       {% for post in tag[1] %}
-        <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
-          <li>
+        <li>
+          <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
             <small class="post-date">{{ post.date | date_to_string }}</small>
-          </li>
-        </a>
+          </a>
+        </li>
       {% endfor %}
     </ul>
     {% endfor %}
