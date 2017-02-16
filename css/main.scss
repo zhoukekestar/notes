@@ -37,3 +37,27 @@ $on-laptop:        800px;
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+
+.post-tag {
+  background: #8adfff;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 0;
+  padding: 1px 5px;
+
+  line-height: 1.1em;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+}
+a.post-tag:visited {
+  color: #fff;
+}
+a.post-tag:hover {
+  color: #fff;
+  background: #2abcf3;
+  text-decoration: none;
+}
