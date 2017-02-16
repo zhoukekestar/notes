@@ -3,6 +3,7 @@ layout: post
 title:  "Vue 学习笔记"
 date:   2016-10-28 10:42:00 +0800
 categories: vue source code read note 笔记 learn 学习
+tags: [vue, note]
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title:  "下载localstorage的数据并保存为文件"
 date:   2016-08-13 08:53:00 +0800
 categories: download json localstorage
+tags: [javascript]
 ---
 
 # 下载localstorage的数据并保存为文件

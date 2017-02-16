@@ -3,6 +3,7 @@ layout: post
 title:  "generator demo"
 date:   2016-02-15 19:05:00 +0800
 categories: es6 generator
+tags: [javascript, es6]
 ---
 
 # app.js

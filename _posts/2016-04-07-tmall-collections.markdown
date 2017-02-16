@@ -3,6 +3,7 @@ layout: post
 title:  "天猫好文收集"
 date:   2016-04-07 16:36:00 +0800
 categories: tmall
+note: [articles]
 ---
 ## 好文
 * [解耦神器](http://pingguohe.net/2015/11/24/Navigator-and-Rewrite.html)

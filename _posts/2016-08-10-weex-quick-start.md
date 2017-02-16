@@ -3,6 +3,7 @@ layout: post
 title:  "Weex Quick Start"
 date:   2016-08-10 16:01:00 +0800
 categories: weex quickstart
+tags: [weex]
 ---
 
 ## [查看项目及源码](https://github.com/zhoukekestar/weex-quick-start)

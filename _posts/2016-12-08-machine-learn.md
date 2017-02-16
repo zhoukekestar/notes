@@ -3,6 +3,7 @@ layout: post
 title:  "machine learn"
 date:   2016-12-08 14:56:00 +0800
 categories: machine learn neural network
+tags: [javascript, machine learn]
 ---
 
 <style type='text/css'>

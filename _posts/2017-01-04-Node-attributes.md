@@ -3,6 +3,7 @@ layout: post
 title:  "Node Attributes: nodeName, tagName, nodeType"
 date:   2017-01-04 10:32:00 +0800
 categories: node Attributes nodetype nodeName tagName
+tags: [javascript]
 ---
 
 <style type='text/css'>

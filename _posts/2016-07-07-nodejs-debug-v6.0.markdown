@@ -3,6 +3,7 @@ layout: post
 title:  "Nodejs Debug"
 date:   2016-07-07 13:07:00 +0800
 categories: node debug
+tags: [nodejs, javascript]
 ---
 
 ## DEBUG

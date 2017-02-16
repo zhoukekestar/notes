@@ -3,6 +3,7 @@ layout: post
 title:  "Docker Tips"
 date:   2016-06-15 11:54:00 +0800
 categories: docker tips
+tags: [docker, note, command]
 ---
 
 # Tips

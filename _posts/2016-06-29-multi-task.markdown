@@ -3,6 +3,7 @@ layout: post
 title:  "multi task"
 date:   2016-06-29 14:13:00 +0800
 categories: es6
+tags: [javascript, es6]
 ---
 
 ### multi-task

@@ -3,6 +3,7 @@ layout: post
 title:  "游览器缓存机制"
 date:   2016-10-06 16:22:00 +0800
 categories: browser cache Last-Modified expire
+tags: [cache, network]
 ---
 
 [web游览器缓存机制](http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/)

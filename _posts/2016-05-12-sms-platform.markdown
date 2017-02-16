@@ -3,6 +3,7 @@ layout: post
 title:  "短信验证码平台"
 date:   2016-05-12 10:03:00 +0800
 categories: sms
+tags: [note]
 ---
 
 容联：http://docs.yuntongxun.com/（0.06）

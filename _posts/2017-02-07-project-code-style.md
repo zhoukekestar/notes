@@ -3,6 +3,7 @@ layout: post
 title:  "PROJECT: code style"
 date:   2017-02-07 11:29:00 +0800
 categories: javascript code style
+tags: [javascript, style]
 ---
 
 # Javascript Code style

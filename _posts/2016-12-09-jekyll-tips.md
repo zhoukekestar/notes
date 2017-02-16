@@ -3,6 +3,7 @@ layout: post
 title:  "jekyll note"
 date:   2016-12-09 12:00:00 +0800
 categories: jekyll note
+tags: [note, tips, jekyll]
 ---
 
 # Install jekyll. Steps for Windows.

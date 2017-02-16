@@ -2,7 +2,8 @@
 layout: post
 title:  "Docker Node Demo"
 date:   2016-04-12 15:39:00 +0800
-categories: docer node
+categories: docker node
+tags: [docker, nodejs]
 ---
 
 # index.js

@@ -3,6 +3,7 @@ layout: post
 title:  "service worker for cache (PWA, HTTP2.0)"
 date:   2017-01-10 14:45:00 +0800
 categories: service worker cache pwa
+tags: [javascript, cache]
 ---
 
 # cache

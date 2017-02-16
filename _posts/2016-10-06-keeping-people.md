@@ -3,6 +3,7 @@ layout: post
 title:  "关于留人"
 date:   2016-10-06 09:29:00 +0800
 categories: management administration
+tags: [management, articles]
 ---
 
 作者：sofish

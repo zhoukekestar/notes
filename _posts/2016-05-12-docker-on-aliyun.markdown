@@ -3,6 +3,7 @@ layout: post
 title:  "阿里云Docker实践"
 date:   2016-05-12 10:03:00 +0800
 categories: docker aliyun
+tags: [docker]
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title:  "jpeg"
 date:   2016-05-12 10:03:00 +0800
 categories: jpeg
+tags: [javascript, tools]
 ---
 
 # Create a jpeg

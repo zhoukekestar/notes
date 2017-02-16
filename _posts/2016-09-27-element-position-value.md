@@ -3,6 +3,7 @@ layout: post
 title:  "元素位置信息"
 date:   2016-09-27 08:53:00 +0800
 categories: element position value
+tags: [css]
 ---
 
 # getBoundingClientRect

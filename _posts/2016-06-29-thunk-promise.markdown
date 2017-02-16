@@ -3,6 +3,7 @@ layout: post
 title:  "Thunk Promise"
 date:   2016-06-29 14:10:00 +0800
 categories: es6 thunk promise
+tags: [javascript, es6]
 ---
 
 ## Thunk VS Promise
