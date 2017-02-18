@@ -99,6 +99,9 @@ git reset --hard <id>
 // http://stackoverflow.com/questions/1090309/git-undo-all-working-dir-changes-including-new-files
 git reset --hard
 
+// Discrad all change (include untracked files)
+// http://stackoverflow.com/questions/14075581/git-undo-all-uncommitted-changes
+git clean -fdx
 
 // Change last commit message
 // http://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits
