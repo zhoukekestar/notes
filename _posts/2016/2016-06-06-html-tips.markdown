@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "HTML tips"
-date:   2016-06-06 10:31:00 +0800
+date:   2017-03-20
 categories: html tips
 tags: [html, javascript, note]
 ---
@@ -15,34 +15,40 @@ tags: [html, javascript, note]
 {% endhighlight %}
 
 ## 获取cookie
-{% highlight js linenos %}
+
+```js
 var wechat = (wechat = (' ' + document.cookie).match(/[; ]wechat=([^;]*)/)) && wechat[1];
-{% endhighlight %}
+```
 
 ## 设置cookie(设置50分钟超时)
-{% highlight js linenos %}
+
+```js
 document.cookie = 'key=value; domain=.abc.com; path=/; expires=' + (new Date(Date.now() + 60 * 1000 * 50)).toUTCString();
-{% endhighlight %}
+```
 
 ## 删除cookie
-{% highlight js linenos %}
+
+```js
 document.cookie = 'key=; domain=.abc.com; path=/; expires=' + (new Date(0)).toUTCString();
-{% endhighlight %}
+```
 
 ## 获取url路径中的值
-{% highlight js linenos %}
-var key = (key = location.pathname.match(/\/path\/([\/]*)$/)) && key[1]
-{% endhighlight %}
+
+```js
+var key = (key = location.pathname.match(/\/path\/([^\/]*)$/)) && key[1]
+```
 
 ## 获取url参数中的值
-{% highlight js linenos %}
+
+```js
 var key = (key = location.search.match(/key=([^&=]*)/)) && key[1];
-{% endhighlight %}
+```
 
 ## 调试动态js
-{% highlight js linenos %}
+
+```js
 //@ sourceURL=dynamicScript.js
-{% endhighlight %}
+```
 
 
 ## 上下移动元素
