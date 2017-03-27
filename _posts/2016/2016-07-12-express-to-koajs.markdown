@@ -6,22 +6,6 @@ categories: koajs express
 tags: [nodejs, javascript]
 ---
 
-<style>
-table {
-    border-collapse: collapse;
-}
-table td, table th {
-    border: solid 1px #ccc;
-    padding: 8px;
-}
-table tr:odd {
-  background: #f00;
-}
-table tbody tr:nth-child(2n + 1) {
-  background: rgba(215, 212, 212, 0.35);
-}
-</style>
-
 ## Express to Koa
 
 
