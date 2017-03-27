@@ -14,7 +14,7 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$brand-color:      #000;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -40,14 +40,13 @@ $on-laptop:        800px;
 
 
 .post-tag {
-  background: #8adfff;
+  background: #bcbcbd;
   color: #fff;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 21px;
   margin-left: 5px;
   margin-right: 0;
-  padding: 1px 5px;
-
+  padding: 3px 10px;
   line-height: 1.1em;
   text-decoration: none;
   vertical-align: middle;
@@ -58,6 +57,6 @@ a.post-tag:visited {
 }
 a.post-tag:hover {
   color: #fff;
-  background: #2abcf3;
+  background: #828282;
   text-decoration: none;
 }
