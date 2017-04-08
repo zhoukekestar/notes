@@ -28,9 +28,9 @@ tags: [javascript, note]
 ### Truthy & falsy
 > The specific list of "falsy" values in JavaScript is as follows:
 >
-* `""` (empty string)
-* `0`, `-0`, `NaN` (invalid `number`)
-* `null`, `undefined`
-* `false`
-
->Any value that's not on this "falsy" list is "truthy."
+> * `""` (empty string)
+> * `0`, `-0`, `NaN` (invalid `number`)
+> * `null`, `undefined`
+> * `false`
+>
+> Any value that's not on this "falsy" list is "truthy."
