@@ -63,7 +63,7 @@ The style needs to be placed before the content.
 ```
 
 # Hosting comments based on github issues
-This guide is deeply follows on [this article](http://seanlane.net/blog/2016/Hosting_comments_within_issues_on_Github_Pages)
+This guide is deeply follows [this article](http://seanlane.net/blog/2016/Hosting_comments_within_issues_on_Github_Pages)
 
 ## Add style to your `css/main.scss` file
 
@@ -74,73 +74,55 @@ This guide is deeply follows on [this article](http://seanlane.net/blog/2016/Hos
 *
 ********************************/
 
-
-.comment {
-    background-color: transparent;
-    border-color: #CACACA;
-    border-style: solid;
-    border-width: 1px;
-    color: black;
-    display: block;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 0px;
-    width: 100%;
-  }
-
-.comment .commentheader {
-  border-bottom-color: #CACACA;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  color: black;
-  background-image: -webkit-linear-gradient(#F8F8F8,#E1E1E1);
-  background-image: -moz-linear-gradient(#F8F8F8,#E1E1E1);
-  color: black;
-  display: block;
-  float: left;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 33px;
-  line-height: 33px;
-  margin: 0px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 0px;
-  text-overflow: ellipsis;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
-  width: 100%;
+#comments {
+  border-top: solid 1px #e2e2e2;
+  margin-top: 100px;
+  padding-top: 40px;
 }
 
-.comment .commentheader .commentgravatar {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-image: none;
-  background-origin: padding-box;
+.comment {
+  position: relative;
   color: black;
-  display: inline-block;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
-  font-size: 1px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 20px;
-  line-height: 1px;
-  margin-left: 5px;
-  margin-right: 3px;
-  margin-top: -2px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 1px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: 20px;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0px;
+  width: 100%;
+  padding-left: 60px;
+  box-sizing: border-box;
+}
+
+.comment .commentgravatar {
+  position: absolute;
+  left: 0;
+}
+.comment .commentgravatar img {
+  height: 40px;
+  width: 40px;
+}
+.comment .commentheader {
+  border: 1px solid #d1d5da;
+  padding-left: 20px;
+  background-color: #f6f8fa;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.commentheader:before {
+  content: '';
+  position: absolute;
+  left: 44px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(209, 213, 218) transparent transparent;
+}
+.commentheader:after {
+  content: '';
+  position: absolute;
+  left: 45px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(246, 248, 250) transparent transparent;
 }
 
 .comment .commentheader a:link {
@@ -153,68 +135,27 @@ This guide is deeply follows on [this article](http://seanlane.net/blog/2016/Hos
 
 
 .comment .commentheader .commentuser {
-  background-color: transparent;
-  color: black;
-  display: inline;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
   font-size: 12px;
-  font-style: normal;
-  font-variant: normal;
   font-weight: bold;
-  height: 0px;
-  line-height: 16px;
-  margin-left: 5px;
   margin-right: 10px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
-  width: 0px;
 }
 
 .comment .commentheader .commentdate {
-  background-color: transparent;
   color: #777;
-  display: inline;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
   font-size: 11px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 0px;
   line-height: 33px;
-  margin: 0px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
-  width: 20em;
 }
 
 .comment .commentbody {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-color: transparent;
-  background-image: none;
-  background-origin: padding-box;
   color: #333;
   display: block;
-  margin-bottom: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 40px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0em;
-  position: static;
-  width: 96%;
+  overflow: visible;
+  padding: 1em;
   word-wrap: break-word;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  font-size: 14px;
+  border-radius: 0 0 5px 5px;
 }
 
 .comment .commentbody p {
@@ -225,18 +166,15 @@ This guide is deeply follows on [this article](http://seanlane.net/blog/2016/Hos
 }
 
 .comment .commentbody pre {
-  border: 0px solid #ddd;
-  background-color: #eef;
+  background-color: rgba(27,31,35,0.05);
   padding: 0 .4em;
 }
 
 .comment .commentbody pre code {
-  border: 0px solid #ddd;
 }
 
 .comment .commentbody code {
-  border: 1px solid #ddd;
-  background-color: #eef;
+  background-color: rgba(27,31,35,0.05);
   font-size: 85%;
   padding: 0 .2em;
 }
@@ -249,45 +187,49 @@ div#comments #header a {
 ## add code to your `_layouts/post.html`
 
 ```html
-{% if page.commentIssueId %}
-  <div id="comments">
-    <h2>Comments</h2>
-    <div id="header">
-      Want to leave a comment? Visit <a href="https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}"> this post's issue page on GitHub</a> (you'll need a GitHub account. What? Like you already don't have one? :).
-    </div>
+\{\% if page.commentIssueId \%\}
+<div id="comments">
+  <h2>Comments</h2>
+  <div id="header">
+    Want to leave a comment? Visit <a href="https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}"> this post's issue page on GitHub</a> (you'll need a GitHub account. What? Like you already don't have one? :).
   </div>
-  <script src='https://cdn.bootcss.com/es6-promise/4.1.0/es6-promise.auto.min.js'></script>
-  <script src='https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js'></script>
-  <script src='https://cdn.bootcss.com/timeago.js/3.0.0/timeago.min.js'></script>
-  <script type="text/javascript">
+</div>
+<script src='https://cdn.bootcss.com/es6-promise/4.1.0/es6-promise.auto.min.js'></script>
+<script src='https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js'></script>
+<script src='https://cdn.bootcss.com/timeago.js/3.0.0/timeago.min.js'></script>
+<script type="text/javascript">
 
-      function loadComments (data) {
-        var comments = document.querySelector('#comments');
-        data.forEach(function(item) {
-          var cuser = item.user.login;
-          var cuserlink = "https://www.github.com/" + item.user.login;
-          var clink = "https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}#issuecomment-" + item.url.substring(item.url.lastIndexOf("/") + 1);
-          var cbody = item.body_html;
-          var cavatarlink = item.user.avatar_url;
-          var cdate = new timeago().format(item.created_at);
+    function loadComments (data) {
+      var comments = document.querySelector('#comments');
+      data.forEach(function(item) {
+        var cuser = item.user.login;
+        var cuserlink = "https://www.github.com/" + item.user.login;
+        var clink = "https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}#issuecomment-" + item.url.substring(item.url.lastIndexOf("/") + 1);
+        var cbody = item.body_html;
+        var cavatarlink = item.user.avatar_url;
+        var cdate = new timeago().format(item.created_at);
 
-          comments.innerHTML += ("<div class='comment'><div class='commentheader'><div class='commentgravatar'>"
+        comments.innerHTML += (
+            "<div class='comment'>"
+            + "<div class='commentgravatar'>"
               + "<img src='" + cavatarlink + "'>"
-              + "</div><a class='commentuser' href='" + cuserlink + "'>"
-              + cuser + "</a><a class='commentdate' href=\"" + clink
-              + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
-        })
-      }
-
-      fetch('https://api.github.com/repos/zhoukekestar/blog/issues/{{page.commentIssueId}}/comments', {
-        headers: {
-          Accept: "application/vnd.github.full+json"
-        }
-      }).then(function (response) {
-        return response.json();
-      }).then(function (body) {
-        loadComments(body);
+            + "</div>"
+            + "<div class='commentheader'>"
+              + "<a class='commentuser' href='" + cuserlink + "'>" + cuser + "</a><a class='commentdate' href='" + clink + "'>" + cdate + "</a>"
+            + "</div>"
+            + "<div class='commentbody'>" + cbody + "</div></div>");
       })
-  </script>
-{% endif %}
+    }
+
+    fetch('https://api.github.com/repos/zhoukekestar/blog/issues/{{page.commentIssueId}}/comments', {
+      headers: {
+        Accept: "application/vnd.github.full+json"
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (body) {
+      loadComments(body);
+    })
+</script>
+\{\% endif \%\}
 ```
