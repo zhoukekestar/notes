@@ -86,71 +86,48 @@ table tbody tr:nth-child(2n + 1) {
 }
 
 .comment {
-    background-color: transparent;
-    border-color: #CACACA;
-    border-style: solid;
-    border-width: 1px;
-    color: black;
-    display: block;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 0px;
-    width: 100%;
-  }
-
-.comment .commentheader {
-  border-bottom-color: #CACACA;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  color: black;
-  background-image: -webkit-linear-gradient(#F8F8F8,#E1E1E1);
-  background-image: -moz-linear-gradient(#F8F8F8,#E1E1E1);
+  position: relative;
   color: black;
   display: block;
-  float: left;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 33px;
-  line-height: 33px;
-  margin: 0px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 0px;
-  text-overflow: ellipsis;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
   width: 100%;
+  padding-left: 60px;
+  box-sizing: border-box;
 }
 
-.comment .commentheader .commentgravatar {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-image: none;
-  background-origin: padding-box;
-  color: black;
-  display: inline-block;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
-  font-size: 1px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 20px;
-  line-height: 1px;
-  margin-left: 5px;
-  margin-right: 3px;
-  margin-top: -2px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 1px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: 20px;
+.comment .commentgravatar {
+  position: absolute;
+  left: 0;
+}
+.comment .commentgravatar img {
+  height: 40px;
+  width: 40px;
+}
+.comment .commentheader {
+  border: 1px solid #d1d5da;
+  padding-left: 20px;
+  background-color: #f6f8fa;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.commentheader:before {
+  content: '';
+  position: absolute;
+  left: 44px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(209, 213, 218) transparent transparent;
+}
+.commentheader:after {
+  content: '';
+  position: absolute;
+  left: 45px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(246, 248, 250) transparent transparent;
 }
 
 .comment .commentheader a:link {
@@ -163,68 +140,27 @@ table tbody tr:nth-child(2n + 1) {
 
 
 .comment .commentheader .commentuser {
-  background-color: transparent;
-  color: black;
-  display: inline;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
   font-size: 12px;
-  font-style: normal;
-  font-variant: normal;
   font-weight: bold;
-  height: 0px;
-  line-height: 16px;
-  margin-left: 5px;
   margin-right: 10px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
-  width: 0px;
 }
 
 .comment .commentheader .commentdate {
-  background-color: transparent;
   color: #777;
-  display: inline;
-  float: none;
-  font-family: helvetica, arial, freesans, clean, sans-serif;
   font-size: 11px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 0px;
   line-height: 33px;
-  margin: 0px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0px;
-  text-overflow: clip;
-  text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 0px;
-  white-space: nowrap;
-  width: 20em;
 }
 
 .comment .commentbody {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-color: transparent;
-  background-image: none;
-  background-origin: padding-box;
   color: #333;
   display: block;
-  margin-bottom: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 40px;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0em;
-  position: static;
-  width: 96%;
+  overflow: visible;
+  padding: 1em;
   word-wrap: break-word;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  font-size: 14px;
+  border-radius: 0 0 5px 5px;
 }
 
 .comment .commentbody p {
@@ -235,18 +171,15 @@ table tbody tr:nth-child(2n + 1) {
 }
 
 .comment .commentbody pre {
-  border: 0px solid #ddd;
-  background-color: #eef;
+  background-color: rgba(27,31,35,0.05);
   padding: 0 .4em;
 }
 
 .comment .commentbody pre code {
-  border: 0px solid #ddd;
 }
 
 .comment .commentbody code {
-  border: 1px solid #ddd;
-  background-color: #eef;
+  background-color: rgba(27,31,35,0.05);
   font-size: 85%;
   padding: 0 .2em;
 }

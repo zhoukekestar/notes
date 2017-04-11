@@ -261,7 +261,7 @@ div#comments #header a {
   <script src='https://cdn.bootcss.com/timeago.js/3.0.0/timeago.min.js'></script>
   <script type="text/javascript">
 
-      function loadComments(data) {
+      function loadComments (data) {
         var comments = document.querySelector('#comments');
         data.forEach(function(item) {
           var cuser = item.user.login;
@@ -272,8 +272,8 @@ div#comments #header a {
           var cdate = new timeago().format(item.created_at);
 
           comments.innerHTML += ("<div class='comment'><div class='commentheader'><div class='commentgravatar'>"
-              + '<img src="' + cavatarlink + '" alt="" width="20" height="20">'
-              + "</div><a class='commentuser' href=\"" + cuserlink + "\">"
+              + "<img src='" + cavatarlink + "'>"
+              + "</div><a class='commentuser' href='" + cuserlink + "'>"
               + cuser + "</a><a class='commentdate' href=\"" + clink
               + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
         })

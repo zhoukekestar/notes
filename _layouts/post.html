@@ -46,11 +46,15 @@ layout: default
           var cavatarlink = item.user.avatar_url;
           var cdate = new timeago().format(item.created_at);
 
-          comments.innerHTML += ("<div class='comment'><div class='commentheader'><div class='commentgravatar'>"
-              + '<img src="' + cavatarlink + '" alt="" width="20" height="20">'
-              + "</div><a class='commentuser' href=\"" + cuserlink + "\">"
-              + cuser + "</a><a class='commentdate' href=\"" + clink
-              + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
+          comments.innerHTML += (
+              "<div class='comment'>"
+              + "<div class='commentgravatar'>"
+                + "<img src='" + cavatarlink + "'>"
+              + "</div>"
+              + "<div class='commentheader'>"
+                + "<a class='commentuser' href='" + cuserlink + "'>" + cuser + "</a><a class='commentdate' href='" + clink + "'>" + cdate + "</a>"
+              + "</div>"
+              + "<div class='commentbody'>" + cbody + "</div></div>");
         })
       }
 
