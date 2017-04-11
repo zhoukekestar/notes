@@ -73,6 +73,22 @@ table tbody tr:nth-child(2n + 1) {
   background: rgba(215, 212, 212, 0.35);
 }
 
+a.edit-page {
+  float: right;
+  margin-top: 15px;
+}
+
+a.edit-page:before {
+  content:'';
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEUAAAAsLCwgICArKysrKysrKysrKyspKSkrKyssLCwoKCgsLCwqKiosLCwrKysrKyssLCxoW5+WAAAAEHRSTlMA8BAw0KBgUODAIICQQHCw6U6nfQAAANhJREFUOMvFk8kWwyAIRWVyzMD/f21B243WdNm3IYencCFJ+J/qDz8qPfqiBR5qYAEKzLjziZnsVL43/gnQLxMcGzxBLv6UNH7xD89WkM0oeMPZMeyYn+N5O4bnNtnlZBDTIJ9M8gYHNJUVz8OlnT7rNeONjPT2KJAmPM+MJXrgTJM/MsRcLSx43hH7EouHCIILn5OnQdm0hVlFCFqob7x1w6TVisQBY5SLRLyyO5QZVx/HCxDA5HirrvIZteOtyqe56WDV+NVP2U2427n5CouWlp7+Awp/1gtSFwXSGjLLuwAAAABJRU5ErkJggg==);
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  background-size: contain;
+  margin-right: 8px;
+  vertical-align: text-bottom;
+}
+
 /********************************
 *
 *  COMMENTS
@@ -83,6 +99,17 @@ table tbody tr:nth-child(2n + 1) {
   border-top: solid 1px #e2e2e2;
   margin-top: 100px;
   padding-top: 40px;
+}
+
+#comments > h2:before {
+  content: '';
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAf8BAIBCw4NBQMPCgT5BgUmVKUgAAAH9JREFUOMvN0MESwiAMRdEHSUBoq+//v1aa0XHsAK6snkWyyF0F57AtdG0Gp5kDWT1IHEoeLIyGnkT6JgO6yqdAzg6ir9CmX+IXgiqigPo0kboHf/eHjut7UMJBIi+vQCI7yjPQxJbHg7XiEeT9LBhhk2/AJFiCYRashinFj90BKcsMgTODyOUAAAAASUVORK5CYII=);
+  height: 1em;
+  width: 1em;
+  background-size: contain;
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: text-top;
 }
 
 .comment {
