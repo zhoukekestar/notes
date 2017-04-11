@@ -38,7 +38,6 @@ $on-laptop:        800px;
 // Import partials from the `minima` theme.
 @import "minima";
 
-
 .post-tag {
   background: #bcbcbd;
   color: #fff;
@@ -124,12 +123,8 @@ table tbody tr:nth-child(2n + 1) {
 .comment .commentheader .commentgravatar {
   background-attachment: scroll;
   background-clip: border-box;
-  background-color: white;
   background-image: none;
   background-origin: padding-box;
-  border-color: #C8C8C8;
-  border-style: solid;
-  border-width: 1px;
   color: black;
   display: inline-block;
   float: none;
@@ -249,4 +244,7 @@ table tbody tr:nth-child(2n + 1) {
   background-color: #eef;
   font-size: 85%;
   padding: 0 .2em;
+}
+div#comments #header a {
+  text-decoration: underline;
 }

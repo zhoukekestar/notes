@@ -3,6 +3,7 @@ layout: post
 title:  "Note: You Don't Know JS"
 date:   2017-04-08
 tags: [javascript, note]
+commentIssueId: 3
 ---
 
 # To see list
