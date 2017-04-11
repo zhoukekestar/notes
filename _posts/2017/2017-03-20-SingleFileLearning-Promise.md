@@ -3,6 +3,7 @@ layout: post
 title:  "Single file learning: Promise"
 date: 2017-03-20
 tags: [single file learning, javscript]
+commentIssueId: 7
 ---
 
 # Promise

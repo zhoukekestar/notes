@@ -3,6 +3,7 @@ layout: post
 title:  "Electorn Note"
 date:   2017-04-06
 tags: [electron, note]
+commentIssueId: 5
 ---
 
 # Install electron

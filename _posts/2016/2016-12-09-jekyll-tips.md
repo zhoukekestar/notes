@@ -3,6 +3,7 @@ layout: post
 title:  "jekyll notes"
 date:   2017-04-11
 tags: [note, tips, jekyll]
+commentIssueId: 4
 ---
 
 # Install jekyll. Steps for Windows.
