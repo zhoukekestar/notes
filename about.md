@@ -1,15 +1,9 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+My Plan: 基于当前的情况，大致地讲，基于计算机前端或全栈，往数据（分析，可视化）靠拢，如果有可能的话，结合金融进行技术和数据输出。
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+My Profile: [zhoukekestar.github.io/](http://zhoukekestar.github.io/)
