@@ -56,3 +56,24 @@ help fixing this error see https://github.com/rollup/rollup/wiki/Troubleshooting
 Solution:
 
 Find weex-picker in `node_modules`, edit package.json field `main` from  `./js/build/main.js` to `./js/src/index.js`.
+
+
+# Uncaught ReferenceError: regeneratorRuntime is not defined
+
+Error Message:
+
+```
+Uncaught ReferenceError: regeneratorRuntime is not defined
+    at Vm.ready (xxx.js:3785:9)
+    at xxx/browser.js:12428:15
+    at Array.forEach (native)
+    at Vm.$emit (xxx/browser.js:12427:17)
+    at build (xxx/browser.js:11822:6)
+    at new Vm (xxx/browser.js:12616:3)
+    at bootstrap (xxx/browser.js:14216:12)
+    at bundleBootstrap (xxx/browser.js:14535:14)
+    at Object.eval (xxx.js:70:2)
+    at __webpack_require__ (xxx.js:26:30)
+```
+
+I search this error and got [this post](http://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined-with-async-await)
