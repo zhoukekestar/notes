@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "tempaltes"
+title:  "templates"
 date:   2017-04-19
 tags: [template, note]
 commentIssueId: 10
