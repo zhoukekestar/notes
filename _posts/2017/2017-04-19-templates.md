@@ -23,14 +23,14 @@ Download it from [CDN](http://www.bootcdn.cn/mustache.js/).
 * Tiny size (9.3KB, 3.5KB for gzip), you can use [micromustache](http://www.bootcdn.cn/micromustache/) for more tiny size.
 
 #### Disadvantages
-* Don't Support index in loop, you have to do [like this](http://stackoverflow.com/questions/5021495/in-mustache-how-to-get-the-index-of-the-current-section) to get index
+* Don't Support index in loop, you have to do [like this](http://stackoverflow.com/questions/5021495/in-mustache-how-to-get-the-index-of-the-current-section) to get index in an array.
 
 # Handlebars
 Download it from [CDN](http://www.bootcdn.cn/handlebars.js/)
 
 #### Advantages
-* extendable
-* flexible
+* Extensibility
+* Flexible
 
 #### Disadvantages
 * Size with compiler is 73KB, 25KB for gzip size.
