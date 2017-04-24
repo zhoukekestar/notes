@@ -18,7 +18,7 @@ Here is an image comes form [art-template](https://github.com/aui/art-template).
 
 # Mustache
 Download it from [CDN](http://www.bootcdn.cn/mustache.js/).
-[![GitHub stars](https://img.shields.io/github/stars/janl/mustache.svg?style=social&label=Star&style=plastic)](https://github.com/janl/mustache.js)
+[![GitHub stars](https://img.shields.io/github/stars/janl/mustache.js.svg?style=social&label=Star&style=plastic)](https://github.com/janl/mustache.js)
 
 #### Advantages
 * Tiny size (9.3KB, 3.5KB for gzip), you can use [micromustache](http://www.bootcdn.cn/micromustache/) for more tiny size.
@@ -28,7 +28,7 @@ Download it from [CDN](http://www.bootcdn.cn/mustache.js/).
 
 # Handlebars
 Download it from [CDN](http://www.bootcdn.cn/handlebars.js/).
-[![GitHub stars](https://img.shields.io/github/stars/wycats/handlebars.svg?style=social&label=Star&style=plastic)](https://github.com/wycats/handlebars.js)
+[![GitHub stars](https://img.shields.io/github/stars/wycats/handlebars.js.svg?style=social&label=Star&style=plastic)](https://github.com/wycats/handlebars.js)
 
 #### Advantages
 * Extensibility
@@ -40,7 +40,7 @@ Download it from [CDN](http://www.bootcdn.cn/handlebars.js/).
 
 # doT
 Download it from [CDN](http://www.bootcdn.cn/dot/).
-[![GitHub stars](https://img.shields.io/github/stars/olado/doT.svg?style=social&label=Star&style=plastic)](https://github.com/olado/doT.js)
+[![GitHub stars](https://img.shields.io/github/stars/olado/doT.svg?style=social&label=Star&style=plastic)](https://github.com/olado/doT)
 
 #### Advantages
 * Tiny size (3.3KB & 2.0KB for gzip size)
@@ -50,7 +50,7 @@ Download it from [CDN](http://www.bootcdn.cn/dot/).
 
 # hogan
 Product by twitter, [hogan.js](https://github.com/twitter/hogan.js), 8.4KB, 4.2KB for gzip size.
-[![GitHub stars](https://img.shields.io/github/stars/twitter/hogan.svg?style=social&label=Star&style=plastic)](https://github.com/twitter/hogan.js)
+[![GitHub stars](https://img.shields.io/github/stars/twitter/hogan.js.svg?style=social&label=Star&style=plastic)](https://github.com/twitter/hogan.js)
 
 # Best Practices
 
