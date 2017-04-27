@@ -111,6 +111,20 @@ a.edit-page:before {
   margin-right: 12px;
   vertical-align: text-top;
 }
+#comments a.btn-leave-comment {
+  border: solid 1px #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: block;
+  width: 8em;
+  margin: 50px auto 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#comments a.btn-leave-comment:hover {
+  background: #f4f4f4;
+}
 
 .comment {
   position: relative;
@@ -209,9 +223,6 @@ a.edit-page:before {
   background-color: rgba(27,31,35,0.05);
   font-size: 85%;
   padding: 0 .2em;
-}
-div#comments #header a {
-  text-decoration: underline;
 }
 
 /* paging */

@@ -22,15 +22,14 @@ layout: default
     {{ content }}
   </div>
 
-  <a class='edit-page' href="{{site.github.repository_url}}/blob/master/{{page.path}}">Some issues on this page ? Edit this page ~ !</a>
+  <a class='edit-page' href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>
 </article>
 
 {% if page.commentIssueId %}
   <div id="comments">
     <h2>Comments</h2>
-    <div id="header">
-      Want to leave a comment? Visit <a href="https://github.com/zhoukekestar/notes/issues/{{page.commentIssueId}}"> this post's issue page on GitHub</a> (you'll need a GitHub account. What? Like you already don't have one? :).
-    </div>
+    <div class='comments'></div>
+    <a class='btn-leave-comment' href="https://github.com/zhoukekestar/notes/issues/{{page.commentIssueId}}">Leave a comment</a>
   </div>
   <script src='https://cdn.bootcss.com/es6-promise/4.1.0/es6-promise.auto.min.js'></script>
   <script src='https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js'></script>
@@ -38,7 +37,7 @@ layout: default
   <script type="text/javascript">
 
       function loadComments (data) {
-        var comments = document.querySelector('#comments');
+        var comments = document.querySelector('#comments .comments');
         data.forEach(function(item) {
           var cuser = item.user.login;
           var cuserlink = "https://www.github.com/" + item.user.login;
