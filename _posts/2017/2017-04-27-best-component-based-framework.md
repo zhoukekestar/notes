@@ -21,11 +21,11 @@ What we can choose ?
 * Preact [![GitHub stars](https://img.shields.io/github/stars/developit/preact.svg?label=Star&style=plastic)](https://github.com/developit/preact)
 
 # webcomponents.js
-* +1, Close to standards.
-* +1, Good for future.
-* -1, Complex polyfill (css, shadow dom, custom element).
-* -1, Mess code style (compiled to es5 for lower browser & need es5-loader for modern browser).
-* -1, Bad browser compatibility, IE 10+, Android 4.4+.
+* `+1`, Close to standards.
+* `+1`, Good for future.
+* `-1`, Complex polyfill (css, shadow dom, custom element).
+* `-1`, Mess code style (compiled to es5 for lower browser & need es5-loader for modern browser).
+* `-1`, Bad browser compatibility, IE 10+, Android 4.4+.
 
 ```html
 // in component
@@ -35,18 +35,18 @@ var currnetScript = document.currentScript || document._currentScript
 ```
 
 # Polymer
-* -1, We should use bower to install dependencies.
-* -1, Too bundle with `polymer build --bundle` or too separate with `polymer build --js-compile` which should depends on `HTTP/2`.
-* -1, Not so easy to start, not so easy to build with other framework.
-* -1, Bad browser compatibility. Android 4.4+, IE 10+.
-* +1, Close to standards.
+* `-1`, We should use bower to install dependencies.
+* `-1`, Too bundle with `polymer build --bundle` or too separate with `polymer build --js-compile` which should depends on `HTTP/2`.
+* `-1`, Not so easy to start, not so easy to build with other framework.
+* `-1`, Bad browser compatibility. Android 4.4+, IE 10+.
+* `+1`, Close to standards.
 
 # riot
 Simple and elegant component-based UI library
 
-* -1, Not standard.
-* +1, Easy to use.
-* +1, Wild browser supported, IE 9+.
+* `-1`, Not standard.
+* `+1`, Easy to use.
+* `+1`, Wild browser supported, IE 9+.
 
 How to use it ?
 
@@ -75,13 +75,13 @@ How to use it ?
 ```
 
 # Vue
-* +1, Browser support, IE 9+.
+* `+1`, Browser support, IE 9+.
 
 # React
-* +1, Stable.
-* +1, Popular.
-* -1, Need compiler like webpack.
-* -1, Not html-based but JSX.
+* `+1`, Stable.
+* `+1`, Popular.
+* `-1`, Need compiler like webpack.
+* `-1`, Not html-based but JSX.
 
 # React-like: inferno, Preact
 ## Preact
@@ -93,7 +93,7 @@ An extremely fast, React-like JavaScript library for building modern user interf
 # mithril
 A Javascript Framework for Building Brilliant Applications (development repo).
 
-* +1, Browser support, IE 9+.
+* `+1`, Browser support, IE 9+.
 
 # Benchmark
 * [riot.js](https://rawgit.com/krausest/js-framework-benchmark/4f3cbb352c84c31d1d10ecd43f893cf753ae4f12/webdriver-java/table.html)
