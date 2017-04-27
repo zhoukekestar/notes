@@ -25,7 +25,7 @@ github_username:  zhoukekestar
 
 # paging
 paginate: 10
-paginate_path: "/notes/page:num/"
+paginate_path: "/page:num/"
 
 # Build settings
 markdown: kramdown
