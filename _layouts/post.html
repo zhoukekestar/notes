@@ -56,6 +56,11 @@ layout: default
               + "</div>"
               + "<div class='commentbody'>" + cbody + "</div></div>");
         })
+
+        // Did you know? Tell reader that she/he can leave a message.
+        if (data.length === 0) {
+          comments = '<div class="comment"><div class="commentgravatar"><img src="https://avatars0.githubusercontent.com/u/7157346?v=3"></div><div class="commentheader"><a class="commentuser" href="https://www.github.com/zhoukekestar">zhoukekestar</a><a class="commentdate" href="javascript:;">just now</a></div><div class="commentbody"><p>No comments left so far. You can leave one for this.</p></div></div>';
+        }
       }
 
       fetch('https://api.github.com/repos/zhoukekestar/notes/issues/{{page.commentIssueId}}/comments', {
