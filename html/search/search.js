@@ -60,7 +60,7 @@
   var searchTerm = getQueryVariable('query');
   if (searchTerm) {
     searchBox.setAttribute("value", searchTerm);
-    searchByKeyword(keyword);
+    searchByKeyword(searchTerm);
   }
   // search by input value
   searchBox.addEventListener('input', function () {

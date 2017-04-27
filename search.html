@@ -15,6 +15,15 @@ layout: default
   .search:focus {
     box-shadow: 0 0 6px 1px #e0dddd;
   }
+  #search-results {
+    padding: 0;
+    margin: 40px 0;
+  }
+  #search-results li + li {
+    margin-top: 30px;
+    border-top: solid 1px #f4f4f4;
+    padding-top: 30px;
+  }
 </style>
 <input class='search' type="text" id="search-box" placeholder="input something to search...">
 
