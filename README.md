@@ -1,5 +1,5 @@
 # Online
-[https://zhoukekestar.github.io/blog/](https://zhoukekestar.github.io/blog/)
+[https://zhoukekestar.github.io/notes/](https://zhoukekestar.github.io/notes/)
 
 # Todo
 - [ ] Http2.0

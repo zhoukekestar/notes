@@ -192,7 +192,7 @@ div#comments #header a {
 <div id="comments">
   <h2>Comments</h2>
   <div id="header">
-    Want to leave a comment? Visit <a href="https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}"> this post's issue page on GitHub</a> (you'll need a GitHub account. What? Like you already don't have one? :).
+    Want to leave a comment? Visit <a href="https://github.com/zhoukekestar/notes/issues/{{page.commentIssueId}}"> this post's issue page on GitHub</a> (you'll need a GitHub account. What? Like you already don't have one? :).
   </div>
 </div>
 <script src='https://cdn.bootcss.com/es6-promise/4.1.0/es6-promise.auto.min.js'></script>
@@ -205,7 +205,7 @@ div#comments #header a {
       data.forEach(function(item) {
         var cuser = item.user.login;
         var cuserlink = "https://www.github.com/" + item.user.login;
-        var clink = "https://github.com/zhoukekestar/blog/issues/{{page.commentIssueId}}#issuecomment-" + item.url.substring(item.url.lastIndexOf("/") + 1);
+        var clink = "https://github.com/zhoukekestar/notes/issues/{{page.commentIssueId}}#issuecomment-" + item.url.substring(item.url.lastIndexOf("/") + 1);
         var cbody = item.body_html;
         var cavatarlink = item.user.avatar_url;
         var cdate = new timeago().format(item.created_at);
@@ -222,7 +222,7 @@ div#comments #header a {
       })
     }
 
-    fetch('https://api.github.com/repos/zhoukekestar/blog/issues/{{page.commentIssueId}}/comments', {
+    fetch('https://api.github.com/repos/zhoukekestar/notes/issues/{{page.commentIssueId}}/comments', {
       headers: {
         Accept: "application/vnd.github.full+json"
       }
