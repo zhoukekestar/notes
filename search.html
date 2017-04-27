@@ -1,11 +1,22 @@
 ---
 layout: default
 ---
-<form action="./search" method="get">
-  <label for="search-box">Search</label>
-  <input type="text" id="search-box" name="query">
-  <input type="submit" value="search">
-</form>
+<style>
+  .search {
+    display: block;
+    width: 16em;
+    margin: 10px auto;
+    border-radius: 3px;
+    border: solid 1px #ccc;
+    padding: 8px 16px;
+    font-size: 14px;
+    outline: none;`
+  }
+  .search:focus {
+    box-shadow: 0 0 6px 1px #e0dddd;
+  }
+</style>
+<input class='search' type="text" id="search-box" placeholder="input something to search...">
 
 <ul id="search-results" style='margin-top: 40px;'></ul>
 <script>

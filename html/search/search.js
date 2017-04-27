@@ -30,32 +30,42 @@
     }
   }
 
-  var searchTerm = getQueryVariable('query');
+  // Initalize lunr with the fields it will be searching on. I've given title
+  // a boost of 10 to indicate matches on this field are more important.
+  var idx = lunr(function () {
+    this.field('id');
+    this.field('title', { boost: 10 });
+    this.field('author');
+    this.field('category');
+    this.field('content');
 
-  if (searchTerm) {
-    document.getElementById('search-box').setAttribute("value", searchTerm);
+    for (var key in window.store) { // Add the data to lunr
+      this.add({
+        'id': key,
+        'title': window.store[key].title,
+        'author': window.store[key].author,
+        'category': window.store[key].category,
+        'content': window.store[key].content
+      });
+    }
+  });
+  var searchBox = document.getElementById('search-box');
 
-    // Initalize lunr with the fields it will be searching on. I've given title
-    // a boost of 10 to indicate matches on this field are more important.
-    var idx = lunr(function () {
-      this.field('id');
-      this.field('title', { boost: 10 });
-      this.field('author');
-      this.field('category');
-      this.field('content');
-
-      for (var key in window.store) { // Add the data to lunr
-        this.add({
-          'id': key,
-          'title': window.store[key].title,
-          'author': window.store[key].author,
-          'category': window.store[key].category,
-          'content': window.store[key].content
-        });
-      }
-    });
-
-    var results = idx.search(searchTerm); // Get lunr to perform a search
+  function searchByKeyword (keyword) {
+    var results = idx.search(keyword); // Get lunr to perform a search
     displaySearchResults(results, window.store); // We'll write this in the next section
   }
+
+  // get result by query
+  var searchTerm = getQueryVariable('query');
+  if (searchTerm) {
+    searchBox.setAttribute("value", searchTerm);
+    searchByKeyword(keyword);
+  }
+  // search by input value
+  searchBox.addEventListener('input', function () {
+    searchByKeyword(this.value);
+  })
+
+  searchBox.focus();
 })();
