@@ -1,4 +1,7 @@
 (function() {
+  var link = document.createElement('a');
+  link.target = '_blank';
+
   function displaySearchResults(results, store, keyword) {
     var searchResults = document.getElementById('search-results');
 
@@ -14,9 +17,9 @@
       searchResults.innerHTML = appendString;
     } else {
       searchResults.innerHTML =
-        '<li>What? No results found? <a class="google-it" href="https://www.google.com.hk/#newwindow=1&q='
+        '<li>What? No results found? <a class="google-it" target="_blank" href="https://www.google.com.hk/#newwindow=1&q='
         + encodeURIComponent('site:zhoukekestar.github.io ' + keyword)
-        + '"><img src="/notes/assets/google.svg"> it!</a></li>';
+        + '">Google it!</a></li>';
     }
   }
 
@@ -75,10 +78,12 @@
   })
 
   document.querySelector('button[google]').onclick = function () {
-    location.href = 'https://www.google.com.hk/#newwindow=1&q=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+    link.href = 'https://www.google.com.hk/#newwindow=1&q=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+    link.click();
   }
   document.querySelector('button[baidu]').onclick = function () {
-    location.href = 'https://www.baidu.com/s?wd=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+    link.href =  = 'https://www.baidu.com/s?wd=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+    link.click();
   }
 
   searchBox.focus();
