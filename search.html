@@ -2,8 +2,10 @@
 layout: default
 ---
 <style>
+  .search-wrapper {
+    text-align: center;
+  }
   .search {
-    display: block;
     width: 16em;
     margin: 10px auto;
     border-radius: 3px;
@@ -11,6 +13,24 @@ layout: default
     padding: 8px 16px;
     font-size: 14px;
     outline: none;`
+  }
+  .search-wrapper button {
+    border-radius: 2px;
+    border: solid 1px #dad8d8;
+    height: 33px;
+    vertical-align: middle;
+    margin-left: 20px;
+    outline: none;
+    background: #ececec;
+  }
+  .search-wrapper button:hover {
+    background: #e2e2e2;
+    cursor: pointer;
+  }
+  .search-wrapper button img {
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: -39%;
   }
   .search:focus {
     box-shadow: 0 0 6px 1px #e0dddd;
@@ -37,7 +57,11 @@ layout: default
     height: 1em;
   }
 </style>
-<input class='search' type="text" id="search-box" placeholder="input something to search...">
+<div class='search-wrapper'>
+  <input class='search' type="text" id="search-box" placeholder="input something to search...">
+  <button google><img src='/notes/assets/google.svg' />Google</button>
+  <button baidu><img src='/notes/assets/baidu.svg' />Baidu</button>
+</div>
 
 <ul id="search-results" style='margin-top: 40px;'></ul>
 <script>

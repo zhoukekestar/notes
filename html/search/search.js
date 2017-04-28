@@ -66,13 +66,20 @@
     searchByKeyword(searchTerm);
   }
   // search by input value
-  searchBox.addEventListener('keypress', function () {
+  searchBox.addEventListener('keypress', function (e) {
     searchByKeyword(this.value);
 
     if (e.keyCode === 13 || e.which === 13 || e.key === 'Enter') {
       console.log('That\'s all.');
     }
   })
+
+  document.querySelector('button[google]').onclick = function () {
+    location.href = 'https://www.google.com.hk/#newwindow=1&q=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+  }
+  document.querySelector('button[baidu]').onclick = function () {
+    location.href = 'https://www.baidu.com/s?wd=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+  }
 
   searchBox.focus();
 })();
