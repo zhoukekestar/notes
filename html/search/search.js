@@ -1,5 +1,5 @@
 (function() {
-  function displaySearchResults(results, store) {
+  function displaySearchResults(results, store, keyword) {
     var searchResults = document.getElementById('search-results');
 
     if (results.length) { // Are there any results?
@@ -13,7 +13,10 @@
 
       searchResults.innerHTML = appendString;
     } else {
-      searchResults.innerHTML = '<li>No results found</li>';
+      searchResults.innerHTML =
+        '<li>What? No results found? <a class="google-it" href="https://www.google.com.hk/#newwindow=1&q='
+        + encodeURIComponent('site:zhoukekestar.github.io ' + keyword)
+        + '"><img src="/notes/assets/google.svg"> it!</a></li>';
     }
   }
 
@@ -53,7 +56,7 @@
 
   function searchByKeyword (keyword) {
     var results = idx.search(keyword); // Get lunr to perform a search
-    displaySearchResults(results, window.store); // We'll write this in the next section
+    displaySearchResults(results, window.store, keyword); // We'll write this in the next section
   }
 
   // get result by query
@@ -63,8 +66,12 @@
     searchByKeyword(searchTerm);
   }
   // search by input value
-  searchBox.addEventListener('input', function () {
+  searchBox.addEventListener('keypress', function () {
     searchByKeyword(this.value);
+
+    if (e.keyCode === 13 || e.which === 13 || e.key === 'Enter') {
+      console.log('That\'s all.');
+    }
   })
 
   searchBox.focus();
