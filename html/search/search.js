@@ -82,7 +82,7 @@
     link.click();
   }
   document.querySelector('button[baidu]').onclick = function () {
-    link.href =  = 'https://www.baidu.com/s?wd=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
+    link.href = 'https://www.baidu.com/s?wd=' + encodeURIComponent('site:zhoukekestar.github.io ' + searchBox.value);
     link.click();
   }
 
