@@ -15,6 +15,7 @@ What we can choose ?
 * Riot.js [![GitHub stars](https://img.shields.io/github/stars/riot/riot.svg?label=Star&style=plastic)](https://github.com/riot/riot)
 * mithril.js [![GitHub stars](https://img.shields.io/github/stars/lhorie/mithril.js.svg?label=Star&style=plastic)](https://github.com/lhorie/mithril.js)
 * Vue [![GitHub stars](https://img.shields.io/github/stars/vuejs/vue.svg?label=Star&style=plastic)](https://github.com/vuejs/vue)
+* ember.js [![GitHub stars](https://img.shields.io/github/stars/emberjs/ember.js.svg?label=Star&style=plastic)](https://github.com/emberjs/ember.js)
 
 * React [![GitHub stars](https://img.shields.io/github/stars/facebook/react.svg?label=Star&style=plastic)](https://github.com/facebook/react)
 * inferno [![GitHub stars](https://img.shields.io/github/stars/infernojs/inferno.svg?label=Star&style=plastic)](https://github.com/infernojs/inferno)
