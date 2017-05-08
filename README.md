@@ -8,9 +8,9 @@
 - [ ] babel
 - [ ] typescript, flow
 - [ ] es6
-- [ ] promise, await, sync, yield
+- [x] promise, await, sync, yield
 - [ ] micro service, docker
-- [ ] WebComponents
+- [x] WebComponents
 - [ ] Weex, Vue, Wechat Micro-App, React
 - [ ] Unit Test
 - [ ] WorkFlow, Git
