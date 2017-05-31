@@ -5,12 +5,13 @@ date:   2017-05-31
 categories: proxy
 tags: [javascript, proxy, network]
 ---
-## demo
-@see [https://stackoverflow.com/questions/3862813/how-can-i-use-an-http-proxy-with-node-js-http-client](https://stackoverflow.com/questions/3862813/how-can-i-use-an-http-proxy-with-node-js-http-client)
-```js
-const http = require('http');
-let proxies = '70.35.197.74:80,52.14.161.178:3128,52.42.43.181:80,35.161.2.200:80,104.254.244.148:8888,13.88.183.184:3128,170.55.15.175:3128,104.237.227.202:80,52.40.92.38:80,52.43.253.235:80,52.52.214.182:8080,96.126.113.158:3128,73.193.193.119:21320,54.174.128.8:10200,45.55.202.39:80,24.52.60.234:8080,97.77.215.225:8181';
 
+## Check Proxies' Availability.
+@see [how-can-i-use-an-http-proxy-with-node-js-http-client](https://stackoverflow.com/questions/3862813/how-can-i-use-an-http-proxy-with-node-js-http-client)
+```js
+const request = require('request');
+
+let proxies = '180.122.157.224:22059,182.42.45.235:808,60.205.95.162:808,115.215.70.27:808,171.104.133.87:9999';
 proxies = proxies.split(',');
 proxies = proxies.map(p => {
   const t = p.split(':');
@@ -20,49 +21,62 @@ proxies = proxies.map(p => {
   };
 });
 
-const request = function (path, host, port) {
+const send = (proxy) => {
   return new Promise((resolve, reject) => {
-    http.get({
-      host,
-      port,
-      path,
-      headers: {
-        Host: "pv.sohu.com"
+    const t = Date.now();
+    request({
+      url: 'https://pv.sohu.com/cityjson',
+      proxy: `http://${proxy.host}:${proxy.port}`,
+      encoding: 'utf8',
+      timeout: 5000
+    }, (error, response, body) => {
+      if (!error && response.statusCode === 200) {
+        if (response.body.indexOf(proxy.host) !== -1) {
+          console.log(`${proxy.host}:${proxy.port} works.`);
+        }
+        resolve({
+          proxy,
+          time: Date.now() - t,
+          body: response.body
+        });
+      } else {
+        reject(error || new Error(response.statusCode));
       }
-    }, (res) => {
-      const { statusCode } = res;
-      let rawData = '';
+    });
 
-      if (statusCode !== 200) {
-        return reject(new Error(`Request Failed.\nStatus Code: ${statusCode}`));
-      }
-
-      res.setEncoding('utf8');
-      res.on('data', (chunk) => { rawData += chunk; });
-      res.on('end', () => {
-        resolve(rawData)
-      });
-    }).on('error', (e) => {
-      reject(e);
-    })
+    setTimeout(function () {
+      reject(new Error('Timeout'));
+    }, 10000);
+  }).catch((e) => {
   });
-}
+};
 
-;(async function () {
 
-  for (var i = 0; i < proxies.length; i++) {
-    console.log(proxies[i])
-    try {
-      let r = await request('https://pv.sohu.com/cityjson', proxies[i].host, proxies[i].port);
-      console.log(r);
-    } catch (e) {
-      console.log(e.message)
-    }
-  }
-
-})();
+Promise.all(proxies.map(p => send(p))).then(r => {
+  r = r.filter(t => t);
+  r.sort((a1, a2) => a1.time > a2.time);
+  console.log(r);
+  console.log('Available Proxies: ' + r.map(t => `${t.proxy.host}:${t.proxy.port}`));
+})
+/*
+182.42.45.235:808 works.
+60.205.95.162:808 works.
+115.215.70.27:808 works.
+[ { proxy: { host: '182.42.45.235', port: '808' },
+    time: 724,
+    body: 'var returnCitySN = {"cip": "182.42.45.235", "cid": "370000", "cname": ""};' },
+  { proxy: { host: '60.205.95.162', port: '808' },
+    time: 4537,
+    body: 'var returnCitySN = {"cip": "60.205.95.162", "cid": "530000", "cname": ""};' },
+  { proxy: { host: '115.215.70.27', port: '808' },
+    time: 8092,
+    body: 'var returnCitySN = {"cip": "115.215.70.27", "cid": "330200", "cname": ""};' },
+  { proxy: { host: '171.104.133.87', port: '9999' },
+    time: 9579,
+    body: 'var returnCitySN = {"cip": "171.38.15.178", "cid": "450900", "cname": ""};' } ]
+Available Proxies: 182.42.45.235:808,60.205.95.162:808,115.215.70.27:808,171.104.133.87:9999
+ */
 ```
-
 
 ## http://www.xicidaili.com/nt
 
@@ -70,22 +84,11 @@ const request = function (path, host, port) {
 var result = [];
 var eles = document.querySelectorAll('#ip_list tr + tr')
 for (var i = 0; i < eles.length; i++) {
-  result.push(eles[i].children[2].innerHTML + ':' + eles[i].children[3].innerHTML);
+  result.push(eles[i].children[1].innerHTML + ':' + eles[i].children[2].innerHTML);
 }
 result.join(',')
 ```
 
-
-## http://www.haodailiip.com/guonei
-
-```js
-var result = [];
-var eles = document.querySelectorAll('.proxy_table tr + tr')
-for (var i = 0; i < eles.length; i++) {
-  result.push((eles[i].children[0].innerHTML + ':' + eles[i].children[1].innerHTML).replace(/[\r\n\s]*/g, ''));
-}
-result.join(',')
-```
 
 ## https://www.us-proxy.org/
 
@@ -94,39 +97,6 @@ var result = [];
 var eles = document.querySelectorAll('#proxylisttable tbody tr')
 for (var i = 0; i < eles.length; i++) {
   result.push((eles[i].children[0].innerHTML + ':' + eles[i].children[1].innerHTML).replace(/[\r\n\s]*/g, ''));
-}
-result.join(',')
-```
-
-
-## http://proxylist.hidemyass.com/
-
-```js
-var result = [];
-var eles = document.querySelectorAll('#listable tbody tr')
-i = 0;
-for (var i = 0; i < eles.length; i++) {
-  var ip = '';
-
-  var ele = eles[i].children[1].children[0];
-  for (var j = 0; j < ele.childNodes.length; j++) {
-
-    var node = ele.childNodes[j];
-    var style = {};
-    try {
-      style = getComputedStyle(node);
-    } catch (e) {}
-
-    if (node.nodeName === '#text') {
-      ip += node.textContent;
-    } else if (node.nodeName !== 'STYLE' && style.display !== 'none') {
-      ip += node.innerHTML;
-    } else {
-      console.log(style.display);
-    }
-  }
-
-  result.push((ip + ':' + eles[i].children[2].innerHTML).replace(/\s/g, ''));
 }
 result.join(',')
 ```
