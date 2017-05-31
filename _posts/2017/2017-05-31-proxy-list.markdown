@@ -78,25 +78,28 @@ Available Proxies: 182.42.45.235:808,60.205.95.162:808,115.215.70.27:808,171.104
  */
 ```
 
-## http://www.xicidaili.com/nt
+## [free-proxy-list.net](https://free-proxy-list.net/)
 
 ```js
-var result = [];
-var eles = document.querySelectorAll('#ip_list tr + tr')
-for (var i = 0; i < eles.length; i++) {
-  result.push(eles[i].children[1].innerHTML + ':' + eles[i].children[2].innerHTML);
-}
-result.join(',')
+Array.from(document.querySelectorAll('#proxylisttable tbody tr'))
+  .map(t => `${t.children[0].innerHTML}:${t.children[1].innerHTML}`)
+  .join(',')
+```
+
+## [www.xicidaili.com](http://www.xicidaili.com/nt)
+
+```js
+Array.from(document.querySelectorAll('#ip_list tbody tr'))
+  .filter(t => /\d/.test(t.children[1].innerHTML))
+  .map(t => `${t.children[1].innerHTML}:${t.children[2].innerHTML}`)
+  .join(',')
 ```
 
 
-## https://www.us-proxy.org/
+## [www.us-proxy.org](https://www.us-proxy.org/)
 
 ```js
-var result = [];
-var eles = document.querySelectorAll('#proxylisttable tbody tr')
-for (var i = 0; i < eles.length; i++) {
-  result.push((eles[i].children[0].innerHTML + ':' + eles[i].children[1].innerHTML).replace(/[\r\n\s]*/g, ''));
-}
-result.join(',')
+Array.from(document.querySelectorAll('#proxylisttable tbody tr'))
+  .map(t => `${t.children[0].innerHTML}:${t.children[1].innerHTML}`)
+  .join(',');
 ```
