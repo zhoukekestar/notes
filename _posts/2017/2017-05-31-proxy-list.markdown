@@ -104,3 +104,69 @@ Array.from(document.querySelectorAll('#proxylisttable tbody tr'))
   .map(t => `${t.children[0].innerHTML}:${t.children[1].innerHTML}`)
   .join(',');
 ```
+
+# Chrome Extension Proxy
+The extension document is [here](https://developer.chrome.com/extensions/proxy#type-PacScript).
+
+```js
+/* PAC script */
+// request https://pv.sohu.com/cityjson  to get current public ip.
+function FindProxyForURL(url, host) {
+  if (shExpMatch(host, "*sohu.com")) {
+    return "PROXY 201.236.222.231:8080";
+  }
+  return 'DIRECT';
+}
+
+var config = {
+  mode: "pac_script",
+  pacScript: {
+    data: FindProxyForURL.toString(),
+    mandatory: true
+  }
+};
+
+chrome.proxy.settings.set({
+    value: config,
+    scope: 'regular'
+  },
+  function() {
+    console.log(arguments)
+  }
+);
+
+/* fixed servers */
+var config = {
+ mode: "fixed_servers",
+ rules: {
+   singleProxy: {
+     scheme: "http",
+     host: "104.254.244.148",
+     port: 8888
+   },
+   bypassList: ["<local>"]
+ }
+};
+chrome.proxy.settings.set(
+  {
+    value: config,
+    scope: 'regular'
+  },
+  function() {
+
+  }
+);
+
+/* clear config */
+chrome.proxy.settings.clear({
+}, function (config) {
+  console.log(config);
+})
+
+/* get config */
+chrome.proxy.settings.get({
+  'incognito': false
+}, function (config) {
+  console.log(config);
+})
+```
