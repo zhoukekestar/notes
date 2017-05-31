@@ -108,6 +108,8 @@ Array.from(document.querySelectorAll('#proxylisttable tbody tr'))
 # Chrome Extension Proxy
 The extension document is [here](https://developer.chrome.com/extensions/proxy#type-PacScript).
 
+### PAC Script
+
 ```js
 /* PAC script */
 // request https://pv.sohu.com/cityjson  to get current public ip.
@@ -134,7 +136,11 @@ chrome.proxy.settings.set({
     console.log(arguments)
   }
 );
+```
 
+### Fixed Servers
+
+```js
 /* fixed servers */
 var config = {
  mode: "fixed_servers",
@@ -156,17 +162,52 @@ chrome.proxy.settings.set(
 
   }
 );
+```
 
+### Clear Proxy config
+
+```js
 /* clear config */
 chrome.proxy.settings.clear({
 }, function (config) {
   console.log(config);
 })
+```
 
+### Get Proxy config
+
+```js
 /* get config */
 chrome.proxy.settings.get({
   'incognito': false
 }, function (config) {
   console.log(config);
 })
+```
+
+### Load Proxies
+
+```js
+/* fetch html & get proxies */
+const loadProxies = function () {
+  return new Promise((resolve, reject) => {
+    fetch('https://free-proxy-list.net/')
+      .then(r => r.text())
+      .then(r => {
+        const doc = document.createElement('div');
+        doc.innerHTML = r; // body: r.match(/<body>([\s\S]*)<\/body>/)[1]
+
+        const proxies = Array.from(doc.querySelectorAll('#proxylisttable tbody tr'))
+          .map(t => `${t.children[0].innerHTML}:${t.children[1].innerHTML}`)
+          .join(',')
+
+        resolve(proxies);
+      });
+  });
+};
+
+;(async function () {
+  var proxies = await loadProxies();
+  console.log(proxies);
+})();
 ```
