@@ -220,3 +220,8 @@ a.edit-page:before {
   font-size: 85%;
   padding: 0 .2em;
 }
+/* link style */
+main.page-content .post-content a,
+.comment .commentbody a {
+  text-decoration: underline;
+}
