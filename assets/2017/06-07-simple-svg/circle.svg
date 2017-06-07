@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="35" width="35" version="1.1">
+  <circle cx="50%" cy="50%" r="15.915494309189533" stroke="#ccc" stroke-width="2" fill="transparent"/>
+  <circle cx="50%" cy="50%" r="15.915494309189533" stroke="#02ae51" stroke-width="2" fill="transparent" stroke-dasharray="0, 100, 100" class='percent'/>
+</svg>
