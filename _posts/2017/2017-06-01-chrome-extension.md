@@ -3,7 +3,7 @@ layout: post
 title:  "Chrome Extension"
 date:   2017-06-01
 tags: [chrome, extension, note]
-commentIssueId: 1
+commentIssueId: 15
 ---
 
 ## Get last focused window.
