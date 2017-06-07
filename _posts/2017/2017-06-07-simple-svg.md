@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Chrome Extension"
-date:   2017-06-01
-tags: [chrome, extension, note]
-commentIssueId: 15
+title:  "Simple SVG"
+date:   2017-06-07
+tags: [svg, html, css]
+commentIssueId: 16
 ---
 
 # SVG for resume
