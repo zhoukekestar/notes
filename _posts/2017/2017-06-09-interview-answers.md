@@ -327,7 +327,7 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
   ```html
   <div style='width: 10em; margin: 0 auto;'>margin<div>
   ```
-  <div style='width: 6em; margin: 0 auto;'>margin<div>
+  <div style='width: 3em; margin: 0 auto;'>margin<div>
 * `justify-content: center;`
   ```html
   <div style='display: flex; justify-content: center;'>
@@ -376,28 +376,188 @@ function elementInViewport(el) {
 ```
 
 ## 实现页面加载进度条
+这个需要描述一下[PACE](https://github.com/HubSpot/PACE/)的实现原理。
+* AJAX
+* Elements
+* Document
+* Event Lag
 
 ## 事件委托
-和DOM解绑，利用冒泡和e.target来确定事件和元素
+利用`事件冒泡`和`e.target`来确定事件和元素。在`jQuery`中有`$.delegate`方法去代理事件。使用委托代理的原因：
+* 需要绑定事件的元素很多，且处理逻辑类似。
+* 元素是动态创建，或频繁增加、删除，导致元素绑定事件过于复杂的。
+
+```js
+// 参考 https://github.com/zenorocha/delegate/blob/master/src/delegate.js
+const delegate = (element, selector, type, callback) => {
+  element.addEventListener(type, (e) => {
+    let target = e.path.find(ele => ele.matches(selector))
+    if (target) {
+      callback.call(element, e);
+    }
+  });
+};
+```
 
 ## 实现extend函数
-浅拷贝使用 Object.assign 就够了，深拷贝
+浅拷贝使用 Object.assign 就够了，大多数情况下，使用该方法。
+
+深拷贝: 参考[zepto extend](https://github.com/madrobby/zepto/blob/master/src/zepto.js#files)
+```js
+var class2type = {}
+function type(obj) {
+  return obj == null ? String(obj) :
+    class2type[toString.call(obj)] || "object"
+}
+function isFunction(value) { return type(value) == "function" }
+function isWindow(obj)     { return obj != null && obj == obj.window }
+function isDocument(obj)   { return obj != null && obj.nodeType == obj.DOCUMENT_NODE }
+function isObject(obj)     { return type(obj) == "object" }
+function isPlainObject(obj) {
+  return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype
+}
+var isArray = Array.isArray ||
+    function(object){ return object instanceof Array }
+
+function extend(target, source, deep) {
+  for (key in source)
+    if (deep && (isPlainObject(source[key]) || isArray(source[key]))) {
+      if (isPlainObject(source[key]) && !isPlainObject(target[key]))
+        target[key] = {}
+      if (isArray(source[key]) && !isArray(target[key]))
+        target[key] = []
+      extend(target[key], source[key], deep)
+    }
+    else if (source[key] !== undefined) target[key] = source[key]
+}
+```
+
+直接 Clone 一个 Nested Object
+```js
+var origin = {"a": "a"}
+var copy = JSON.parse(JSON.stringify(origin));
+```
 
 ## 为什么会有跨域的问题以及解决方式
 
+参考[前端解决跨域问题的8种方案](http://blog.csdn.net/joyhen/article/details/21631833), [HTTP访问控制（CORS）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS), [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
+
+> 出于安全考虑，浏览器会限制从脚本内发起的跨域HTTP请求。例如，XMLHttpRequest 和 Fetch 遵循同源策略。
+
+> 同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。
+
+* JSONP(JSON with Padding)
+* CORS(Cross-Origin Resource Sharing)
+* WebSockt
+
 ## jsonp原理、postMessage原理
+参考[can-anyone-explain-what-jsonp-is-in-layman-terms](https://stackoverflow.com/questions/3839966/can-anyone-explain-what-jsonp-is-in-layman-terms)
+* jsonp原理是加在一个 `script`，并执行一段回调js，因为加载js是没有跨域问题的，但由此也带来了jsonp的一些问题
+  * 无法发送特定的头部
+  * 只能是GET请求
+  * 无法发送body参数
+* [postMessage 文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
 ## 拖拽功能
 比如把5个兄弟节点中的最后一个节点拖拽到节点1和节点2之间
 
-## 动画：setTimeout何时执行，requestAnimationFrame的优点
+```html
+<ul id='drag'>
+  <li draggable="true">1</li>
+  <li draggable="true">2</li>
+  <li draggable="true">3</li>
+  <li draggable="true">4</li>
+  <li draggable="true">5</li>
+</ul>
+<script>
+  var ele;
+  document.querySelector('#drag').addEventListener('dragstart', function (e) {
+    ele = e.target;
+    ele.classList.add('draging');
+  })
+  document.querySelector('#drag').addEventListener('dragover', function (e) {
+    e.preventDefault();
+
+    if (e.target.nodeName === 'LI') {
+      e.target.parentNode.insertBefore(ele, e.target);
+    }
+  })
+  document.querySelector('#drag').addEventListener('drop', function (e) {
+    ele.classList.remove('draging');
+  })
+</script>
+```
+
+<style>
+  #drag {
+    margin: 10px 0;
+    padding: 0;
+    border: dashed 2px #ccc;
+  }
+  #drag li {
+    background: #f00;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+    color: #fff;
+  }
+  #drag li.draging {
+    opacity: .3;
+  }
+</style>
+<ul id='drag'>
+  <li draggable="true">1</li>
+  <li draggable="true">2</li>
+  <li draggable="true">3</li>
+  <li draggable="true">4</li>
+  <li draggable="true">5</li>
+</ul>
+<script>
+  var ele;
+  document.querySelector('#drag').addEventListener('dragstart', function (e) {
+    ele = e.target;
+    ele.classList.add('draging');
+  })
+  document.querySelector('#drag').addEventListener('dragover', function (e) {
+    e.preventDefault();
+
+    if (e.target.nodeName === 'LI') {
+      e.target.parentNode.insertBefore(ele, e.target);
+    }
+  })
+  document.querySelector('#drag').addEventListener('drop', function (e) {
+    ele.classList.remove('draging');
+  })
+</script>
+
+## 动画
+setTimeout何时执行，requestAnimationFrame的优点
 
 ## 手写parseInt的实现
 要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
 
+==, 这题目，我都不知道我在干什么，为什么不用Number....
+
+```js
+var parseInt = (str) => {
+  let n = 0;
+  let i = 1;
+  str.split('').reverse().map(s => {
+    n += i * (s.charCodeAt(0) - 48);
+    i *= 10;
+  })
+  return n;
+}
+```
+
 
 ## 分页器组件
 为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
+
+这是在考服务端吗？
 
 ## ES6新增了哪些特性，使用过哪些，也有当场看代码说输出结果的
 
