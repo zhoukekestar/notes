@@ -578,7 +578,8 @@ require.js 实现原理
 ## Promise 的实现原理，进一步会问 async、await 是否使用过
 
 Promise 简易实现, 参考: [Promise简单实现](http://www.jianshu.com/p/473cd754311f)
-<!-- ```js
+```js
+/* 还没完成。。。 */
 class MyPromise {
   constructor (fn) {
     this.deferreds = [];
@@ -606,33 +607,8 @@ class MyPromise {
     return this;
   }
 }
-
-new MyPromise(resolve => {
-  setTimeout( () => {
-    resolve('hello')
-  }, 1000)
-}).then(v => {
-  console.log(v)
-}).then(() => {
-  console.log('world')
-})
-
-new MyPromise(resolve => {
-  setTimeout( () => {
-    resolve('hello')
-  }, 1000)
-}).then(v => {
-  console.log(v)
-  return new MyPromise(resolve => {
-    setTimeout(() => {
-      resolve('world')
-    }, 1000)
-  });
-}).then(v => {
-  console.log(v)
-})
 // 完整的Promise实现可参考：https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js
-``` -->
+```
 
 async & await 只是语法糖吧
 
