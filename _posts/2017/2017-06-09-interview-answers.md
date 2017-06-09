@@ -7,11 +7,13 @@ commentIssueId: 17
 ---
 
 # 前言
-虽然我很讨厌[whiteboard](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，真的不知道所有的答案。。。一直在创业公司工作，知识体系相比较而言，特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 (就是那种不是所谓的正规军) 。相比大企业的要求会更小、专、精，要转的话，还是需要努力努力的。
+虽然我很讨厌[whiteboard](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的。
 
-还是那句话，给我Google，我能给你一个满意的答案。
+关于这种 whiteboard 面试，我的态度是：给我Google，我能给你一个更满意的答案。
 
 文章来源: [阿里、网易、滴滴共十次前端面试碰到的问题](https://segmentfault.com/a/1190000009662029)
+
+# 文章还是编辑修改中，由于内容太多了，欢迎一起编辑讨论
 
 # HTML
 
@@ -19,10 +21,10 @@ commentIssueId: 17
 
 参考Wiki上对[HTML5](https://zh.wikipedia.org/wiki/HTML5)的解释, 你可以查看一下[W3C school](http://www.w3school.com.cn/html5/index.asp) 的内容
   * 在API层，HTML5 增加了更多样化的`应用程序接口`
-    * `Canvas`: 用来写游戏还是很不错的，推荐开源游戏框架：[pixi.js](https://github.com/pixijs/pixi.js)
+    * `canvas`: 用来写游戏还是很不错的，推荐开源游戏框架：[pixi.js](https://github.com/pixijs/pixi.js)
     * `离线`: 想起 Cache Manifest , 和 Cache APIs 。如果再加上 Service Worker 的特性，想想还有点小兴奋的。
     * `拖放`: Drag & Drop , 对用户体验有很大的提升。推荐开源库：[dragula](https://github.com/bevacqua/dragula)
-    * `历史`: 简而言之就是可以使用`history`对象控制url地址了，一般会被单页应用用作路由控制，如果不支持，然后降级为hash。[具体的接口点这里](https://developer.mozilla.org/en-US/docs/Web/API/History)
+    * `历史`: 简而言之就是可以使用`history`对象控制 url 地址了，一般会被单页应用用作路由控制，如果不支持，然后降级为hash。[具体的接口点这里](https://developer.mozilla.org/en-US/docs/Web/API/History)
     * `网络存储`: `sessionStorage` & `localStorage` ，这个应该不陌生，一些大的数据需要保存，或者不适合放在Cookie的，就用网络存储。 类似的还有 `IndexedDB` 和 `WebSQL`。 推荐开源库：[localForage](https://github.com/localForage/localForage)
     * 还有更多的，就看 [wiki](https://zh.wikipedia.org/wiki/HTML5) 吧
   * 元素与属性，这个在wiki上讲的还是挺清楚和简单明了的
@@ -34,8 +36,6 @@ commentIssueId: 17
       * `<datalist>` 这个挺好用的，可以看一下 w3school 的 [demo](http://www.w3school.com.cn/tiy/t.asp?f=html5_datalist)，可以提醒用户可以输入哪些。
       * 还有一些 `<nav>` 表示导航，还要更多的标签，一切都是为了写出更好的 HTML ，为了语义化。这儿对于 JS 大行其道有个个人观点：
         > 能用HTML写，绝不用CSS和JS，能用CSS写，绝不用JS，只能用JS的，才用JS。对于 JS去写CSS，甚至HTML，我是不赞成的。
-
-PS: 这道题内容好多
 
 ## input和textarea的区别
 
@@ -78,6 +78,9 @@ Textarea, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
   0 { width: 60%;}
   50% {width: 100%;}
   100% {width: 60%;}
+}
+ul li {
+  margin-top: 10px;
 }
 </style>
   * position: absolute + padding, 这个写得最多，最常见的
@@ -224,7 +227,7 @@ Textarea, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
       <div class='right'>right</div>
     </div>
     * 百度了一下，float 方案，需要三层 div，不是很优雅，不喜欢，不贴了。这个可以自己百度
-    * 百度了又一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
+    * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
 
     ```html
     <div class='example-4 auto-width'>
@@ -290,8 +293,8 @@ Textarea, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
       * translate 位置移动
       * scale, skew, matrix 等
     * 3D 转换
-      * rotate(X|Y|Z) 根据x,y,z轴旋转
-      * translate(X|Y|Z), scale(X|Y|Z) 同理
+      * rotate(XYZ) 根据x,y,z轴旋转
+      * translate(XYZ), scale(XYZ) 同理
       * perspective 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
   * transition 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
   * flex, flex布局，继 table 和 div 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
@@ -310,6 +313,9 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 ## 对栅格的理解
 
 ## （水平）居中有哪些实现方式
+* `<center></center>`
+* `text-align: center`
+* `margin: 0 auto;`
 
 ## 1像素边框问题
 
@@ -320,7 +326,7 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 ## 实现页面加载进度条
 
 ## 事件委托
-
+和DOM解绑，利用冒泡和e.target来确定事件和元素
 
 ## 实现extend函数
 浅拷贝使用 Object.assign 就够了，深拷贝
@@ -329,30 +335,45 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 ## jsonp原理、postMessage原理
 
-## 实现拖拽功能，比如把5个兄弟节点中的最后一个节点拖拽到节点1和节点2之间
+## 拖拽功能
+比如把5个兄弟节点中的最后一个节点拖拽到节点1和节点2之间
 
 ## 动画：setTimeout何时执行，requestAnimationFrame的优点
 
-## 手写parseInt的实现：要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
+## 手写parseInt的实现
+要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
 
 
-## 编写分页器组件的时候，为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
+## 分页器组件
+为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
 
 ## ES6新增了哪些特性，使用过哪些，也有当场看代码说输出结果的
 
 ## JS模块化的实践
 
-## require.js的实现原理（如果使用过webpack，进一步会问，两者打包的异同及优缺点）
+## require.js的实现原理
+
+###如果使用过webpack，进一步会问，两者打包的异同及优缺点
 
 ## promise的实现原理，进一步会问async、await是否使用过
+async & await 只是语法糖吧
+
+[参考](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
 ## 实现gulp的功能
 
-## 使用前端框架（angular/vue/react）带来哪些好处，相对于使用jQuery
+
+## 使用框架(vue/react等)带来好处(相对jQuery)
+* MVVC 的好处
 
 ## vue双向数据绑定的实现
+* Object.defineProperty
+
+[参考](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
+* hash
+* history
 
 # 性能优化
 
@@ -366,17 +387,42 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 
 ## 输入一个URL，Enter之后发生了什么
+* dns
+* tcp/ip
+  * ssh
+* http(s) TLS
+  * header
+  * domain
+  * body
+* gateway/nginx
+* server
+* html
+
+参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## （承上）页面的渲染过程
+* dom-tree加载和CSS的渲染。。。这块还挺深的
 
-## 优化中会提到缓存的问题，问：静态资源或者接口等如何做缓存优化
+参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
+
+## 静态资源或者接口等如何做缓存优化
+* redis/memcache 做缓存
+* SQL 查询做缓存
+* 指定 Cache-Control/Expires 缓存时间
+* Last-Modified/Etag 返回304
+* 如果是和native混合开发的，还可以使用native缓存
+
 
 ## 页面DOM节点太多，会出现什么问题？如何优化？
+* virtual DOM
+* 即使移走页面不用的dom
+* 用更少的div写页面，精简div
 
 # 项目经历
 
 ## 前端安全问题：CSRF和XSS
+参考[security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)
 
-# 写在最后
+# 贡献和参与该文章
 
 如果你发现了什么问题，或文章中有什么不对的地方，欢迎，点击右边的编辑按钮。或者，你有什么补充的，也欢迎修改。
