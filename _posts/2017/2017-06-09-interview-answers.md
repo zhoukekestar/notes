@@ -287,20 +287,20 @@ ul li {
 关于CSS3，可以先查看一下[文档](https://developer.mozilla.org/en/docs/Web/CSS/CSS3)
 
 用得比较多的会有：
-  * transform 转换
+  * `transform` 转换
     * 2D 转换
-      * rotate 旋转，图片转个90或180度什么的
-      * translate 位置移动
-      * scale, skew, matrix 等
+      * `rotate` 旋转，图片转个90或180度什么的
+      * `translate` 位置移动
+      * `scale`, `skew`, `matrix` 等
     * 3D 转换
-      * rotate(XYZ) 根据x,y,z轴旋转
-      * translate(XYZ), scale(XYZ) 同理
-      * perspective 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
-  * transition 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
-  * flex, flex布局，继 table 和 div 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
-  * border-radius 圆角, @font-face 字体, box-shadow text-shadow 文本和框的阴影
-  * 还有word-wrap, background-size, background-origin, border-image, box-sizing等等，好多用得挺多，但不知道它是CSS3的, ==!
-  * 还有 calc, linear-gradient 等不经常用的
+      * `rotate(XYZ)` 根据x,y,z轴旋转
+      * `translate(XYZ)`, `scale(XYZ)` 同理
+      * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
+  * `transition`: 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
+  * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
+  * `border-radius` 圆角, `@font-face` 字体, `box-shadow` `text-shadow` 文本和框的阴影
+  * 还有`word-wrap`, `background-size`, `background-origin`, `border-image`, `box-sizing`等等，好多用得挺多，但不知道它是CSS3的, ==!
+  * 还有 `calc`, `linear-gradient` 等不经常用的
   * 还有伪类选择器：如:`:target`, `:enabled`, `:disabed`, `:first-child`, `last-child`等等
   * @media 媒体查询也用得多，特别是一些响应式布局中
 
@@ -343,7 +343,7 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 解决方法：
 * 通过`transform`将宽度缩小一半，`transform:scaleY(0.5)`
-* 通过`@media`媒体查询，查询当前设置的屏幕倍率，统一设置`transform`, 参考[移动端(手机)1像素边框真正实现](http://blog.csdn.net/zfangls/article/details/53338665)
+* 通过`@media`媒体查询，查询当前设置的屏幕倍率，统一设置`transform`, 参考: [移动端(手机)1像素边框真正实现](http://blog.csdn.net/zfangls/article/details/53338665)
 * 模仿淘宝(不确定是不是来自淘宝的)，设置屏幕宽度为设计师的设计尺寸(一般为750)。程序员：设计师，我可都是按你的标准来的哦~
   ```html
   <meta name="viewport" content="width=750, user-scalable=no">
@@ -399,10 +399,10 @@ const delegate = (element, selector, type, callback) => {
 };
 ```
 
-## 实现extend函数
-浅拷贝使用 Object.assign 就够了，大多数情况下，使用该方法。
+## 实现`extend`函数
+浅拷贝使用 `Object.assign` 就够了，大多数情况下，使用该方法。
 
-深拷贝: 参考[zepto extend](https://github.com/madrobby/zepto/blob/master/src/zepto.js#files)
+深拷贝: (参考: [zepto extend](https://github.com/madrobby/zepto/blob/master/src/zepto.js#files))
 ```js
 var class2type = {}
 function type(obj) {
@@ -432,7 +432,7 @@ function extend(target, source, deep) {
 }
 ```
 
-直接 Clone 一个 Nested Object
+直接 `Clone` 一个 `Nested Object` 的简便方法:
 ```js
 var origin = {"a": "a"}
 var copy = JSON.parse(JSON.stringify(origin));
@@ -450,12 +450,12 @@ var copy = JSON.parse(JSON.stringify(origin));
 * CORS(Cross-Origin Resource Sharing)
 * WebSockt
 
-## jsonp原理、postMessage原理
+## JSONP原理、postMessage原理
 参考[can-anyone-explain-what-jsonp-is-in-layman-terms](https://stackoverflow.com/questions/3839966/can-anyone-explain-what-jsonp-is-in-layman-terms)
-* jsonp原理是加在一个 `script`，并执行一段回调js，因为加载js是没有跨域问题的，但由此也带来了jsonp的一些问题
+* `JSONP` 原理是加在一个 `script`，并执行一段回调 JS ，因为加载 JS 是没有跨域问题的，但由此也带来了`JSONP`的一些问题
   * 无法发送特定的头部
-  * 只能是GET请求
-  * 无法发送body参数
+  * 只能是 GET 请求
+  * 无法发送 body
 * [postMessage 文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
 ## 拖拽功能
@@ -534,9 +534,9 @@ var copy = JSON.parse(JSON.stringify(origin));
 </script>
 
 ## 动画
-setTimeout何时执行，requestAnimationFrame的优点
+`setTimeout` 何时执行，`requestAnimationFrame`的优点
 
-## 手写parseInt的实现
+## 手写`parseInt`的实现
 要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
 
 ==, 这题目，我都不知道我在干什么，为什么不用Number....
@@ -561,16 +561,79 @@ var parseInt = (str) => {
 * 服务器需要返回总数，当前偏移量，没毛病吧。。。
 * 或者，参考微信的接口，给一个下一页的起始项的id，如果当前页最后一个id和下一页起始id相同，就是最后一页。
 
-## ES6新增了哪些特性，使用过哪些，也有当场看代码说输出结果的
+## ES6新增了哪些特性
 
-看
+这个直接参考[ECMAScript 6 入门](http://es6.ruanyifeng.com/)吧
+
 ## JS模块化的实践
 
 ## require.js的实现原理
 
-###如果使用过webpack，进一步会问，两者打包的异同及优缺点
+require.js 实现原理
 
-## promise的实现原理，进一步会问async、await是否使用过
+### 与webpack相比，两者打包的异同及优缺点
+
+与webpack相比，两者打包的异同及优缺点
+
+## Promise 的实现原理，进一步会问 async、await 是否使用过
+
+Promise 简易实现, 参考: [Promise简单实现](http://www.jianshu.com/p/473cd754311f)
+<!-- ```js
+class MyPromise {
+  constructor (fn) {
+    this.deferreds = [];
+    // this.state = 'pending'
+    this.resolve = (function (v) {
+      let result = this.deferreds.shift()(v);
+      // if (result instanceof MyPromise) {
+      //   return result;
+      // }
+      //
+      // setTimeout(() => {
+      //   this.resolve();
+      // }, 100)
+      // return this;
+    }).bind(this);
+
+    setTimeout(() => {
+      fn(this.resolve);
+    }, 100);
+    return this;
+  }
+
+  then(fn) {
+    this.deferreds.push(fn);
+    return this;
+  }
+}
+
+new MyPromise(resolve => {
+  setTimeout( () => {
+    resolve('hello')
+  }, 1000)
+}).then(v => {
+  console.log(v)
+}).then(() => {
+  console.log('world')
+})
+
+new MyPromise(resolve => {
+  setTimeout( () => {
+    resolve('hello')
+  }, 1000)
+}).then(v => {
+  console.log(v)
+  return new MyPromise(resolve => {
+    setTimeout(() => {
+      resolve('world')
+    }, 1000)
+  });
+}).then(v => {
+  console.log(v)
+})
+// 完整的Promise实现可参考：https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js
+``` -->
+
 async & await 只是语法糖吧
 
 参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
