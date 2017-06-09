@@ -557,10 +557,13 @@ var parseInt = (str) => {
 ## 分页器组件
 为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
 
-这是在考服务端吗？
+这是在考服务端吗？还是我没有理解对题目？
+* 服务器需要返回总数，当前偏移量，没毛病吧。。。
+* 或者，参考微信的接口，给一个下一页的起始项的id，如果当前页最后一个id和下一页起始id相同，就是最后一页。
 
 ## ES6新增了哪些特性，使用过哪些，也有当场看代码说输出结果的
 
+看
 ## JS模块化的实践
 
 ## require.js的实现原理
@@ -570,7 +573,7 @@ var parseInt = (str) => {
 ## promise的实现原理，进一步会问async、await是否使用过
 async & await 只是语法糖吧
 
-[参考](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
+参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
 ## 实现gulp的功能
 
@@ -581,7 +584,7 @@ async & await 只是语法糖吧
 ## vue双向数据绑定的实现
 * Object.defineProperty
 
-[参考](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
+参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
 * hash
