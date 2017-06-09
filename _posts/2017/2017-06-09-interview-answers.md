@@ -638,19 +638,20 @@ async & await 只是语法糖吧
 
 参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
-## 实现gulp的功能
+## 实现 gulp 的功能
 
 
-## 使用框架(vue/react等)带来好处(相对jQuery)
+## 使用框架 ( vue / react 等)带来好处( 相对jQuery )
 * MVVC 的好处
 
 ## vue双向数据绑定的实现
-* Object.defineProperty
+* `Object.defineProperty`
+* `Proxy`
 
 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
-* hash
+* Hash
 * history
 
 # 性能优化
@@ -658,42 +659,42 @@ async & await 只是语法糖吧
 ## 项目中使用过哪些优化方法
 * 页面静态化
 * CDN加速
-* 前端渲染(Data + View) / 后端渲染(SSR, SEO等), 视具体情况灵活选择
+* 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况灵活选择
 * [缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)
-  * Cache-Control/Expires 前端缓存
-  * Last-Modified/Etag 服务器端缓存，304
+  * `Cache-Control`/`Expires` 前端缓存
+  * `Last-Modified`/`Etag` 服务器端缓存，304
 
 
 ## 输入一个URL，Enter之后发生了什么
-* dns
-* tcp/ip
-  * ssh
-* http(s) TLS
-  * header
-  * domain
-  * body
-* gateway/nginx
-* server
-* html
+* DNS
+* TCP/IP
+  * SSH
+* HTTP(s)
+  * Header
+  * Domain
+  * Body
+* Gateway / Nginx
+* Application Server
+* HTML
 
 参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
-## （承上）页面的渲染过程
-* dom-tree加载和CSS的渲染。。。这块还挺深的
+## 页面的渲染过程
+* `Dom-tree`加载和 CSS 的渲染。。。这块还挺深的
 
 参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## 静态资源或者接口等如何做缓存优化
-* redis/memcache 做缓存
-* SQL 查询做缓存
-* 指定 Cache-Control/Expires 缓存时间
-* Last-Modified/Etag 返回304
-* 如果是和native混合开发的，还可以使用native缓存
+* `redis`/`memcache` 做缓存
+* `SQL` 查询做缓存
+* 指定 `Cache-Control`/`Expires` 缓存时间
+* `Last-Modified`/`Etag` 返回304
+* 如果是和`Native`混合开发的，还可以使用`Native`缓存
 
 
 ## 页面DOM节点太多，会出现什么问题？如何优化？
 * virtual DOM
-* 即使移走页面不用的dom
+* 及时移走页面不用的dom
 * 用更少的div写页面，精简div
 
 # 项目经历
