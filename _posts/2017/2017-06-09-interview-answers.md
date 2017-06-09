@@ -7,9 +7,9 @@ commentIssueId: 17
 ---
 
 # 前言
-虽然我很讨厌[whiteboard](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的。
+虽然我很讨厌[whiteboards](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，看到这些题目确实有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的（如果有想转大公司的想法的话）。
 
-关于这种 whiteboard 面试，我的态度是：给我Google，我能给你一个更满意的答案。
+关于这种 whiteboards 面试，我的态度是：给我Google，我能给你一个更满意的答案。
 
 文章来源: [阿里、网易、滴滴共十次前端面试碰到的问题](https://segmentfault.com/a/1190000009662029)
 
