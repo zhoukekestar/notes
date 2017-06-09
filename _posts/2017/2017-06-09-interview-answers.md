@@ -312,16 +312,68 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 ## 对栅格的理解
 
-## （水平）居中有哪些实现方式
+## 水平居中有哪些实现方式
 * `<center></center>`
+  ```html
+  <center>center</center>
+  ```
+  <center>center</center>
 * `text-align: center`
+  ```html
+  <p style='text-align: center'>text-align: center<p>
+  ```
+  <p style='text-align: center'>text-align: center<p>
 * `margin: 0 auto;`
+  ```html
+  <div style='width: 10em; margin: 0 auto;'>margin<div>
+  ```
+  <div style='width: 6em; margin: 0 auto;'>margin<div>
+* `justify-content: center;`
+  ```html
+  <div style='display: flex; justify-content: center;'>
+    <div>flex</div>
+  </div>
+  ```
+  <div style='display: flex; justify-content: center;'>
+    <div>flex</div>
+  </div>
 
 ## 1像素边框问题
+这个我默认是移动端的问题好了。由于移动端一般都会设置屏幕宽度为设备宽度，`width=device-width,initial-scale=1`, 而有些屏幕是2倍屏，导致在移动端上设置`1px`就是看上去的`2px`。
+
+解决方法：
+* 通过`transform`将宽度缩小一半，`transform:scaleY(0.5)`
+* 通过`@media`媒体查询，查询当前设置的屏幕倍率，统一设置`transform`, 参考[移动端(手机)1像素边框真正实现](http://blog.csdn.net/zfangls/article/details/53338665)
+* 模仿淘宝(不确定是不是来自淘宝的)，设置屏幕宽度为设计师的设计尺寸(一般为750)。程序员：设计师，我可都是按你的标准来的哦~
+  ```html
+  <meta name="viewport" content="width=750, user-scalable=no">
+  ```
 
 # JavaScript
 
 ## 图片懒加载
+实现过一个简单的[图片懒加载](https://github.com/zhoukekestar/modules/blob/master/src/lazyload/lazyload.js)工具。支持 `<img>` 和 `background-image`
+
+核心代码时检测当前元素是否在当前视图中：
+```js
+function elementInViewport(el) {
+    var rect = el.getBoundingClientRect()
+
+    // For invisible element.
+    if (rect.top + rect.bottom + rect.left + rect.right + rect.height + rect.width === 0) {
+      return false;
+    }
+
+    return (
+       rect.top   >= 0
+    // Pre load.
+    && rect.top   <= ((window.innerHeight || document.documentElement.clientHeight) + 100)
+    && rect.left  >= 0
+    // Hide carousel except the first image. Do not add equal sign.
+    && rect.left  < (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+```
 
 ## 实现页面加载进度条
 
