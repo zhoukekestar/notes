@@ -47,4 +47,5 @@ Or you can just list projects' problems you are facing. Like:
 * How to specify a user to request limited API at API Level (not just UI Level)?
 
 # Hiring with whiteboards 👎
+* [Interview-answers](http://zhoukekestar.github.io/notes/2017/06/07/interview-answers.html) is an article written by me for whiteboards interview.
 * [Those](http://blog.poetries.top/2017/03/12/front-end-interview-summary/) questions are not so good.
