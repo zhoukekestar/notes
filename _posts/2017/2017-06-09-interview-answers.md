@@ -786,17 +786,21 @@ async function getFile() {
 * Hash
 * history
 
-# 性能优化
-
 ## 项目中使用过哪些优化方法
-* 页面静态化
-* CDN加速
-* 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况灵活选择
-* 减少第一屏网络请求
-* 资源异步加载
-* [缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)
+* 页面静态化，（如：Jada, Pug在静态编译后部署）
+* `CDN`加速, 多地缓存
+* 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况选择，如：
+  * 前端渲染，适合大流量的场景
+  * 后端渲染，适合SEO优化，用户体验提升等场景
+* 缩减域名，以减少`DNS`解析时间，（可采用`<link rel="dns-prefetch" href="//xxx.com">`进行优化）
+  * 如果遇到域名解析的问题，可尝试`HTTPDNS`方案
+* `Combo`服务器合并`CSS`，`JS`请求, 减少第一屏网络请求。（如果采用`HTTPS`方案，资源合并可省略）
+* 异步加载`非核心业务`和`逻辑资源`
+* 资源和请求[缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)，可参考缓存的答案
   * `Cache-Control`/`Expires` 前端缓存
   * `Last-Modified`/`Etag` 服务器端缓存，304
+* 如果是和`Native`混合开发的，还可以使用`Native`缓存
+* `DNS`就近解析应用服务器，需要和`CDN`配合使用
 
 
 ## 输入一个URL，Enter之后发生了什么
@@ -819,19 +823,23 @@ async function getFile() {
 参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## 静态资源或者接口等如何做缓存优化
-* `redis`/`memcache` 做缓存
+* `redis`/`memcache` 做数据缓存
 * `SQL` 查询做缓存
 * 指定 `Cache-Control`/`Expires` 缓存时间
-* `Last-Modified`/`Etag` 返回304
-* 如果是和`Native`混合开发的，还可以使用`Native`缓存
+* `Last-Modified`/`Etag` 缓存 ( 304 ) 方案
+* `网关服务器`做缓存，需要更新时，再回源到`应用服务器`
+* `CDN`多机房，多网关缓存
 
 
 ## 页面DOM节点太多，会出现什么问题？如何优化？
-* virtual DOM
-* 及时移走页面不用的dom
-* 用更少的div写页面，精简div
+问题
+  * 页面卡顿，帧率下降
 
-# 项目经历
+优化：
+* 采用`Virtual Dom`技术，可参考: [virtual-dom](https://github.com/Matt-Esch/virtual-dom)
+* 多次操作`DOM`，改为批量一次操作`DOM`
+* 及时移走页面不用的`DOM`
+* 避免不必要的`DIV`嵌套
 
 ## 前端安全问题：CSRF和XSS
 * CSRF [Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 跨站请求伪造
@@ -859,13 +867,40 @@ async function getFile() {
       ```
       Content-Security-Policy:default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src render.githubusercontent.com; connect-src 'self' uploads.github.com status.github.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com; font-src assets-cdn.github.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; img-src 'self' data: assets-cdn.github.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; media-src 'none'; script-src assets-cdn.github.com; style-src 'unsafe-inline' assets-cdn.github.com
       ```
+    * 设置 `X-XSS-Protection` 头
 * [HTTP 安全头](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project)
   * HSTS: HTTP Strict Transport Security
     ```
     Strict-Transport-Security: max-age=31536000 ; includeSubDomains
     ```
-  *
-
+  * HPKP: Public Key Pinning Extension for HTTP
+    ```
+    Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains
+    ```
+  * X-Frame-Options
+    ```
+    X-Frame-Options: deny
+    ```
+  * X-XSS-Protection
+    ```
+    X-XSS-Protection: 1; mode=block
+    ```
+  * X-Content-Type-Options
+    ```
+    X-Content-Type-Options: nosniff
+    ```
+  * Content-Security-Policy
+    ```
+    Content-Security-Policy: script-src 'self'
+    ```
+  * X-Permitted-Cross-Domain-Policies
+    ```
+    X-Permitted-Cross-Domain-Policies: none
+    ```
+  * Referrer-Policy
+    ```
+    Referrer-Policy: no-referrer
+    ```
 参考: [安全 checklist](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist-zh.md) [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 # 贡献和参与该文章
