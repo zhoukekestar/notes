@@ -373,118 +373,57 @@ IFC: Inline Formatting Contexts,直译为"内联格式化上下文",个人理解
 以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，更利于代码层的开发和维护工作。
 
 ## 水平居中有哪些实现方式
-* <del>`<center></center>`</del> (不推荐使用，遵循html样式分离)
+* `<center>` (不推荐使用，遵循 HTML 样式分离)
   ```html
   <center>center</center>
   ```
   <center>center</center>
+* `margin`
+  ```html
+  <div style='width: 3em; margin: 0 auto;'>margin<div>
+  ```
+  <div style='width: 3em; margin: 0 auto;'>margin<div>
 
-* 子元素于父元素水平居中且其（子元素与父元素）宽度均可变。
-  * `inline-block + text-align` 兼容性佳（甚至可以兼容 IE 6 和 IE 7,虽然已经没有IE6IE7了）
-    ```html
-    <div class="parent1">
-      <div class="child1">Demo：inline-block + text-align</div>
-    </div>
+* `text-align` (兼容性佳, 包括IE6, IE7)
+  ```html
+  <div style='text-align: center'>
+    <span>text-align</span>
+  </div>
+  ```
+  <div style='text-align: center'>
+    <span>text-align</span>
+  </div>
 
-    <style>
-      .child1 {
-        display: inline-block;
-      }
-      .parent1 {
-        text-align: center;
-      }
-    </style>
-    ```
-    <div class="parent1">
-      <div class="child1">Demo</div>
-    </div>
+* `table + margin` ( 兼容性佳， IE8+ )
 
-    <style>
-      .child1 {
-        display: inline-block;
-      }
-      .parent1 {
-        text-align: center;
-      }
-    </style>
-  * `table + margin`:display: table 在表现上类似 block 元素，但是宽度为内容宽。无需设置父元素样式 （支持 IE 8 及其以上版本）
-    ```
-    <div class="parent2">
-      <div class="child2">Demo: block + margin</div>
-    </div>
+  `display: table` 在表现上类似 block 元素，但是宽度为内容宽。无需设置父元素样式。
+  ```
+  <div>
+    <div style='display: table; margin: 0 auto;'>table + margin</div>
+  </div>
+  ```
+  <div>
+    <div style='display: table; margin: 0 auto;'>table + margin</div>
+  </div>
+* `transform`
+  ```
+  <div>
+    <div style='position: relative; left: 50%; transform: translateX(-50%); display: inline-block;'>transform</div>
+  </div>
+  ```
+  <div>
+    <div style='position: relative; left: 50%; transform: translateX(-50%); display: inline-block;'>transform</div>
+  </div>
 
-    <style>
-      .child2 {
-        display: table;
-        margin: 0 auto;
-      }
-    </style>
-    ```
-    <div class="parent2">
-      <div class="child2">Demo: block + margin</div>
-    </div>
-
-    <style>
-      .child2 {
-        display: table;
-        margin: 0 auto;
-      }
-    </style>
-  * `absolute + transform`,绝对定位脱离文档流，不会对后续元素的布局造成影响。（transform 为 CSS3 属性，有兼容性问题IE8爆炸）
-    ```
-    <div class="parent3">
-      <div class="child3">Demo</div>
-    </div>
-
-    <style>
-      .parent3 {
-        position: relative;
-      }
-      .child3 {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    </style>
-    ```
-    <div class="parent">
-      <div class="child">Demo:absolute + transform</div>
-    </div>
-
-    <style>
-      .parent {
-        position: relative;
-      }
-      .child {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    </style>
-  * `flex + justify-content` IE8兼容性
-    ```html
-    <div style='display: flex; justify-content: center;'>
-      <div>flex</div>
-    </div>
-    ```
-    <div style='display: flex; justify-content: center;'>
-      <div>flex</div>
-    </div>
-* 子元素于父元素水平居中且其父元素宽度可变。
-  * `margin: 0 auto;`
-    ```html
-    <div style='width: 10em; margin: 0 auto;'>margin<div>
-    ```
-    <div style='width: 3em; margin: 0 auto;'>margin<div>
-  * `justify-content: center;`
-    ```html
-    <div style='display: flex; justify-content: center;'>
-      <div>flex</div>
-    </div>
-    ```
-    <div style='display: flex; justify-content: center;'>
-      <div>flex</div>
-    </div>
+* `flex + justify-content`
+  ```html
+  <div style='display: flex; justify-content: center;'>
+    <div>flex</div>
+  </div>
+  ```
+  <div style='display: flex; justify-content: center;'>
+    <div>flex</div>
+  </div>
 
 ## 1像素边框问题
 这个我默认是移动端的问题好了。由于移动端一般都会设置屏幕宽度为设备宽度，`width=device-width,initial-scale=1`, 而有些屏幕是2倍屏，导致在移动端上设置`1px`就是看上去的`2px`。
@@ -758,7 +697,6 @@ class MyPromise {
 // 完整的Promise实现可参考：https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js
 ```
 
-async & await 只是语法糖吧
 async & await 异步代码书写十分优雅，例如
 ```
 async function getFile() {
@@ -869,38 +807,15 @@ async function getFile() {
       ```
     * 设置 `X-XSS-Protection` 头
 * [HTTP 安全头](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project)
-  * HSTS: HTTP Strict Transport Security
-    ```
-    Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-    ```
-  * HPKP: Public Key Pinning Extension for HTTP
-    ```
-    Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains
-    ```
-  * X-Frame-Options
-    ```
-    X-Frame-Options: deny
-    ```
-  * X-XSS-Protection
-    ```
-    X-XSS-Protection: 1; mode=block
-    ```
-  * X-Content-Type-Options
-    ```
-    X-Content-Type-Options: nosniff
-    ```
-  * Content-Security-Policy
-    ```
-    Content-Security-Policy: script-src 'self'
-    ```
-  * X-Permitted-Cross-Domain-Policies
-    ```
-    X-Permitted-Cross-Domain-Policies: none
-    ```
-  * Referrer-Policy
-    ```
-    Referrer-Policy: no-referrer
-    ```
+  * Strict-Transport-Security: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
+  * Public-Key-Pins: `Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains`
+  * X-Frame-Options: `X-Frame-Options: deny`
+  * X-XSS-Protection: `X-XSS-Protection: 1; mode=block`
+  * X-Content-Type-Options: `X-Content-Type-Options: nosniff`
+  * Content-Security-Policy: `Content-Security-Policy: script-src 'self'`
+  * X-Permitted-Cross-Domain-Policies: `X-Permitted-Cross-Domain-Policies: none`
+  * Referrer-Policy: `Referrer-Policy: no-referrer`
+
 参考: [安全 checklist](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist-zh.md) [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 # 贡献和参与该文章
