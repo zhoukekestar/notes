@@ -865,3 +865,39 @@ async function getFile() {
 # 贡献和参与该文章
 
 如果你发现了什么问题，或文章中有什么不对的地方，欢迎，点击右边的编辑按钮。或者，你有什么补充的，也欢迎修改。
+
+贡献和参与文章的作者：
+<style>
+  .person-list {
+    list-style: none;
+    padding: 0;
+  }
+  .person-list li {
+    display: inline-block;
+    padding: 8px;
+  }
+  .person-list a {
+    text-align: center;
+    color: #111;
+  }
+  .person-list img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+  }
+</style>
+<ul class='person-list'>
+  <li>
+    <a href="https://github.com/mydaoyuan">
+      <img src="https://avatars2.githubusercontent.com/u/16152141?v=3&s=460">
+      <span>Tangdy</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/mydaoyuan">
+      <img src="https://avatars2.githubusercontent.com/u/7157346?v=3&s=460">
+      <span>zhoukekestar</span>
+    </a>
+  </li>
+</ul>
