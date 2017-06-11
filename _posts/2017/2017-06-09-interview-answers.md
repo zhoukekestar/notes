@@ -676,7 +676,33 @@ async & await 只是语法糖吧
 # 项目经历
 
 ## 前端安全问题：CSRF和XSS
-参考[security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)
+* CSRF [Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 跨站请求伪造
+  * 简单描述：
+    > 跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户网页浏览器的信任。
+    --- 参考: [跨站请求伪造](https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0)
+
+  * 防御措施
+    * 检查`referer`, `X-Requested-With`, `Orign`头
+    * 使用`POST`代替`GET`
+    * 添加校验`Token`至表单中
+    * 添加验证码或其他人机验证手段，如 `Google` 的 [recaptcha](https://github.com/google/recaptcha)
+    * 把`Token`放到自定义的`HTTP Header`, [Cookie-to-Header Token](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Prevention)
+* XSS:
+[Cross-site_scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)
+  * 简单描述:
+    > 跨站脚本（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。---参考：[跨站脚本](https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%B6%B2%E7%AB%99%E6%8C%87%E4%BB%A4%E7%A2%BC)
+
+  * 防御措施
+    * 过滤特殊字符串 ( encoding / escaping )
+    * 保护`Cookie`, 使用`HttpOnly`字段防止被`JS`获取，（因为攻击通常会采集敏感信息）
+    * 使用`HTTPs`代替`HTTP`，（运营商经常会通过注入广告）
+    * 禁用`JS`，（这个不太现实）
+    * 推荐！设置`CSP`: [Content_Security_Policy 介绍](https://en.wikipedia.org/wiki/Content_Security_Policy)，[Content-Security-Policy 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)。这个在`Github`有使用：
+      ```
+      Content-Security-Policy:default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src render.githubusercontent.com; connect-src 'self' uploads.github.com status.github.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com; font-src assets-cdn.github.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; img-src 'self' data: assets-cdn.github.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; media-src 'none'; script-src assets-cdn.github.com; style-src 'unsafe-inline' assets-cdn.github.com
+      ```
+
+参考: [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 # 贡献和参与该文章
 
