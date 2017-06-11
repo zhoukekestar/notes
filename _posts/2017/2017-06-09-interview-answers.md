@@ -717,12 +717,35 @@ async function getFile() {
 ## vue双向数据绑定的实现
 * `Object.defineProperty`
 * `Proxy`
+
 推荐: [vue2.17源码学习](http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/)
+
 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
 * Hash
-* history
+  ```js
+  window.addEventListener('hashchange', () => {
+    // 隐藏其他页面
+    Array.from(document.querySelectorAll('.page')).map(page => {
+      page.style.display = 'none';
+    });
+    // 根据hash值显示对应的页面
+    document.querySelector(location.hash).style.display = 'block';
+  });
+  // 参考：https://github.com/zhoukekestar/modules/blob/master/src/views/views.js
+  ```
+  使用`HASH`实现的简单路由，[在线测试](http://zhoukekestar.github.io/modules/src/views/index.html)
+* History
+  ```js
+  // push 页面
+  history.pushState('', '', url);
+  // pop 页面
+  window.onpopstate = (e) => {
+  };
+  // 参考：https://github.com/zhoukekestar/modules/blob/master/src/loadpage/loadpage.js
+  ```
+  使用`History`实现的简单路由, [在线测试](http://zhoukekestar.github.io/modules/src/loadpage/demo1.html)
 
 ## 项目中使用过哪些优化方法
 * 页面静态化，（如：Jada, Pug在静态编译后部署）
