@@ -226,26 +226,72 @@ ul li {
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-    * 百度了一下，float 方案，需要三层 div，不是很优雅，不喜欢，不贴了。这个可以自己百度
-    * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
 
+  * float解决方案
     ```html
     <div class='example-4 auto-width'>
       <style>
         .example-4 {
           height: 100px;
-          width: 60%;
-        }
-        .example-4:after {
-          clear: both;
+          width: 300px;
         }
         .example-4 .left {
+          float: left;
+          width: 100px;
+          height: 100%;
+          background: #0f0;
+        }
+        .example-4 .right {
+          background: #f00;
+          overflow: hidden;
+          height: 100%;
+        }
+      </style>
+      <div class='left'>left</div>
+      <div class='right'>right</div>
+    </div>
+    ```
+
+    <div class='example-4 auto-width'>
+      <style>
+        .example-4 {
+          height: 100px;
+          width: 300px;
+        }
+        .example-4 .left {
+          float: left;
+          width: 100px;
+          height: 100%;
+          background: #0f0;
+        }
+        .example-4 .right {
+          background: #f00;
+          overflow: hidden;
+          height: 100%;
+        }
+      </style>
+      <div class='left'>left</div>
+      <div class='right'>right</div>
+    </div>
+  * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
+
+    ```html
+    <div class='example-5 auto-width'>
+      <style>
+        .example-5 {
+          height: 100px;
+          width: 60%;
+        }
+        .example-5:after {
+          clear: both;
+        }
+        .example-5 .left {
           width: 100px;
           height: 100%;
           background: #0f0;
           float: left;
         }
-        .example-4 .right {
+        .example-5 .right {
           background: #f00;
           height: 100%;
           width: calc(100% - 100px);
@@ -256,22 +302,22 @@ ul li {
       <div class='right'>right</div>
     </div>
     ```
-    <div class='example-4 auto-width'>
+    <div class='example-5 auto-width'>
       <style>
-        .example-4 {
+        .example-5 {
           height: 100px;
           width: 60%;
         }
-        .example-4:after {
+        .example-5:after {
           clear: both;
         }
-        .example-4 .left {
+        .example-5 .left {
           width: 100px;
           height: 100%;
           background: #0f0;
           float: left;
         }
-        .example-4 .right {
+        .example-5 .right {
           background: #f00;
           height: 100%;
           width: calc(100% - 100px);
@@ -297,6 +343,12 @@ ul li {
       * `translate(XYZ)`, `scale(XYZ)` 同理
       * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
   * `transition`: 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
+  * `animation`: 动画，3D可以调用硬件渲染。
+  * `Will Change`: 改善渲染性能。
+  * 定义了新的相对字体长度单位：`rem` 和 `ch` ，相对视口长度单位：`vw`，`vh`，`vmax` 和 `vmin` 。
+  * 通过 CSS `@font-face` @ 规则来支持可下载字体。
+  * `column`: 分栏布局。
+  * `clip-path`: 绘制路径，类似`SVG`技术 [国外炫酷产品](http://species-in-pieces.com/)。
   * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
   * `border-radius` 圆角, `@font-face` 字体, `box-shadow` `text-shadow` 文本和框的阴影
   * 还有`word-wrap`, `background-size`, `background-origin`, `border-image`, `box-sizing`等等，好多用得挺多，但不知道它是CSS3的, ==!
@@ -310,33 +362,129 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 看到这两个词，一脸懵逼，Google之~ 直接上[文章](http://www.cnblogs.com/dingyufenglian/p/4845477.html)吧
 
+BFC: 'Block Formatting Context',BFC表现原则:内部子元素再怎么翻江倒海，翻云覆雨都不会影响外部的元素,自成一方天地。
+
+[深入理解流体特性和BFC特性](http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)
+
+IFC: Inline Formatting Contexts,直译为"内联格式化上下文",个人理解为`行内盒子模型`。
+[css行高line-height的一些深入理解及应用](http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)
+
 ## 对栅格的理解
+以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，更利于代码层的开发和维护工作。
 
 ## 水平居中有哪些实现方式
-* `<center></center>`
+* <del>`<center></center>`</del> (不推荐使用，遵循html样式分离)
   ```html
   <center>center</center>
   ```
   <center>center</center>
-* `text-align: center`
-  ```html
-  <p style='text-align: center'>text-align: center<p>
-  ```
-  <p style='text-align: center'>text-align: center<p>
-* `margin: 0 auto;`
-  ```html
-  <div style='width: 10em; margin: 0 auto;'>margin<div>
-  ```
-  <div style='width: 3em; margin: 0 auto;'>margin<div>
-* `justify-content: center;`
-  ```html
-  <div style='display: flex; justify-content: center;'>
-    <div>flex</div>
-  </div>
-  ```
-  <div style='display: flex; justify-content: center;'>
-    <div>flex</div>
-  </div>
+
+* 子元素于父元素水平居中且其（子元素与父元素）宽度均可变。
+  * `inline-block + text-align` 兼容性佳（甚至可以兼容 IE 6 和 IE 7,虽然已经没有IE6IE7了）
+    ```html
+    <div class="parent1">
+      <div class="child1">Demo：inline-block + text-align</div>
+    </div>
+
+    <style>
+      .child1 {
+        display: inline-block;
+      }
+      .parent1 {
+        text-align: center;
+      }
+    </style>
+    ```
+    <div class="parent1">
+      <div class="child1">Demo</div>
+    </div>
+
+    <style>
+      .child1 {
+        display: inline-block;
+      }
+      .parent1 {
+        text-align: center;
+      }
+    </style>
+  * `table + margin`:display: table 在表现上类似 block 元素，但是宽度为内容宽。无需设置父元素样式 （支持 IE 8 及其以上版本）
+    ```
+    <div class="parent2">
+      <div class="child2">Demo: block + margin</div>
+    </div>
+
+    <style>
+      .child2 {
+        display: table;
+        margin: 0 auto;
+      }
+    </style>
+    ```
+    <div class="parent2">
+      <div class="child2">Demo: block + margin</div>
+    </div>
+
+    <style>
+      .child2 {
+        display: table;
+        margin: 0 auto;
+      }
+    </style>
+  * `absolute + transform`,绝对定位脱离文档流，不会对后续元素的布局造成影响。（transform 为 CSS3 属性，有兼容性问题IE8爆炸）
+    ```
+    <div class="parent3">
+      <div class="child3">Demo</div>
+    </div>
+
+    <style>
+      .parent3 {
+        position: relative;
+      }
+      .child3 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+    ```
+    <div class="parent">
+      <div class="child">Demo:absolute + transform</div>
+    </div>
+
+    <style>
+      .parent {
+        position: relative;
+      }
+      .child {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  * `flex + justify-content` IE8兼容性
+    ```html
+    <div style='display: flex; justify-content: center;'>
+      <div>flex</div>
+    </div>
+    ```
+    <div style='display: flex; justify-content: center;'>
+      <div>flex</div>
+    </div>
+* 子元素于父元素水平居中且其父元素宽度可变。
+  * `margin: 0 auto;`
+    ```html
+    <div style='width: 10em; margin: 0 auto;'>margin<div>
+    ```
+    <div style='width: 3em; margin: 0 auto;'>margin<div>
+  * `justify-content: center;`
+    ```html
+    <div style='display: flex; justify-content: center;'>
+      <div>flex</div>
+    </div>
+    ```
+    <div style='display: flex; justify-content: center;'>
+      <div>flex</div>
+    </div>
 
 ## 1像素边框问题
 这个我默认是移动端的问题好了。由于移动端一般都会设置屏幕宽度为设备宽度，`width=device-width,initial-scale=1`, 而有些屏幕是2倍屏，导致在移动端上设置`1px`就是看上去的`2px`。
@@ -611,6 +759,14 @@ class MyPromise {
 ```
 
 async & await 只是语法糖吧
+async & await 异步代码书写十分优雅，例如
+```
+async function getFile() {
+  let file1 = await readFile('xxx');
+  console.log(file1.toString());
+}
+```
+看起来完全是同步的书写方式，异步代码的一大诟病：开发者需要不断跳跃的阅读异步代码。就这样被解决了。
 
 参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
@@ -623,7 +779,7 @@ async & await 只是语法糖吧
 ## vue双向数据绑定的实现
 * `Object.defineProperty`
 * `Proxy`
-
+推荐: [vue2.17源码学习](http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/)
 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
@@ -636,6 +792,8 @@ async & await 只是语法糖吧
 * 页面静态化
 * CDN加速
 * 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况灵活选择
+* 减少第一屏网络请求
+* 资源异步加载
 * [缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)
   * `Cache-Control`/`Expires` 前端缓存
   * `Last-Modified`/`Etag` 服务器端缓存，304
