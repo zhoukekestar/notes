@@ -702,7 +702,7 @@ async & await 只是语法糖吧
       Content-Security-Policy:default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src render.githubusercontent.com; connect-src 'self' uploads.github.com status.github.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com; font-src assets-cdn.github.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; img-src 'self' data: assets-cdn.github.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; media-src 'none'; script-src assets-cdn.github.com; style-src 'unsafe-inline' assets-cdn.github.com
       ```
 
-参考: [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
+参考: [安全 checklist](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist-zh.md) [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 # 贡献和参与该文章
 
