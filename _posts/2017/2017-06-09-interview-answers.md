@@ -843,6 +843,7 @@ glup.src('test.js')
   ```
 
 * `Proxy`:
+
   ```js
   var ele = {
     data: null
@@ -875,6 +876,7 @@ glup.src('test.js')
    */
   // 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
   ```
+
 其他的数据操作，如：数组的`push`等，只需要在原生上加`Hook`就行了
 
 ```js
