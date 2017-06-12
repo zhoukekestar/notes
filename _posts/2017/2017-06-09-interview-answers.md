@@ -41,25 +41,27 @@ commentIssueId: 17
 
 不同：
 
-Input，[详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
-  * 可以指定type，url, email, 可以方便地检测单行数据。还是指定为file, submit, button, checkbox, radio, datetime, color等，改变input的样式和行为，简直不要太丰富哈。
+`input`, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+  * 可以指定 type 为 url, email, 可以方便地检测用户输入。还是指定为 file, submit, button, checkbox, radio, datetime, color等，改变`input`的样式和行为。
   * 输入初始化需要用value指定属性值
   * 宽高只能通过css指定
 
-Textarea, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
+`textarea`, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
   * 可以输入多行文字
   * 输入值初始化需要用标签对包裹，并可以夹杂 HTML 代码，而不会被浏览器解析（这个蛮好用的）
     ```html
     <textarea><h1>h1</h1></textarea>
     ```
-  * 宽高能用 CSS 或 rows, cols 指定
+  * 宽高能用 CSS 或 `rows`, `cols` 指定
 
-相同
-  * 都可以使用 maxlength & minlength 限制输入长度
+相同：
+  * 都可以使用 `maxlength`, `minlength`等限制输入
 
 ## 用一个div模拟textarea的实现
 
-这个，貌似加个 contenteditable 就可以了，不知道是不是出题人的意思。在 real-world 中，在 Github 中搜索 `rich editor` 就行了，或者搜索 `WYSIWYG` (what you see is what you get), 百度的 [ueditor](http://ueditor.baidu.com/website/umeditor.html) 也是不错的
+这个，貌似加个 contenteditable 就可以了，不知道是不是出题人的意思。
+
+在项目中如果需要用到富文本，在 Github 中搜索 `rich editor` 就行了，或者搜索 `WYSIWYG` (what you see is what you get), 百度的 [ueditor](http://ueditor.baidu.com/website/umeditor.html) 也是不错的。
 
 ## 左右布局：左边定宽、右边自适应，不少于3种方法
 <style>
@@ -79,7 +81,7 @@ ul li {
   margin-top: 10px;
 }
 </style>
-  * position: absolute + padding, 这个写得最多，最常见的
+  * absolute + padding
     ```html
     <div class='example-1 auto-width'>
       <style>
@@ -130,7 +132,7 @@ ul li {
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-  * flex，这个是比较流行的趋势，这个推荐
+  * flex，趋势，推荐!
     ```html
     <div class='example-2 auto-width'>
       <style>
@@ -223,7 +225,7 @@ ul li {
       <div class='right'>right</div>
     </div>
 
-  * float解决方案
+  * float 解决方案
     ```html
     <div class='example-4 auto-width'>
       <style>
@@ -269,7 +271,7 @@ ul li {
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-  * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
+  * 参考：[alonia](http://blog.csdn.net/alonia/article/details/50957511), `calc` 属性！
 
     ```html
     <div class='example-5 auto-width'>
@@ -328,7 +330,9 @@ ul li {
 
 关于CSS3，可以先查看一下[文档](https://developer.mozilla.org/en/docs/Web/CSS/CSS3)
 
-用得比较多的会有：
+新特性有：
+  * `border-radius` 圆角, `@font-face` 字体, `box-shadow` `text-shadow` 文本和框的阴影
+  * `word-wrap`, `background-size`, `background-origin`, `border-image`, `box-sizing`, `calc`, `linear-gradient` 等等
   * `transform` 转换
     * 2D 转换
       * `rotate` 旋转，图片转个90或180度什么的
@@ -340,29 +344,26 @@ ul li {
       * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
   * `transition`: 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
   * `animation`: 动画，3D可以调用硬件渲染。
-  * `Will Change`: 改善渲染性能。
   * 定义了新的相对字体长度单位：`rem` 和 `ch` ，相对视口长度单位：`vw`，`vh`，`vmax` 和 `vmin` 。
   * 通过 CSS `@font-face` @ 规则来支持可下载字体。
+  * `clip-path`: 绘制路径，类似`SVG`技术。 [国外炫酷产品](http://species-in-pieces.com/)。
+  * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/)。
+  * 伪类选择器：如:`:target`, `:enabled`, `:disabed`, `:first-child`, `last-child`等等
+  * `@media` 媒体查询，适用于一些响应式布局中
   * `column`: 分栏布局。
-  * `clip-path`: 绘制路径，类似`SVG`技术 [国外炫酷产品](http://species-in-pieces.com/)。
-  * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
-  * `border-radius` 圆角, `@font-face` 字体, `box-shadow` `text-shadow` 文本和框的阴影
-  * 还有`word-wrap`, `background-size`, `background-origin`, `border-image`, `box-sizing`等等，好多用得挺多，但不知道它是CSS3的, ==!
-  * 还有 `calc`, `linear-gradient` 等不经常用的
-  * 还有伪类选择器：如:`:target`, `:enabled`, `:disabed`, `:first-child`, `last-child`等等
-  * @media 媒体查询也用得多，特别是一些响应式布局中
+  * `will-change`: 改善渲染性能, 参考[使用CSS3 will-change提高页面滚动、动画等渲染性能](http://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/)
 
-ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/en/docs/Web/CSS/CSS3)，或百度吧
+
+具体查看[文档](https://developer.mozilla.org/en/docs/Web/CSS/CSS3)，或 Google 吧
 
 ## BFC、IFC
 
-看到这两个词，一脸懵逼，Google之~ 直接上[文章](http://www.cnblogs.com/dingyufenglian/p/4845477.html)吧
+`BFC`: 'Block Formatting Context', BFC 表现原则: 内部子元素再怎么翻江倒海，翻云覆雨都不会影响外部的元素,自成一方天地。
 
-BFC: 'Block Formatting Context',BFC表现原则:内部子元素再怎么翻江倒海，翻云覆雨都不会影响外部的元素,自成一方天地。
 
-[深入理解流体特性和BFC特性](http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)
+`IFC`: Inline Formatting Contexts, 直译为"内联格式化上下文",个人理解为`行内盒子模型`。
 
-IFC: Inline Formatting Contexts,直译为"内联格式化上下文",个人理解为`行内盒子模型`。
+参考：[深入理解流体特性和BFC特性](http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)，
 [css行高line-height的一些深入理解及应用](http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)
 
 ## 对栅格的理解
@@ -480,7 +481,7 @@ const delegate = (element, selector, type, callback) => {
 };
 ```
 
-## 实现`extend`函数
+## 实现 extend 函数
 浅拷贝使用 `Object.assign` 就够了，大多数情况下，使用该方法。
 
 深拷贝: (参考: [zepto extend](https://github.com/madrobby/zepto/blob/master/src/zepto.js#files))
@@ -673,13 +674,18 @@ const parseInt = str => +str;
 
 这个直接参考[ECMAScript 6 入门](http://es6.ruanyifeng.com/)吧
 
-## JS模块化的实践
-
 ## require.js的实现原理
 
 require.js 实现原理
 
 ### 与webpack相比，两者打包的异同及优缺点
+同：
+* 都以模块化方式组织代码
+
+异：
+* requirejs 只能加载JS文件
+* webpack 可以打包JS，CSS，甚至是图片
+
 
 与webpack相比，两者打包的异同及优缺点
 
@@ -755,18 +761,20 @@ undefined
 
 async & await 异步代码书写十分优雅，例如
 ```
-async function getFile() {
-  let file1 = await readFile('xxx');
-  console.log(file1.toString());
+async function () {
+  let file = await readFile('xxx');
+  console.log(file.toString());
 }
 ```
-看起来完全是同步的书写方式，异步代码的一大诟病：开发者需要不断跳跃的阅读异步代码。就这样被解决了。
+看起来完全是同步的书写方式，解决了异步代码中
+* 开发者需要不断跳跃的阅读异步代码
+* 回调地狱
 
 参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
 ## 实现 gulp 的功能
 
-这题我就当是在考`Stream`这个知识点好了。
+这题我就当是在考`Stream`这个知识点了。
 
 ```js
 const fs = require('fs');
