@@ -639,7 +639,6 @@ PS: 关于`Event Loop`, `Tasks`,` Microtasks`, `JS Stack`, `Queue`等概念及�
 ==, 这题目，我都不知道我在干什么，为什么不用Number....
 
 ```js
-var parseInt = (str) => {
 const parseInt = (str) => {
   let n = 0;
   let i = 1;
