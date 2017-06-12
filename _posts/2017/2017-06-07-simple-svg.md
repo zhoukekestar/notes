@@ -6,7 +6,7 @@ tags: [svg, html, css]
 commentIssueId: 16
 ---
 
-# SVG for resume
+SVG for resume
 
 ## First Version
 One triangle & Two bold lines

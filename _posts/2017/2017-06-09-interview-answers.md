@@ -824,14 +824,14 @@ async function getFile() {
       ```
     * 设置 `X-XSS-Protection` 头
 * [HTTP 安全头](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project)
-  * Strict-Transport-Security: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
-  * Public-Key-Pins: `Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains`
-  * X-Frame-Options: `X-Frame-Options: deny`
-  * X-XSS-Protection: `X-XSS-Protection: 1; mode=block`
-  * X-Content-Type-Options: `X-Content-Type-Options: nosniff`
-  * Content-Security-Policy: `Content-Security-Policy: script-src 'self'`
-  * X-Permitted-Cross-Domain-Policies: `X-Permitted-Cross-Domain-Policies: none`
-  * Referrer-Policy: `Referrer-Policy: no-referrer`
+  * `Strict-Transport-Security`: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
+  * `Public-Key-Pins`: `Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains`
+  * `X-Frame-Options`: `X-Frame-Options: deny`
+  * `X-XSS-Protection`: `X-XSS-Protection: 1; mode=block`
+  * `X-Content-Type-Options`: `X-Content-Type-Options: nosniff`
+  * `Content-Security-Policy`: `Content-Security-Policy: script-src 'self'`
+  * `X-Permitted-Cross-Domain-Policies`: `X-Permitted-Cross-Domain-Policies: none`
+  * `Referrer-Policy`: `Referrer-Policy: no-referrer`
 
 参考: [安全 checklist](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist-zh.md) [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 

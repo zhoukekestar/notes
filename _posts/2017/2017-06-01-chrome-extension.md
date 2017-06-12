@@ -6,7 +6,7 @@ tags: [chrome, extension, note]
 commentIssueId: 15
 ---
 
-## Get last focused window.
+### Get last focused window.
 [Document](https://developer.chrome.com/extensions/windows)
 
 ```js

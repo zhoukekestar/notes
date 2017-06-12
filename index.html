@@ -29,6 +29,7 @@ layout: default
       overflow: hidden;
       background: rgba(244, 244, 244, 0.67);
       padding: 20px 10px;
+      margin-top: 10px;
     }
   </style>
 
@@ -36,9 +37,9 @@ layout: default
     {% for post in paginator.posts %}
       <li>
 
-        <h2>
+        <h1>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
+        </h1>
 
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         {% if post.tags %}
