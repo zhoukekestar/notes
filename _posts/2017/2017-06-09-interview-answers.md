@@ -640,6 +640,7 @@ PS: 关于`Event Loop`, `Tasks`,` Microtasks`, `JS Stack`, `Queue`等概念及�
 
 ```js
 var parseInt = (str) => {
+const parseInt = (str) => {
   let n = 0;
   let i = 1;
   str.split('').reverse().map(s => {
@@ -648,6 +649,17 @@ var parseInt = (str) => {
   })
   return n;
 }
+```
+
+@YAOHAO9 提供的方法
+```js
+const parseInt = str => str - 0;
+const parseInt = str => str / 1;
+const parseInt = str => str * 1;
+```
+此外，通过`+`运算也能得到类似的效果：
+```js
+const parseInt = str => +str;
 ```
 
 
