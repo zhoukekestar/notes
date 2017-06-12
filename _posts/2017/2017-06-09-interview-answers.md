@@ -222,26 +222,72 @@ ul li {
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-    * 百度了一下，float 方案，需要三层 div，不是很优雅，不喜欢，不贴了。这个可以自己百度
-    * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
 
+  * float解决方案
     ```html
     <div class='example-4 auto-width'>
       <style>
         .example-4 {
           height: 100px;
-          width: 60%;
-        }
-        .example-4:after {
-          clear: both;
+          width: 300px;
         }
         .example-4 .left {
+          float: left;
+          width: 100px;
+          height: 100%;
+          background: #0f0;
+        }
+        .example-4 .right {
+          background: #f00;
+          overflow: hidden;
+          height: 100%;
+        }
+      </style>
+      <div class='left'>left</div>
+      <div class='right'>right</div>
+    </div>
+    ```
+
+    <div class='example-4 auto-width'>
+      <style>
+        .example-4 {
+          height: 100px;
+          width: 300px;
+        }
+        .example-4 .left {
+          float: left;
+          width: 100px;
+          height: 100%;
+          background: #0f0;
+        }
+        .example-4 .right {
+          background: #f00;
+          overflow: hidden;
+          height: 100%;
+        }
+      </style>
+      <div class='left'>left</div>
+      <div class='right'>right</div>
+    </div>
+  * 又百度了一下，参考了 [alonia](http://blog.csdn.net/alonia/article/details/50957511), 挖到东西了，calc属性~~~~
+
+    ```html
+    <div class='example-5 auto-width'>
+      <style>
+        .example-5 {
+          height: 100px;
+          width: 60%;
+        }
+        .example-5:after {
+          clear: both;
+        }
+        .example-5 .left {
           width: 100px;
           height: 100%;
           background: #0f0;
           float: left;
         }
-        .example-4 .right {
+        .example-5 .right {
           background: #f00;
           height: 100%;
           width: calc(100% - 100px);
@@ -252,22 +298,22 @@ ul li {
       <div class='right'>right</div>
     </div>
     ```
-    <div class='example-4 auto-width'>
+    <div class='example-5 auto-width'>
       <style>
-        .example-4 {
+        .example-5 {
           height: 100px;
           width: 60%;
         }
-        .example-4:after {
+        .example-5:after {
           clear: both;
         }
-        .example-4 .left {
+        .example-5 .left {
           width: 100px;
           height: 100%;
           background: #0f0;
           float: left;
         }
-        .example-4 .right {
+        .example-5 .right {
           background: #f00;
           height: 100%;
           width: calc(100% - 100px);
@@ -293,6 +339,12 @@ ul li {
       * `translate(XYZ)`, `scale(XYZ)` 同理
       * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
   * `transition`: 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
+  * `animation`: 动画，3D可以调用硬件渲染。
+  * `Will Change`: 改善渲染性能。
+  * 定义了新的相对字体长度单位：`rem` 和 `ch` ，相对视口长度单位：`vw`，`vh`，`vmax` 和 `vmin` 。
+  * 通过 CSS `@font-face` @ 规则来支持可下载字体。
+  * `column`: 分栏布局。
+  * `clip-path`: 绘制路径，类似`SVG`技术 [国外炫酷产品](http://species-in-pieces.com/)。
   * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/), 如果要考我的话，我也不知道，记不住，都是要用到，然后去查一下。
   * `border-radius` 圆角, `@font-face` 字体, `box-shadow` `text-shadow` 文本和框的阴影
   * 还有`word-wrap`, `background-size`, `background-origin`, `border-image`, `box-sizing`等等，好多用得挺多，但不知道它是CSS3的, ==!
@@ -306,25 +358,60 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
 
 看到这两个词，一脸懵逼，Google之~ 直接上[文章](http://www.cnblogs.com/dingyufenglian/p/4845477.html)吧
 
+BFC: 'Block Formatting Context',BFC表现原则:内部子元素再怎么翻江倒海，翻云覆雨都不会影响外部的元素,自成一方天地。
+
+[深入理解流体特性和BFC特性](http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)
+
+IFC: Inline Formatting Contexts,直译为"内联格式化上下文",个人理解为`行内盒子模型`。
+[css行高line-height的一些深入理解及应用](http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)
+
 ## 对栅格的理解
+以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，更利于代码层的开发和维护工作。
 
 ## 水平居中有哪些实现方式
-* `<center></center>`
+* `<center>` (不推荐使用，遵循 HTML 样式分离)
   ```html
   <center>center</center>
   ```
   <center>center</center>
-* `text-align: center`
+* `margin`
   ```html
-  <p style='text-align: center'>text-align: center<p>
-  ```
-  <p style='text-align: center'>text-align: center<p>
-* `margin: 0 auto;`
-  ```html
-  <div style='width: 10em; margin: 0 auto;'>margin<div>
+  <div style='width: 3em; margin: 0 auto;'>margin<div>
   ```
   <div style='width: 3em; margin: 0 auto;'>margin<div>
-* `justify-content: center;`
+
+* `text-align` (兼容性佳, 包括IE6, IE7)
+  ```html
+  <div style='text-align: center'>
+    <span>text-align</span>
+  </div>
+  ```
+  <div style='text-align: center'>
+    <span>text-align</span>
+  </div>
+
+* `table + margin` ( 兼容性佳， IE8+ )
+
+  `display: table` 在表现上类似 block 元素，但是宽度为内容宽。无需设置父元素样式。
+  ```
+  <div>
+    <div style='display: table; margin: 0 auto;'>table + margin</div>
+  </div>
+  ```
+  <div>
+    <div style='display: table; margin: 0 auto;'>table + margin</div>
+  </div>
+* `transform`
+  ```
+  <div>
+    <div style='position: relative; left: 50%; transform: translateX(-50%); display: inline-block;'>transform</div>
+  </div>
+  ```
+  <div>
+    <div style='position: relative; left: 50%; transform: translateX(-50%); display: inline-block;'>transform</div>
+  </div>
+
+* `flex + justify-content`
   ```html
   <div style='display: flex; justify-content: center;'>
     <div>flex</div>
@@ -604,7 +691,14 @@ class MyPromise {
 // 完整的Promise实现可参考：https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js
 ```
 
-async & await 只是语法糖吧
+async & await 异步代码书写十分优雅，例如
+```
+async function getFile() {
+  let file1 = await readFile('xxx');
+  console.log(file1.toString());
+}
+```
+看起来完全是同步的书写方式，异步代码的一大诟病：开发者需要不断跳跃的阅读异步代码。就这样被解决了。
 
 参考: [Try-node7-async-await](http://zhoukekestar.github.io/notes/2017/03/03/Try-node7-async-await.html)
 
@@ -618,19 +712,50 @@ async & await 只是语法糖吧
 * `Object.defineProperty`
 * `Proxy`
 
+推荐: [vue2.17源码学习](http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/)
+
 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
 
 ## 单页应用，如何实现其路由功能
 * Hash
-* history
+  ```js
+  window.addEventListener('hashchange', () => {
+    // 隐藏其他页面
+    Array.from(document.querySelectorAll('.page')).map(page => {
+      page.style.display = 'none';
+    });
+    // 根据hash值显示对应的页面
+    document.querySelector(location.hash).style.display = 'block';
+  });
+  // 参考：https://github.com/zhoukekestar/modules/blob/master/src/views/views.js
+  ```
+  使用`HASH`实现的简单路由，[在线测试](http://zhoukekestar.github.io/modules/src/views/index.html)
+* History
+  ```js
+  // push 页面
+  history.pushState('', '', url);
+  // pop 页面
+  window.onpopstate = (e) => {
+  };
+  // 参考：https://github.com/zhoukekestar/modules/blob/master/src/loadpage/loadpage.js
+  ```
+  使用`History`实现的简单路由, [在线测试](http://zhoukekestar.github.io/modules/src/loadpage/demo1.html)
 
 ## 项目中使用过哪些优化方法
-* 页面静态化
-* CDN加速
-* 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况灵活选择
-* [缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)
+* 页面静态化，（如：Jada, Pug在静态编译后部署）
+* `CDN`加速, 多地缓存
+* 前端渲染 (Data + View) / 后端渲染( SSR, SEO 等), 视具体情况选择，如：
+  * 前端渲染，适合大流量的场景
+  * 后端渲染，适合SEO优化，用户体验提升等场景
+* 缩减域名，以减少`DNS`解析时间，（可采用`<link rel="dns-prefetch" href="//xxx.com">`进行优化）
+  * 如果遇到域名解析的问题，可尝试`HTTPDNS`方案
+* `Combo`服务器合并`CSS`，`JS`请求, 减少第一屏网络请求。（如果采用`HTTPS`方案，资源合并可省略）
+* 异步加载`非核心业务`和`逻辑资源`
+* 资源和请求[缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)，可参考缓存的答案
   * `Cache-Control`/`Expires` 前端缓存
   * `Last-Modified`/`Etag` 服务器端缓存，304
+* 如果是和`Native`混合开发的，还可以使用`Native`缓存
+* `DNS`就近解析应用服务器，需要和`CDN`配合使用
 
 
 ## 输入一个URL，Enter之后发生了什么
@@ -653,23 +778,108 @@ async & await 只是语法糖吧
 参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## 静态资源或者接口等如何做缓存优化
-* `redis`/`memcache` 做缓存
+* `redis`/`memcache` 做数据缓存
 * `SQL` 查询做缓存
 * 指定 `Cache-Control`/`Expires` 缓存时间
-* `Last-Modified`/`Etag` 返回304
-* 如果是和`Native`混合开发的，还可以使用`Native`缓存
+* `Last-Modified`/`Etag` 缓存 ( 304 ) 方案
+* `网关服务器`做缓存，需要更新时，再回源到`应用服务器`
+* `CDN`多机房，多网关缓存
 
 
 ## 页面DOM节点太多，会出现什么问题？如何优化？
-* virtual DOM
-* 及时移走页面不用的dom
-* 用更少的div写页面，精简div
+问题
+  * 页面卡顿，帧率下降
 
-# 项目经历
+优化：
+* 采用`Virtual Dom`技术，可参考: [virtual-dom](https://github.com/Matt-Esch/virtual-dom)
+* 多次操作`DOM`，改为批量一次操作`DOM`
+* 及时移走页面不用的`DOM`
+* 避免不必要的`DIV`嵌套
 
 ## 前端安全问题：CSRF和XSS
-参考[security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)
+* CSRF [Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 跨站请求伪造
+  * 简单描述：
+    > 跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户网页浏览器的信任。
+    --- 参考: [跨站请求伪造](https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0)
+
+  * 防御措施
+    * 检查`referer`, `X-Requested-With`, `Orign`头
+    * 使用`POST`代替`GET`
+    * 添加校验`Token`至表单中
+    * 添加验证码或其他人机验证手段，如 `Google` 的 [recaptcha](https://github.com/google/recaptcha)
+    * 把`Token`放到自定义的`HTTP Header`, [Cookie-to-Header Token](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Prevention)
+* XSS:
+[Cross-site_scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)
+  * 简单描述:
+    > 跨站脚本（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。---参考：[跨站脚本](https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%B6%B2%E7%AB%99%E6%8C%87%E4%BB%A4%E7%A2%BC)
+
+  * 防御措施
+    * 过滤特殊字符串 ( encoding / escaping )
+    * 保护`Cookie`, 使用`HttpOnly`字段防止被`JS`获取，（因为攻击通常会采集敏感信息）
+    * 使用`HTTPs`代替`HTTP`，（运营商经常会通过注入广告）
+    * 禁用`JS`，（这个不太现实）
+    * 推荐！设置`CSP`: [Content_Security_Policy 介绍](https://en.wikipedia.org/wiki/Content_Security_Policy)，[Content-Security-Policy 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)。这个在`Github`有使用：
+      ```
+      Content-Security-Policy:default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src render.githubusercontent.com; connect-src 'self' uploads.github.com status.github.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com; font-src assets-cdn.github.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; img-src 'self' data: assets-cdn.github.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; media-src 'none'; script-src assets-cdn.github.com; style-src 'unsafe-inline' assets-cdn.github.com
+      ```
+    * 设置 `X-XSS-Protection` 头
+* [HTTP 安全头](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project)
+  * Strict-Transport-Security: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
+  * Public-Key-Pins: `Public-Key-Pins: pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="; pin-sha256="E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g="; report-uri="http://example.com/pkp-report"; max-age=10000; includeSubDomains`
+  * X-Frame-Options: `X-Frame-Options: deny`
+  * X-XSS-Protection: `X-XSS-Protection: 1; mode=block`
+  * X-Content-Type-Options: `X-Content-Type-Options: nosniff`
+  * Content-Security-Policy: `Content-Security-Policy: script-src 'self'`
+  * X-Permitted-Cross-Domain-Policies: `X-Permitted-Cross-Domain-Policies: none`
+  * Referrer-Policy: `Referrer-Policy: no-referrer`
+
+参考: [安全 checklist](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist-zh.md) [security-guide-for-developers](https://github.com/FallibleInc/security-guide-for-developers)，[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 # 贡献和参与该文章
 
 如果你发现了什么问题，或文章中有什么不对的地方，欢迎，点击右边的编辑按钮。或者，你有什么补充的，也欢迎修改。
+
+贡献和参与文章的作者：
+<style>
+  .person-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .person-list li {
+    display: inline-block;
+    padding: 8px;
+  }
+  main.page-content .post-content .person-list a {
+    text-align: center;
+    color: #111;
+    display: block;
+    text-decoration: none;
+    line-height: 2em;
+    width: 80px;
+    word-wrap: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .person-list img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+  }
+</style>
+<ul class='person-list'>
+  <li>
+    <a href="https://github.com/mydaoyuan">
+      <img src="https://avatars2.githubusercontent.com/u/16152141?v=3&s=460">
+      <span>Tangdy</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/mydaoyuan">
+      <img src="https://avatars2.githubusercontent.com/u/7157346?v=3&s=460">
+      <span>zhoukeke</span>
+    </a>
+  </li>
+</ul>
