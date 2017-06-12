@@ -77,9 +77,6 @@ commentIssueId: 17
   50% {width: 100%;}
   100% {width: 60%;}
 }
-ul li {
-  margin-top: 10px;
-}
 </style>
   * absolute + padding
     ```html
