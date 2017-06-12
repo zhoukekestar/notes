@@ -731,6 +731,40 @@ async function getFile() {
 
 ## 实现 gulp 的功能
 
+这题我就当是在考`Stream`这个知识点好了。
+
+```js
+const fs = require('fs');
+const { Transform } = require('stream');
+class Uglify extends Transform {
+  constructor(options) {
+    super(options);
+  }
+  _transform(chunk, encoding, callback) {
+    this.push(`${chunk}\n // This file is uglified. this.push.`);
+    // callback(null, `${chunk}\n // This file is uglified. callback.`);
+  }
+};
+
+const glup = {
+  stream: null,
+  src(p) {
+    glup.stream = fs.createReadStream(p);
+    return glup;
+  },
+  pipe(fn) {
+    return glup.stream.pipe(fn);
+  },
+  dest(p) {
+    return fs.createWriteStream(p);
+  },
+}
+
+glup.src('test.js')
+  .pipe(new Uglify())
+  .pipe(glup.dest('test.min.js'));
+
+```
 
 ## 使用框架 ( vue / react 等)带来好处( 相对jQuery )
 * MVVC 的好处
@@ -900,7 +934,7 @@ async function getFile() {
   <li>
     <a href="https://github.com/mydaoyuan">
       <img src="https://avatars2.githubusercontent.com/u/16152141?v=3&s=460">
-      <span>Tangdy</span>
+      <span>mydaoyuan</span>
     </a>
   </li>
   <li>
