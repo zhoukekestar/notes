@@ -63,6 +63,14 @@ commentIssueId: 17
 
 在项目中如果需要用到富文本，在 Github 中搜索 `rich editor` 就行了，或者搜索 `WYSIWYG` (what you see is what you get), 百度的 [ueditor](http://ueditor.baidu.com/website/umeditor.html) 也是不错的。
 
+
+## 忽略页面中的电话号码
+
+```html
+<meta name="format-detection" content="telephone=no" />
+```
+参考：[how-to-disable-phone-number-linking-in-mobile-safari](https://stackoverflow.com/questions/226131/how-to-disable-phone-number-linking-in-mobile-safari)
+
 ## 左右布局：左边定宽、右边自适应，不少于3种方法
 <style>
 .auto-width {
