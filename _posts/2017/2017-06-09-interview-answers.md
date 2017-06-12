@@ -855,23 +855,42 @@ glup.src('test.js')
 
 
 ## 输入一个URL，Enter之后发生了什么
+此答案忽略了与Web关联性不大的回答，包括（物理按键原理，系统中断等）
+* 浏览器解析`URL`, 如: `https://www.google.com.hk/#newwindow=1&q=hello`包括
+  * 协议：`http`, `https`等
+  * 域名：`www.google.com.hk`
+  * 资源路径: `/`
+  * 参数查询：`q=hello`, 关键词`hello`
 * DNS
-* TCP/IP
-  * SSH
-* HTTP(s)
+  * 浏览器 DNS 缓存
+  * HOSTS 查询
+  * DNS 服务器查询
+  * ARP 查询
+* TCP 握手, TLS 握手
+* HTTP(s), (或SPDY， 或HTTP2.0)
   * Header
   * Domain
   * Body
-* Gateway / Nginx
-* Application Server
-* HTML
+* Gateway / Nginx，网关和负载均衡服务器
+  * 查询本地缓存
+  * 请求上游应用服务器
+* 浏览器解析HTML，并请求资源
+  * CSS
+  * JS
+  * 图片
+* 生成 DOM-Tree，结合CSS进行渲染
 
-参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
+更为完整详细的答案请参考: [what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## 页面的渲染过程
-* `Dom-tree`加载和 CSS 的渲染。。。这块还挺深的
+* 解析整个HTML，得到`DOM`树和样式树
+* DOM树和样式树，经过渲染，得到一颗渲染树
+* 根据渲染树，开始布局，计算各个节点宽度，位置，高度等
+* 然后开始绘制整个页面并显示
+* 在渲染过程中如果使用了GPU，还可以进行GPU渲染
 
-参考[what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN)
+参考: [what-happens-when-zh_CN](https://github.com/skyline75489/what-happens-when-zh_CN),
+[在前端开发中，页面渲染指什么](https://www.zhihu.com/question/20117417)
 
 ## 静态资源或者接口等如何做缓存优化
 * `redis`/`memcache` 做数据缓存
