@@ -72,6 +72,15 @@ h6, .h6 {
   font-size: 1em;
 }
 
+pre,
+code {
+  font-family: $base-font-family;
+}
+
+.highlighter-rouge .highlight code {
+    font-family: monospace;
+}
+
 .post-tag {
   background: #f0f0f0;
   color: #111;
