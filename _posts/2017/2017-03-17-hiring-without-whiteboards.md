@@ -23,7 +23,7 @@ The problems like `How to implement this feature like this site` is not a big is
 The fake interviews:
 * `Boss`: What's the output with code `['1', '2','3'].map(parseInt)`?
 * `Employee`: Ummm... Excuses Me? Can I borrow your computer and run this code on your Chrome? I will get the answer immediately.
-* `Boss`: No, you can not use computer!
+* `Boss`: No, you can not use the computer!
 * `Employee`: OK, The answer is `[1, 2, 3]`?
 * `Boss`: No.
 * `Employee`: What? The answer is `[1, NaN, NaN]`?! What's happening just now and WHYYYYY? Let me Google it!

@@ -7,48 +7,49 @@ commentIssueId: 17
 ---
 
 ## 前言
-虽然我很讨厌[whiteboards](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，看到这些题目确实有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的（如果有想转大公司的想法的话）。
+虽然我很讨厌[whiteboards](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，看到这些题目确实有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的（如果想转大公司的话）。
 
 关于这种 whiteboards 面试，我的态度是：给我Google，我能给你一个更满意的答案。
 
 文章来源: [阿里、网易、滴滴共十次前端面试碰到的问题](https://segmentfault.com/a/1190000009662029)
 
-文章还是编辑修改中，由于内容太多了，欢迎一起编辑讨论
+文章还是编辑修改中，由于内容太多了，欢迎一起编辑讨论。
 
 ## HTML5新增了哪些内容或API，使用过哪些
 
-参考Wiki上对[HTML5](https://zh.wikipedia.org/wiki/HTML5)的解释, 你可以查看一下[W3C school](http://www.w3school.com.cn/html5/index.asp) 的内容
+参考Wiki上对[HTML5](https://zh.wikipedia.org/wiki/HTML5)的解释以及[W3C school](http://www.w3school.com.cn/html5/index.asp) 的内容。
   * 在API层，HTML5 增加了更多样化的`应用程序接口`
     * `canvas`: 用来写游戏还是很不错的，推荐开源游戏框架：[pixi.js](https://github.com/pixijs/pixi.js)
-    * `离线`: 想起 Cache Manifest , 和 Cache APIs 。如果再加上 Service Worker 的特性，想想还有点小兴奋的。
-    * `拖放`: Drag & Drop , 对用户体验有很大的提升。推荐开源库：[dragula](https://github.com/bevacqua/dragula)
-    * `历史`: 简而言之就是可以使用`history`对象控制 url 地址了，一般会被单页应用用作路由控制，如果不支持，然后降级为hash。[具体的接口点这里](https://developer.mozilla.org/en-US/docs/Web/API/History)
-    * `网络存储`: `sessionStorage` & `localStorage` ，这个应该不陌生，一些大的数据需要保存，或者不适合放在Cookie的，就用网络存储。 类似的还有 `IndexedDB` 和 `WebSQL`。 推荐开源库：[localForage](https://github.com/localForage/localForage)
-    * 还有更多的，就看 [wiki](https://zh.wikipedia.org/wiki/HTML5) 吧
-  * 元素与属性，这个在wiki上讲的还是挺清楚和简单明了的
+    * `离线`: 想起 Cache Manifest , 和 Cache APIs 。再加上 Service Worker 的特性，用户体验能提升不少。
+    * `拖放`: Drag & Drop , 对用户体验也有很大的提升。推荐开源库：[dragula](https://github.com/bevacqua/dragula)
+    * `历史`: 简而言之就是可以使用`history`对象控制 url 地址了，一般会被单页应用用作路由控制，如果不支持，然后降级为`hash`。[具体的接口文档点这里](https://developer.mozilla.org/en-US/docs/Web/API/History)。
+    * `网络存储`: `sessionStorage` & `localStorage` ，这个应该不陌生，保存一些稍大的数据，或者不适合放在Cookie的，就用网络存储。 类似的还有 `IndexedDB` 和 `WebSQL`。 推荐开源库：[localForage](https://github.com/localForage/localForage)。
+    * 更多特性请查看 [wiki](https://zh.wikipedia.org/wiki/HTML5)。
+  * 元素与属性
     * 新元素:
       * `<section>` 写文章的时候会经常用到，w3school的说法是：[文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。](http://www.w3school.com.cn/tags/tag_section.asp)
-      * `<video>` 和 `<audio>` 这个也不用多说，需要用到，自然而然会去用。相关开源库：[video.js](https://github.com/videojs/video.js)
-      * `<footer>` 和 `<header>` 这个也很自然，把之前`<div class='footer OR header'></div>` 换成html5 标签就行了，这样是为了`语义化`，也是推荐这样做的。
-      * `<mark>` 标记高亮一个词
-      * `<datalist>` 这个挺好用的，可以看一下 w3school 的 [demo](http://www.w3school.com.cn/tiy/t.asp?f=html5_datalist)，可以提醒用户可以输入哪些。
-      * 还有一些 `<nav>` 表示导航，还要更多的标签，一切都是为了写出更好的 HTML ，为了语义化。这儿对于 JS 大行其道有个个人观点：
-        > 能用HTML写，绝不用CSS和JS，能用CSS写，绝不用JS，只能用JS的，才用JS。对于 JS去写CSS，甚至HTML，我是不赞成的。
+      * `<video>` 和 `<audio>`: 视频和音频。相关开源库：[video.js](https://github.com/videojs/video.js)。
+      * `<footer>` 和 `<header>`: 之前`<div class='footer OR header'></div>`的写法换成标签`<footer>` 和 `<header>`就行了，为了`语义化`，推荐。
+      * `<mark>` 标记高亮一个词。
+      * `<datalist>` 提醒用户可以输入哪些，查看 w3school 的 [demo](http://www.w3school.com.cn/tiy/t.asp?f=html5_datalist)。
+      * `<nav>`表示导航等等，还要更多的标签，目的是为了写出更好`语义化`的HTML。
+        > 个人观点：<br>
+          能用HTML写，就不用CSS和JS，能用CSS写，就不用JS，只能用JS的，才用JS。对于 JS去写CSS，甚至HTML，个人不太赞成。
 
-## input和textarea的区别
+## input 和 textarea 的区别
 
-参考了[一篇博客](http://www.cnblogs.com/abcd1234/p/4709486.html) 和 [stackoverflow上的回答](https://stackoverflow.com/questions/21698065/whats-the-difference-between-textarea-and-input-type-text-in-angularjs)
+参考：[一篇博客](http://www.cnblogs.com/abcd1234/p/4709486.html) 和 [stackoverflow上的回答](https://stackoverflow.com/questions/21698065/whats-the-difference-between-textarea-and-input-type-text-in-angularjs)
 
 不同：
 
 `input`, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
   * 可以指定 type 为 url, email, 可以方便地检测用户输入。还是指定为 file, submit, button, checkbox, radio, datetime, color等，改变`input`的样式和行为。
-  * 输入初始化需要用value指定属性值
-  * 宽高只能通过css指定
+  * 可以通过 value 属性指定初始值
+  * 宽高只能通过 CSS 指定
 
 `textarea`, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
   * 可以输入多行文字
-  * 输入值初始化需要用标签对包裹，并可以夹杂 HTML 代码，而不会被浏览器解析（这个蛮好用的）
+  * 输入值初始化需要用标签对包裹，并可以夹杂 HTML 代码，而不会被浏览器解析
     ```html
     <textarea><h1>h1</h1></textarea>
     ```
@@ -59,7 +60,7 @@ commentIssueId: 17
 
 ## 用一个div模拟textarea的实现
 
-这个，貌似加个 contenteditable 就可以了，不知道是不是出题人的意思。
+加个 contenteditable 属性就行（不知道是不是出题人的意思）。
 
 在项目中如果需要用到富文本，在 Github 中搜索 `rich editor` 就行了，或者搜索 `WYSIWYG` (what you see is what you get), 百度的 [ueditor](http://ueditor.baidu.com/website/umeditor.html) 也是不错的。
 
@@ -93,7 +94,7 @@ commentIssueId: 17
         .example-1 {
           position: relative;
           height: 100px;
-          width: 300px;
+          width: 60%;
           padding-left: 100px;
         }
         .example-1 .left {
@@ -118,7 +119,7 @@ commentIssueId: 17
         .example-1 {
           position: relative;
           height: 100px;
-          width: 300px;
+          width: 60%;
           padding-left: 100px;
         }
         .example-1 .left {
@@ -137,14 +138,14 @@ commentIssueId: 17
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-  * flex，趋势，推荐!
+  * flex，未来趋势，推荐!
     ```html
     <div class='example-2 auto-width'>
       <style>
         .example-2 {
           display: flex;
           height: 100px;
-          width: 300px;
+          width: 60%;
         }
         .example-2 .left {
           width: 100px;
@@ -166,7 +167,7 @@ commentIssueId: 17
         .example-2 {
           display: flex;
           height: 100px;
-          width: 300px;
+          width: 60%;
         }
         .example-2 .left {
           width: 100px;
@@ -182,7 +183,7 @@ commentIssueId: 17
       <div class='left'>left</div>
       <div class='right'>right</div>
     </div>
-  * table，我实在想不出来了，凑合着使吧（为了做题目而做题目）
+  * table
     ```html
     <div class='example-3 auto-width'>
       <style>
@@ -236,7 +237,7 @@ commentIssueId: 17
       <style>
         .example-4 {
           height: 100px;
-          width: 300px;
+          width: 60%;
         }
         .example-4 .left {
           float: left;
@@ -259,7 +260,7 @@ commentIssueId: 17
       <style>
         .example-4 {
           height: 100px;
-          width: 300px;
+          width: 60%;
         }
         .example-4 .left {
           float: left;
@@ -346,17 +347,16 @@ commentIssueId: 17
     * 3D 转换
       * `rotate(XYZ)` 根据x,y,z轴旋转
       * `translate(XYZ)`, `scale(XYZ)` 同理
-      * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是会"2D"的效果
-  * `transition`: 过渡，好多简单的动画，移个位置，变个长短，其实直接用这个属性去设置就行了
+      * `perspective` 透视，这个很多3D效果都要设置一下，不然3D还是只会有"2D"的效果
+  * `transition`: 过渡，简单的动画（如：移个位置，变个长短），直接用这个属性就能搞定。
   * `animation`: 动画，3D可以调用硬件渲染。
-  * 定义了新的相对字体长度单位：`rem` 和 `ch` ，相对视口长度单位：`vw`，`vh`，`vmax` 和 `vmin` 。
-  * 通过 CSS `@font-face` @ 规则来支持可下载字体。
+  * 新的长度单位：`rem`， `ch`，`vw`，`vh`，`vmax`，`vmin` 等。
   * `clip-path`: 绘制路径，类似`SVG`技术。 [国外炫酷产品](http://species-in-pieces.com/)。
   * `flex`: `flex`布局，继 `table` 和 `div` 后的趋势，不了解或不熟悉的可以参考[cssreference](http://cssreference.io/flexbox/)。
   * 伪类选择器：如:`:target`, `:enabled`, `:disabed`, `:first-child`, `last-child`等等
   * `@media` 媒体查询，适用于一些响应式布局中
-  * `column`: 分栏布局。
-  * `will-change`: 改善渲染性能, 参考[使用CSS3 will-change提高页面滚动、动画等渲染性能](http://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/)
+  * `columns`: 分栏布局。
+  * `will-change`: 改善渲染性能, 参考[使用CSS3 will-change提高页面滚动、动画等渲染性能](http://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/)。
 
 
 具体查看[文档](https://developer.mozilla.org/en/docs/Web/CSS/CSS3)，或 Google 吧
@@ -375,7 +375,7 @@ commentIssueId: 17
 以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，更利于代码层的开发和维护工作。
 
 ## 水平居中有哪些实现方式
-* `<center>` (不推荐使用，遵循 HTML 样式分离)
+* `<center>` (不推荐使用)
   ```html
   <center>center</center>
   ```
@@ -386,19 +386,15 @@ commentIssueId: 17
   ```
   <div style='width: 3em; margin: 0 auto;'>margin<div>
 
-* `text-align` (兼容性佳, 包括IE6, IE7)
+* `text-align`
   ```html
-  <div style='text-align: center'>
-    <span>text-align</span>
-  </div>
+  <div style='text-align: center'>text-align</div>
   ```
-  <div style='text-align: center'>
-    <span>text-align</span>
-  </div>
+  <div style='text-align: center'>text-align</div>
 
-* `table + margin` ( 兼容性佳， IE8+ )
+* `table + margin`
 
-  `display: table` 在表现上类似 block 元素，但是宽度为内容宽。无需设置父元素样式。
+  `display: table` 在表现上类似 block 元素，但是宽度为内容宽。
   ```
   <div>
     <div style='display: table; margin: 0 auto;'>table + margin</div>
@@ -428,12 +424,12 @@ commentIssueId: 17
   </div>
 
 ## 1像素边框问题
-这个我默认是移动端的问题好了。由于移动端一般都会设置屏幕宽度为设备宽度，`width=device-width,initial-scale=1`, 而有些屏幕是2倍屏，导致在移动端上设置`1px`就是看上去的`2px`。
+这个默认是移动端的问题了。由于移动端一般都会设置屏幕宽度为设备宽度，`width=device-width,initial-scale=1`, 而有些屏幕是2倍屏，导致在移动端上设置`1px`就是看上去的`2px`。
 
 解决方法：
 * 通过`transform`将宽度缩小一半，`transform:scaleY(0.5)`
 * 通过`@media`媒体查询，查询当前设置的屏幕倍率，统一设置`transform`, 参考: [移动端(手机)1像素边框真正实现](http://blog.csdn.net/zfangls/article/details/53338665)
-* 模仿淘宝(不确定是不是来自淘宝的)，设置屏幕宽度为设计师的设计尺寸(一般为750)。程序员：设计师，我可都是按你的标准来的哦~
+* 模仿淘宝(不确定是不是来自淘宝的)，设置屏幕宽度为设计师的设计尺寸(一般为750)。
   ```html
   <meta name="viewport" content="width=750, user-scalable=no">
   ```
@@ -443,7 +439,7 @@ commentIssueId: 17
 
 核心代码时检测当前元素是否在当前视图中：
 ```js
-function elementInViewport(el) {
+  function elementInViewport(el) {
     var rect = el.getBoundingClientRect()
 
     // For invisible element.
@@ -463,7 +459,7 @@ function elementInViewport(el) {
 ```
 
 ## 实现页面加载进度条
-这个需要描述一下[PACE](https://github.com/HubSpot/PACE/)的实现原理。
+描述一下[PACE](https://github.com/HubSpot/PACE/)的实现原理即可。
 * AJAX
 * Elements
 * Document
@@ -533,13 +529,14 @@ var copy = JSON.parse(JSON.stringify(origin));
 
 > 同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。
 
-* JSONP(JSON with Padding)
-* CORS(Cross-Origin Resource Sharing)
-* WebSockt
+解决方式：
+* JSONP(JSON with Padding): 利用加载 JS 文件不需要遵循同源策略的原理。
+* CORS(Cross-Origin Resource Sharing): 在服务器端返回允许跨域访问的头。
+* WebSockt：利用 WebSocket 不需要遵循同源策略的原理。
 
 ## JSONP原理、postMessage原理
 参考[can-anyone-explain-what-jsonp-is-in-layman-terms](https://stackoverflow.com/questions/3839966/can-anyone-explain-what-jsonp-is-in-layman-terms)
-* `JSONP` 原理是加在一个 `script`，并执行一段回调 JS ，因为加载 JS 是没有跨域问题的，但由此也带来了`JSONP`的一些问题
+* `JSONP` 原理是加载一个 `script`，并执行一段回调 JS ，因为加载 JS 不需要遵循同源策略。但由此也带来了`JSONP`的一些问题：
   * 无法发送特定的头部
   * 只能是 GET 请求
   * 无法发送 body
@@ -640,18 +637,17 @@ var copy = JSON.parse(JSON.stringify(origin));
 PS: 关于`Event Loop`, `Tasks`,` Microtasks`, `JS Stack`, `Queue`等概念及执行先后顺序，我也是记不清，文章看过一次，记一次，然后又忘了。说实话，主要是实践中用得太少了。
 
 ## 手写 parseInt 的实现
-要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
+要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用 JS 原生的字符串转数字的 API ，比如`Number()`
 
-==, 这题目，我都不知道我在干什么，为什么不用Number....
-
+复杂写法：
 ```js
-const parseInt = (str) => {
+const parseInt = str => {
   let n = 0;
   let i = 1;
   str.split('').reverse().map(s => {
     n += i * (s.charCodeAt(0) - 48);
     i *= 10;
-  })
+  });
   return n;
 }
 ```
@@ -672,12 +668,12 @@ const parseInt = str => +str;
 为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
 
 这是在考服务端吗？还是我没有理解对题目？
-* 服务器需要返回总数，当前偏移量，没毛病吧。。。
-* 或者，参考微信的接口，给一个下一页的起始项的id，如果当前页最后一个id和下一页起始id相同，就是最后一页。
+* 服务器需要返回总数，当前偏移量，根据总数和偏移量判断是否是最后一页。
+* 参考微信的接口，给一个下一页的起始项的id，如果当前页最后一个id和下一页起始id相同，就是最后一页。
 
 ## ES6新增了哪些特性
 
-这个直接参考[ECMAScript 6 入门](http://es6.ruanyifeng.com/)吧
+参考：[ECMAScript 6 入门](http://es6.ruanyifeng.com/)。
 
 ## require.js的实现原理
 
@@ -943,7 +939,7 @@ ps: 我是没在实际项目中使用`Vue`的人，只是略知一二，希望�
   * 后端渲染，适合SEO优化，用户体验提升等场景
 * 缩减域名，以减少`DNS`解析时间，（可采用`<link rel="dns-prefetch" href="//xxx.com">`进行优化）
   * 如果遇到域名解析的问题，可尝试`HTTPDNS`方案
-* `Combo`服务器合并`CSS`，`JS`请求, 减少第一屏网络请求。（如果采用`HTTPS`方案，资源合并可省略）
+* `Combo`服务器合并`CSS`，`JS`请求, 减少第一屏网络请求。（如果采用`HTTP2.0`方案，资源合并可省略）
 * 异步加载`非核心业务`和`逻辑资源`
 * 资源和请求[缓存](http://zhoukekestar.github.io/notes/browser/cache/last-modified/expire/2016/10/06/browser-cache.html)，可参考缓存的答案
   * `Cache-Control`/`Expires` 前端缓存
