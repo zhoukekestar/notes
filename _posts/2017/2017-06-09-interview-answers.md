@@ -615,9 +615,25 @@ var copy = JSON.parse(JSON.stringify(origin));
 </script>
 
 ## 动画
-`setTimeout` 何时执行，`requestAnimationFrame`的优点
 
-## 手写`parseInt`的实现
+#### `setTimeout` 何时执行:
+
+关于`setTimeout`, `Promise`, `Events Loop`等概念的执行，推荐: [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
+#### `requestAnimationFrame`的优点
+按照[官方文档](https://developer.mozilla.org/zh-CN/docs/Web/API/window/requestAnimationFrame)的说法:
+> window.requestAnimationFrame() 方法告诉浏览器您希望执行动画，并请求浏览器调用指定的函数在下一次重绘之前更新动画。该方法将在重绘之前调用的回调作为参数。
+
+它的主要优点是：
+* 在浏览器重绘前调用，保证浏览器渲染效率和性能
+* 可以精准地控制动画的每一帧
+
+它的主要场景在游戏，动画方面，用这个方法可以保持较高帧率和效率。比如一个60帧率的游戏，`requestAnimationFrame`一般会以16ms的间隔调用一次。
+
+
+PS: 关于`Event Loop`, `Tasks`,` Microtasks`, `JS Stack`, `Queue`等概念及执行先后顺序，我也是记不清，文章看过一次，记一次，然后又忘了。说实话，主要是实践中用得太少了。
+
+## 手写 parseInt 的实现
 要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number()
 
 ==, 这题目，我都不知道我在干什么，为什么不用Number....
