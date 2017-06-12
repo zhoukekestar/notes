@@ -776,6 +776,7 @@ async function () {
 ```js
 const fs = require('fs');
 const { Transform } = require('stream');
+
 class Uglify extends Transform {
   constructor(options) {
     super(options);
@@ -807,15 +808,95 @@ glup.src('test.js')
 ```
 
 ## 使用框架 ( vue / react 等)带来好处( 相对jQuery )
-* MVVC 的好处
+* MVVC架构，数据驱动视图，数据绑定，减少DOM操作。
+* 组件化组织页面，效率更高，维护更简便。
+  * 局部 CSS 样式，避免给全局带来混乱
+  * 局部 JS 逻辑，更好的封装性
+  * HTML 模板，使得 DOM 变更更为方便快捷
+* `Virtual Dom` 带来性能上的提升
+* 路由控制，单页应用更为简便
+
 
 ## vue双向数据绑定的实现
+
+实现双向数据绑定的关键是`Observer`, 即用户改变了数据，框架如何知晓，并及时更新视图。而`Observer`的实现包括：
 * `Object.defineProperty`
+  ```js
+  var obj = {}
+  Object.defineProperty(obj, 'key', {
+    enumerable: true,
+    set(x) {
+      console.log(`set key: ${x}`);
+      obj.__ob__  = obj.__ob__ || {};
+      obj.__ob__.key = x;
+    },
+    get() {
+      return obj.__ob__.key;
+    }
+  })
+  obj.key = 'value';
+  /**
+   * 输出：
+   * set key: value
+   */
+  ```
 * `Proxy`
+  ```js
+  var ele = {
+    data: null
+  };
+  var handler = {
+    get: function(target, key) {
+      if (typeof target[key] === 'object' && target[key] !== null) {
+        return new Proxy(target[key], handler)
+      } else {
+        return target[key];
+      }
+    },
+    set: function(target, key, value) {
+      console.log('set ' + key)
+      target[key] = value;
+      return value;
+   }
+  }
+  ele = new Proxy(ele, handler);
+  ele.data = {a: 'a', b: {bb: 'bb'}}
+  ele.data.a = 'aa';
+  ele.data.b.bb = 'bb1';
+  ele.data.c = 'cc';
+  /*
+   * 输出：
+   * set data
+   * set a
+   * set bb
+   * set c
+   */
+  // 参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
+  ```
+其他的数据操作，如：数组的`push`等，只需要在原生上加`Hook`就行了
+
+```js
+var arr = [];
+var __push = Array.prototype.push;
+
+Array.prototype.push = function (...items) {
+  console.log(`push: ${items}`);
+  return __push.apply(this, items);
+}
+
+arr.push('value')
+/**
+ * 输出：
+ * push: value
+ */
+```
+
+从视图反向把数据流过来，稍微简单些，只需要记录对应的`key`值，然后在输入框触发`change`, `keypress`事件的时候，更新对应`key`的数据即可。
+
 
 推荐: [vue2.17源码学习](http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/)
 
-参考: [observer](http://zhoukekestar.github.io/notes/2017/02/22/observer.html)
+ps: 我是没在实际项目中使用`Vue`的人，只是略知一二，希望熟悉的同学修改补充。
 
 ## 单页应用，如何实现其路由功能
 * Hash
