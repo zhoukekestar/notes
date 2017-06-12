@@ -820,7 +820,8 @@ glup.src('test.js')
 ## vue双向数据绑定的实现
 
 实现双向数据绑定的关键是`Observer`, 即用户改变了数据，框架如何知晓，并及时更新视图。而`Observer`的实现包括：
-* `Object.defineProperty`
+* `Object.defineProperty`:
+
   ```js
   var obj = {}
   Object.defineProperty(obj, 'key', {
@@ -840,7 +841,8 @@ glup.src('test.js')
    * set key: value
    */
   ```
-* `Proxy`
+
+* `Proxy`:
   ```js
   var ele = {
     data: null
