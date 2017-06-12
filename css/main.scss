@@ -38,6 +38,49 @@ $on-laptop:        800px;
 // Import partials from the `minima` theme.
 @import "minima";
 
+// Bascial CSS
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0.5em 0;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.25rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+body {
+  font-size: 14px;
+}
+//
+
 .post-tag {
   background: #f0f0f0;
   color: #111;

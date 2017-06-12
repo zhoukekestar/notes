@@ -6,16 +6,14 @@ tags: [interview]
 commentIssueId: 17
 ---
 
-# 前言
+## 前言
 虽然我很讨厌[whiteboards](http://zhoukekestar.github.io/notes/2017/03/16/hiring-without-whiteboards.html)面试，但我还是决定整理一下。毕竟，作为几年前端的我，看到这些题目确实有点虚。。。一直在创业公司工作，知识体系的特点是大、散、浅，来一个问题，解决一个问题，然后没后续了 。相比大企业的小、专、精，还是需要努力努力的（如果有想转大公司的想法的话）。
 
 关于这种 whiteboards 面试，我的态度是：给我Google，我能给你一个更满意的答案。
 
 文章来源: [阿里、网易、滴滴共十次前端面试碰到的问题](https://segmentfault.com/a/1190000009662029)
 
-# 文章还是编辑修改中，由于内容太多了，欢迎一起编辑讨论
-
-# HTML
+文章还是编辑修改中，由于内容太多了，欢迎一起编辑讨论
 
 ## HTML5新增了哪些内容或API，使用过哪些
 
@@ -62,8 +60,6 @@ Textarea, [详细文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
 ## 用一个div模拟textarea的实现
 
 这个，貌似加个 contenteditable 就可以了，不知道是不是出题人的意思。在 real-world 中，在 Github 中搜索 `rich editor` 就行了，或者搜索 `WYSIWYG` (what you see is what you get), 百度的 [ueditor](http://ueditor.baidu.com/website/umeditor.html) 也是不错的
-
-# CSS
 
 ## 左右布局：左边定宽、右边自适应，不少于3种方法
 <style>
@@ -349,8 +345,6 @@ ps: 想到啥就写啥了，具体查看[文档](https://developer.mozilla.org/e
   <meta name="viewport" content="width=750, user-scalable=no">
   ```
 
-# JavaScript
-
 ## 图片懒加载
 实现过一个简单的[图片懒加载](https://github.com/zhoukekestar/modules/blob/master/src/lazyload/lazyload.js)工具。支持 `<img>` 和 `background-image`
 
@@ -629,8 +623,6 @@ async & await 只是语法糖吧
 ## 单页应用，如何实现其路由功能
 * Hash
 * history
-
-# 性能优化
 
 ## 项目中使用过哪些优化方法
 * 页面静态化
