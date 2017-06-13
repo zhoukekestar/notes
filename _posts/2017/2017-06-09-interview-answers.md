@@ -676,8 +676,30 @@ const parseInt = str => +str;
 * 或者，参考微信的接口，给一个下一页的起始项的id，如果当前页最后一个id和下一页起始id相同，就是最后一页。
 
 ## ES6新增了哪些特性
+参考：[es6features](https://github.com/lukehoban/es6features)
+- [arrows](https://github.com/lukehoban/es6features#arrows)
+- [classes](https://github.com/lukehoban/es6features#classes)
+- [enhanced object literals](https://github.com/lukehoban/es6features#enhanced-object-literals)
+- [template strings](https://github.com/lukehoban/es6features#template-strings)
+- [destructuring](https://github.com/lukehoban/es6features#destructuring)
+- [default + rest + spread](https://github.com/lukehoban/es6features#default--rest--spread)
+- [let + const](https://github.com/lukehoban/es6features#let--const)
+- [iterators + for..of](https://github.com/lukehoban/es6features#iterators--forof)
+- [generators](https://github.com/lukehoban/es6features#generators)
+- [unicode](https://github.com/lukehoban/es6features#unicode)
+- [modules](https://github.com/lukehoban/es6features#modules)
+- [module loaders](https://github.com/lukehoban/es6features#module-loaders)
+- [map + set + weakmap + weakset](https://github.com/lukehoban/es6features#map--set--weakmap--weakset)
+- [proxies](https://github.com/lukehoban/es6features#proxies)
+- [symbols](https://github.com/lukehoban/es6features#symbols)
+- [subclassable built-ins](https://github.com/lukehoban/es6features#subclassable-built-ins)
+- [promises](https://github.com/lukehoban/es6features#promises)
+- [math + number + string + array + object APIs](https://github.com/lukehoban/es6features#math--number--string--array--object-apis)
+- [binary and octal literals](https://github.com/lukehoban/es6features#binary-and-octal-literals)
+- [reflect api](https://github.com/lukehoban/es6features#reflect-api)
+- [tail calls](https://github.com/lukehoban/es6features#tail-calls)
 
-这个直接参考[ECMAScript 6 入门](http://es6.ruanyifeng.com/)吧
+也可参考：[ECMAScript 6 入门](http://es6.ruanyifeng.com/)。
 
 ## require.js的实现原理
 
