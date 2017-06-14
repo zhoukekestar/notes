@@ -10,9 +10,10 @@ commentIssueId: 19
   * Simple Example.
   * Split CSS from bundle.
   * Split common module from bundle.
+* How to use `presets-env`?
 * How to write a simple webpack-plugin?
 
-See more detail on [webapck-demo](https://github.com/zhoukekestar/drafts/tree/master/webpack-demo).
+See more details on [webapck-demo](https://github.com/zhoukekestar/drafts/tree/master/webpack-demo).
 
 ## Use Webpack
 
@@ -100,6 +101,56 @@ module.exports = function(env) {
         ]
     }
 }
+```
+
+## How to use presets-env?
+We use `presets-env` to transform ES6 code by Babel.
+
+Instal `babel-loader`, `babel-core`, `babel-preset-env` and `babel-preset-stage-3` if needed.
+
+`npm install babel-core babel-loader babel-preset-env webpack --save-dev`. See more details on [todo-demos/vue](https://github.com/zhoukekestar/todo-demos/blob/master/vue). See more `preset-env` details on [babel](https://babeljs.io/docs/plugins/preset-env/).
+
+#### webpack.config.js
+```js
+const webpack = require('webpack');
+
+module.exports = {
+  entry: {
+    main: './src/app.js',
+    vendor: 'moment'
+  },
+  output: {
+    filename: 'bundle.[name].js',
+    path: `${__dirname}/dist`
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['env', {
+                targets: {
+                  chrome: 52,
+                  // browsers: ["ie >= 8"]
+                }
+              }]
+            ]
+          }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    })
+  ]
+}
+
 ```
 
 ## How to write a simple webpack-plugin
