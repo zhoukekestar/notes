@@ -8,8 +8,8 @@ commentIssueId: 20
 
 * Weex2Vue Tools
   * Webpack config file for weex2vue.
-    * Optimize offcial webpack config. Add virtual file for vue entries. (优化官方webpack配置，使用虚拟文件作为vue-entry。)
-    * FooterPlugin for debuging js code. (给JS源文件添加调试注释)
+    * Optimize official webpack config. Add virtual files for vue entries. (优化官方webpack配置，使用虚拟文件作为vue-entry。)
+    * FooterPlugin for debugging js code. (给JS源文件添加调试注释)
   * px-loader for weex css. (给weex文件的无单位数字添加px)
   * weex2vue: transform weex files to vue files. (批量转换weex文件为vue文件)
 
