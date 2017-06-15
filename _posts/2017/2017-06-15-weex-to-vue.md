@@ -133,6 +133,7 @@ module.exports = function (source) {
     .replace(/padding-left: (\d*);/g, 'padding-left: $1px;')
     .replace(/padding-right: (\d*);/g, 'padding-right: $1px;')
     .replace(/line-height: (\d*);/g, 'line-height: $1px;')
+    .replace(/font-size: (\d*);/g, 'font-size: $1px;')
   return source;
 }
 
@@ -189,7 +190,7 @@ const expression = c => c
   .replace(/repeat=['"]{{(.*?)}}['"]/g, 'v-for="$1"') // v-for
   .replace(/onclick=/g, '@click=') // @click
   .replace(/\s(\S*?)=['"]{{(\S*?)}}['"]/g, ':$1="$2"') // 属性绑定
-
+  .replace(/require\(['"](.*?)\.we['"]\)/g, 'require("$1.vue")') // 引用文件转换
 
 /**
  * 标签转换
