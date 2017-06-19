@@ -25,6 +25,7 @@ layout: default
       transform-origin: left;
       width: 125%;
       box-sizing: border-box;
+      line-height: 2em;
     }
   </style>
 
@@ -35,13 +36,14 @@ layout: default
         <h1>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
         </h1>
-
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        {% if post.tags %}
-          {% for tag in post.tags %}
-            <a href='{{site.baseurl}}/tags#{{ tag }}' class="post-tag">{{ tag }}</a>
-          {% endfor %}
-        {% endif %}
+        <div>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          {% if post.tags %}
+            {% for tag in post.tags %}
+              <a href='{{site.baseurl}}/tags#{{ tag }}' class="post-tag">{{ tag }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
 
         <article>
           {{ post.excerpt | markdownify }}

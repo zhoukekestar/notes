@@ -269,6 +269,10 @@ main.page-content .post-content a,
   text-decoration: underline;
 }
 
+main.page-content .post-content {
+  line-height: 2em;
+}
+
 /* pagination */
 .pagination {
   font-size: 0;
@@ -289,7 +293,7 @@ main.page-content .post-content a,
   min-width: 1.2em;
   display: inline-block;
   border: solid 1px #e8e8e8;
-  padding: 0 8px;
+  padding: 5px 8px;
   text-align: center;
   border-left: none;
   background: #f6f6f6;
