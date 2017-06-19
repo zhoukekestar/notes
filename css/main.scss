@@ -263,7 +263,7 @@ a.edit-page:before {
   font-size: 85%;
   padding: 0 .2em;
 }
-/* link style */
+/* post style */
 main.page-content .post-content a,
 .comment .commentbody a {
   text-decoration: underline;
@@ -271,6 +271,10 @@ main.page-content .post-content a,
 
 main.page-content .post-content {
   line-height: 2em;
+}
+main.page-content .post-content .highlight .c1,
+main.page-content .post-content .highlight .cm {
+  font-style: normal;
 }
 
 /* pagination */
