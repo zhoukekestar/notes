@@ -8,7 +8,7 @@ $base-font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-s
 $base-font-size:   14px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 2;
+$base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
@@ -44,7 +44,6 @@ h1, h2, h3, h4, h5, h6,
   margin: 0.5em 0;
   font-family: inherit;
   font-weight: 500;
-  line-height: 1.2;
   color: inherit;
 }
 
