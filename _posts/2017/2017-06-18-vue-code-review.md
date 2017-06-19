@@ -21,4 +21,4 @@ commentIssueId: 21
 * [vue-come-true](https://github.com/coderzzp/vue-come-true/blob/master/README.md)
 * [mvvm: 源码注释](https://github.com/fastCreator/MVVM)
 * [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
-* [The Diffing Algorithm in React](https://facebook.github.io/react/docs/reconciliation.html)
+* [The Diffing Algorithm in React](https://facebook.github.io/react/docs/reconciliation.html), [协调算法（Diff算法）](https://swenyang.gitbooks.io/translation/content/react/diff-algorithm.html)
