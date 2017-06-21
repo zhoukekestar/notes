@@ -20,6 +20,7 @@ commentIssueId: 20
 const path = require('path');
 const fs = require('fs');
 const VirtualModulePlugin = require('virtual-module-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 /* 添加 @sourceURL 方便动态脚本的调试 */
 const FooterPlugin = require('./libs/FooterPlugin.js');
@@ -27,6 +28,13 @@ const FooterPlugin = require('./libs/FooterPlugin.js');
 const entry = {};
 const EXTNAME = '.vue';
 const plugins = [new FooterPlugin()];
+let outputPath = `${__dirname}/dist/browser`;
+
+/* release 参数表示需要压缩当前js文件 */
+if (process.argv.indexOf('--release') !== -1) {
+  outputPath = `${__dirname}/dist/release/browser`;
+  plugins.push(new UglifyJSPlugin());
+}
 
 /*
  * 遍历所有后缀为 EXTNAME 的文件
@@ -40,15 +48,12 @@ const walk = (dir, root) => {
     if (stat.isFile() && path.extname(fullpath) === EXTNAME) {
       const name = path.join(dir, path.basename(file, EXTNAME));
 
-      // console.log(name, file, fullpath)
-      // entry[name] = `${fullpath}?entry=true`;
-
       // 加载一个虚拟的 entry.js 文件
       entry[`${name}`] = `${name}.js`;
 
       // 设置虚拟 entry.js 文件的内容，初始化 Vue
       plugins.push(new VirtualModulePlugin({
-        moduleName: `./src-www/${name}.js`,
+        moduleName: `./src/${name}.js`,
         contents: `
           var App = require('./${file}');
           App.el = '#root';
@@ -62,12 +67,12 @@ const walk = (dir, root) => {
   });
 };
 
-walk('./', 'src-www');
+walk('./', 'src');
 
 module.exports = {
   entry,
   output: {
-    path: `${__dirname}/dist-www`,
+    path: outputPath,
     filename: '[name].js',
   },
   module: {
@@ -98,6 +103,10 @@ module.exports = {
         test: /\.vue$/,
         // 修复 weex 文件中，不带 px 的 bug
         use: ['vue-loader', './libs/px-loader.js'],
+      }, {
+        test: /\.we$/,
+        // 修复 weex 文件中，不带 px 的 bug
+        use: ['vue-loader', './libs/px-loader.js'],
       },
     ],
   },
@@ -105,11 +114,14 @@ module.exports = {
   resolve: {
     modules: [
       path.join(__dirname, 'src'),
-      path.join(__dirname, 'src-www'),
       'node_modules',
     ],
+    alias: {
+      components: path.resolve(__dirname, 'src/components')
+    }
   },
 };
+
 ```
 
 ### px-loader
@@ -142,10 +154,12 @@ module.exports = function (source) {
 
 ### weex2vue
 
+We can use `weex-vue-migration` to transform our weex code to vue code. Of course, not all of the code can be transformed. So we need to modify some code if needed.
+
 ```js
 const fs = require('fs');
 const path = require('path');
-
+const migrater = require('weex-vue-migration')
 /**
  * 遍历文件夹
  */
@@ -186,69 +200,41 @@ const addPx = c => c
  * 转换表达式
  */
 const expression = c => c
-  .replace(/if=['"]{{(.*?)}}['"]/g, 'v-if="$1"') // v-if
-  .replace(/repeat=['"]{{(.*?)}}['"]/g, 'v-for="$1"') // v-for
-  .replace(/onclick=/g, '@click=') // @click
-  .replace(/\s(\S*?)=['"]{{(\S*?)}}['"]/g, ':$1="$2"') // 属性绑定
-  .replace(/require\(['"](.*?)\.we['"]\)/g, 'require("$1.vue")') // 引用文件转换
+  .replace(/\sv-for=['"](\S*?)['"]/g, ' v-for="(item, index) in $1"')
+  // 修改 $index
+  .replace(/\$index/g, 'index')
+  .replace(/([\S]*?-[\S]*?): require/g, ' "$1": require')
+  .replace(/wxcForm: require\('\.\/form\.vue'\)/g, 'wxcForm: require(\'wxc-form\')')
+  .replace(/textarea: require/g, '// textarea: require')
+  .replace(/toomaoWeb: require/g, '// toomaoWeb: require')
+  .replace('wxccomponents/navpage', 'wxccomponents/wxc-navpage')
+  .replace('wxccomponents/tabitem', 'wxccomponents/wxc-tabitem')
+  .replace('./navbar', './wxc-navbar')
+  .replace('./tabitem', './wxc-tabitem')
+  // 把wxc-form的依赖，转成相对路径
+  .replace('wxcForm: require(\'wxc-form\')', 'wxcForm: require(\'components/wxc-form/wxc-form.vue\')')
+  // 把wxc-form依赖去掉
+  .replace('require(\'wxc-form\')', '')
+
 
 /**
  * 标签转换
  */
 const transformTag = c => c
-  .replace(/<style>/, '<style scoped>');
-
-/**
- * data: {} to data() {{}}
- *
- * module.exports = {
- *   data: {
- *     a: {}
- *   }
- * }
- *
- * 转换成函数方式
- *
- * module.exports = {
- *   data() { return {
- *     a: {}
- *   }},
- * }
- */
-const transformData = (c) => {
-  let i = c.indexOf('module.exports');
-  let dataChanged = false;
-  if (i !== -1) {
-    const flags = [];
-    for (; i < c.length; i += 1) {
-      if (c.substr(i, 5) === 'data:' && flags.length === 1) {
-        c = c.replace(new RegExp(`([\\s\\S]{${i}})(.{5})`), '$1data() { return ');
-        dataChanged = true;
-      } else if (dataChanged && flags.length === 3 && c[i] === '}') {
-        c = c.replace(new RegExp(`([\\s\\S]{${i}})([},]{1,2})`), '$1}},');
-        break;
-      }
-
-      if (c[i] === '{') {
-        flags.push('{');
-      } else if (c[i] === '}') {
-        flags.shift();
-      }
-    }
-  }
-  return c;
-};
+  .replace(/<style scoped="">/, '<style scoped>');
 
 
-walkSync(path.join(__dirname, '../src-www')).map(file => {
+const dir = process.argv.find(arg => !/node|weex2vue/.test(arg)) || '../src';
+
+walkSync(path.join(__dirname, dir)).map(file => {
   if (/\.we$/.test(file.name)) {
     let context = String(fs.readFileSync(file.path));
+
+    context = migrater.transform(context).content;
 
     context = addPx(context);
 
     context = expression(context);
-
-    context = transformData(context);
 
     context = transformTag(context);
 
