@@ -71,4 +71,12 @@ PS: 该文章是应网友[@peterpanBest](https://github.com/peterpanBest) 在[is
   * 设置标签： ![](https://user-images.githubusercontent.com/7157346/27415325-0264cff0-5739-11e7-8d53-80681b36e639.png)
   * 开启 Github Pages ![](https://user-images.githubusercontent.com/7157346/27415355-2d1cf510-5739-11e7-96fc-c0567671211a.png)
 * 然后你就可能访问你的blog系统了，域名为: `https://your-name.github.io/jekyll-template`
+
+  比如，我建好的 `jekyll-template` 的地址是[https://zhoukekestar.github.io/jekyll-template/](https://zhoukekestar.github.io/jekyll-template/)
 * 之后，修改blog样式之类的，你可以自己看[代码](https://github.com/zhoukekestar/jekyll-template)修改了
+
+## 通过该方法搭建Blog的优势
+* 灵活，强大，高效，定制
+* 免费
+* 免费
+* 免费
