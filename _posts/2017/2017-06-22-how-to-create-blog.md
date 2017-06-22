@@ -80,3 +80,9 @@ PS: 该文章是应网友[@peterpanBest](https://github.com/peterpanBest) 在[is
 * 免费
 * 免费
 * 免费
+
+## 最后，是感谢 Github
+
+正如我页脚所写的：
+
+This site is hosted with ❤️ by Github. Powered by Jekyll. Thanks a lot.
