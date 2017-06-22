@@ -38,6 +38,7 @@ while (total--) {
   data.push(String(Buffer.alloc(3, '-')));
 }
 
+
 class CustomReadable extends Readable {
   constructor(options) {
 
@@ -75,7 +76,8 @@ class CustomReadable extends Readable {
       // 你还是可以继续push的，如果内存足够大的话，输出结果也是一样
       // 此处留下了一个疑问：highWaterMark 的具体的作用？
       // for (; index < data.length; index += 1) {
-      //   this.push(data[index]);
+      //   let ok = this.push(data[index]);
+      //   console.log(`push数据至缓冲池 index: ${index}, ok: ${ok}, data: ${data[index]} buffer-length: ${this._readableState.buffer.length} length: ${this._readableState.length}`);
       // }
 
     // No more data can be read.
@@ -104,6 +106,8 @@ rr.on('data', (chunk) => {
 rr.on('end', () => {
   console.log('read finished!')
 })
+
+
 ```
 
 输出：
@@ -152,6 +156,44 @@ push数据至缓冲池 index: 9, ok: false, data: --- buffer-length: 5 length: 1
 
 read finished!
 ```
+
+强行push的输出：
+```
+初始化：index: 0 buffer-length: 0 length: 0
+push数据至缓冲池 index: 0, ok: true, data: --- buffer-length: 1 length: 3
+push数据至缓冲池 index: 1, ok: true, data: --- buffer-length: 2 length: 6
+push数据至缓冲池 index: 2, ok: true, data: --- buffer-length: 3 length: 9
+push数据至缓冲池 index: 3, ok: false, data: --- buffer-length: 4 length: 12
+push数据至缓冲池 index: 4, ok: false, data: --- buffer-length: 5 length: 15
+push数据至缓冲池 index: 5, ok: false, data: --- buffer-length: 6 length: 18
+push数据至缓冲池 index: 6, ok: false, data: --- buffer-length: 7 length: 21
+push数据至缓冲池 index: 7, ok: false, data: --- buffer-length: 8 length: 24
+push数据至缓冲池 index: 8, ok: false, data: --- buffer-length: 9 length: 27
+push数据至缓冲池 index: 9, ok: false, data: --- buffer-length: 10 length: 30
+读取数据 (3): --- buffer-length: 9 length: 27
+
+读取数据 (3): --- buffer-length: 8 length: 24
+
+读取数据 (3): --- buffer-length: 7 length: 21
+
+读取数据 (3): --- buffer-length: 6 length: 18
+
+读取数据 (3): --- buffer-length: 5 length: 15
+
+读取数据 (3): --- buffer-length: 4 length: 12
+
+读取数据 (3): --- buffer-length: 3 length: 9
+
+读取数据 (3): --- buffer-length: 2 length: 6
+
+读取数据 (3): --- buffer-length: 1 length: 3
+
+读取数据 (3): --- buffer-length: 0 length: 0
+
+read finished!
+
+```
+
 查看[nodejs/_stream_readable.js](https://github.com/nodejs/node/blob/master/lib/_stream_readable.js#L431-L464)代码。
 由于`read`函数在调用`_read`后，虽然push了多次，但返回ret为空，所以，没有调用`ondata`函数。
 
@@ -165,25 +207,25 @@ read finished!
 
 ```js
 const Readable = require('stream').Readable;
-const getRandomNumber = () => String(~~(Math.random() * 10));
+const data = [];
 
-const data = [
-  new Array(1e7).fill('-').join(''),
-  new Array(1e6).fill('-').join(''),
-  new Array(1e5).fill('-').join(''),
-  new Array(1e4).fill('-').join('')
-];
+let index = 0;
+let total = 10;
+
+while (total--) {
+  data.push(String(Buffer.alloc(3, '-')));
+}
+
 
 class CustomReadable extends Readable {
-  constructor(dataSource, options) {
+  constructor(options) {
 
-    // We read it begin with position 0
     options = Object.assign({
-      index: 0,
+      encoding: 'utf8'
     }, options || {});
 
+    console.log(`options: ${JSON.stringify(options, null, 2)}`);
     super(options);
-    this.options = options;
 
     this.on('drain', () => {
       console.log('drain');
@@ -191,11 +233,12 @@ class CustomReadable extends Readable {
   }
   _read() {
 
-    // We still have data ready
-    if (this.options.index < data.length) {
-      this.push(data[this.options.index]);
-      this.options.index++;
-      // setTimeout(() => this.push(data), 100)
+    if (index < data.length) {
+      // 根据hightWaterMark 动态push
+      let ok = this.push(data[index]);
+      console.log(`push数据至缓冲池 index: ${index}, ok: ${ok}, data: ${data[index]} buffer-length: ${this._readableState.buffer.length} length: ${this._readableState.length}`);
+      index++;
+
     // No more data can be read.
     } else {
       this.push(null);
@@ -203,12 +246,17 @@ class CustomReadable extends Readable {
   }
 }
 
-const rr = new CustomReadable();
+const rr = new CustomReadable({
+  highWaterMark: 10
+});
+
+console.log(`初始化：index: ${index} buffer-length: ${rr._readableState.buffer.length} length: ${rr._readableState.length}`)
 
 rr.on('readable', () => {
   let chunk;
   while (null !== (chunk = rr.read())) {
-    console.log(`Received ${chunk.length} bytes of data.`);
+    // console.log(`Received ${chunk.length} bytes of data.`);
+    console.log(`读取数据 (${chunk.length}): ${chunk} buffer-length: ${rr._readableState.buffer.length} length: ${rr._readableState.length}\n`);
     rr.pause();
   }
 });
