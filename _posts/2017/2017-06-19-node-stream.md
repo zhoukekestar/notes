@@ -14,6 +14,13 @@ Some notes about nodejs stream after reading [dive-into-node-stream](http://www.
 
 All images & a part of code is come from [dive-into-node-stream](https://github.com/barretlee/dive-into-node-stream). Thanks.
 
+<style>
+.highlighter-rouge {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+</style>
+
 ## Readdable Streams
 
 ![Readdable](https://raw.githubusercontent.com/barretlee/dive-into-node-stream/master/graphic/Readable.png)
@@ -28,9 +35,8 @@ let index = 0;
 let total = 10;
 
 while (total--) {
-  data.push(new Array(3).fill('-').join(''));
+  data.push(String(Buffer.alloc(3, '-')));
 }
-
 
 class CustomReadable extends Readable {
   constructor(options) {
