@@ -3,6 +3,7 @@ layout: post
 title:  "Learning how to learn (Week 1)"
 date:   2017-06-22
 tags: [learning]
+commentIssueId: 26
 ---
 
 Notes about [learning how to learn](https://www.coursera.org/learn/ruhe-xuexi/home/week/1).
