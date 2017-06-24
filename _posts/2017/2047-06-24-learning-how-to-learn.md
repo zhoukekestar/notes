@@ -5,7 +5,7 @@ date:   2017-06-22
 tags: [learning]
 ---
 
-Notes about learning how to learn.
+Notes about [learning how to learn](https://www.coursera.org/learn/ruhe-xuexi/home/week/1).
 
 * 集中与发散思维
   * 利用集中和发散思维
