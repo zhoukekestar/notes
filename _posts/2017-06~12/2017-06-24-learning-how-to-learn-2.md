@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Learning how to learn (Week 2)"
-date:   2017-06-22
+date:   2017-06-24
 tags: [learning]
 commentIssueId: 26
 ---
