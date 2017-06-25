@@ -24,7 +24,7 @@ twitter_username: zhoukekestar
 github_username:  zhoukekestar
 
 # paging
-paginate: 10
+paginate: 20
 paginate_path: "/page:num/"
 
 # Build settings
