@@ -89,10 +89,10 @@ Request 1：
 和单次请求相同
 
 Request 2:
-6. `3路握手`建立`TCP`连接
-7. 发送请求
-8. 等待返回
-9. 加载数据
+* 6： `3路握手`建立`TCP`连接
+* 7： 发送请求
+* 8： 等待返回
+* 9： 加载数据
 
 请求1省略了TCP关闭操作
 
@@ -130,49 +130,49 @@ Request 2:
 
 ## HTTP其他
 * [HTTP methods](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
-  * GET，请求指定资源数据
-  * POST，向指定资源提交数据
-  * DELETE，删除指定资源
-  * PUT，修改指定资源
-  * HEAD，获取指定资源元数据，与GET不同的是，不需要返回数据内容
-  * OPTIONS，请求查看指定资源的HTTP请求方法或权限。比如，跨域AJAX中，会先发送OPTIONS请求，再发送其他请求。
-  * CONNECT，请求建立管道通讯，通常是客户端和代理服务器之间。
-  * TRACE，回显服务器收到的请求，主要用于测试或诊断。
-  * PATCH，修改局部指定资源。和PUT方法的区别是，PUT需要提交指定资源的全部数据。
+  * `GET`，请求指定资源数据
+  * `POST`，向指定资源提交数据
+  * `DELETE`，删除指定资源
+  * `PUT`，修改指定资源
+  * `HEAD`，获取指定资源元数据，与GET不同的是，不需要返回数据内容
+  * `OPTIONS`，请求查看指定资源的HTTP请求方法或权限。比如，跨域AJAX中，会先发送OPTIONS请求，再发送其他请求。
+  * `CONNECT`，请求建立管道通讯，通常是客户端和代理服务器之间。
+  * `TRACE`，回显服务器收到的请求，主要用于测试或诊断。
+  * `PATCH`，修改局部指定资源。和PUT方法的区别是，PUT需要提交指定资源的全部数据。
 
 * [HTTP status codes](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
   * 1xx, 临时响应，需要继续处理
-    * 101 Switching Protocols, 切换HTTP协议版本，比如从`HTTP 1.1`切换到`HTTP 2.0`，或切换到 `Web Socket`
+    * `101 Switching Protocols`, 切换HTTP协议版本，比如从`HTTP 1.1`切换到`HTTP 2.0`，或切换到 `Web Socket`
   * 2xx, 成功，请求已被服务器接受，理解
-    * 200 OK, 请求成功，正常返回
-    * 201 Created, 请求已被实现，通常是客户端POST数据之后返回，表示数据已经被创建了。
+    * `200 OK`, 请求成功，正常返回
+    * `201 Created`, 请求已被实现，通常是客户端POST数据之后返回，表示数据已经被创建了。
   * 3xx, 重定向
-    * 301 Moved Permanently, 请求资源被永久移到新位置
-    * 302 Found, 请求资源被临时重定向
-    * 304 Not Modified, 资源未被修改，使用缓存
+    * `301 Moved Permanently`, 请求资源被永久移到新位置
+    * `302 Found`, 请求资源被临时重定向
+    * `304 Not Modified`, 资源未被修改，使用缓存
   * 4xx, 客户端错误
-    * 400 Bad Request, 明显的客户端请求错误，客户端格式错误等。
-    * 403 Forbidden, 用户权限不够，拒绝执行，比如在用户未登陆的情况下，请求用户的私人保护信息时，返回403，代表用户需要登陆授权才能继续执行。
-    * 404 Not Found, 用户请求的资源没有被找到，比如，某些资源被删除了之后，用户继续请求会返回404。
-    * 405 Method Not Allowed, 用户请求方法不对，比如，需要POST的接口，用户使用了GET请求，返回405错误。
+    * `400 Bad Request`, 明显的客户端请求错误，客户端格式错误等。
+    * `403 Forbidden`, 用户权限不够，拒绝执行，比如在用户未登陆的情况下，请求用户的私人保护信息时，返回403，代表用户需要登陆授权才能继续执行。
+    * `404 Not Found`, 用户请求的资源没有被找到，比如，某些资源被删除了之后，用户继续请求会返回404。
+    * `405 Method Not Allowed`, 用户请求方法不对，比如，需要POST的接口，用户使用了GET请求，返回405错误。
   * 5xx, 服务器错误
-    * 500 Internal Server Error，服务未知错误，比如JAVA后台抛出异常没有处理等。
-    * 502 Bad Gateway，网关（比如：Nginx）收到上游服务器（比如：Tomcat, NodeJS）的无效响应
-    * 503 Service Unavailable，由于服务器维护或过载（请求太多导致没有响应），服务器无法请求请求。
-    * 504 Gateway Timeout，网关在一定时间内没有收到上游服务器的响应（比如：数据库查询太慢），返回此错误。
+    * `500 Internal Server Error`，服务未知错误，比如JAVA后台抛出异常没有处理等。
+    * `502 Bad Gateway`，网关（比如：Nginx）收到上游服务器（比如：Tomcat, NodeJS）的无效响应
+    * `503 Service Unavailable`，由于服务器维护或过载（请求太多导致没有响应），服务器无法请求请求。
+    * `504 Gateway Timeout`，网关在一定时间内没有收到上游服务器的响应（比如：数据库查询太慢），返回此错误。
 * HTTP URIs，[统一资源定位符](https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6)
   > 统一资源定位符的标准格式如下：<br>
     协议类型:[//服务器地址[:端口号]][/路径]文件名[?查询][#片段]
 
   以`http://zh.wikipedia.org:80/w/index.php?title=Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2&printable=yes` 为例, 其中：
-    * http，是协议；
-    * zh.wikipedia.org，是服务器；
-    * 80，是服务器上的网络端口号；
-    * /w/index.php，是路径；
-    * ?title=Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2&printable=yes，是询问。
+    * `http`，是协议；
+    * `zh.wikipedia.org`，是服务器；
+    * `80`，是服务器上的网络端口号；
+    * `/w/index.php`，是路径；
+    * `?title=Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2&printable=yes`，是查询，其中`title`是`Special...`这串，`printable`是`yes`。
 * HTTP header fields, [HTTP头字段列表](https://zh.wikipedia.org/wiki/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5%E5%88%97%E8%A1%A8)
-  * Accept, 表示客户端能接受的返回类型，比如：`Accept: application/json`表示，浏览器能够接受服务器返回JSON数据
-  * Cookie, 设置和获取浏览器Cookie
-  * Host，服务器的域名
-  * Origin，浏览网页的上一级地址，比如，通过百度搜索进入在百度百科，百度百科中的请求，就会在该字段设上百度搜索结果页的链接。
-  * User-Agent，浏览器的身份标识字符串，比如，通过该字段，可以知道你用什么浏览器，版本号是多少，是什么系统等等。
+  * `Accept`, 表示客户端能接受的返回类型，比如：`Accept: application/json`表示，浏览器能够接受服务器返回JSON数据
+  * `Cookie`, 设置和获取浏览器Cookie
+  * `Host`，服务器的域名
+  * `Origin`，浏览网页的上一级地址，比如，通过百度搜索进入在百度百科，百度百科中的请求，就会在该字段设上百度搜索结果页的链接。
+  * `User-Agent`，浏览器的身份标识字符串，比如，通过该字段，可以知道你用什么浏览器，版本号是多少，是什么系统等等。
