@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "HTTP Notes"
-date:   2017-06-25
+date:   2017-06-26
 tags: [http]
 ---
 
