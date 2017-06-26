@@ -3,9 +3,9 @@ layout: post
 title:  "HTTP Notes"
 date:   2017-06-26
 tags: [http]
+commentIssueId: 27
 ---
 
-* TCP/IP 结构详解
 * HTTP 协议步骤，Anatomy of an HTTP Transaction（剖析HTTP传输协议）。主要有
   * DNS查询
   * 建立连接
@@ -17,44 +17,9 @@ tags: [http]
   * methods
   * headers
   * status code
+* TCP/IP 结构详解
 
 参考和图片来源: [Anatomy of an HTTP Transaction](http://blog.catchpoint.com/2010/09/17/anatomyhttp/)
-
-## TCP/IP 包详解
-信息来源自：[传输控制协议](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)，[Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)。
-> 注意！不用仔细看每个字节代表的意义，直接看HTTP发送流程，在涉及到TCP内容时，再回到这里查询某些字节的含义。
-
-![qq 20170626111356](https://user-images.githubusercontent.com/7157346/27523673-55346364-5a61-11e7-8c0e-a782cd4ef07a.png)
-
-* `Source port`, 来源连接端口（16位）－辨识传送连接端口（0 ~ 65535）
-* `Destination port`, 目的连接端口（16位）－辨识接收连接端口
-* `Sequence number`, 序列号（seq，32位）
-  * 如果含有同步化旗标（SYN），则此为最初的序列号；第一个资料位元的序列码为本序列号加一。
-  * 如果没有同步化旗标（SYN），则此为第一个资料位元的序列码。
-* `ACK`, 确认号（ack，32位）—期望收到的数据的开始序列号。也即已经收到的数据的字节长度加1。
-* `Data offset`, 报头偏移量（4位）—以4字节为单位计算出的数据段开始地址的偏移值。
-* `Reserved`, 保留—须置0
-* 标志符
-  * URG—为1表示高优先级数据包，紧急指标字段有效。
-  * ACK—为1表示确认号字段有效
-  * PSH—为1表示是带有PUSH标志的数据，指示接收方应该尽快将这个报文段交给应用层而不用等待缓冲区装满。
-  * RST—为1表示出现严重差错。可能需要重现建立TCP连接。还可以用于拒绝非法的报文段和拒绝连接请求。
-  * SYN—为1表示这是连接请求或是连接接受请求，用于建立连接和使顺序号同步
-  * FIN—为1表示发送方没有数据要传输了，要求释放连接。
-* `Window Size`, 窗口（16位）—表示从确认号开始，本报文的接受方可以接收的字节数，即接收窗口大小。用于流量控制。
-* `Checksum`, 校验和（16位）—对整个的TCP报文段，包括TCP头部和TCP数据，以16位字进行计算所得。这是一个强制性的字段。
-* `Urgent pointer`, 紧急指标（16位）—本报文段中的紧急数据的最后一个字节的序号。
-* `Options`, 选项字段—最多40字节。每个选项的开始是1字节的kind字段，说明选项的类型。
-  * 0：选项表结束（1字节）
-  * 1：无操作（1字节）用于选项字段之间的字边界对齐。
-  * 2：最大报文段长度（4字节，Maximum Segment Size，MSS）通常在建立连接而设置SYN标志的数据包中指明这个选项，指明本端所能接收的最大长度的报文段。通常将MSS设置为（MTU-40）字节，携带TCP报文段的IP数据报的长度就不会超过MTU，从而避免本机发生IP分片。只能出现在同步报文段中，否则将被忽略。
-  * 3：窗口扩大因子（4字节，wscale），取值0-14。用来把TCP的窗口的值左移的位数。只能出现在同步报文段中，否则将被忽略。这是因为现在的TCP接收数据缓冲区（接收窗口）的长度通常大于65535字节。
-  * 4：sackOK—发送端支持并同意使用SACK选项。
-  * 5：SACK实际工作的选项。
-  * 8：时间戳（10字节，TCP Timestamps Option，TSopt）
-    * 发送端的时间戳（Timestamp Value field，TSval，4字节）
-    * 时间戳回显应答（Timestamp Echo Reply field，TSecr，4字节）
-
 
 ### 简单的HTTP请求
 客户端发送一次简单HTTP请求
@@ -176,3 +141,39 @@ Request 2:
   * `Host`，服务器的域名
   * `Origin`，浏览网页的上一级地址，比如，通过百度搜索进入在百度百科，百度百科中的请求，就会在该字段设上百度搜索结果页的链接。
   * `User-Agent`，浏览器的身份标识字符串，比如，通过该字段，可以知道你用什么浏览器，版本号是多少，是什么系统等等。
+
+
+## TCP/IP 包详解
+信息来源自：[传输控制协议](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)，[Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)。
+> 注意！不用仔细看每个字节代表的意义，直接看HTTP发送流程，在涉及到TCP内容时，再回到这里查询某些字节的含义。
+
+![qq 20170626111356](https://user-images.githubusercontent.com/7157346/27523673-55346364-5a61-11e7-8c0e-a782cd4ef07a.png)
+
+* `Source port`, 来源连接端口（16位）－辨识传送连接端口（0 ~ 65535）
+* `Destination port`, 目的连接端口（16位）－辨识接收连接端口
+* `Sequence number`, 序列号（seq，32位）
+  * 如果含有同步化旗标（SYN），则此为最初的序列号；第一个资料位元的序列码为本序列号加一。
+  * 如果没有同步化旗标（SYN），则此为第一个资料位元的序列码。
+* `ACK`, 确认号（ack，32位）—期望收到的数据的开始序列号。也即已经收到的数据的字节长度加1。
+* `Data offset`, 报头偏移量（4位）—以4字节为单位计算出的数据段开始地址的偏移值。
+* `Reserved`, 保留—须置0
+* 标志符
+  * URG—为1表示高优先级数据包，紧急指标字段有效。
+  * ACK—为1表示确认号字段有效
+  * PSH—为1表示是带有PUSH标志的数据，指示接收方应该尽快将这个报文段交给应用层而不用等待缓冲区装满。
+  * RST—为1表示出现严重差错。可能需要重现建立TCP连接。还可以用于拒绝非法的报文段和拒绝连接请求。
+  * SYN—为1表示这是连接请求或是连接接受请求，用于建立连接和使顺序号同步
+  * FIN—为1表示发送方没有数据要传输了，要求释放连接。
+* `Window Size`, 窗口（16位）—表示从确认号开始，本报文的接受方可以接收的字节数，即接收窗口大小。用于流量控制。
+* `Checksum`, 校验和（16位）—对整个的TCP报文段，包括TCP头部和TCP数据，以16位字进行计算所得。这是一个强制性的字段。
+* `Urgent pointer`, 紧急指标（16位）—本报文段中的紧急数据的最后一个字节的序号。
+* `Options`, 选项字段—最多40字节。每个选项的开始是1字节的kind字段，说明选项的类型。
+  * 0：选项表结束（1字节）
+  * 1：无操作（1字节）用于选项字段之间的字边界对齐。
+  * 2：最大报文段长度（4字节，Maximum Segment Size，MSS）通常在建立连接而设置SYN标志的数据包中指明这个选项，指明本端所能接收的最大长度的报文段。通常将MSS设置为（MTU-40）字节，携带TCP报文段的IP数据报的长度就不会超过MTU，从而避免本机发生IP分片。只能出现在同步报文段中，否则将被忽略。
+  * 3：窗口扩大因子（4字节，wscale），取值0-14。用来把TCP的窗口的值左移的位数。只能出现在同步报文段中，否则将被忽略。这是因为现在的TCP接收数据缓冲区（接收窗口）的长度通常大于65535字节。
+  * 4：sackOK—发送端支持并同意使用SACK选项。
+  * 5：SACK实际工作的选项。
+  * 8：时间戳（10字节，TCP Timestamps Option，TSopt）
+    * 发送端的时间戳（Timestamp Value field，TSval，4字节）
+    * 时间戳回显应答（Timestamp Echo Reply field，TSecr，4字节）
