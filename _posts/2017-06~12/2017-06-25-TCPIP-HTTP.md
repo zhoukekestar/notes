@@ -21,13 +21,12 @@ tags: [http]
 参考和图片来源: [Anatomy of an HTTP Transaction](http://blog.catchpoint.com/2010/09/17/anatomyhttp/)
 
 ## TCP/IP 包详解
-信息来源自：[传输控制协议](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)，[Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
+信息来源自：[传输控制协议](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)，[Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)。
+> 注意！不用仔细看每个字节代表的意义，直接看HTTP发送流程，在涉及到TCP内容时，再回到这里查询某些字节的含义。
 
 ![qq 20170626111356](https://user-images.githubusercontent.com/7157346/27523673-55346364-5a61-11e7-8c0e-a782cd4ef07a.png)
 
-* `Source port`, 来源连接端口（16位）－辨识传送连接端口
-  > 0 ~ 65535
-
+* `Source port`, 来源连接端口（16位）－辨识传送连接端口（0 ~ 65535）
 * `Destination port`, 目的连接端口（16位）－辨识接收连接端口
 * `Sequence number`, 序列号（seq，32位）
   * 如果含有同步化旗标（SYN），则此为最初的序列号；第一个资料位元的序列码为本序列号加一。
@@ -61,22 +60,22 @@ tags: [http]
 客户端发送一次简单HTTP请求
 
 ![simplehttp1](https://user-images.githubusercontent.com/7157346/27522691-9a63ef24-5a5a-11e7-9c38-4b398d57a15b.png)
-* 1. `DNS查询`: 客户端根据请求解析域名
+1. `DNS查询`: 客户端根据请求解析域名
   * a. 客户端向`ISP`（Internet服务提供商，比如：电信，联通等）提供的DNS服务器发送查询请求
   * b. DNS服务器返回域名的ip地址
-* 2. `连接`：客户端根据 IP 地址和服务器建立 TCP 链接
+2. `连接`：客户端根据 IP 地址和服务器建立 TCP 链接
   * a. 客户端发送 SYN 包
   * b. 服务器发送 SYN-ACK 包
   * c. 客户端响应 ACK 包，通过TCP的三次握手，连接建立。
   > 三次握手的样例参考：[tcp-three-way-handshake](http://www.omnisecu.com/tcpip/tcp-three-way-handshake.php)
 
-* 3. `发送`：客户端发送HTTP请求至服务器
-* 4. `等待`：客户端等待服务器响应请求
-* 5. `加载`：客户端加载请求内容
+3. `发送`：客户端发送HTTP请求至服务器
+4. `等待`：客户端等待服务器响应请求
+5. `加载`：客户端加载请求内容
   * a. 服务器发送第二段TCP（PSH）
   * b. 客户端发送 ACK （客户端每收到两段TCP后发送ACK）
   * c. 服务器发送第三段TCP段
-* 6. 客户端发送 FIN 包，关闭TCP连接
+6. 客户端发送 FIN 包，关闭TCP连接
 
 
 ### 连续的HTTP请求
@@ -90,10 +89,10 @@ Request 1：
 和单次请求相同
 
 Request 2:
-* 6. `3路握手`建立`TCP`连接
-* 7. 发送请求
-* 8. 等待返回
-* 9. 加载数据
+6. `3路握手`建立`TCP`连接
+7. 发送请求
+8. 等待返回
+9. 加载数据
 
 请求1省略了TCP关闭操作
 
