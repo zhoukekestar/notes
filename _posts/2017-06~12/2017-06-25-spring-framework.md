@@ -6,9 +6,13 @@ tags: [java]
 ---
 
 ## 准备
-下载安装STS(Sprint Tool Suite), [下载地址](https://spring.io/tools)。
+* 下载安装STS(Sprint Tool Suite), [下载地址](https://spring.io/tools)。
+  > 如果出现：Java was started but returned exit code=13 的提示，一般情况下，你是STS下错了，此处估计踩坑的人比较多。因为STS默认下载32位的，而一般情况下，大多数人安装的JDK是64位的。
 
-> 如果出现：Java was started but returned exit code=13 的提示，一般情况下，你是STS下错了，此处估计踩坑的人比较多。因为STS默认下载32位的，而一般情况下，大多数人安装的JDK是64位的。
+* 安装Gradle，[查看具体操作](https://github.com/zhoukekestar/java-notes/wiki/Eclipse%E5%AE%89%E8%A3%85Gradle)
+* 安装MySQL，[查看具体操作](https://github.com/zhoukekestar/java-notes/wiki/%E5%AE%89%E8%A3%85MySQL)
+
+项目对应源码可以在[java-notes](https://github.com/zhoukekestar/java-notes)中找到
 
 ## Spring Boot
 听说 Spring Boot 适合微服务项目。
@@ -75,6 +79,7 @@ tags: [java]
 * JavaBeans
 * 面向切面编程（AOP）
 * 控制反转（IoC, Inversion of Control），依赖注入（DI, Dependency Injection）
+* DAO
 * 反射（Reflect）
 * 注解（Announce）
 
