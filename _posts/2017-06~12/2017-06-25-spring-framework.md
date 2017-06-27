@@ -19,16 +19,11 @@ tags: [java]
 
 * 打开STS，新建一个Maven项目
 * [Maven 配置](https://zh.wikipedia.org/wiki/Apache_Maven)
-  * groupId: 项目的包名，比如：com.mycompany.app
-  * artifactId: 项目名称，比如：myapp
+  * groupId: 项目的包名，比如：io.github.zhoukekestar
+  * artifactId: 项目名称，比如：HelloWorld
+  > 修改Maven文件后，如果依赖依然没有被导入，可以点击项目 -> 右击 -> maven -> update project -> 选中 Force Update of Snapshots/Releases -> 点击OK
+
   ```xml
-    <name>awesome</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
@@ -37,14 +32,8 @@ tags: [java]
 
     <dependencies>
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-      </dependency>
-          <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
       </dependency>
     </dependencies>
   ```
@@ -73,7 +62,36 @@ tags: [java]
       }
   }
   ```
-* 就是这么简单。。。
+* Run as `Sprint Boot`, 就是这么简单。。。
+
+
+## Mybatis
+根据[官方教程](http://www.mybatis.org/mybatis-3/zh/index.html)编写的HelloWorld项目。[查看具体的代码](https://github.com/zhoukekestar/java-notes)。
+* 新建一个`maven`项目
+* 加入`mybatis`依赖
+* 新建一个 `source` 文件夹
+* 添加`mybatis.xml` 配置文件
+* 添加`mapper`文件
+* 通过`mybatis`查询数据
+
+  ```java
+  public class App {
+  	public static SqlSessionFactory sqlSessionFactory;
+
+  	public static void main(String[] args) throws IOException {
+  		String resource = "mybatis.xml";
+  		InputStream inputStream = Resources.getResourceAsStream(resource);
+  		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+  		SqlSession session = sqlSessionFactory.openSession();
+  		User name = session.selectOne("mapper.user.getNameByID", 2);
+
+  		System.out.println("Hello " + name.getName() + "!");
+  	}
+  }
+
+  ```
+## Sprint Boot & Mybatis
 
 ## Java 概念补充:
 * JavaBeans
