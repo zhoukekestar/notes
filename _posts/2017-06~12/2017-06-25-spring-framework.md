@@ -85,22 +85,6 @@ tags: [java]
 
   ```
 ## Sprint Boot & Mybatis
+待补充
 
-## Java 概念补充:
-* JavaBeans
-* 面向切面编程（AOP）
-* 控制反转（IoC, Inversion of Control），依赖注入（DI, Dependency Injection）
-* DAO
-* 反射（Reflect）
-* 注解（Announce）
-
-### [JavaBeans](https://zh.wikipedia.org/wiki/JavaBeans)
-> JavaBeans是Java中一种特殊的类，可以将多个对象封装到一个对象（bean）中。特点是可序列化，提供无参构造器，提供getter方法和setter方法访问对象的属性。名称中的“Bean”是用于Java的可重用软件组件的惯用叫法。
-
-### AOP
-
-### DI
-> 控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。
-
-其中 [Angular](https://zh.wikipedia.org/wiki/AngularJS) 也用到了这种思想：
-> Angular遵循软件工程的MVC模式，并鼓励展现，数据，和逻辑组件之间的松耦合。通过依赖注入（dependency injection），Angular为客户端的Web应用带来了传统服务端的服务，例如独立于视图的控制。因此，后端减少了许多负担，产生了更轻的Web应用。
+## [java-notes 项目](https://github.com/zhoukekestar/java-notes)
