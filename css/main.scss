@@ -21,7 +21,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    1000px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
@@ -73,7 +73,7 @@ h6, .h6 {
 
 pre,
 code {
-  font-family: $base-font-family;
+  font-family: monospace, "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .highlighter-rouge .highlight code {
@@ -253,6 +253,7 @@ a.edit-page:before {
 .comment .commentbody pre {
   background-color: rgba(27,31,35,0.05);
   padding: 0 .4em;
+  font-family: monospace;
 }
 
 .comment .commentbody pre code {
