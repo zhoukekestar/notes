@@ -192,7 +192,9 @@ HTML Semantic Elements (语义化标签)。
 ## 语义化布局样例
 ![html-sectioning-elements-00c3fd](https://user-images.githubusercontent.com/7157346/27770027-607310f0-5f6a-11e7-9054-acab41209605.png)
 
-![qq 20170701212033](https://user-images.githubusercontent.com/7157346/27769630-b3213ed0-5f60-11e7-9924-caeefcb9ddfa.png)
+可参考：
+* https://developer.mozilla.org/en-US/docs/Web/API
+* https://developer.mozilla.org/en-US/docs/Web/API/Metadata
 
 ## semantic-html
 以下内容，大量引用[semantic-html](http://justineo.github.io/slideshows/semantic-html/#/)。
