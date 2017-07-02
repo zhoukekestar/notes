@@ -13,28 +13,186 @@ HTML Semantic Elements (语义化标签)。
 
 * 使用语义化标签，使得页面内容结构化
 * 对浏览器和搜索引擎解析较为友好
-  * 为什么友好
-  * 具体怎么做才算友好
+  * 指定页面特定样式(用户可自行修改)
+  * 对页面中的链接做适当的解释（比如指定上一页，或下一页的地址）
+  * 微格式，获取页面中特定的数据，如：wiki信息
+  * 微数据，获取页面中特定的数据，如：电影信息
 * 使得HTML文档更容易阅读，对开发、维护较为友好
 * 有利于SEO
   * 因为搜索引擎的爬虫可以根据语义化HTML确定上下文以及关键字的权重
 
 > According to the W3C, a Semantic Web: "Allows data to be shared and reused across applications, enterprises, and communities."
 
-## New Semantic Elements in HTML5
-* < article>
-* < aside>
-* < details>
-* < figcaption>
-* < figure>
-* < footer>
-* < header>
-* < main>
-* < mark>
-* < nav>
-* < section>
-* < summary>
-* < time>
+## Semantic Elements
+* `article`: 一篇文章应有其自身的意义，应该有可能独立于站点的其余部分对其进行分发。可能为：论坛帖子，报纸文章，博客条目，用户评论。
+
+* `aside`
+
+* `details`: 用于描述文档或文档某个部分的细节。
+
+  ```html
+  <details>
+    <summary>Copyright 2011.</summary>
+    <p>All pages and graphics on this web site are the property of W3School.</p>
+  </details>
+  ```
+  <details>
+    <summary>Copyright 2011.</summary>
+    <p>All pages and graphics on this web site are the property of W3School.</p>
+  </details>
+
+* `figure`: 比较独立的、被主要内容引用的部分。使用场景有插图，图表，照片，代码。`figcaption`: 用于对`figure`的说明。`img`: 图片，并可使用`alt`属性设置图像的替代文本。
+
+  ```html
+  <figure>
+    <figcaption>zhoukekestar头像</figcaption>
+    <img src='https://avatars0.githubusercontent.com/u/7157346?v=3' alt='zhoukekestar的头像' style='width: 100px;'>
+  </figure>
+  ```
+  <figure>
+    <figcaption>zhoukekestar头像</figcaption>
+    <img src='https://avatars0.githubusercontent.com/u/7157346?v=3' alt='zhoukekestar的头像' style='width: 100px;' />
+  </figure>
+
+* `main`: 文档的主内容, 应用的核心功能，在一个文档中，不能出现一个以上的 `main` 元素。
+* `footer`: 页脚。
+* `header`: 页头，或区域头部。
+
+  ```html
+  <header></header>
+  <main>
+    <h1></h1>
+    <article></article>
+  </main>
+  <footer></footer>
+  ```
+
+* `mark`
+* `nav`
+* `section`
+* `summary`
+* `time`
+
+## 其他语义化标签
+* `ul, ol, li`: 无序、有序列表。 其中，也可以通过`reversed`, `start`, `list-style-type`等值设置`倒序`, `初始值`, `列表类型`。
+
+  ```html
+  <ol style="list-style-type: upper-roman;" start='3'>
+    <li>列表3</li>
+    <li>列表4</li>
+  </ol>
+  ```
+
+  <ol style="list-style-type: upper-roman;" start='3'>
+    <li>列表3</li>
+    <li>列表4</li>
+  </ol>
+
+* `dl`, `dt`, `dd`: 定义列表。使用场景有术语定义，FAQ等
+
+  ```html
+  <!-- https://en.wikipedia.org/wiki/Wikipedia:FAQ -->
+  <dl>
+    <dt>How do I edit a page?</dt>
+    <dd>Editing most Wikipedia pages is easy, just click the "Edit" tab at the top of a Wikipedia page (or on a section-edit link). </dd>
+    <dt>How do I create a new page?</dt>
+    <dd>You are required to have a Wikipedia account to create a new article—you can register here. </dd>
+  </dl>
+  ```
+
+  <dl>
+    <dt>How do I edit a page?</dt>
+    <dd>Editing most Wikipedia pages is easy, just click the "Edit" tab at the top of a Wikipedia page (or on a section-edit link). </dd>
+    <dt>How do I create a new page?</dt>
+    <dd>You are required to have a Wikipedia account to create a new article—you can register here. </dd>
+  </dl>
+
+
+
+* `table`, `thead`, `tbody`, `tfoot`, `caption`: 表格，表头，表内容，表脚，表标题。
+
+  ```html
+  <table style='border: 1px;'>
+    <caption>mytable</caption>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>February</td>
+        <td>$80</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Sum</td>
+        <td>$180</td>
+      </tr>
+    </tfoot>
+  </table>
+  ```
+
+  <table style='border: 1px;'>
+    <caption>mytable</caption>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>February</td>
+        <td>$80</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Sum</td>
+        <td>$180</td>
+      </tr>
+    </tfoot>
+  </table>
+
+* `blockquote`, `q`: 块引用, 短引用。
+
+  ```html
+  <p>Here comes a short quotation: <q>This is a short quotation</q></p>
+  <blockquote>
+    blockquote
+  </blockquote>
+  ```
+
+  <p>Here comes a short quotation: <q>This is a short quotation</q></p>
+  <blockquote>
+    This is a long quotation
+  </blockquote>
+
+* `video`, `audio`: 视频，音频。`source`: 视频资源。 `track`: 字幕。
+
+  ```html
+  <video width="320" height="240" controls="controls">
+    <source src="forrest_gump.mp4" type="video/mp4" />
+    <source src="forrest_gump.ogg" type="video/ogg" />
+    <track kind="subtitles" src="subs_chi.srt" srclang="zh" label="Chinese">
+    <track kind="subtitles" src="subs_eng.srt" srclang="en" label="English">
+  </video>
+  ```
+## 语义化布局样例
+![html-sectioning-elements-00c3fd](https://user-images.githubusercontent.com/7157346/27770027-607310f0-5f6a-11e7-9054-acab41209605.png)
+
+![qq 20170701212033](https://user-images.githubusercontent.com/7157346/27769630-b3213ed0-5f60-11e7-9924-caeefcb9ddfa.png)
 
 ## semantic-html
 以下内容，大量引用[semantic-html](http://justineo.github.io/slideshows/semantic-html/#/)。
@@ -86,18 +244,7 @@ HTML Semantic Elements (语义化标签)。
       * `rel="nofollow"`: 当前文档的作者并不推荐超链接指向的文档 (超链接标注)
     * `area`
     * [links-type](http://w3c.github.io/html/links.html#linkTypes)
-* `ul`, `ol`, `li`: 有序无序列表
-  * value: 指定有序序号
-* `dl`, `dt`, `dd` 元素
-  * 名值对的集合
-  * 术语定义表 / 元数据 / FAQ / ...
-* `figure` 元素
-  * 比较独立的、被主要内容引用的部分
-  * 插图 / 图表 / 照片 / 代码 / ...
-  * 通常会有一个标题 (figcaption)
-* `figcaption` 元素: 图表标题 / 图例 / 代码说明 / ...
-* `div`: 本身无语义。可以和 class, lang, title 等属性结合，为一系列连续的内容增加语义
-* `main`: 文档的主内容 / 应用的核心功能; 唯一; 对应于 ARIA role="main" (定义)
+
 * 文本级语义 (text-level semantics)
   * `em`
     * 表示侧重点的强调
@@ -123,7 +270,7 @@ HTML Semantic Elements (语义化标签)。
     * 不再只是「小字」
     * fine print
     * 免责声明 / 许可证声明 / 注意事项 / ...
-  * s
+  * `s`
     * 不再只是「带删除线的文字」
     * 表示不再准确或不再相关的内容
     * 与 del 元素含义不同
@@ -134,10 +281,6 @@ HTML Semantic Elements (语义化标签)。
   * `cite`
     * 引述的作品标题
     * 书 / 论文 / 散文 / 电影 / 歌曲 / 电视节目 / 画作 / ...
-  * `q`
-    * 引用的来自其他来源的段内内容
-    * cite 属性表示该来源的 URL
-    * 不用 q 而用引号亦正确
   * `abbr`
     * abbreviation or acronym (区别？)
     * 其 title 属性的含义为所写的全称
@@ -159,7 +302,7 @@ HTML Semantic Elements (语义化标签)。
   * `ruby`, `rt`, `rp` 元素
     * 注音标示，「ruby」来自日本印刷业
     * 主要于 CJK(Chinese, Japanese, Korean) 文字
-  * span
+  * `span`
     * 本身无语义
     * 可以和 class, lang 等属性结合，为文本片段增加语义
     * 有更合适的元素时不应选择 span
@@ -169,37 +312,11 @@ HTML Semantic Elements (语义化标签)。
   * `datetime` 属性表示了修改发生的时间 (取值规范)
   * 用来记录文档的编辑历史
 * 嵌入内容 (embedded content)
-  * `img`
-    * `src`, `alt` 属性决定了图片的含义
-      * 有 src 且 alt 为空字符串，代表装饰用图
-      * 有 src 且 alt 为非空字符串，图为文档内容的一部分
-      * 有 src 且无 alt，图为内容一部分但无等价的文本内容可用
-    * 用 alt 文本替换图片，文档含义尽可能不变
   * `iframe` - 内嵌的浏览上下文
   * `embed` - 外部应用或可交互内容的整合入口
   * `object` - 通用外部资源: 根据具体内容可以被处理为图片、内嵌的浏览上下文、供插件调用的资源
   * `param` - 为 object 元素传递的参数
-  * `video`, `audio`
-    * `source`
-      * 表示所在多媒体元素的可替代资源, (可能不同格式 / 清晰度，读取失败或无法解码时可以依次尝试)
-      * `type` 属性中除了 MIME 类型外，可使用 codecs= 来指定编码
-    * `track`
-      * 用来为多媒体元素指定「文本轨」
-      * `kind` 属性描述文本轨的类型
-* 表格
-  * `table` 元素：用来表示超过一维的数据
-  * `caption` 元素：表示所处的 table 的标题
-    > 当所处的 table 是外部 figure 元素的唯一子元素，应首选 figcaption
 
-  * `tbody`, `thead`, `tfoot` 元素
-    * 均为一组表格行
-    * `thead` 表示列头 (通常为列标题，单元格用 th 元素)
-    * `tfoot` 表示列脚 (通常为列数据汇总)
-  * `col`, `colgroup`, `tr` 元素: 列，列组，行
-  * `td`, `th`
-    * `td` - 数据单元格
-    * `th` - 标题单元格
-    * `th` 的 `scope` 属性表示标题对应的数据范围
 
 * [Microformats](http://microformats.org/): Microformats 是 HTML 的扩展，用来标注人物 / 组织 / 事件 / 地点 / 简历 / 菜谱 等等，很多格式已是业界的事实标准。
 
@@ -231,7 +348,9 @@ HTML Semantic Elements (语义化标签)。
   ![qq 20170702175838](https://user-images.githubusercontent.com/7157346/27768885-0abff51a-5f51-11e7-9d82-df2257624134.png)
 
 ## References
+* [semantic-html](http://justineo.github.io/slideshows/semantic-html/#/)
 * [HTML语义化](https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/semantic-html.html)
 * [HTML5 Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
 * [www.w3.org](https://www.w3.org/2001/sw/)
 * [语义网](https://zh.wikipedia.org/wiki/%E8%AF%AD%E4%B9%89%E7%BD%91)
+* [semantic html](https://internetingishard.com/html-and-css/semantic-html/)
