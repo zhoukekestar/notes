@@ -201,7 +201,34 @@ HTML Semantic Elements (语义化标签)。
     * `th` - 标题单元格
     * `th` 的 `scope` 属性表示标题对应的数据范围
 
-* Microformats
+* [Microformats](http://microformats.org/): Microformats 是 HTML 的扩展，用来标注人物 / 组织 / 事件 / 地点 / 简历 / 菜谱 等等，很多格式已是业界的事实标准。
+
+  * Microformats 的基本思路： 用 HTML 已有的元素 / 属性，配合对属性值语义的扩展 (主要针对 class 属性) 以及对文档结构的约定来增强 HTML 的语义表达能力。Microformats 的规范本质上就是对一系列常用类型数据 HTML 格式的约定。
+
+  * [hCard](http://microformats.org/wiki/hcard):
+    * 用来在 Web 上发布人物 / 公司 / 组织机构信息的格式
+    * 和 vCard 格式 (MIME 类型：text/vcard, RFC2426) 定义的属性名值定义一一对应
+  * [hCalendar](http://microformats.org/wiki/hcalendar) - 发布事件
+    * 基于 iCalendar 格式 (MIME 类型：text/calendar, RFC2445)
+  * [hReview](http://microformats.org/wiki/hreview) - 发布书评 / 影评 / 产品评价 / ...
+  * 对 HTML rel 属性值的扩展定义, rel="license", rel="tag", rel="enclosure", ... 部分已经进入 HTML5 草案
+
+  > 这里以wiki中使用hCard为例
+
+  ![qq 20170702182316](https://user-images.githubusercontent.com/7157346/27769039-b59668fa-5f53-11e7-93fe-4785d13619a0.png)
+  ![qq 20170702182356](https://user-images.githubusercontent.com/7157346/27769038-b5966bf2-5f53-11e7-900b-802d5a2b644b.png)
+
+* 微数据 ([HTML Microdata](https://www.w3.org/TR/microdata/)): 允许在现有的文档中嵌入一组项的名值对集合
+  * `itemscope` 属性: 用来标注描述项的位置
+  * `itemtype` 属性, [schemas: 统一词汇表](http://schema.org/docs/schemas.html)
+    * 如果期望服用已定义的项的模式，可用 itemtype 属性给出该类型的 URI
+    * 必须与 `itemscope` 属性置于同一元素上
+  * `itemprop` 属性: 当前项的属性名
+  * `itemid` 属性: 当前项的全局 ID, 如：ISBN(International Standard Book Number)
+  > 这里以IMDb为例，使用微数据，让Google在搜索结果中显示评分，投票数等信息
+
+  ![qq 20170702175921](https://user-images.githubusercontent.com/7157346/27768886-0b98e578-5f51-11e7-800a-e08dc1357414.png)
+  ![qq 20170702175838](https://user-images.githubusercontent.com/7157346/27768885-0abff51a-5f51-11e7-9d82-df2257624134.png)
 
 ## References
 * [HTML语义化](https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/semantic-html.html)
