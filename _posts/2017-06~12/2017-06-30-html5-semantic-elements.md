@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "HTML5 Semantic Elements"
-date:   2017-06-30
+date:   2017-07-03
 tags: [html5]
 commentIssueId: 30
 ---
