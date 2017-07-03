@@ -460,8 +460,17 @@ HTML Semantic Elements (语义化标签)。
   ![qq 20170702175921](https://user-images.githubusercontent.com/7157346/27768886-0b98e578-5f51-11e7-800a-e08dc1357414.png)
   ![qq 20170702175838](https://user-images.githubusercontent.com/7157346/27768885-0abff51a-5f51-11e7-9d82-df2257624134.png)
 
-## 语义化的升华 - 语义网
-语义网
+## 语义网
+
+> 语义网（Semantic Web）是由万维网联盟的蒂姆·伯纳斯-李（Tim Berners-Lee）在1998年提出的一个概念，它的核心是：通过给万维网上的文档（如: HTML）蒂姆加能够被计算机所理解的语义（Meta data），从而使整个互联网成为一个通用的信息交换媒介。
+
+通过下列方法可以提升万维网以及其互连的资源的易用性（usability）和实用性（usefulness）：
+* "标记"了语义信息的文档。这可以是机器可以理解的关于文档内容（例如文档的作者,标题,简介等)的描述,或者是描述该网站所拥有的服务和资源.
+* 通用元数据词汇表(本体论)及词汇间的影射使得文档作者知道如何来标记文档方可让机器识别他想提供的元数据.
+  > 本体：在计算机科学与信息科学领域，理论上，本体是指一种“形式化的，对于共享概念体系的明确而又详细的说明”。<br> 作为一种关于现实世界或其中某个组成部分的知识表达形式，本体目前的应用领域包括（但不仅限于）：人工智能、语义网、软件工程、 生物医学信息学、图书馆学以及信息架构。
+
+  简单的本体示例：关于动物的概念及其相互关系所构成的语义网络
+  ![semantic-net](https://upload.wikimedia.org/wikipedia/commons/1/17/Semantic_Net-zh_cn.svg)
 
 ## References
 * [semantic-html](http://justineo.github.io/slideshows/semantic-html/#/)

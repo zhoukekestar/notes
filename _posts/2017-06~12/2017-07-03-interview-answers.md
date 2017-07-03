@@ -6,6 +6,15 @@ tags: [interview]
 commentIssueId: 17
 ---
 
+对[](https://zhoukekestar.github.io/notes/2017/06/07/interview-answers.html)的补充说明。
+* 浏览暖气渲染流程
+* 前端优化
+* 安全优化
+* BFC、IFC
+* 栅格系统
+* vue的模仿
+* require.js 和 webpack
+
 ## 浏览器优化和渲染流程
 [http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/](http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/)
 
@@ -22,3 +31,11 @@ commentIssueId: 17
 ## 安全优化
 * 双重认证机制（可参考Github的双重认证机制）
 * 异地登陆记录（包括Apple，Twitter，Google在内，都有类似的机制）
+
+## BFC、IFC
+
+## 栅格系统
+
+## Vue的模仿
+
+## require.js 和 webpack
