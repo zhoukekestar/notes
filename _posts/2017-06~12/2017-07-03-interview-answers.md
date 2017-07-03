@@ -32,7 +32,15 @@ commentIssueId: 17
 * 双重认证机制（可参考Github的双重认证机制）
 * 异地登陆记录（包括Apple，Twitter，Google在内，都有类似的机制）
 
-## BFC、IFC
+## BFC, IFC, GFC, FFC
+BFC: Block Formatting Contexts
+* 块元素，比如：div, p, h1等
+
+IFC: Inline Formatting Contexts
+* 行内元素，比如：em，strong，del等
+
+GFC: GridLayout Formatting Contexts,
+FFC: Flex Formatting Contexts,
 
 ## 栅格系统
 
