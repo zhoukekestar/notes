@@ -255,7 +255,7 @@ HTML Semantic Elements (语义化标签)。
   ```html
   <p>Here comes a short quotation: <q>This is a short quotation</q></p>
   <blockquote>
-    blockquote
+    This is a long quotation
   </blockquote>
   ```
 
@@ -276,7 +276,7 @@ HTML Semantic Elements (语义化标签)。
   ```
 
 * `em`: 着重元素 (`em`) 标记出需要用户着重阅读的内容，`em` 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读。
-* `i`: 用于表现因某些原因需要区分普通文本的一系列文本。例如技术术语、外文短语或是小说中人物的思想活动等，它的内容通常以斜体显示。<br><br>
+* `i`: 用于表现因某些原因需要区分普通文本的一系列文本。例如技术术语、外文短语或是小说中人物的思想活动等，它的内容通常以斜体显示。<br>
   该元素只在没有更适合的语义元素表示时使用。例如：
   * 使用`em` 表示强调或重读。
   * 使用`strong` 表示重要性。
@@ -470,6 +470,7 @@ HTML Semantic Elements (语义化标签)。
   > 本体：在计算机科学与信息科学领域，理论上，本体是指一种“形式化的，对于共享概念体系的明确而又详细的说明”。<br> 作为一种关于现实世界或其中某个组成部分的知识表达形式，本体目前的应用领域包括（但不仅限于）：人工智能、语义网、软件工程、 生物医学信息学、图书馆学以及信息架构。
 
   简单的本体示例：关于动物的概念及其相互关系所构成的语义网络
+
   ![semantic-net](https://upload.wikimedia.org/wikipedia/commons/1/17/Semantic_Net-zh_cn.svg)
 
 ## References
