@@ -24,40 +24,80 @@ HTML Semantic Elements (语义化标签)。
 > According to the W3C, a Semantic Web: "Allows data to be shared and reused across applications, enterprises, and communities."
 
 ## Semantic Elements
-* `article`: 一篇文章应有其自身的意义，应该有可能独立于站点的其余部分对其进行分发。可能为：论坛帖子，报纸文章，博客条目，用户评论。
+以下所有注释均来源于[MDN](https://developer.mozilla.org)。
 
-* `aside`
+* `article`: 表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。
+* `aside`: 表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者嵌入内容。他们通常包含在工具条，例如来自词汇表的定义。也可能有其他类型的信息，例如相关的广告、笔者的传记、web 应用程序、个人资料信息，或在博客上的相关链接。
 
-* `details`: 用于描述文档或文档某个部分的细节。
+  ```html
+  <article>
+    <p>
+      The Disney movie <em>The Little Mermaid</em> was
+      first released to theatres in 1989.
+    </p>
+    <aside>
+      The movie earned $87 million during its initial release.
+    </aside>
+    <p>
+      More info about the movie...
+    </p>
+  </article>
+  ```
+
+  <article>
+    <p>
+      The Disney movie <em>The Little Mermaid</em> was
+      first released to theatres in 1989.
+    </p>
+    <aside>
+      The movie earned $87 million during its initial release.
+    </aside>
+    <p>
+      More info about the movie...
+    </p>
+  </article>
+
+* `details`: 被用作发现小部件，用户可以从其中检索附加信息。
+* `summary`: 用作 一个`details`元素的一个内容的摘要，标题或图例。
 
   ```html
   <details>
-    <summary>Copyright 2011.</summary>
-    <p>All pages and graphics on this web site are the property of W3School.</p>
+    <summary>Some details</summary>
+    <p>More info about the details.</p>
+  </details>
+
+  <details open>
+    <summary>Even more details</summary>
+    <p>Here are even more details about the details.</p>
   </details>
   ```
   <details>
-    <summary>Copyright 2011.</summary>
-    <p>All pages and graphics on this web site are the property of W3School.</p>
+    <summary>Some details</summary>
+    <p>More info about the details.</p>
   </details>
 
-* `figure`: 比较独立的、被主要内容引用的部分。使用场景有插图，图表，照片，代码。`figcaption`: 用于对`figure`的说明。`img`: 图片，并可使用`alt`属性设置图像的替代文本。
+  <details open>
+    <summary>Even more details</summary>
+    <p>Here are even more details about the details.</p>
+  </details>
+
+* `figure`: 代表一段独立的内容, 经常与说明(caption) `figcaption` 配合使用, 并且作为一个独立的引用单元。当它属于主体(main flow)时，它的位置独立于主体。这个标签经常是在主文中引用的图片，插图，表格，代码段等等，当这部分转移到附录中或者其他页面时不会影响到主体。
+* `figcaption`: 是与其相关联的图片的说明/标题，用于描述其父节点 `figure` 元素里的其他数据。这意味着 `figcaption` 在 `figure` 块里是第一个或最后一个。同时 `HTML Figcaption` 元素是可选的；如果没有该元素，这个父节点的图片只是会没有说明/标题。
 
   ```html
   <figure>
-    <figcaption>zhoukekestar头像</figcaption>
-    <img src='https://avatars0.githubusercontent.com/u/7157346?v=3' alt='zhoukekestar的头像' style='width: 100px;'>
+    <img src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" alt="An awesome picture">
+    <figcaption>Fig1. MDN Logo</figcaption>
   </figure>
   ```
   <figure>
-    <figcaption>zhoukekestar头像</figcaption>
-    <img src='https://avatars0.githubusercontent.com/u/7157346?v=3' alt='zhoukekestar的头像' style='width: 100px;' />
+    <img src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" alt="An awesome picture">
+    <figcaption>Fig1. MDN Logo</figcaption>
   </figure>
 
-* `main`: 文档的主内容, 应用的核心功能，在一个文档中，不能出现一个以上的 `main` 元素。
-* `footer`: 页脚。
-* `header`: 页头，或区域头部。
-
+* `main`: 呈现了文档`body`或应用的主体部分。主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成。这部分内容在文档中应当是独一无二的，不包含任何在一系列文档中重复的内容，比如侧边栏，导航栏链接，版权信息，网站logo，搜索框（除非搜索框作为文档的主要功能）。
+* `footer`: 表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。
+* `header`: 表示一组引导性的帮助，可能包含标题元素，也可以包含其他元素，像logo、分节头部、搜索表单等。
   ```html
   <header></header>
   <main>
@@ -67,13 +107,58 @@ HTML Semantic Elements (语义化标签)。
   <footer></footer>
   ```
 
-* `mark`
-* `nav`
-* `section`
-* `summary`
-* `time`
+* `mark`: 代表突出显示的文字,例如可以为了标记特定上下文中的文本而使用这个标签. 举个例子，它可以用来显示搜索引擎搜索后关键词。
+  * 在一个引用或者块级元素中，突出显示的文本通常是外部引用的文本，或者标记成特殊审查其他的作者很重要.
+  * 在主要的文本中，突出显示的文本通常可能和用户当前活动具有某种关联性，比如搜索的结果.
+  * 不要为了语法高亮而用 `mark` 元素; 你应该用 `strong` 元素来实现这个目的（语法高亮）。
+  * 不要把 `mark` 元素和  `strong` 元素搞混淆. `strong` 元素用来表示文本在上下文的重要型的， 而 `mark` 元素是用来表示上下文的关联性的.
 
-## 其他语义化标签
+  ```html
+  <p>&lt;mark&gt; 元素用于 <mark>highlight</mark> 文本</p>
+  ```
+
+  <p>&lt;mark&gt; 元素用于 <mark>highlight</mark> 文本</p>
+
+* `nav`: 描绘一个含有多个超链接的区域，这个区域包含转到其他页面，或者页面内部其他部分的链接列表.
+
+  ```html
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  ```
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+* `section`: 表示文档中的一个区域（或节），比如，内容中的一个专题组，一般来说会有包含一个标题（heading）。一般通过是否包含一个标题 (`h1`-`h6` element) 作为子节点 来 辨识每一个`section`。
+
+  ```html
+  <section>
+    <h1>Heading</h1>
+    <p>Bunch of awesome content</p>
+  </section>
+  ```
+  <section>
+    <h1>Heading</h1>
+    <p>Bunch of awesome content</p>
+  </section>
+
+
+* `time`: 用来表示24小时制时间或者公历日期，若表示日期则也可包含时间和时区。
+
+  ```html
+  <p>The concert took place on <time datetime="2001-05-15 19:00">May 15</time>.</p>
+  ```
+  <p>The concert took place on <time datetime="2001-05-15 19:00">May 15</time>.</p>
+
 * `ul, ol, li`: 无序、有序列表。 其中，也可以通过`reversed`, `start`, `list-style-type`等值设置`倒序`, `初始值`, `列表类型`。
 
   ```html
@@ -189,14 +274,106 @@ HTML Semantic Elements (语义化标签)。
     <track kind="subtitles" src="subs_eng.srt" srclang="en" label="English">
   </video>
   ```
+
+* `em`: 着重元素 (`em`) 标记出需要用户着重阅读的内容，`em` 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读。
+* `i`: 用于表现因某些原因需要区分普通文本的一系列文本。例如技术术语、外文短语或是小说中人物的思想活动等，它的内容通常以斜体显示。<br><br>
+  该元素只在没有更适合的语义元素表示时使用。例如：
+  * 使用`em` 表示强调或重读。
+  * 使用`strong` 表示重要性。
+  * 使用`mark` 表示相关性。
+  * 使用`cite` 标记著作名，如一本书、剧本或是一首歌。
+  * 使用`dfn` 标记术语的定义实例。
+
+  > <em> 标签表示着重强调其内容，而 <i> 标签表示从正常的散文中区分出的文本, 如电影或书籍的名字，一个外来词, 或者当文本指的是一个字的定义，而不是其自身代表的语义。
+
+  ```html
+  <p>The <i>Queen Mary</i> sailed last night</p>
+  <p>Just <em>do</em> it already!</p>
+  <p>When doing x it is <strong>imperative</strong> to do y before proceeding.</p>
+  <p>&lt;mark&gt; 元素用于 <mark>highlight</mark> 文本</p>
+  <p>More information can be found in <cite>[ISO-0000]</cite>.</p>
+  <p><dfn id="def-internet">The Internet</dfn> is a global system of interconnected networks that use the Internet Protocol Suite (TCP/IP) to serve billions of users worldwide.</p>
+  ```
+  <p>The <i>Queen Mary</i> sailed last night</p>
+  <p>Just <em>do</em> it already!</p>
+  <p>When doing x it is <strong>imperative</strong> to do y before proceeding.</p>
+  <p>&lt;mark&gt; 元素用于 <mark>highlight</mark> 文本</p>
+  <p>More information can be found in <cite>[ISO-0000]</cite>.</p>
+  <p><dfn id="def-internet">The Internet</dfn> is a global system of interconnected networks that use the Internet Protocol Suite (TCP/IP) to serve billions of users worldwide.</p>
+
+* `code`: 呈现一段计算机代码. 默认情况下, 它以浏览器的默认等宽字体显示.
+
+  ```html
+  <p>Regular text. <code>This is code.</code> Regular text.</p>
+  ```
+  ![tim 20170703181012](https://user-images.githubusercontent.com/7157346/27788496-6817b868-601b-11e7-83a3-d4e6c3eaa925.png)
+
+* `samp`: 用于标识计算机程序输出，通常使用浏览器缺省的 monotype 字体（例如 Lucida Console）。
+
+  ```html
+  <p>Regular text. <samp>This is sample text.</samp> Regular text.</p>
+  ```
+
+  <p>Regular text. <samp>This is sample text.</samp> Regular text.</p>
+
+* `kbd`: 用户输入的内容 / 按键
+
+  ```html
+  <p>Save the document by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+  ```
+
+  <p>Save the document by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+
+* `small`: 將使文本的字体变小一号。(例如从大变成中等，从中等变成小，从小变成超小)。在HTML5中，除了它的样式含义，这个元素被重新定义为表示边注释和附属细则，包括版权和法律文本。
+
+  ```html
+  <p>This is the first sentence.  <small>This whole sentence is in small letters.</small></p>
+  ```
+  <p>This is the first sentence.  <small>This whole sentence is in small letters.</small></p>
+
+* `del`: 表示已经从文档中删除的文本范围。此元素通常是（但不必）呈现删除线的文本。
+* `ins`: 定义已经被插入文档中的文本。
+  * `cite`: 指向一个文档的 URL，该文档解释了文本被插入或修改的原因。（目前该属性还没有被主流浏览器支持）
+  * `datetime`: 该特性指示的此修改发生的时间和日期，并且该特性的值必须是一个有效的日期或者时间字符串。如果该值不能被解析为日期或者时间，则该元素不具有相关联的时间标记。
+
+  ```html
+  <p>This is <del datetime="2000-00-00">a del message</del> <ins>a ins message</ins>.</p>
+  ```
+
+  <p>This is <del datetime="2000-00-00">a del message</del> <ins>a ins message</ins>.</p>
+
+* `abbr`: 代表缩写，并可选择提供一个完整的描述。如果存在，title 属性必须包含这个完整的描述。
+
+  ```html
+  <abbr title="Internationalization">I18N</abbr>
+  ```
+
+  <abbr title="Internationalization">I18N</abbr>
+
+* `ruby`, `rt`, `rp`: 被用来展示东亚文字注音或字符注释。
+
+  ```html
+  <ruby>
+  漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+  字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+  </ruby>
+  ```
+
+  <ruby>
+  漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+  字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+  </ruby>
+
 ## 语义化布局样例
-![html-sectioning-elements-00c3fd](https://user-images.githubusercontent.com/7157346/27770027-607310f0-5f6a-11e7-9054-acab41209605.png)
+
+<img src="https://user-images.githubusercontent.com/7157346/27770027-607310f0-5f6a-11e7-9054-acab41209605.png" style="width: 200px;">
 
 可参考：
 * https://developer.mozilla.org/en-US/docs/Web/API
 * https://developer.mozilla.org/en-US/docs/Web/API/Metadata
 
-## semantic-html
+## Semantic HTML by 顾轶灵
+
 以下内容，大量引用[semantic-html](http://justineo.github.io/slideshows/semantic-html/#/)。
 
 * HTML 语义：元素 + 属性 + 属性值（+文档结构）
@@ -247,72 +424,6 @@ HTML Semantic Elements (语义化标签)。
     * `area`
     * [links-type](http://w3c.github.io/html/links.html#linkTypes)
 
-* 文本级语义 (text-level semantics)
-  * `em`
-    * 表示侧重点的强调
-    * 强调级别由 em 的嵌套个数决定
-    * em 的位置不同，文本本身含义不同
-    * 在可视化 UA 上一般渲染为斜体
-  * `strong`
-    * 表示内容的重要性
-    * 重要程度由 strong 的嵌套个数决定
-    * strong 的位置不同，文本本身含义不变
-    * 在可视化 UA 上一般渲染为粗体
-  * `i`
-    * 不再只是「斜体」
-    * 表示另一种叙述方式
-    * 画外音 / 分类学名词 / 外来语片段 / 舞台指示 / 船名 / ...
-    * 建议与 class / lang 属性搭配使用
-  * `b`
-    * 不再只是「粗体」
-    * 表示某种需要引起注意却又没有其他额外语义的内容
-    * 摘要中的关键词 / 评介中的产品名称 / 文章的开篇内容 ...
-    * 建议与 class 属性搭配使用
-  * `small`
-    * 不再只是「小字」
-    * fine print
-    * 免责声明 / 许可证声明 / 注意事项 / ...
-  * `s`
-    * 不再只是「带删除线的文字」
-    * 表示不再准确或不再相关的内容
-    * 与 del 元素含义不同
-  * `u`
-    * 不再只是「带下划线的文字」
-    * 表示用非文本进行的标注的内容
-    * 中文专名 / 拼写检查的错误内容 / ...
-  * `cite`
-    * 引述的作品标题
-    * 书 / 论文 / 散文 / 电影 / 歌曲 / 电视节目 / 画作 / ...
-  * `abbr`
-    * abbreviation or acronym (区别？)
-    * 其 title 属性的含义为所写的全称
-    > 建议在用户不熟悉的缩写词汇第一次出现时用 abbr + title 进行语义标注，帮助其理解
-
-  * `dfn`
-    * 用来展现一个术语的定义实例
-    * 最接近的父级段落、定义列表组或区块内容必须包含 dfn 元素指定术语的定义
-  * `time`
-    * 为表述的内容增加一个机器可读的时间数据
-    * datetime 属性值必须是预定义的几种时间格式之一
-    * 如果不含 datetime 属性，则会解析其文本内容值
-  * `code` - 代码片段
-  * `samp` - 计算机程序的输出
-  * `kbd` - 用户输入的内容 / 按键
-  * `mark`
-    * 在引用的文字中使用，表示在当前文档中需要引起注意但原文中并没有强调的含义 (eg. 对一篇文章的分析中对原文的标注)
-    * 表示与用户当前的行为相关的内容 (eg. 高亮显示搜索关键词)
-  * `ruby`, `rt`, `rp` 元素
-    * 注音标示，「ruby」来自日本印刷业
-    * 主要于 CJK(Chinese, Japanese, Korean) 文字
-  * `span`
-    * 本身无语义
-    * 可以和 class, lang 等属性结合，为文本片段增加语义
-    * 有更合适的元素时不应选择 span
-* `ins`, `del` 元素
-  * 表示对当前文档内容进行的增添与删改
-  * `cite` 属性指向对某个修改的说明文档的 URL
-  * `datetime` 属性表示了修改发生的时间 (取值规范)
-  * 用来记录文档的编辑历史
 * 嵌入内容 (embedded content)
   * `iframe` - 内嵌的浏览上下文
   * `embed` - 外部应用或可交互内容的整合入口
