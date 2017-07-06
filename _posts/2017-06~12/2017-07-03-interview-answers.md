@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "笔记补充：阿里、网易、滴滴共十次前端面试碰到的问题"
-date:   2017-07-03
+date:   2017-07-06
 tags: [interview]
 commentIssueId: 17
 ---
@@ -12,7 +12,7 @@ commentIssueId: 17
 * 安全优化
 * BFC、IFC
 * 栅格系统
-* vue的模仿
+* vue 原理简析
 * require.js 和 webpack
 * 左右布局：左边定宽、右边自适应，
 
@@ -21,7 +21,7 @@ commentIssueId: 17
 
 
 ## 前端优化
-* 语义化网页（Semantic Elements）
+* [语义化网页](https://zhoukekestar.github.io/notes/2017/07/03/html5-semantic-elements.html)（Semantic Elements）
 * `dns-prefetch` 预先解析DNS
 * `preload` 预先加载可能需要用到的页面（参考Twitter）
 * 缓存
@@ -129,8 +129,14 @@ References:
 * [CSS_Grid_Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 * [css_reference/grid](https://tympanus.net/codrops/css_reference/grid)
 
-## Vue的模仿
-riot 源码阅读？
+## vue 原理简析
+
+* Vue 创建流程
+  ![vue-base](https://user-images.githubusercontent.com/7157346/27902223-852f21c2-6267-11e7-9db5-420a70bed0ca.jpg)
+* Dep 和 Watcher 关系
+![dep-watcher](https://user-images.githubusercontent.com/7157346/27902225-8675656e-6267-11e7-8769-6914a70cbf25.jpg)
+
+具体参考：[一个最简化的 Vue 核心代码](https://github.com/zhoukekestar/toy-vue)。
 
 ## require.js 和 webpack
 
