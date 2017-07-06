@@ -8,7 +8,7 @@ tags: [javascript, es6]
 
 ### multi-task
 
-{% highlight js linenos %}
+```js
 var Promise = require('bluebird')
   , thunkify = require('thunkify')
   , co        = require('co');
@@ -41,4 +41,4 @@ Promise: 1004.672ms
 Generator  res1: gen-a  res2: gen-b
 Generator: 2002.848ms
 */
-{% endhighlight %}
+```

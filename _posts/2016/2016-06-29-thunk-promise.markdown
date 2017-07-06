@@ -8,7 +8,7 @@ tags: [javascript, es6]
 
 ## Thunk VS Promise
 
-{% highlight js linenos %}
+```js
 var Promise = require('bluebird')
   , thunkify = require('thunkify')
   , co = require('co')
@@ -41,4 +41,4 @@ co.wrap(function* () {
   console.log('res:' + res);
 })();
 
-{% endhighlight %}
+```
