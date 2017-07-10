@@ -15,9 +15,18 @@ commentIssueId: 31
 
 ## 前言
 
-因为典型的 `Vue` 项目都是 `SPA` 应用，但实际过程中，因为是按组件化的思想写的，可以参考 [Riot](http://riotjs.com/) 。所以，总的想法是，所有的原有组件都重写成 `Vue` 组件，即，单个 `Single File Compoent` 编译成 JS 文件。然后，页面需要用到什么组件，自己手动引用即可。总之，是想把之前的组件化换成 Vue 的组件化，并把迁移成本降到最低。
+因为典型的 `Vue` 项目都是 `SPA` 应用，但实际过程中，因为是按组件化的思想写的，（参考 了[Riot](http://riotjs.com/)） 。所以，总的想法是，所有的原有组件都重写成 `Vue` 组件，即，单个 `Single File Compoent` 编译成 `JS` 文件。然后，页面需要用到什么组件，自己手动引用即可。就是想把之前的组件化换成 `Vue` 的组件化，并把迁移成本降到最低。
 
-还有，因为项目的复杂性，采用 `SPAs` 模式也有很多不方便，比如，配置文件会变大而复杂。所以，采用组件直接使用 js 文件引用的方式，更为直观，需要做后期优化的，也可以加一个 comb 服务器。
+还有，因为项目的复杂性，采用 `SPAs` 模式也有很多不方便，比如，配置文件会变大而复杂。而采用组件直接使用 `JS` 文件引用的方式，更为直观，便捷。
+
+当然，这也带来了一些问题：
+* 不同组件之间的依赖，无法公用
+  > 解决方法：有相同依赖的组件，把他们打包到一起
+
+* 多了很多重复的 `webpack` 代码，不可避免，但也不会占用太多的内容
+
+* 模块请求次数变多
+  > 可按需，添加 comb 服务器
 
 ## 指定 UMD 模式
 
@@ -91,6 +100,6 @@ class UMDPlugin {
 
 ## 在线预览 & 源码
 
-[在线预览](https://zhoukekestar.github.io/drafts/non-spa-vue/index.html)
+在线预览: [/drafts/non-spa-vue/index.html](https://zhoukekestar.github.io/drafts/non-spa-vue/index.html)
 
-[drafts/non-spa-vue](https://github.com/zhoukekestar/drafts/tree/master/non-spa-vue)
+源码：[drafts/non-spa-vue](https://github.com/zhoukekestar/drafts/tree/master/non-spa-vue)
