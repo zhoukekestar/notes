@@ -14,4 +14,5 @@ Game notes
   * [pixi.js](https://github.com/pixijs/pixi.js): Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback.
   * [Hilo](https://github.com/hiloteam/Hilo): A Cross-end HTML5 Game development solution developed by Alibaba Group
   * [phaser](https://github.com/photonstorm/phaser): Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering.
+  * [Babylon.js](https://github.com/BabylonJS/Babylon.js): a complete JavaScript framework for building 3D games with HTML 5 and WebGL.
 * Play game with AI
