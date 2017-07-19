@@ -43,9 +43,12 @@ requirejs 源码浅析
   ```
 
 ## 大致的流程图
-[![requirejs](https://user-images.githubusercontent.com/7157346/28310938-9d8952b0-6be0-11e7-91c3-27ba012de58f.jpg)](https://drive.google.com/file/d/0B9dg6tL91XqfRWN6MHVRRlFjYU0/view?usp=sharing)
 
-[![requirejs 1](https://user-images.githubusercontent.com/7157346/28357434-04c265d0-6c9e-11e7-95ba-9871515ff6e5.jpg)](https://drive.google.com/file/d/0B9dg6tL91XqfRWN6MHVRRlFjYU0/view?usp=sharing)
+点击可查看大图
+
+[![requirejs](https://user-images.githubusercontent.com/7157346/28310938-9d8952b0-6be0-11e7-91c3-27ba012de58f.jpg)](https://user-images.githubusercontent.com/7157346/28310938-9d8952b0-6be0-11e7-91c3-27ba012de58f.jpg)
+
+[![requirejs 1](https://user-images.githubusercontent.com/7157346/28357434-04c265d0-6c9e-11e7-95ba-9871515ff6e5.jpg)](https://user-images.githubusercontent.com/7157346/28357434-04c265d0-6c9e-11e7-95ba-9871515ff6e5.jpg)
 
 ## AMD vs CommonJS vs UMD
 
