@@ -18,6 +18,8 @@ commentIssueId: 38
 ```js
 /*
  * 注意！ 本样例为了最简化，未添加reject, all, rece等功能
+ * 测试： https://github.com/zhoukekestar/drafts/blob/master/promise/simple-promise.js
+ *
  * 完整的Promise实现可参考：https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js
  */
 class MyPromise {
@@ -54,30 +56,6 @@ class MyPromise {
     return this;
   }
 }
-
-// 以下是测试样例
-new MyPromise((resolve) => {
-  setTimeout(() => {
-    resolve('first promise')
-  }, 1000)
-}).then(v => {
-  console.log(v)
-  return new MyPromise(resolve => {
-    setTimeout(() => {
-      resolve('second promise')
-    }, 1000)
-  })
-}).then((v) => {
-  console.log(v);
-}).then(v => {
-  console.log(v)
-})
-/*
-输出：
-first promise
-second promise
-undefined
- */
 ```
 
 ## promise-polyfill
