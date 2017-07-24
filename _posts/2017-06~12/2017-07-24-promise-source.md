@@ -6,8 +6,8 @@ tags: [js, source]
 commentIssueId: 38
 ---
 
-【编辑ing...】之前写了一个超小的，`Demo`版的 `Promise` 。不过，出于严谨的考虑，也想更全面的了解一下 `Promise` 的实现，决定再读一读 `Promise` 的源码，顺便把 `TJ` 大神的 `co` 模块也简要分析一下。<br>
-分析的这个 Promise 库，是[`github/fetch`] 中推荐的一个 `polyfill` 库，因为它比较小巧简单，但也兼容了 `Promises/A+` 标准，所以，就决定分析这个库了：[promise-polyfill](https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js)
+之前写了一个超小的，`Demo`版的 `Promise` 。不过，出于严谨的考虑，也想更全面的了解一下 `Promise` 的实现，决定再读一读 `Promise` 的源码，顺便把 `TJ` 大神的 `co` 模块也简要分析一下。<br>
+分析的这个 Promise 库，是[`github/fetch`](https://github.com/github/fetch) 中推荐的一个 `polyfill` 库，因为它比较小巧简单，但也兼容了 `Promises/A+` 标准，所以，就决定分析这个库了：[promise-polyfill](https://github.com/taylorhakes/promise-polyfill/blob/master/promise.js)
 * 自己的 Demo 版 Promise
 * promise-polyfill 简要流程图
 * co 模块简要流程图
@@ -80,6 +80,14 @@ undefined
  */
 ```
 
-## promise-polyfill【编辑ing...】
+## promise-polyfill
 
-## co【编辑ing...】
+点击查看大图
+
+[![promise](https://user-images.githubusercontent.com/7157346/28515993-37e92adc-7092-11e7-959c-345ec2929369.jpg)](https://user-images.githubusercontent.com/7157346/28515993-37e92adc-7092-11e7-959c-345ec2929369.jpg)
+
+## co
+
+【未完待续】我记得我当初使用 co 的时候，是因为 `function* () {}` 和 `yield` 没有办法自动化执行，现在因为有了 `async` 和 `await`，用的比较少了。所以，简单些，我们从测试样例 `test/promises` 出发，简要分析一下。
+
+点击查看大图
