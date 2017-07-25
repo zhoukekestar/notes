@@ -66,6 +66,58 @@ class MyPromise {
 
 ## co
 
-【未完待续】我记得我当初使用 co 的时候，是因为 `function* () {}` 和 `yield` 没有办法自动化执行，现在因为有了 `async` 和 `await`，用的比较少了。所以，简单些，我们从测试样例 `test/promises` 出发，简要分析一下。
+我记得我当初使用 co 的时候，是因为 `function* () {}` 和 `yield` 没有办法自动化执行，现在因为有了 `async` 和 `await`，用的比较少了。所以，简单些，我们从测试样例 `test/promises` 出发，简要分析一下。
 
-点击查看大图
+简化版的 `co` 模块，仅支持 `yield Promise`。
+
+```js
+module.exports = (gen, ...args) => {
+  const ctx = this;
+
+  return new Promise((resolve, reject) => {
+    if (typeof gen === 'function') gen = gen.apply(ctx, args); // 生成一个 GeneratorFunction
+    if (!gen || typeof gen.next !== 'function') resolve(gen);
+
+    onFulfilled();
+
+    function onFulfilled(res) {
+      var ret;
+      try {
+        ret = gen.next(res); // 自动执行 next
+      } catch (e) {
+        return reject(e);
+      }
+      next(ret);
+      return null;
+    }
+
+    function onRejected(err) {
+      var ret;
+      try {
+        ret = gen.throw(err);
+      } catch (e) {
+        return reject(e);
+      }
+      next(ret);
+    }
+
+    function next(ret) {
+      if (ret.done) return resolve(ret.value); // 执行完毕
+      ret.value.then(onFulfilled, onRejected); // 继续执行下一个 next
+    }
+  })
+}
+```
+
+简单地使用 `co`
+
+```js
+co(function *(){
+  var a = yield getPromise(1);
+  assert.equal(1, a);
+});
+```
+
+以下是简化版`co`针对 `Promise` 的测试（点击查看在线测试）：
+
+[![tim 20170725124802](https://user-images.githubusercontent.com/7157346/28557551-b275107e-713f-11e7-90d7-4fd91154ef02.png)](https://zhoukekestar.github.io/drafts/promise/simple-co/test.html)
