@@ -6,6 +6,11 @@ tags: [js]
 commentIssueId: 40
 ---
 
+* Event Loop
+* Stack
+* Heap
+* Microtask
+
 ## Event Loop
 关于[Event Loop 在 MDN 上的解释](https://developer.mozilla.org/en/docs/Web/JavaScript/EventLoop).
 
