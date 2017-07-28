@@ -14,7 +14,7 @@ commentIssueId: 42
 * 运行测试样例
 * 样例截图
 
-## 下载 `Cancry` 并安装
+## 下载 `Canary` 并安装
 
 该步骤省略
 
