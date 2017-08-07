@@ -92,6 +92,7 @@ letter.webcomponents[0] = webcomponents[0];
 这么想起来，对比`mustache`, `vue` 和 `polymer`:
 
 * mustache
+
 ```
 {{#list}}
 <li>{{.}}</li>
@@ -99,11 +100,13 @@ letter.webcomponents[0] = webcomponents[0];
 ```
 
 * vue
+
 ```
 <li v-for='item in list'>{{item}}</li>
 ```
 
 * polymer
+
 ```
 <template is="dom-repeat" items="{{employees}}">
   <div>{{item.first}}</div>
