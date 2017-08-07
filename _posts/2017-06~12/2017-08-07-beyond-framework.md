@@ -3,12 +3,13 @@ layout: post
 title:  "框架之外( Beyond Framework )"
 date:   2017-08-07
 tags: [framework]
+commentIssueId: 44
 ---
 
 随着前端的快速发展，从原来的简单交互到`jQuery`, 从 `Kissy`, `YUI` 到 `Angular`, `React`, `Vue`等等。
 我也曾想，这些技术的发展，什么是真正的发展？什么只是外表的改变？
 关于真正的发展的这个问题，我的答案是：从`原始的农耕` -> 到`模块化` -> 再到`组件化`。组件化无疑是最近最大的进步与发展。
-这篇文章，很大程度是 [code-review](https://github.com/zhoukekestar/alibaba-interview-code-review) 的延伸。
+这篇文章，很大程度是 [`code-review`](https://github.com/zhoukekestar/alibaba-interview-code-review) 和`理想中的组件化`的延伸。
 * 组件化
 * 组件化愿景
 * 为什么是子集
