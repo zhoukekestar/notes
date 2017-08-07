@@ -94,9 +94,9 @@ letter.webcomponents[0] = webcomponents[0];
 * mustache
 
 ```
-{{#list}}
-<li>{{.}}</li>
-{{/list}}
+{ { # list } }
+<li>{ { . } }</li>
+{ { / list } }
 ```
 
 * vue
