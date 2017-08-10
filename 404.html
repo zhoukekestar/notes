@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>404</title>
+    <style>
+      header {
+        margin: 40px;
+        text-align: center;
+        font-size: 30px;
+      }
+      main time {
+        display: block;
+        text-align: center;
+        margin: 40px 0 20px;
+      }
+      main a {
+        display: block;
+        width: 15em;
+        text-align: center;
+        background: #00d0ff;
+        padding: 10px;
+        border-radius: 4px;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Oops! 404</header>
+    <main>
+      <time>5s</time>
+      <a href="/notes">Take me to the Home Page.</a>
+    </main>
+    <script>
+      var t = 5;
+      setInterval(function() {
+        t--;
+        document.querySelector('main time').innerHTML = t + 's';
+        if (t === 0) {
+          location.href = document.querySelector('main a').href;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
