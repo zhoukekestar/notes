@@ -53,14 +53,7 @@ C:\Users\Administrator\Desktop
 λ vi index.js
 
 C:\Users\Administrator\Desktop
-λ vi index.js
-
-C:\Users\Administrator\Desktop
 λ node index.js
-
-C:\Users\Administrator\Desktop
-λ
-
 ```
 
 Screenshot
