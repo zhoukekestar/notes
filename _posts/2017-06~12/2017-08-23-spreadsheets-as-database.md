@@ -73,6 +73,8 @@ commentIssueId: 49
 </script>
 <script src='https://spreadsheets.google.com/feeds/list/1XMWiqVNHGwCuatDW_QFzNTErQzpc1CkUHwnwD7WZJtg/od6/public/values?alt=json&callback=spreadsheets_callback'></script>
 
+该 Demo 的数据源是[这个 Sheet 文档](https://docs.google.com/spreadsheets/d/1XMWiqVNHGwCuatDW_QFzNTErQzpc1CkUHwnwD7WZJtg/edit?usp=sharing)。
+
 ```html
 <div id='table'></div>
 <style>
