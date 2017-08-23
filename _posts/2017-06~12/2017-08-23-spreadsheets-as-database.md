@@ -11,10 +11,12 @@ commentIssueId: 49
 * 新建 `Sheet`
 * 发布到网络
 * 在网页中应用数据
+* 在线 Demo
 
 ## 新建表格
 
 如图所示，建立一个表格，[在线链接](https://docs.google.com/spreadsheets/d/1XMWiqVNHGwCuatDW_QFzNTErQzpc1CkUHwnwD7WZJtg/edit?usp=sharing)
+
 ![tim 20170823103013](https://user-images.githubusercontent.com/7157346/29597283-3cef3d7c-87f4-11e7-9377-a7dc4e7b5335.png)
 
 ## 发布到网络
@@ -50,17 +52,18 @@ commentIssueId: 49
       </tr>
     </thead>
     <tbody>
-      {{#feed.entry}}
+      <%#feed.entry%>
         <tr>
-          <td>{{gsx$id.$t}}</td>
-          <td>{{gsx$name.$t}}</td>
-          <td>{{gsx$date.$t}}</td>
+          <td><%gsx$id.$t%></td>
+          <td><%gsx$name.$t%></td>
+          <td><%gsx$date.$t%></td>
         </tr>
-      {{/feed.entry}}
+      <%/feed.entry%>
     </tbody>
   </table>
 </script>
 <script>
+  Mustache.tags = ['<%', '%>'];
   window.spreadsheets_callback = function (d) {
     console.log(d)
     var template = document.querySelector('#template').innerHTML;
@@ -89,17 +92,18 @@ commentIssueId: 49
       </tr>
     </thead>
     <tbody>
-      {{#feed.entry}}
+      <%#feed.entry%>
         <tr>
-          <td>{{gsx$id.$t}}</td>
-          <td>{{gsx$name.$t}}</td>
-          <td>{{gsx$date.$t}}</td>
+          <td><%gsx$id.$t%></td>
+          <td><%gsx$name.$t%></td>
+          <td><%gsx$date.$t%></td>
         </tr>
-      {{/feed.entry}}
+      <%/feed.entry%>
     </tbody>
   </table>
 </script>
 <script>
+  Mustache.tags = ['<%', '%>'];
   window.spreadsheets_callback = function (d) {
     console.log(d)
     var template = document.querySelector('#template').innerHTML;
