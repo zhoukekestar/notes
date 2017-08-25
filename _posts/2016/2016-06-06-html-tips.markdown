@@ -18,7 +18,7 @@ commentIssueId: 8
 ## 获取cookie
 
 ```js
-var wechat = (wechat = (' ' + document.cookie).match(/[; ]wechat=([^;]*)/)) && wechat[1];
+var wechat = (wechat = (' ' + document.cookie).match(/[; ]?wechat=([^;]*)/)) && wechat[1];
 ```
 
 ## 设置cookie(设置50分钟超时)
