@@ -4,6 +4,7 @@ title:  "Git tips"
 date:   2016-12-23 17:02:00 +0800
 categories: git
 tags: [git, note]
+commentIssueId: 56
 ---
 # Clone and Change repo
 * http://stackoverflow.com/questions/22906917/how-to-move-git-repository-with-all-branches-from-bitbucket-to-github
