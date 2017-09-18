@@ -38,3 +38,4 @@ export const sayHello = () => {
 ## References
 * [spec](https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type)
 * [ES6标准解读：Module的加载实现](http://geek.csdn.net/news/detail/235469?utm_source=tuicool&utm_medium=referral)
+* [es6-in-depth-modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
