@@ -34,3 +34,4 @@ Flex summary
 
 ## References
 * [图解 Flexbox](https://juejin.im/entry/58a3db92b123db00545eee9c)
+* [an-animated-guide-to-flexbox](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
