@@ -19,6 +19,8 @@ commentIssueId: 17
 ## 浏览器优化和渲染流程
 [optimising-the-front-end-for-the-browser](http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/)
 
+@2017-10-24
+[https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/) from [https://developer.mozilla.org/en-US/docs/Web/HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
 
 ## 前端优化
 * [语义化网页](https://zhoukekestar.github.io/notes/2017/07/03/html5-semantic-elements.html)（Semantic Elements）
