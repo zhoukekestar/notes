@@ -26,3 +26,9 @@
 - [ ] Finance
 - [ ] Data Visualization
 - [ ] HTML5: Fetch, SVG, Canvas, Flexbox
+- [ ] peer to peer? new internet?
+
+## 首先级 & 时间轴
+* graphql + applo
+* PI & 历史了解 & 笔记
+* 点对点通讯
