@@ -32,3 +32,4 @@
 * graphql + applo
 * PI & 历史了解 & 笔记
 * 点对点通讯
+* http2 static file server: https://dexecure.com/blog/how-to-create-http2-static-file-server-nodejs-with-examples/
