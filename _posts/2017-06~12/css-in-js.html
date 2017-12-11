@@ -1,0 +1,53 @@
+<textarea id='input' style="height: 400px; width: 100%">
+  {
+    secondcontainer: {
+      width: 750,
+      height: 1334,
+      color: '#f00',
+    }
+  }
+</textarea>
+<button onclick='convert()'>convert</button>
+<a target='_blank' href='https://staxmanade.com/CssToReact/'>css 2 js</a>
+<textarea id='output' style="height: 400px; width: 100%"></textarea>
+<script>
+var convertLowerCase = name => {
+  name = name.split('');
+  for (let i = 0; i < name.length; i++) {
+    let code = name[i].charCodeAt(0);
+    // console.log(code)
+    if(code > 64 && code < 91) {
+
+      code = String.fromCharCode(code + 32);
+      // console.log(name[i].charCodeAt(0) + '->' + code);
+      name.splice(i, 1, '-' + code)
+    }
+  }
+  return name.join('');
+}
+
+var convertJS2CSS = o => {
+  let res = {};
+  Object.keys(o).map(key => {
+    let css = {};
+    let cla = o[key];
+    Object.keys(cla).map(key => {
+      css[convertLowerCase(key)] = cla[key] + ';'
+    })
+    res[`.${key}`] = css;
+  })
+
+  return res;
+}
+
+window.convert = () => {
+  var input = document.querySelector('#input').value;
+  input = eval(`(${input})`);
+  var output = convertJS2CSS(input)
+  document.querySelector('#output').value =
+    JSON.stringify(output, null, 2)
+      .replace(/",/g, '')
+      .replace(/"/g, '');
+
+}
+</script>
