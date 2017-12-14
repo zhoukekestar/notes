@@ -30,3 +30,6 @@ commentIssueId: 64
 * 查询需要进行代理的 url，右击进行映射即可
   ![map](https://user-images.githubusercontent.com/7157346/32314844-b88c67a2-bfe4-11e7-863d-f937433d1b3d.png)
 
+
+## 如何抓 iOS 的包
+[十分钟学会Charles抓包(iOS的http/https请求)](http://www.jianshu.com/p/5539599c7a25), 其中需要注意的是，在 iOS 上，安装完证书后，需要在 通用 -> 关于本机 -> 证书信任设置中 打开 根信息的开关
