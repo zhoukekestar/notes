@@ -34,7 +34,7 @@ Android 和 iOS ? 两个端 ? IoT 时代, 还会只有这两个端吗? 前端 = 
 
 Severless 方案通过  FaaS 落地, 之前的 LearnCloud 已经有类似的尝试,  AWS 的 BigTable, Lambda, 小应用已经能实现真正的 Serverless 了.
 
-包括目前的各种 SDK, 能不能用各种 API as a Service 来替代, 业务只是需要结合各种三方 APIs 呢? 比如, 自己闲来无聊搞个人脸开门服务, 也行可以这样:
+包括目前的各种 SDK, 能不能用各种 API as a Service 来替代, 业务只是需要结合各种三方 APIs 呢? 比如, 自己闲来无聊搞个人脸开门服务, 是不是可以这样:
 
 >  三方摄像头 + IoT 三方 -> 图片获取和上传 (FaaS) -> 三方人脸识别 -> 三方身份证绑定 -> 三方登录 -> 下发指令 (FaaS) + BigTable -> 三方开锁 (物联协议)
 
