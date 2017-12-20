@@ -33,3 +33,4 @@
 * PI & 历史了解 & 笔记
 * 点对点通讯
 * http2 static file server: https://dexecure.com/blog/how-to-create-http2-static-file-server-nodejs-with-examples/
+* webassembly: http://www.infoq.com/cn/news/2017/12/webassembly-browser-support?utm_source=tuicool&utm_medium=referral
