@@ -11,15 +11,15 @@ commentIssueId: 65
 
 <div style='width: 616px; margin: 20px auto;'>
 
-![hao-de_01](https://user-images.githubusercontent.com/7157346/34968380-e589becc-faa3-11e7-904b-db2f114e3342.jpg)
+<img src='https://user-images.githubusercontent.com/7157346/34968380-e589becc-faa3-11e7-904b-db2f114e3342.jpg' />
 
-![hao-de_03](https://user-images.githubusercontent.com/7157346/34968382-e5bbdd08-faa3-11e7-895f-8946c56113f5.jpg)
+<img src='https://user-images.githubusercontent.com/7157346/34968382-e5bbdd08-faa3-11e7-895f-8946c56113f5.jpg' />
 
-![hao-de_04](https://user-images.githubusercontent.com/7157346/34968383-e5eaaeee-faa3-11e7-997f-e90c44f26cdd.jpg)
+<img src='https://user-images.githubusercontent.com/7157346/34968383-e5eaaeee-faa3-11e7-997f-e90c44f26cdd.jpg' />
 
-![hao-de_05](https://user-images.githubusercontent.com/7157346/34968384-e618df1c-faa3-11e7-8ac4-896c09ca61ab.jpg)
+<img src='https://user-images.githubusercontent.com/7157346/34968384-e618df1c-faa3-11e7-8ac4-896c09ca61ab.jpg' />
 
-![hao-de_06](https://user-images.githubusercontent.com/7157346/34968385-e647d02e-faa3-11e7-89fe-286e8cadba4f.jpg)
+<img src='https://user-images.githubusercontent.com/7157346/34968385-e647d02e-faa3-11e7-89fe-286e8cadba4f.jpg' />
 </div>
 
 ## References & Tools
