@@ -8,7 +8,7 @@ commentIssueId: 65
 最基本的颜色搭配知识, 摘录自[UI 设计色彩搭配](http://www.xueui.cn/tutorials/color-tutorial/ui-color-matching-design.html)
 
 
-<div style='width: 100px; margin: 20px auto;'>
+<div style='width: 616px; margin: 20px auto;'>
 
 ![hao-de_01](https://user-images.githubusercontent.com/7157346/34968380-e589becc-faa3-11e7-904b-db2f114e3342.jpg)
 
