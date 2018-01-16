@@ -1,5 +1,6 @@
 ---
-layout: posttitle:  "颜色选择, 设计配色"
+layout: post
+title:  "颜色选择, 设计配色"
 date:   2018-01-16
 tags: [design, UI]
 commentIssueId: 65
