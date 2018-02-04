@@ -25,10 +25,15 @@ commentIssueId: 65
 * 音乐版权
 * 影视作品版权
 
+## 腾讯区块链
+
+![](https://user-images.githubusercontent.com/7157346/35776403-b4de11c8-09d6-11e8-9588-54fc63893508.png)
+
 ## References
 
 * [区块链入门教程](http://www.ruanyifeng.com/blog/2017/12/blockchain-tutorial.html)
 * [谈谈我对区块链的理解](https://mp.weixin.qq.com/s/6zdlnPrvbtH_RI89Lc71BQ)
 * [EmTech China : Brian Behlendorf](http://www.emtechchina.cn/)
 * [腾讯区块链](https://trustsql.qq.com/)
+* [腾讯白皮书](https://www.jianshu.com/p/7780575fa069)
 
