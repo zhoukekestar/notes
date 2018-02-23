@@ -29,7 +29,7 @@ Object.defineProperty 中可设置以下`描述符`:
 
 
 
-##core-decorators
+## core-decorators
 
 ### @readonly
 
@@ -129,3 +129,4 @@ export default function deprecate(...args) {
 * [Exploring EcmaScript Decorators](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841)
 * [core-decorators](https://github.com/jayphelps/core-decorators)
 * [proposal-decorators](https://tc39.github.io/proposal-decorators/)
+* [lodash-decorators](https://github.com/steelsojka/lodash-decorators)
