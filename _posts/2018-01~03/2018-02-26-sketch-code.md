@@ -16,6 +16,8 @@ Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效
 
 ![](https://user-images.githubusercontent.com/7157346/36637759-45079452-1a1e-11e8-83da-f9b0815c9cf9.png)
 
+文件内容的详情说明可参考: http://sketchplugins.com/d/87-new-file-format-in-sketch-43
+
 ## References
 
 * [如何评价 Airbnb 发布的 React Sketch.app 工具？](https://www.zhihu.com/question/59069953/answer/162063303)
@@ -26,3 +28,4 @@ Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效
 * [Deco IDE](https://www.decoide.org/)
 * [building-a-visual-language](https://airbnb.design/building-a-visual-language/)
 * [painting-with-code](https://airbnb.design/painting-with-code/)
+* [Sketch-Flex-Layout](https://github.com/hrescak/Sketch-Flex-Layout)
