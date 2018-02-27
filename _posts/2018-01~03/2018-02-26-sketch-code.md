@@ -29,3 +29,8 @@ Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效
 * [building-a-visual-language](https://airbnb.design/building-a-visual-language/)
 * [painting-with-code](https://airbnb.design/painting-with-code/)
 * [Sketch-Flex-Layout](https://github.com/hrescak/Sketch-Flex-Layout)
+* [airbnb.design/lottie](https://airbnb.design/lottie/)
+* [awesome-design](https://github.com/gztchan/awesome-design)
+* [Miaow](https://github.com/weixin/Miaow)
+* [transform-your-sketch-based-design-system-into-real-code-using-react-studio](https://hackernoon.com/transform-your-sketch-based-design-system-into-real-code-using-react-studio-35b89e67ce79)
+
