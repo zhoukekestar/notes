@@ -6,7 +6,7 @@ tags: [UI, sketch]
 commentIssueId: 74
 ---
 
-Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效最为明显的. 接着[知乎上的讨论](https://www.zhihu.com/question/59069953/answer/162063303), 在此做一下笔记.
+Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效最为明显的. 接着[知乎上的讨论](https://www.zhihu.com/question/59069953/answer/162063303), 在此做一下笔记.  能看到社区在 sketch 2 code 和 code 2 sketch 的尝试, 当然, 更牛还是 AI 的尝试.
 
 
 
@@ -33,4 +33,6 @@ Sketch to Code 一直是我最想到达到的理想状态, 也是对前端提效
 * [awesome-design](https://github.com/gztchan/awesome-design)
 * [Miaow](https://github.com/weixin/Miaow)
 * [transform-your-sketch-based-design-system-into-real-code-using-react-studio](https://hackernoon.com/transform-your-sketch-based-design-system-into-real-code-using-react-studio-35b89e67ce79)
+* [sketching-interfaces](https://airbnb.design/sketching-interfaces/): Generating code from low fidelity wireframes
+* [pix2code](https://arxiv.org/abs/1705.07962)
 
