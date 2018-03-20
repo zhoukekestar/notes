@@ -141,6 +141,7 @@ ES6 Syntax (or Babel)
 
 ## References
 
-* [Inheritance_and_the_prototype_chain](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [MDN: Inheritance_and_the_prototype_chain](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [MDN: new](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
 * [ES5和ES6中的继承](http://keenwon.com/1524.html)
 * [理解prototype、proto和constructor等关系](https://alexzhong22c.github.io/2017/08/08/js-proto/)
