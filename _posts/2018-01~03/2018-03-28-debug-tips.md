@@ -6,6 +6,10 @@ tags: [note]
 commentIssueId: 75
 ---
 
+Debug on Android & iOS with Chrome & Safari.
+* Debug iOS Web Page
+* Debug Android Web Page
+
 ## Debug iOS Web Page
 
 * Mac Safari:
