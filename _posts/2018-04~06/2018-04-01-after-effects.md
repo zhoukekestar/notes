@@ -3,10 +3,15 @@ layout: post
 title:  "SVG 动画 by After Effects"
 date:   2018-04-01
 tags: [note]
-commentIssueId: 75
+commentIssueId: 76
 ---
 
 使用 Adobe After Effects 做前端网页的 SVG 动画
+* 安装 AE & Bodymovin
+* 创建 hello world 动画
+* 使用 bodymovin 导出
+* hello world demo
+
 
 ## 安装 AE & Bodymovin
 
@@ -29,7 +34,7 @@ commentIssueId: 75
 
 
 
-## 开始创建 AE 动画
+## 创建 hello world 动画
 
 打开 AE 并新建 composition
 
@@ -59,6 +64,8 @@ commentIssueId: 75
 2. 按空格即可预览动画
 
 ![](https://user-images.githubusercontent.com/7157346/38174570-d199998e-3601-11e8-989a-16cbdf08abb0.png)
+
+## 使用 bodymovin 导出
 
 在 window -> extensions -> bodymovin 中打开 boymovin 插件
 
