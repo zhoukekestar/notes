@@ -10,6 +10,7 @@ commentIssueId: 76
 * html 代码
 * js 控制 svg 动画代码
 * svg 交互动画效果
+* 使用 canvas 渲染
 
 ## html 代码
 
@@ -28,7 +29,7 @@ commentIssueId: 76
 var container = document.getElementById('bm_animation');
 var animData = {
   container: container,
-  renderer: 'svg',
+  renderer: 'svg', // 此处还可使用 canvas 渲染
   loop: true,
   prerender: false,
   autoplay: true,
@@ -88,6 +89,10 @@ function startAnimation() {
 ## svg 交互动画效果
 
 <iframe style='width: 100%; display: block; border: none; height: 500px;' src='https://zhoukekestar.github.io/notes/assets/2018/04-02-after-effects2/index.html'></iframe>
+
+## canvas 渲染
+
+<iframe style='width: 100%; display: block; border: none; height: 500px;' src='https://zhoukekestar.github.io/notes/assets/2018/04-02-after-effects2/canvas.html'></iframe>
 
 
 ## References
