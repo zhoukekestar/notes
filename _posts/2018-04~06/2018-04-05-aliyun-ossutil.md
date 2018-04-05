@@ -10,6 +10,8 @@ aliyun ossutil notes
 * 下载 ossutil
 * 使用 ossutil 创建 bucket
 * 同步文件夹功能
+* 查看 ossutil 配置
+* 最佳实践
 * brew & tree 安装
 
 
@@ -70,6 +72,34 @@ Succeed: Total num: 3, size: 0. OK num: 3(upload 2 files, 1 directories).
 
 
 
+## 查看 oss 配置
+
+```bash
+➜  ~ cat ~/.ossutilconfig
+[Credentials]
+language=EN
+endpoint=oss-cn-shanghai.aliyuncs.com
+accessKeyID=xxx
+accessKeySecret=xxx
+```
+
+
+
+## 最佳实践
+
+* `-r` 上传目录
+* `-u` 只做更新
+
+```bash
+#!/bin/bash
+
+ossutil cp -u -r ./images oss://xxx/images
+ossutil cp -u ./index.html oss://xxx
+ossutil cp -u ./404.html oss://xxx
+```
+
+
+
 ## Brew & tree 命令安装
 
 ```bash
@@ -99,4 +129,9 @@ zsh: command not found: brew
 ## References
 
 * [Mac中tree命令使用](https://segmentfault.com/a/1190000009962072)
+
 * [ossutil 有关object的命令](https://help.aliyun.com/document_detail/50561.html?spm=a2c4g.11186623.6.1058.QSTipL)
+
+* [ossutil 选项](https://help.aliyun.com/document_detail/50455.html?spm=a2c4g.11186623.6.1056.LyFrX5)
+
+  ​
