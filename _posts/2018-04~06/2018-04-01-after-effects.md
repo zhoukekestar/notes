@@ -95,3 +95,7 @@ commentIssueId: 76
 ## 最后的 Hello World Demo
 
 <iframe style='width: 100%; display: block; border: none; height: 500px;' src='https://zhoukekestar.github.io/notes/assets/2018/04-01-after-effects/demo.html'></iframe>
+
+## References
+* [lottie-web](https://github.com/airbnb/lottie-web)
+* [bodymovin](https://creative.adobe.com/addons/products/12557)
