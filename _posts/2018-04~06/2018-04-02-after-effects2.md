@@ -99,4 +99,5 @@ function startAnimation() {
 * [lottie-web](https://github.com/airbnb/lottie-web)
 * [bodymovin](https://creative.adobe.com/addons/products/12557)
 * [demo 来源](http://wow.techbrood.com/fiddle/32208)
-  > 特别注意，以上动画非作者本人编写，原作者保留所有版权
+
+> 特别注意，以上动画非作者本人编写，原作者保留所有版权
