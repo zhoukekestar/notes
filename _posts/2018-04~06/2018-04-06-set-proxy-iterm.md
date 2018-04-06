@@ -15,15 +15,19 @@ Set proxy for iTerm2, eg: you got error when do some stuff like `curl https://gi
 
 
 ```bash
+// 正常请求 gist ，超时失败
 ➜  admin git:(master) curl https://gist.github.com/zkat/4bc19503fe9e9309e2bfaa2c58074d32
 curl: (7) Failed to connect to gist.github.com port 443: Operation timed out
 ➜  admin git:(master)
+// 通过系统变量设置代理
 ➜  admin git:(master) export http_proxy=http://127.0.0.1:1087
 ➜  admin git:(master) export https_proxy=$http_proxy
+// 查看 export 变量
 ➜  admin git:(master) export
 ZSH=/Users/zhoukeke/.oh-my-zsh
 http_proxy=http://127.0.0.1:1087
 https_proxy=http://127.0.0.1:1087
+// 再次请求，请求成功
 ➜  admin git:(master) curl https://gist.github.com/zkat/4bc19503fe9e9309e2bfaa2c58074d32
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +57,7 @@ $ vi ~/.bash_profile
 $ // 复制以下内容
 alias goproxy='export http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087'
 alias disproxy='unset http_proxy https_proxy'
+// 命令生效
 $ source ~/.bash_profile
 ```
 
