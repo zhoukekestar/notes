@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "逻辑电路的实现"
-date:   2018-05-05
+date:   2018-05-06
 tags: [computer]
-commentIssueId: 77
+commentIssueId: 78
 ---
 
 了解完二极管和 PM 结原理后，就可以看懂简单的逻辑电路了

@@ -3,7 +3,7 @@ layout: post
 title:  "PN 结和单向导通原理"
 date:   2018-05-05
 tags: [computer]
-commentIssueId: 77
+commentIssueId: 78
 ---
 
 PN 结是二极管中最基本的单向导通原理
@@ -160,6 +160,30 @@ NaCl 以离子键（极性键）组成。Na 电子层排布：2-8-1，Cl 电子�
 
 
 
+
+## QA
+
+- 同位素
+
+  > **同位素**（英语：Isotope）是某种特定化学[元素](https://zh.wikipedia.org/wiki/%E5%85%83%E7%B4%A0)之下的不同种类，同一种元素下的所有同位素都具有相同[原子序数](https://zh.wikipedia.org/wiki/%E5%8E%9F%E5%AD%90%E5%BA%8F%E6%95%B0)，[质子](https://zh.wikipedia.org/wiki/%E8%B3%AA%E5%AD%90)数目相同，但[中子](https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%AD%90)数目却不同。这些同位素在[化学元素周期表](https://zh.wikipedia.org/wiki/%E5%8C%96%E5%AD%B8%E5%85%83%E7%B4%A0%E9%80%B1%E6%9C%9F%E8%A1%A8)中占有同一个位置，因此得名。
+
+  > 例如[氢](https://zh.wikipedia.org/wiki/%E6%B0%AB)元素中[氘](https://zh.wikipedia.org/wiki/%E6%B0%98)和[氚](https://zh.wikipedia.org/wiki/%E6%B0%9A)，它们[原子核](https://zh.wikipedia.org/wiki/%E5%8E%9F%E5%AD%90%E6%A0%B8)中都有1个质子，但是它们的原子核中分别有0个中子、1个中子及2个中子，所以它们互为同位素。
+
+- 工业制硅
+
+  > 工业上，通常是在电炉中由[碳](https://zh.wikipedia.org/wiki/%E7%A2%B3)还原[二氧化硅](https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%B0%A7%E5%8C%96%E7%A1%85)而制得：
+  >
+  > SiO2 + 2C → Si + 2CO
+
+- 半导体
+
+  > **半导体**（英语：Semiconductor）是指一种[导电性](https://zh.wikipedia.org/wiki/%E5%AF%BC%E7%94%B5%E6%80%A7)可受控制，范围可从[绝缘体](https://zh.wikipedia.org/wiki/%E7%B5%95%E7%B7%A3%E9%AB%94)至[导体](https://zh.wikipedia.org/wiki/%E5%B0%8E%E9%AB%94)之间的材料。常见的半导体材料有[硅](https://zh.wikipedia.org/wiki/%E7%A1%85)、[锗](https://zh.wikipedia.org/wiki/%E9%94%97)、[砷化镓](https://zh.wikipedia.org/wiki/%E7%A0%B7%E5%8C%96%E9%95%93)等，而硅更是各种半导体材料中，在商业应用上最具有影响力的一种。
+
+- 二级管
+
+  > [二极管](https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%A5%B5%E7%AE%A1)（英语：**Diode**），是一种具有不对称[电导](https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AF%BC)的双[电极](https://zh.wikipedia.org/wiki/%E7%94%B5%E6%9E%81)[电子元件](https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6)[[注 1\]](https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%A5%B5%E7%AE%A1#cite_note-5)。理想的二极管在正向导通时两个电极（[阳极](https://zh.wikipedia.org/wiki/%E9%99%BD%E6%A5%B5)和[阴极](https://zh.wikipedia.org/wiki/%E9%99%B0%E6%A5%B5)）间拥有零电阻，而反向时则有无穷大电阻，即电流只允许由单一方向流过二极管。
+
+### 
 
 ## References
 
