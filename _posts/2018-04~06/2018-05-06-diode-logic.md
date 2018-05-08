@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "逻辑电路的实现"
+title:  "【加法系列】逻辑电路的实现"
 date:   2018-05-06
 tags: [computer]
 commentIssueId: 78

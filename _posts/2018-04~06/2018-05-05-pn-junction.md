@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PN 结和单向导通原理"
+title:  "【加法系列】PN 结和单向导通原理"
 date:   2018-05-05
 tags: [computer]
 commentIssueId: 78
