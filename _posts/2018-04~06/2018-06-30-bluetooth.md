@@ -31,7 +31,7 @@ commentIssueId: 87
       padding: 20px;
       border-radius: 5px;
     }
-    body.scan, * {
+    body.scan, body.scan * {
       background-color: black !important;
       color: #000 !important;
       border-color: #000 !important;
