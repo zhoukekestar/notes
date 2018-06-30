@@ -66,10 +66,11 @@ GATT 协议使得设备有更好扩展的同时，也能维护一整套和其他
     body.scan img {
         display: none;
     }
-    .scan button {
+    body.scan button {
       display: none;
     }
-    .scan .radar {
+    body.scan .radar {
+      display: block;
       width: 100%;
       height: auto;
       margin-top: -300px;
