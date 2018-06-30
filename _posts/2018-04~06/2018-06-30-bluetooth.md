@@ -42,6 +42,7 @@ commentIssueId: 87
     .scan .radar {
       width: 100%;
       height: auto;
+      margin-top: -300px;
     }
     /* 结果页 */
     .result {
