@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "meta & png 小探索"
+title:  "蓝牙小记"
 date:   2018-06-24
 tags: [notes]
 commentIssueId: 87
@@ -8,11 +8,13 @@ commentIssueId: 87
 
 
 
-蓝牙小记
+蓝牙小记，Web Bluetooth Test。
 
 
 
 ## Demo
+
+请使用最新的 Chrome 打开此页面。
 
 <style>
     .radar {
@@ -21,18 +23,18 @@ commentIssueId: 87
     }
 
     button.checkBattery {
-      position: fixed;
+      position: relative;
       left: 50%;
-      top: 50%;
       width: 300px;
       font-size: 30px;
       margin-left: -150px;
       padding: 20px;
-      margin-top: -30px;
       border-radius: 5px;
     }
-    .scan body {
-      background-color: black;
+    body.scan, * {
+      background-color: black !important;
+      color: #000 !important;
+      border-color: #000 !important;
     }
     .scan button {
       display: none;
@@ -51,13 +53,12 @@ commentIssueId: 87
     }
     .checked .result{
       display: block;
-      position: fixed;
-      color: #fff;
       font-size: 30px;
       top: 50%;
       text-align: center;
       width: 100%;
       margin-top: -30px;
+      padding: 50px;
     }
   </style>
   <button class='checkBattery' onclick='onButtonClick()'>Check Battery</button>
@@ -72,7 +73,7 @@ commentIssueId: 87
     function onButtonClick() {
       document.body.classList.add('scan');
       bluetoothDevice = null;
-    
+
       navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
         optionalServices: [
@@ -97,7 +98,7 @@ commentIssueId: 87
         return characteristic.readValue();
       }).then(dataView => {
         setTimeout(() => {
-    
+
           document.querySelector('.result').innerHTML = `Current Battery: ${dataView.getInt8(0)}`;
           document.body.classList.remove('scan');
           document.body.classList.add('checked');
@@ -107,7 +108,7 @@ commentIssueId: 87
         // console.log()
         // for (var i = 0; i < 16; i++) {
         //   try {
-    
+
         //     var descriptor = await characteristic.getDescriptor(0x2900 + i);
         //     console.log('i = ' + i);
         //     var value = await descriptor.readValue();
@@ -125,7 +126,7 @@ commentIssueId: 87
 
 
 
-## Demo
+## Simple Code
 
 ```js
 var bluetoothDevice;
