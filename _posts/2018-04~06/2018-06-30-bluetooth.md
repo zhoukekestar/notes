@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "蓝牙小记"
-date:   2018-06-24
+date:   2018-06-30
 tags: [notes]
 commentIssueId: 87
 ---
@@ -74,7 +74,7 @@ commentIssueId: 87
     function onButtonClick() {
       document.body.classList.add('scan');
       bluetoothDevice = null;
-
+    
       navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
         optionalServices: [
@@ -99,8 +99,8 @@ commentIssueId: 87
         return characteristic.readValue();
       }).then(dataView => {
         setTimeout(() => {
-
-          document.querySelector('.result').innerHTML = `Current Battery: ${dataView.getInt8(0)}`;
+    
+          document.querySelector('.result').innerHTML = `${bluetoothDevice.name} Battery: ${dataView.getInt8(0)}`;
           document.body.classList.remove('scan');
           document.body.classList.add('checked');
         }, 3000)
@@ -109,7 +109,7 @@ commentIssueId: 87
         // console.log()
         // for (var i = 0; i < 16; i++) {
         //   try {
-
+    
         //     var descriptor = await characteristic.getDescriptor(0x2900 + i);
         //     console.log('i = ' + i);
         //     var value = await descriptor.readValue();
@@ -127,20 +127,29 @@ commentIssueId: 87
 
 
 
-## Simple Code
+## Demo Code
 
 ```js
-var bluetoothDevice;
-
-navigator.bluetooth.requestDevice({  
-    acceptAllDevices: true
-}).then(device => { 
-    console.log(`device name: ${device.name}`);
-    return device.gatt.connect()
-}).catch(err => {
-    console.log(err);
-})
-
+      navigator.bluetooth.requestDevice({
+        acceptAllDevices: true,
+        optionalServices: [
+          0x180F, // battery_service https://www.bluetooth.com/specifications/gatt/services
+        ]
+      }).then(device => {
+        return device.gatt.connect();
+      }).then(server => {
+        // battery_service https://www.bluetooth.com/specifications/gatt/services
+        return server.getPrimaryService(0x180F);
+      }).then(service => {
+        // battery_level https://www.bluetooth.com/specifications/gatt/characteristics
+        return service.getCharacteristic(0x2A19);
+      }).then(characteristic => {
+        return characteristic.readValue();
+      }).then(dataView => {
+        console.log(dataView.getInt8(0));
+      }).catch(err => {
+        console.log(err);
+      });
 ```
 
 
