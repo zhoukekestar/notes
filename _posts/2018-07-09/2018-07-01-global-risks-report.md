@@ -62,6 +62,12 @@ commentIssueId: 88
 
 
 
+### 人口老龄化
+
+来自 Gapminder 的数据
+
+![](https://user-images.githubusercontent.com/7157346/42133328-c3db885c-7d5a-11e8-81ed-3ed67228298a.gif)
+
 
 
 ## 趋势
@@ -92,3 +98,4 @@ commentIssueId: 88
 ## External Links
 
 * [IMF](http://www.imf.org/external/chinese/index.htm)
+* [Chiese Polulation by age](https://user-images.githubusercontent.com/7157346/42133328-c3db885c-7d5a-11e8-81ed-3ed67228298a.gif)
