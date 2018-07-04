@@ -2,7 +2,7 @@
 layout: post
 title:  "2018 全球风险报告小记"
 date:   2018-07-01
-tags: [finacial]
+tags: [finance]
 commentIssueId: 88
 ---
 
