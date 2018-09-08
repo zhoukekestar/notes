@@ -261,7 +261,83 @@ parameters.handleQueryParameters();
   ```
 
 
+
+## UTF-8 编码简析
+
+
+> From [Wiki](https://en.wikipedia.org/wiki/UTF-8)
+
+| Number of bytes | Bits for code point | First code point | Last code point | Byte 1     | Byte 2     | Byte 3     | Byte 4     |
+| --------------- | ------------------- | ---------------- | --------------- | ---------- | ---------- | ---------- | ---------- |
+| 1               | 7                   | U+0000           | U+007F          | `0xxxxxxx` |            |            |            |
+| 2               | 11                  | U+0080           | U+07FF          | `110xxxxx` | `10xxxxxx` |            |            |
+| 3               | 16                  | U+0800           | U+FFFF          | `1110xxxx` | `10xxxxxx` | `10xxxxxx` |            |
+| 4               | 21                  | U+10000          | U+10FFFF        | `11110xxx` | `10xxxxxx` | `10xxxxxx` | `10xxxxxx` |
+
+ 我们根据 UTF-8 的编码规则，简单做一下编码
+
+```js
+/**
+ * 将二进制转成 16 进制
+ * @example
+ * bit2hex('1110') => 'e'
+ * bit2hex('1101') => 'd'
+ **/
+const bit2hex = n => parseInt(n, 2).toString(16);
+
+/**
+ * 补前导零
+ * fillZero('12', 6) => '000012'
+ **/
+const fillZero = (str, n = 4) => new Array(n).fill(0).join('').replace(new RegExp(`.{${str.length}}$`), str);
+
+/**
+ * 仅做 demo 使用，未经测试
+ **/
+  const encodeUTF8 = char => {
+  let bits = char.charCodeAt(0).toString(2);
+  
+  // UTF-8 编码规则
+  return [
+    '1110' + fillZero(bits.substr(0, bits.length - 12)),
+    '10' + bits.substr(-12, 6),
+    '10' + bits.substr(-6),
+  ].map(bit => `%${bit2hex(bit)}`).join('').toUpperCase();
+}
+
+console.log(`encodeUTF8: ${encodeUTF8('中')}`);
+// encodeUTF8: %E4%B8%AD
+console.log(`encodeURIComponent: ${encodeURIComponent('中')}`);
+// encodeURIComponent: %E4%B8%AD
+
+```
+
+简化版 UTF 编码方案
+
+```js
+function encodeUTF8(char) {
+  const res = [];
+  char = char.charCodeAt(0);
+    
+  res.push((char & 0x3f | 0x80).toString(16));
+
+  char = char >> 6;
+  res.push((char & 0x3f | 0x80).toString(16));
+
+  char = char >> 6;
+  res.push((char & 0x0f | 0xe0).toString(16));
+  
+  return res.reverse().map(i => `%${i}`).join('').toUpperCase();
+}
+console.log(`encodeUTF8: ${encodeUTF8('中')}`);
+// encodeUTF8: %E4%B8%AD
+```
+
+
+
+
 ## References
+
 * [Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
 * [所有编码格式](http://www.iana.org/assignments/character-sets/character-sets.xhtml)
 * [相关源码](https://github.com/zhoukekestar/drafts/tree/master/2018-07~12/2018-09-07-express-charset)
