@@ -236,9 +236,11 @@ Hello 中文%
 * [processParameters(MessageBytes data, java.lang.String encoding) ](https://tomcat.apache.org/tomcat-5.5-doc/catalina/docs/api/org/apache/tomcat/util/http/Parameters.html#processParameters) 中的 encoding ，是
 [org.apache.catalina.connector.Request](https://tomcat.apache.org/tomcat-5.5-doc/catalina/docs/api/org/apache/catalina/connector/Request.html):parseParameters 方法设置的，相关代码如下：
 ```java
+// 从 connector 中拿到配置项
 boolean useBodyEncodingForURI = connector.getUseBodyEncodingForURI();
 if (enc != null) {
     parameters.setEncoding(enc);
+    // 配置了 bodyencodingforuri 才对 uri 进行制定编码 decode
     if (useBodyEncodingForURI) {
         parameters.setQueryStringEncoding(enc);
     }
