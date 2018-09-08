@@ -112,6 +112,8 @@ Response Header 编码优先级高于 meta 信息
 > 注意 response header 中没有 content-type 了
 > 由于 shell 编码是采用 utf-8 的，所有在终端中会显示乱码
 > 能看清 meta 信息即可
+
+
 ```sh
 $ curl -i http://127.0.0.1:3000/gbk-1
 HTTP/1.1 200 OK
@@ -128,17 +130,6 @@ Connection: keep-alive
 <html>
 <meta charset="utf-8">
 <p>
-���ģ�ʹ�� encodeURIComponent ����
-<script>
-  document.write(encodeURIComponent('����'));
-</script>
-</p>
-<p>ҳ����ת��ʹ�� a ��ǩ����
-<a href='/?p=����'>
-<script>
-  document.write(document.querySelector('a').href);
-</script>
-</a>
 </p>
 </html>
 ```
@@ -166,17 +157,6 @@ Connection: keep-alive
 <html>
 <meta charset="gbk">
 <p>
-���ģ�ʹ�� encodeURIComponent ����
-<script>
-  document.write(encodeURIComponent('����'));
-</script>
-</p>
-<p>ҳ����ת��ʹ�� a ��ǩ����
-<a href='/?p=����'>
-<script>
-  document.write(document.querySelector('a').href);
-</script>
-</a>
 </p>
 </html>
 ```
