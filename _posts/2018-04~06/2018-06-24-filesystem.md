@@ -92,7 +92,37 @@ $ ls -i temp
 
 ##### 从 inode 引申 Hard & Soft Link
 
-![image](https://user-images.githubusercontent.com/7157346/41817509-0b7ecc5a-77cf-11e8-9f8d-993de1b8f7cf.png)
+```sh
+$ ln [-sf] source_filename dist_filename
+-s ：默认是 hard link，加 -s 为 symbolic link
+-f ：如果目标文件存在时，先删除目标文件
+
+$ touch a.md
+$ vi a.md
+// 默认创建硬链接
+$ ln a.md hard
+// 创建软链接
+$ ln -s a.md soft
+$ ll
+total 80
+-rw-r--r--    2 zhoukeke  staff     0B Sep  9 11:33 a.md
+-rw-r--r--    2 zhoukeke  staff     0B Sep  9 11:33 hard
+lrwxr-xr-x    1 zhoukeke  staff     4B Sep  9 11:33 soft -> a.md
+$ cat soft
+hello
+$ cat hard
+hello
+// 当删除文件之后，软链接一起消失，但硬链接还是能拿到文件
+$ rm a.md
+$ cat soft
+cat: soft: No such file or directory
+$ cat hard
+hello
+$
+```
+
+![image](https://user-images.githubusercontent.com/7157346/45260829-117c9600-b424-11e8-9e07-e430fbf33fbd.png)
+
 
 ##### 遗留问题
 
