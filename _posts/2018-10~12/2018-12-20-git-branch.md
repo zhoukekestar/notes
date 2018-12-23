@@ -65,6 +65,7 @@ commentIssueId: 97
 * `git rebase targetBranch currentBranch` 将当前分支（可指定）rebase 到目标分支
 * `git tag tagName CommitID` 
 * `git log --all --stat --graph` 查看提交日志
+* `git commit --amend` 用于替换上次 commit 记录，包括文件内容和提交消息等
 
 
 
@@ -103,6 +104,67 @@ commentIssueId: 97
 * `git pull origin foo` => `git fetch origin foo; git merge o/foo`
 
   * `git pull origin bar~1:bugFix` => `git fetch origin bar~1:bugFix; git merge bugFix` 
+
+
+
+
+
+## 强制更新 master 分支
+
+遇到需要修改远程 master 指向的，如当前有以下提交树
+
+```
+* 6b4763e - (3 minutes ago) remoteChange - zhoukekestar (HEAD -> omaster, origin/omaster, origin/master)
+| * e449687 - (3 minutes ago) bugFix - pipe.zkk (bugFix)
+|/
+* 7f918a0 - (8 minutes ago) c - pipe.zkk (origin/bugFix, master)
+* 7c1b60a - (9 minutes ago) b - pipe.zkk
+* fdfe28d - (10 minutes ago) a - pipe.zkk
+```
+
+远程创建了 `remoteChange` 提交，和本地指向不符
+
+>  为了方便追踪后续分支，我们给他加了一个 `omaster` 分支表明这是远程 master 分支。
+
+```
+➜  pipetest git:(omaster) git checkout bugFix
+Switched to branch 'bugFix'
+
+// 强制更新本地 master 指向
+➜  pipetest git:(bugFix) git branch -f master bugFix
+
+// 尝试推本地 master 新指向，失败
+➜  pipetest git:(bugFix) git push origin master
+To code.aliyun.com:zhoukekestar/pipetest.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@code.aliyun.com:zhoukekestar/pipetest.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. Check out this branch and integrate the remote changes
+hint: (e.g. 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+// 强制推送
+➜  pipetest git:(bugFix) git push --force origin master
+Total 0 (delta 0), reused 0 (delta 0)
+To code.aliyun.com:zhoukekestar/pipetest.git
+ + 6b4763e...e449687 master -> master (forced update)
+ 
+➜  pipetest git:(bugFix)
+```
+
+我们本地`checkout bugFix `分支，并强本地 master 指向当前新分支，当我们 push 新指向的 master 分支后，会出现，因为我们和远程分支不符合，让我们先 pull 的提示。我们 force 强制提交本地 master 记录。
+
+```
+* 6b4763e - (5 minutes ago) remoteChange - zhoukekestar (origin/omaster, omaster)
+| * e449687 - (5 minutes ago) bugFix - pipe.zkk (HEAD -> bugFix, origin/master, master)
+|/
+* 7f918a0 - (10 minutes ago) c - pipe.zkk (origin/bugFix)
+* 7c1b60a - (11 minutes ago) b - pipe.zkk
+* fdfe28d - (11 minutes ago) a - pipe.zkk
+```
+
+当我们再次查看记录的时候，`origin/master` 成功更新。
+
 
 
 
