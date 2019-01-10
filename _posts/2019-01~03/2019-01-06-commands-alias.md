@@ -44,9 +44,18 @@ function gitlog() {
 * `gitcheckout feat/abc` 新建 `feat/abc` 分支
 
 ```bash
+# 无参数情况下，自动更新 npm 版本号，并 checkout 新版本号的 daily 分支
+# 指定版本号的情况下，checkout 新版本号的 daily 分支
+# 指定分支的情况下，checkout 指定分支
 function gitcheckout() {
   DAILY_REGEXP="^[0-9]"
-  if [[ $1 =~ $DAILY_REGEXP ]]; then
+
+  if [ "$1" = "" ]; then
+    npm version patch
+    VERSION=$(head package.json | grep "version" | cut -d "\"" -f 4)
+    echo "git checkout -b daily/$VERSION"
+    git checkout -b "daily/$VERSION"
+  elif [[ $1 =~ $DAILY_REGEXP ]]; then
     echo "git checkout -b daily/$1"
     git checkout -b "daily/$1"
   else
@@ -54,6 +63,7 @@ function gitcheckout() {
      git checkout -b "$1"
   fi
 }
+alias gitco="gitcheckout"
 ```
 
 #### git push
@@ -90,6 +100,7 @@ function gitpush() {
   echo "git push -u origin $B"
   git push -u origin $B
 }
+alias gitp="gitpush"
 ```
 
 
