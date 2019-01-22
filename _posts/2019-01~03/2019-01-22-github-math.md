@@ -17,11 +17,11 @@ Just see the References.
 * example: $\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-\frac{x^2}{2}}dx$
 * matrix:
 $$
-  \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
+\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
   \begin{pmatrix}
   a & b \\
   c & d
-  \end{pmatrix}​
+  \end{pmatrix}
 $$
 
 除了使用 MathJax，还可以使用 [mathurl](http://mathurl.com/) 来内嵌
