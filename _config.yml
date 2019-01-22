@@ -28,7 +28,7 @@ paginate: 20
 paginate_path: "/page:num/"
 
 # Build settings
-markdown: kramdown
+markdown: maruku
 theme: minima
 kramdown:
   input: GFM
