@@ -24,7 +24,7 @@ $$
   \end{pmatrix}
 $$
 
-除了使用 MathJax，还可以使用 [mathurl](http://mathurl.com/) 来内嵌
+除了使用 MathJax，还可以使用 [mathurl](http://mathurl.com/) 来内嵌，关于 mathjax 的总结: [mathjax](https://www.zybuluo.com/yangfch3/note/267947#21-%E7%9F%A9%E9%98%B5)
 
 ### References
 * [how-to-support-latex-in-github-pages](https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages)
