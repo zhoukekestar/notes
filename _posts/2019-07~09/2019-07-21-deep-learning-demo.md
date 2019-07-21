@@ -20,8 +20,7 @@ use_math: true
 ## 效果展现
 
 
-
-![](https://img.alicdn.com/tfs/TB1relZa1H2gK0jSZFEXXcqMpXa-844-928.gif)
+<img src="https://img.alicdn.com/tfs/TB1relZa1H2gK0jSZFEXXcqMpXa-844-928.gif" alt="" width="400">
 
 
 
@@ -78,7 +77,6 @@ class NetWork {
 
 
 <iframe height='400' src="https://zhoukekestar.github.io/notes/HTML/2019-07~09/deep-learning-demo/index.html"></iframe>
-
 ## Python 取出参数代码
 
 
