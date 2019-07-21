@@ -152,4 +152,6 @@ $$
 
 - [Deep Learning](https://space.bilibili.com/88461692/channel/detail?cid=26587)
 - [Neural Networks And Deep Learning](http://neuralnetworksanddeeplearning.com)
+- [Artificial Neural Networks](https://brilliant.org/courses/artificial-neural-networks/)
+- [numjs on npm](https://www.npmjs.com/package/numjs)
 
