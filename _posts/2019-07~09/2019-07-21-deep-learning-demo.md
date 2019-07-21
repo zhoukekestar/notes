@@ -106,3 +106,16 @@ fo.write(repr(self.biases[1]));
 fo.close();
 ```
 
+
+
+
+
+## References
+
+* [Canvas 画数字](https://stackoverflow.com/questions/22891827/how-do-i-hand-draw-on-canvas-with-javascript)
+
+* [numjs](https://www.npmjs.com/package/numjs)
+
+* [Python 代码](https://github.com/mnielsen/neural-networks-and-deep-learning)
+
+  
