@@ -13,7 +13,7 @@ use_math: true
 Just see the References.
 
 ## Some Math Tips
-* inline math: $x$, $y$, $x_1$, $y_1​$
+* inline math: $x$, $y$, $x_1$, $y_1$
 * example: $\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-\frac{x^2}{2}}dx$
 * matrix:
 $$
