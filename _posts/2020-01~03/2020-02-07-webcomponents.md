@@ -99,6 +99,37 @@ WebComponents 框架对比，npm 下载量，star 数量，最后一次发布，
 
 
 
+## 相关笔记
+
+* 我的目标：要能独立组件部署至 CDN、要能和现有 react、vue 框架集成
+
+  * svelte 无法独立部署组件
+  * lit-html 和 lit-element 无法较好集成
+
+* lit-html 和 lit-element，虽然已经同步到支付宝的 CDN 了，但 lit-html 和 lit-element 都强依赖 ES module，lit-html 能通过 CDN 使用，但 lit-element 就不能用
+
+  * https://gw.alipayobjects.com/os/lib/lit-html/1.1.2/lit-html.js
+
+  * https://gw.alipayobjects.com/os/lib/lit-element/2.2.1/lit-element.js
+
+  * 只能通过 unpkg 使用，因为 `<script type="module"></script>` 的形式，只能使用绝对或相对路径，具体文档定义在 https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier
+
+    目前的 unpkg 官网上，也只是试验能力
+
+    > ### Query Parameters
+    >
+    > - `?meta`
+    >
+    >   Return metadata about any file in a package as JSON (e.g.`/any/file?meta`)
+    >
+    > - `?module`
+    >
+    >   Expands all [“bare” `import` specifiers](https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier) in JavaScript modules to unpkg URLs. This feature is *very experimental*
+
+  * 除了生产部署的问题，还有一点是和 react 如何集成的问题，目前貌似还没有好的方案
+
+
+
 ## References
 
 * https://webcomponents.dev/
