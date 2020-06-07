@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "面向未来的中后台场景"伪"微前端几点想法"
+title:  "面向未来的中后台场景'伪'微前端几点想法"
 date:  2020-06-08
 tags: [js]
 commentIssueId: 110
@@ -372,7 +372,7 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
 
 
 
-## 参考：
+## 参考
 
 * [micro-frontends.org](https://micro-frontends.org/)
 * [frameworklessmovement](https://www.frameworklessmovement.org/)
