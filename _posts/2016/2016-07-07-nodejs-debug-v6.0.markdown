@@ -15,3 +15,12 @@ Debugger listening on port 5858. To start debugging, open following URL in Chrom
 
 chrome-devtools://devtools/remote/serve_file/@4604d24a75168768584760ba56d175507941852f/inspector.html?experiments=true&v8only=true&ws=localhost:5858/node
 ```
+
+
+
+* npx debug
+
+```
+npx --node-arg=--inspect-brk snowpack dev
+```
+
