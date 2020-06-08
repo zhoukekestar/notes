@@ -10,17 +10,21 @@ commentIssueId: 110
 
 也聊 **Micro Frontends** 的落地和实践。
 
+> 如有格式上的问题，可访问 [原文链接](https://zhoukekestar.github.io/notes/2020/06/08/micro-frontends.html)
+
 
 
 ## 什么是 Micro Frontends
 
 来自 [**Michael Geers**](http://geers.tv/) 最 [具代表性的文章](https://micro-frontends.org/) 中提到，Micro Frontends 是：
 
-> Techniques, strategies and recipes for building a **modern web app** with **multiple teams** that can **ship features independently**. 
+> Techniques, strategies and recipes for building a **modern web app** with **multiple teams** that can **ship features independently**.
 
 文中提到的 Micro Frontends 是一种能让 多团队进行独立特性部署的形式 来构建现代 web 应用的技术、策略 或 做法。
 
-这里重点从 Modern Web App 和 Multiple Team & Independently 展开聊一下。
+既然是技术、策略和做法，那我们把中后台拆成 npm 包的方式开发，也能成为某种意义上的 Micro Frontends，我们在组织层面上，做相关的划分，也是同样的影子，但是，这同时也将相关的问题锐化了。
+
+这里就先重点从 Modern Web App 和 Multiple Team & Independently 展开聊一下。
 
 
 
@@ -42,9 +46,18 @@ commentIssueId: 110
 
 ```jsp
 <jsp:include page="header"></jsp:include>
-<jsp:include page="TeamA/main"></jsp:include>  
-<jsp:include page="footer"></jsp:include>  
+<jsp:include page="TeamA/main"></jsp:include>
+<jsp:include page="footer"></jsp:include>
 ```
+
+所以，社区有同学做了类似的尝试，[hinclude](https://github.com/mnot/hinclude)
+
+```html
+<script src="/lib/hinclude.js" type="text/javascript"></script>
+<hx:include src="/other/document/here.html"></hx:include>
+```
+
+这也一种非常不错的尝试和实践。
 
 
 
@@ -55,7 +68,7 @@ commentIssueId: 110
 ```json
 [{
 	component: 'banner',
-	props: { images: [...]}	
+	props: { images: [...]}
 },{
 	component: 'offers',
 	props: { list: [...]}
@@ -124,7 +137,7 @@ PS: 当然，如果，有些代码（比如导购场景的活动组件）可能�
 
 
 
-#### Frameworkless 
+#### Frameworkless
 
 这里再从原生接口的原则说起。
 
@@ -162,7 +175,12 @@ Frameworkless 是目标，我也希望正如和 PikaCDN 网站上所说的
 
 所以，我决定尝试最为理想的方式，直接上 WebComponet，以面向未来编程的视角来看现在的 Micro Frontends.
 
-参考 MicroService，从 Provider、Customer、Registry、BFF 几个方面来简单聊一聊。
+参考 MicroService，从 Provider、Consumer、Registry、BFF 几个方面来简单聊一聊。
+
+* Provider：组件独立开发、部署
+* Registry：需要 NPM 这种的注册中心吗？
+* BFF：如何粘合 Provider
+* Consumer：如何运行、消费、管理
 
 
 
@@ -178,7 +196,7 @@ Frameworkless 是目标，我也希望正如和 PikaCDN 网站上所说的
 
 所以，我们做了以下尝试：
 
-* 模块管理、复用，其实本身是个模块加载器的问题，我们之前有 require.js、sea.js 等等的管理，有 AMD、CMD、UMD 规范，但一旦采用某个模块加载器，整个应用都被这个加载器接管，这么重要的一个角色，浏览器有官方替代方案吗？答案是肯定的，ESM 
+* 模块管理、复用，其实本身是个模块加载器的问题，我们之前有 require.js、sea.js 等等的管理，有 AMD、CMD、UMD 规范，但一旦采用某个模块加载器，整个应用都被这个加载器接管，这么重要的一个角色，浏览器有官方替代方案吗？答案是肯定的，ESM
 
   * [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
   * [What are CJS, AMD, UMD, and ESM in Javascript?](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
@@ -195,13 +213,13 @@ Frameworkless 是目标，我也希望正如和 PikaCDN 网站上所说的
 
   * [pika.dev](https://www.pika.dev/) 其中前文提到的 Move The Web Forward. 也来自于此，还有他们的使命也非常赞~ We're on a mission to make the web 90% faster.
 
-    *  PS：90% 的网站代码来自开源社区，如果都用 PikaCDN 的话，这些 90% 的资源都将得到复用，而不是一个个的 bundle. 
+    *  PS：90% 的网站代码来自开源社区，如果都用 PikaCDN 的话，这些 90% 的资源都将得到复用，而不是一个个的 bundle.
 
     * PPS: 作者非常赞，反馈的一个 CDN bug 解决非常之迅速！
 
       ![](https://img.alicdn.com/tfs/TB1umCEJrY1gK0jSZTEXXXDQVXa-1544-518.png)
 
-  * unpkg CDN，通过制定 `?module` 参数，会自动映射为 esm 模块，比如 `https://unpkg.com/preact?module` 
+  * unpkg CDN，通过制定 `?module` 参数，会自动映射为 esm 模块，比如 `https://unpkg.com/preact?module`
 
 
 
@@ -292,7 +310,7 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
 
 
 
-#### Customer
+#### Consumer
 
 这一层映射到 Micro Frontends，核心需要做的是 App Shell ，核心解决以下问题（额，我承认这一层的映射比较勉强）：
 
@@ -319,11 +337,13 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
   document.body.appendChild(document.createElement('custom-element'));
   ```
 
-* 沙盒机制，这块社区的经验比较多，Proxy、闭包、镜像、worker 等等，可以参考 [qiankun sandbox](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts) 
+* 沙盒机制，这块社区的经验比较多，Proxy、闭包、镜像、worker 等等，可以参考 [qiankun sandbox](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)
 
 * 通讯机制，按照 Micro Frontends 的尽可能用原生接口的原则，其实用 CustomEvent 是不是就足够了？但从经验上来说，这可能是不太够的，相比较后端的架构而言，他们有 RocketMQ、MetaQ 等消息通讯中间件。
 
   所以，从通讯机制的设计上讲，CustomEvent 这种机制能满足大多情况，但还是非常不够的，比如：在微应用存在依赖以及先后顺序的情况下，如何保证消息至少消费一次、至多消费一次、广播、指定消费者等等。
+
+
 
 
 
@@ -339,11 +359,11 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
   ```html
   <react-comp></react-comp>
   <preact-comp></preact-comp>
-  
+
   <script type="module">
   import React from "https://cdn.pika.dev/react@^16.13.1";
   import ReactDOM from "https://cdn.pika.dev/react-dom@^16.13.1";
-  
+
   class ReactComp extends HTMLElement {
     connectedCallback() {
     	ReactDOM.render(React.createElement('h1', {}, 'Hello React'), this)
@@ -351,10 +371,10 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
   }
   customElements.define('react-comp', ReactComp);
   </script>
-  
+
   <script type="module">
   import { html, render } from 'https://unpkg.com/htm/preact/standalone.module.js';
-  
+
   class PreactComp extends HTMLElement {
     connectedCallback() {
     	render(html`<h1>Hello Preact!</h1>`, this)
@@ -375,9 +395,34 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
 ## 参考
 
 * [micro-frontends.org](https://micro-frontends.org/)
+
+* [Frontend Monolith](https://www.youtube.com/watch?v=pU1gXA0rfwc)
+
 * [frameworklessmovement](https://www.frameworklessmovement.org/)
-* qiankun [可能是你见过最完善的微前端解决方案](https://zhuanlan.zhihu.com/p/78362028)
-  * qiankun 2.0 [目标是最完善的微前端解决方案 - qiankun 2.0](https://www.atatech.org/articles/170069)
-* [ice](https://ice.alibaba-inc.com/)
 
+* [Sites vs. Apps defined: the Documents‐to‐Applications Continuum.](https://ar.al/notes/the-documents-to-applications-continuum/)
 
+* [Deno is a Browser for Code](https://kitsonkelly.com/posts/deno-is-a-browser-for-code/)
+
+* 现有方案
+  
+  * [single-spa](https://single-spa.js.org/) 
+  * qiankun [可能是你见过最完善的微前端解决方案](https://zhuanlan.zhihu.com/p/78362028)
+    * qiankun 2.0 [目标是最完善的微前端解决方案 - qiankun 2.0](https://www.atatech.org/articles/170069)
+  * [ice](https://ice.alibaba-inc.com/)
+* [mooa](https://github.com/phodal/mooa)
+  * [hinclude](https://github.com/mnot/hinclude)
+  * [console-os](https://github.com/aliyun/alibabacloud-console-os?) by Aliyun
+  
+* 工程侧依赖
+  * [snowpack](https://www.snowpack.dev/)
+  * [pika.dev](https://www.pika.dev/)
+
+* 布局&中后台参考
+
+  > 在我们看来，Micro Frontends 解决了部分问题，但中后台的大量工作集中在 Form 和 List，能用解耦的方式（JSON Schema）解决 From 和 List，提效也非常可观
+
+  * [Formily](https://github.com/alibaba/formily)
+  * [Alist](https://alistjs.netlify.app/)
+
+* 样例代码：[ESM Demos](https://github.com/zhoukekestar/esm-demos)
