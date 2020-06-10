@@ -3,7 +3,7 @@ layout: post
 title:  "面向未来的中后台场景'伪'微前端几点想法"
 date:  2020-06-08
 tags: [js]
-commentIssueId: 110
+commentIssueId: 116
 ---
 
 
@@ -392,6 +392,14 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
 
 
 
+## One More Thing
+
+引用来自 Pika 的一句话
+
+#### Let's Move The Web Forward !
+
+
+
 ## 参考
 
 * [micro-frontends.org](https://micro-frontends.org/)
@@ -405,15 +413,15 @@ Dubbo 有注册中心，NPM 有包管理中心，Maven 也有类似的注册中�
 * [Deno is a Browser for Code](https://kitsonkelly.com/posts/deno-is-a-browser-for-code/)
 
 * 现有方案
-  
-  * [single-spa](https://single-spa.js.org/) 
+
+  * [single-spa](https://single-spa.js.org/)
   * qiankun [可能是你见过最完善的微前端解决方案](https://zhuanlan.zhihu.com/p/78362028)
     * qiankun 2.0 [目标是最完善的微前端解决方案 - qiankun 2.0](https://www.atatech.org/articles/170069)
   * [ice](https://ice.alibaba-inc.com/)
 * [mooa](https://github.com/phodal/mooa)
   * [hinclude](https://github.com/mnot/hinclude)
   * [console-os](https://github.com/aliyun/alibabacloud-console-os?) by Aliyun
-  
+
 * 工程侧依赖
   * [snowpack](https://www.snowpack.dev/)
   * [pika.dev](https://www.pika.dev/)
