@@ -69,7 +69,7 @@ jobs:
 
 
 
-配置完后，我们就能在 workflow 中使用变量了，语法为：`${{ secrets.DINGTALK_ROBOT_URL }}`
+配置完后，我们就能在 workflow 中使用变量了。
 
 最终钉钉的推送效果如下（凌晨两点定时执行了，很是欣慰）：
 
