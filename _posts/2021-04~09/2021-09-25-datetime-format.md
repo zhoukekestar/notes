@@ -188,11 +188,73 @@ new Intl.DateTimeFormat(new Intl.Locale('en'), {
 根据如上的介绍，将上述参数按照 [指定的字符串](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) 格式拼接， 我们可以得出以下几种常用的 Case
 
 ```js
+// 使用立陶宛语言，日期和时间都是2位数，默认 24 小时制
+new Date().toLocaleString('lt')
+// 2021-09-25 05:05:05
+// 2021-09-25 22:40:04
+
+// 日期和时间都是1位数，默认 24 小时制
+new Date().toLocaleString('bs')
+// 2021-9-25 22:26:07
+// 2021-9-1 5:05:05
+
+// 默认 24 小时制，但用 / 区分日期
+new Date().toLocaleString('ja')
+// 2021/9/1 13:14:15
+
 new Date().toLocaleString('zh-u-hc-h24')
 // '2021/9/25 17:28:30'
 
 new Date().toLocaleString('en-CA-u-hc-h24')
 // '2021-09-25, 17:27:05'
+```
+
+
+## 小记
+
+通过列举 iana 的所有语言，查找 'YYYY-MM-DD' 的格式。
+```js
+var list = await fetch('https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry')
+  .then(d => d.text())
+  .then(d => d.split('%%'))
+  .then(d => d.map(t => t.split('\n')))
+
+var regions = list
+  .filter(d => d[1] === 'Type: region')
+  .map(d => d[2].replace('Subtag: ', ''))
+
+var languages = list
+  .filter(d => d[1] === 'Type: language')
+  .map(d => d[2].replace('Subtag: ', ''))
+
+var date1 = new Date('2021/09/01 05:05:05')
+var date2 = new Date('2021/09/01 13:13:13')
+
+for (let i = 0; i < languages.length; i++) {
+  try {
+    const str1 = date1.toLocaleString(`${languages[i]}`);
+    const str2 = date2.toLocaleString(`${languages[i]}`);
+
+    if (/-/.test(str1)) {
+      console.log('region => ', languages[i], str1)
+    }
+  } catch(err) {
+    console.log('region is error => ', languages[i], err)
+  }
+}
+
+/**
+输出：
+region =>  az 2021-9-1 5:05:05
+region =>  bs 2021-9-1 5:05:05
+region =>  lt 2021-09-01 05:05:05
+region =>  nl 1-9-2021 05:05:05
+region =>  pa 2021-9-1 5:05:05 AM
+region =>  sv 2021-09-01 05:05:05
+region =>  uz 2021-9-1 5:05:05
+region =>  azj 2021-9-1 5:05:05
+region =>  uzn 2021-9-1 5:05:05
+*/
 ```
 
 
