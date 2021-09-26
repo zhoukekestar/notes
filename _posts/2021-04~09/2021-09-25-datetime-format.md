@@ -185,10 +185,15 @@ new Intl.DateTimeFormat(new Intl.Locale('en'), {
 
 ## toLocaleString
 
-根据如上的介绍，将上述参数按照 [指定的字符串](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) 格式拼接， 我们可以得出以下几种常用的 Case
+** 注意，以下结果均为 chrome 下的测试结果。不同浏览器的格式处理可能有所不同。
+** 相同浏览器，不同时间的格式可能也有所不同
+
+根据如上的介绍，将上述参数按照 [指定的字符串](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) 格式拼接， 我们可以得出以下几种常用的 Case。
+
+不同语言的格式参考，比如 [lt](https://lh.2xlibre.net/locale/lt_LT/)
 
 ```js
-// 使用立陶宛语言，日期和时间都是2位数，默认 24 小时制
+// 使用立陶宛语言，兼容 IE11，日期和时间都是2位数，默认 24 小时制
 new Date().toLocaleString('lt')
 // 2021-09-25 05:05:05
 // 2021-09-25 22:40:04
