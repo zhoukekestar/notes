@@ -19,7 +19,7 @@ commentIssueId: 27
   * status code
 * TCP/IP 结构详解
 
-参考和图片来源: [Anatomy of an HTTP Transaction](http://blog.catchpoint.com/2010/09/17/anatomyhttp/)
+参考和图片来源: [Anatomy of an HTTP Transaction](https://www.catchpoint.com/blog/http-transaction-steps)
 
 ### 简单的HTTP请求
 客户端发送一次简单HTTP请求
