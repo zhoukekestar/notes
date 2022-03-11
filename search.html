@@ -4,6 +4,7 @@ layout: default
 <style>
   .search-wrapper {
     text-align: center;
+    margin: 100px 0;
   }
   .search {
     width: 16em;
@@ -12,7 +13,7 @@ layout: default
     border: solid 1px #ccc;
     padding: 8px 16px;
     font-size: 14px;
-    outline: none;`
+    outline: none;
   }
   .search-wrapper button {
     border-radius: 2px;
@@ -35,46 +36,12 @@ layout: default
   .search:focus {
     box-shadow: 0 0 6px 1px #e0dddd;
   }
-  #search-results {
-    padding: 0;
-    margin: 40px 0;
-    list-style: none;
-  }
-  #search-results li p {
-    word-break: break-all;
-  }
-  #search-results li + li {
-    margin-top: 30px;
-    border-top: solid 1px #f4f4f4;
-    padding-top: 30px;
-  }
-  .google-it {
-    font-size: 25px;
-    margin-left: 17px;
-    text-decoration: none;
-  }
-  .google-it img {
-    height: 1em;
-  }
 </style>
 <div class='search-wrapper'>
   <input class='search' type="text" id="search-box" placeholder="Input something & enter to search...">
   <button google><img src='/notes/assets/google.svg' />Google</button>
   <!-- <button bing><img src='/notes/assets/baidu.svg' />Bing</button> -->
-  <button bing>Bing</button>
+  <button bing><img src='https://img.alicdn.com/imgextra/i2/O1CN01Uwez901PZB39PZiLv_!!6000000001854-55-tps-200-200.svg' />Bing</button>
 </div>
 
-<!-- <ul id="search-results" style='margin-top: 40px;'></ul>
-<script>
-  window.store = {
-    "hello world": {
-      "title": "hello world",
-      "author": "hello world",
-      "category": "hello world",
-      "content": "hello world",
-      "url": "hello world",
-    },
-  };
-</script> -->
-<!-- <script src="./html/search/lunr.js"></script> -->
 <script src="./html/search/search.js"></script>
