@@ -176,8 +176,13 @@ hello zk_pipe_test
 
 ```
 
+## One More Thing
+
+Paxos, 分布式一致性算法， https://zhuanlan.zhihu.com/p/31780743
+
 ## References
 
+* [Paxos](https://en.wikipedia.org/wiki/Paxos_%28computer_science%29)
 * [zookeeper](https://zookeeper.apache.org/index.html)
 * [ACM](https://help.aliyun.com/document_detail/59957.html)
 * [应用场景](https://zhuanlan.zhihu.com/p/59669985)
