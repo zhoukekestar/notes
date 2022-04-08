@@ -123,6 +123,8 @@ hello zk_pipe_test
 [zk_pipe_test, zookeeper]
 ```
 
+* 关闭服务器 `bin/zkServer.sh stop`
+
 ## Java Example
 
 #### Dependencies
