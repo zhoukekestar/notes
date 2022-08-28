@@ -11,11 +11,10 @@ tags: [css]
 ![getBoundingClientRect2](https://user-images.githubusercontent.com/7157346/187056954-412cc9b6-95dd-4233-a31e-5f388d643085.gif)
 
 Example:
-[getBoundingClientRect]({{ site.baseurl}}/html/getBoundingClientRect.html)
+[getBoundingClientRect](https://zhoukekestar.github.io/notes/2016/09/27/element-position-value-demo.html)
 
 # Event XY
 ![eventXY](https://user-images.githubusercontent.com/7157346/187056950-6d46d89b-38a7-4c6b-be42-2a9f63c70079.png)
 
 Example:
-[eventXY]({{ site.baseurl}}/html/eventXY.html)
-[eventXY](https://zhoukekestar.github.io/notes/2016/09/27/element-position-value-demo.html)
+[eventXY](https://zhoukekestar.github.io/notes/2016/09/27/element-position-value-demo2.html)
