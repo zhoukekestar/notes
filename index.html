@@ -42,9 +42,13 @@ layout: default
           {% endif %}
         </div>
 
-        <article>
-          {{ post.excerpt | markdownify }}
-        </article>
+        {% if post.layout == "blank" %}
+          <article>HTML Page</article>
+        {% else %}
+          <article>
+            {{ post.excerpt | markdownify }}
+          </article>
+        {% endif %}
 
       </li>
     {% endfor %}
