@@ -39,14 +39,14 @@ That's it!
 
 This version works great with latest Chrome, but lower version of Chrome can't display correctly.
 
-![resume-bug]({{ site.baseurl }}/assets/2017/06-07-simple-svg/resume-bug.png)
-![svg-bug]({{ site.baseurl }}/assets/2017/06-07-simple-svg/svg-bug.png)
+![svg-bug](https://user-images.githubusercontent.com/7157346/187057083-ebba3b34-5e10-4be5-a0e7-26065f9abf5f.png)
+![resume-bug](https://user-images.githubusercontent.com/7157346/187057082-a43fee56-a16b-4135-88ae-d38053cdfb16.png)
 
 ## Second Version
 
 So I have to draw two parallelogram instead of two lines. Like this:
 
-![draft]({{ site.baseurl }}/assets/2017/06-07-simple-svg/draft.png)
+![draft](https://user-images.githubusercontent.com/7157346/187057080-df286fb4-b372-48b8-adf2-d9511af8855b.png)
 
 <svg height='100' width='180' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M0 0 L100 100 L0 100 Z" fill='#02ae51'></path>

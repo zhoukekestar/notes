@@ -84,4 +84,4 @@ max_line_length = null
 
 ## Project
 * [TGIdeas](http://tgideas.qq.com/webplat/info/news_version3/804/7104/7106/m5723/201701/548650.shtml)
-  ![1485166255_18_w4500_h2500]({{ site.baseurl }}/assets/project-code-style/1485166255_18_w4500_h2500.jpg)
+  ![1485166255_18_w4500_h2500](https://user-images.githubusercontent.com/7157346/187056928-c4e2539f-c65b-4308-9437-f337a3df2c34.jpg)

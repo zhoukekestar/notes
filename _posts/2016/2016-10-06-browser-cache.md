@@ -32,4 +32,4 @@ Cache-Control/Expires则不同，如果检测到本地的缓存还是有效的�
 * 有可能存在服务器没有准确获取文件修改时间，或者与代理服务器时间不一致等情形
 Etag是服务器自动生成或者由开发者生成的对应资源在服务器端的唯一标识符，能够更加准确的控制缓存。Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。Etag的服务器生成规则和强弱Etag的相关内容可以参考，《互动百科-Etag》和《HTTP Header definition》，这里不再深入。
 
-![http缓存]({{ site.baseurl }}/assets/browser-cache.png)
+![http缓存](https://user-images.githubusercontent.com/7157346/187056947-0582f9a6-1c0e-4d0e-96eb-6f27b6e486fe.png)

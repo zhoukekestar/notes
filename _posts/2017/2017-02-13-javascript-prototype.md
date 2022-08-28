@@ -17,7 +17,7 @@ Foo.prototype.getYear = function () {
 var f1 = new Foo()
 ```
 
-![img]({{site.baseurl}}/assets/javascript-prototype/prototype2.png)
+![img](https://user-images.githubusercontent.com/7157346/187056906-334c586d-b276-4bc6-b047-ce6ef5ee5fe2.png)
 
 ```js
 // line-1

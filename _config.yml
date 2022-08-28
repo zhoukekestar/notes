@@ -1,25 +1,13 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Jekyll Config
+
 title: Notes
 email: zhoukekestar@163.com
-description: > # this means to ignore newlines until "baseurl:"
+description: >
   This site is hosted with ❤️ by Github. Powered by Jekyll.
   Thanks a lot.
-baseurl: "/notes" # the subpath of your site, e.g. /blog
-url: "https://zhoukekestar.github.io" # the base hostname & protocol for your site
+baseurl: "/notes"
+url: "https://zhoukekestar.github.io"
 twitter_username: zhoukekestar
 github_username:  zhoukekestar
 
@@ -27,13 +15,6 @@ github_username:  zhoukekestar
 paginate: 20
 paginate_path: "/page:num/"
 
-# Build settings
+
 markdown: kramdown
-# markdown: maruku
 theme: minima
-# kramdown:
-#   input: Markdown
-#   # input: GFM
-#   # kramdown convert $$ to \[, so we disable it https://kramdown.gettalong.org/options.html
-#   math_engine: nil
-#   math_engine_opts: {}
