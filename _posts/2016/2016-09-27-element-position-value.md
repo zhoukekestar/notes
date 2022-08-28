@@ -18,4 +18,4 @@ Example:
 
 Example:
 [eventXY]({{ site.baseurl}}/html/eventXY.html)
-[eventXY]({% link 2016-09-27-element-position-value-demo.md | absolute_url %})
+[eventXY]({% link 2016-09-27-element-position-value2.md | absolute_url %})
