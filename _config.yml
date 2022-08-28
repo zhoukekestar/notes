@@ -31,9 +31,9 @@ paginate_path: "/page:num/"
 markdown: kramdown
 # markdown: maruku
 theme: minima
-kramdown:
-  input: Markdown
-  # input: GFM
-  # kramdown convert $$ to \[, so we disable it https://kramdown.gettalong.org/options.html
-  math_engine: nil
-  math_engine_opts: {}
+# kramdown:
+#   input: Markdown
+#   # input: GFM
+#   # kramdown convert $$ to \[, so we disable it https://kramdown.gettalong.org/options.html
+#   math_engine: nil
+#   math_engine_opts: {}
