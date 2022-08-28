@@ -17,3 +17,5 @@ paginate_path: "/page:num/"
 
 markdown: kramdown
 theme: minima
+sass:
+  sass_dir: css
