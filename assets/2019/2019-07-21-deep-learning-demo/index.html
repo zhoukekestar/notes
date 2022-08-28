@@ -162,7 +162,7 @@
 
 
 
-    fetch('https://zhoukekestar.github.io/notes/HTML/2019-07~09/deep-learning-demo/dl.json')
+    fetch('./dl.json')
       .then(d => d.json())
       .then(d => {
         window.network = new NetWork([784, 30, 10], d.b, d.w);

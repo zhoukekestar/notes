@@ -76,7 +76,8 @@ class NetWork {
 
 
 
-<iframe height='400' src="https://zhoukekestar.github.io/notes/HTML/2019-07~09/deep-learning-demo/index.html"></iframe>
+<iframe height='400' src="https://zhoukekestar.github.io/notes/assets/2019/2019-07-21-deep-learning-demo/index.html"></iframe>
+
 ## Python 取出参数代码
 
 
@@ -116,4 +117,3 @@ fo.close();
 
 * [Python 代码](https://github.com/mnielsen/neural-networks-and-deep-learning)
 
-  

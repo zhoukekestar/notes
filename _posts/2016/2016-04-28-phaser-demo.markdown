@@ -6,4 +6,4 @@ categories: phaser
 tags: [game, javascript]
 ---
 
-[Demo]({{ site.baseurl }}/html/phaser/index.html)
+[Demo]({{ site.baseurl }}/assets/2016/2016-04-28-phaser/index.html)
