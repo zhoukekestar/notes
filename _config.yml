@@ -32,7 +32,8 @@ markdown: kramdown
 # markdown: maruku
 theme: minima
 kramdown:
-  input: GFM
+  input: Markdown
+  # input: GFM
   # kramdown convert $$ to \[, so we disable it https://kramdown.gettalong.org/options.html
   math_engine: nil
   math_engine_opts: {}
