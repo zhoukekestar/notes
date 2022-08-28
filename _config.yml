@@ -1,0 +1,19 @@
+
+# Jekyll Config
+
+title: Notes
+email: zhoukekestar@163.com
+description: >
+  This site is hosted with ❤️ by Github. Powered by Jekyll.
+  Thanks a lot.
+baseurl: "/notes"
+url: "https://zhoukekestar.github.io"
+github_username:  zhoukekestar
+
+# paging
+paginate: 20
+paginate_path: "/page:num/"
+
+
+markdown: kramdown
+theme: minima
