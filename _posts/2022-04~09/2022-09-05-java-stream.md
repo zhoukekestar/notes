@@ -188,4 +188,4 @@ public class Main {
 # 参考
 
 * [https://www.runoob.com/java/java8-streams.html](https://www.runoob.com/java/java8-streams.html)
-*
+* [flatmap 异步](https://medium.com/swlh/understanding-reactors-flatmap-operator-a6a7e62d3e95)
