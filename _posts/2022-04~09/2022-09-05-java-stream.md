@@ -188,4 +188,9 @@ public class Main {
 # 参考
 
 * [https://www.runoob.com/java/java8-streams.html](https://www.runoob.com/java/java8-streams.html)
+  * [thread](https://www.runoob.com/java/java-multithreading.html)
 * [flatmap 异步](https://medium.com/swlh/understanding-reactors-flatmap-operator-a6a7e62d3e95)
+* [Mono VS Flux](https://stackoverflow.com/questions/47988433/mono-vs-flux-in-reactive-stream)
+* [Flux APIs](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html)
+* [Example](https://www.infoq.com/articles/reactor-by-example/)
+* [Learn](https://projectreactor.io/learn)
