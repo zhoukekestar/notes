@@ -45,3 +45,10 @@ Download: [https://swh.app/zh](https://swh.app/zh)
   * 支持滚动截屏
 
 Download: [https://zh.xnipapp.com/](https://zh.xnipapp.com/)
+
+
+# Brew
+
+https://brew.sh/
+
+Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
