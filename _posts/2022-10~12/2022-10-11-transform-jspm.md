@@ -35,6 +35,10 @@ const configs = globby.globbySync('./nodelibs/**/*.js').map(inputFile => {
 export default configs;
 ```
 
+# Upload nodelibs to CDN
+
+  pick `nodelibs/browser` to upload.
+
 # CDN
 
   so you can load it by `systemjs.1688.com`
