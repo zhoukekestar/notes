@@ -56,3 +56,9 @@ Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/
 # ohmyzsh
 
 https://github.com/ohmyzsh/ohmyzsh
+
+Install: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+After installing see [zsh](https://zhoukekestar.github.io/notes/2018/01/27/zsh-shell.html)
+
+add `source ~/.bash_profile` to `~/.zshrc`
