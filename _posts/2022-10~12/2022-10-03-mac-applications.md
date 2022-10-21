@@ -52,3 +52,7 @@ Download: [https://zh.xnipapp.com/](https://zh.xnipapp.com/)
 https://brew.sh/
 
 Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+# ohmyzsh
+
+https://github.com/ohmyzsh/ohmyzsh
