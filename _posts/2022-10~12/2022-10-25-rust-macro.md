@@ -179,6 +179,101 @@ Run Result
 hello from DeriveMacro
 ```
 
+# Full Demo
+
+```rust
+// lib.rs
+use proc_macro::TokenStream;
+use quote::quote;
+use syn::{parse_macro_input, token::Token, DeriveInput};
+
+#[proc_macro_attribute]
+pub fn attrmacro(_metadata: TokenStream, _input: TokenStream) -> TokenStream {
+    TokenStream::from(quote! {fn hello() { println!("hello from attribute macro")}})
+}
+
+#[proc_macro_derive(DeriveMacro)]
+pub fn derive_trait(input: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(input as DeriveInput);
+    let name = input.ident;
+
+    let expanded = quote! {
+
+        impl DeriveMacro for #name {
+          fn print() {
+            println!("hello from derive macro")
+          }
+        }
+    };
+
+    TokenStream::from(expanded)
+}
+```
+
+```rust
+// main.rs
+use hello::*;
+
+macro_rules! funcmacro {
+    () => {
+        println!("hello from function macro");
+    };
+    ($a: expr, $b: expr) => {
+        println!("hello from function macro res: {}", $a + $b);
+    };
+}
+
+#[attrmacro]
+fn hello() {}
+
+
+// drive macro demo
+
+pub trait DeriveMacro {
+    fn print();
+}
+
+#[derive(DeriveMacro)]
+struct MyStruct {}
+
+fn main() {
+    funcmacro!();
+    funcmacro!(1, 2);
+
+    hello();
+
+    MyStruct::print();
+}
+
+```
+
+```toml
+# Cargo.toml
+
+[package]
+name = "hello"
+version = "0.1.0"
+edition = "2021"
+proc-macro = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = {version="1.0.57",features=["full","fold"]}
+quote = "1.0.8"
+```
+
+Run Result
+
+```
+✗ cargo run
+hello from function macro
+hello from function macro res: 3
+hello from attribute macro
+hello from derive macro
+```
+
 # References
 
 * [Macros in Rust: A tutorial with examples - LogRocket Blog](https://blog.logrocket.com/macros-in-rust-a-tutorial-with-examples/)
