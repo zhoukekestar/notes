@@ -410,7 +410,7 @@ $ xxd -s 0x3fa8 -l 20 -c 4 a.out
 
   [RET](https://developer.arm.com/documentation/ddi0602/2022-06/Base-Instructions/RET--Return-from-subroutine-) 就当做个巩固练习吧。
 
-  <table class="c-table is-sticky is-striped">
+<table class="c-table is-sticky is-striped">
   <thead>
     <tr>
       <td>31</td>
@@ -478,7 +478,6 @@ $ xxd -s 0x3fa8 -l 20 -c 4 a.out
       <td>0</td>
       <td>0</td>
     </tr>
-    <tbody>
     <tr>
       <td>1</td>
       <td>1</td>
