@@ -554,7 +554,9 @@ str:
 # 参考
 
 * [apple-m1-assembly-language-hello-world](https://smist08.wordpress.com/2021/01/08/apple-m1-assembly-language-hello-world/)
+  * [arm64_assembly_hello_world](http://main.lv/writeup/arm64_assembly_hello_world.md)
 * [基本的 ARM 指令含义](https://wiki.cdot.senecacollege.ca/wiki/AArch64_Register_and_Instruction_Quick_Start)
+* [arm64-assembly 指令说明](https://cit.dixie.edu/cs/2810/arm64-assembly.html)
 * [using-lldb-for-reverse-engineering/](https://rderik.com/blog/using-lldb-for-reverse-engineering/)
 * [MOV](https://developer.arm.com/documentation/ddi0602/2022-06/Base-Instructions/MOV--wide-immediate---Move--wide-immediate---an-alias-of-MOVZ-)
 * [ADD](https://developer.arm.com/documentation/ddi0602/2022-06/Base-Instructions/ADD--shifted-register---Add--shifted-register--)
