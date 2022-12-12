@@ -124,6 +124,20 @@ str:
 
 ```
 
+# 待分析
+
+  gcc 默认编译的 `gcc -s main.c` 的 helloworld，调用的是 `bl _printf`, 代码如下：
+
+```asm
+.global _main
+.align 2
+_main:
+	adr	x0, str
+	bl	_printf
+str:
+	.ascii	"Hello World!\n"
+```
+
 
 
 # 参考
