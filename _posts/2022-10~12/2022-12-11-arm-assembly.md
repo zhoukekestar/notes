@@ -526,30 +526,6 @@ $ xxd -s 0x3fa8 -l 20 -c 4 a.out
   二进制 `11010110 01011111 00000/011 110/00000` 的十六进制为 `d65f 03c0`（其中 rn 的含义可以参考其他资料查看，我没继续查了。。。），即汇编 `ret` 命令。
 
 
-# 真正的 Hello World
-
-  因为常规的 HelloWorld 程序涉及终端输出等系统调用，远比 `1 + 2` 的汇编要复杂，所以放在后面展开，避免陷入局部。
-
-  参考 [apple-m1-assembly-language-hello-world](https://smist08.wordpress.com/2021/01/08/apple-m1-assembly-language-hello-world/)，新建文件 `main.s`，内容如下：
-
-```assembly
-.global _main
-.align 2
-_main:
-	mov	x0, #1
-	adr	x1, str
-	mov	x2, #13
-	mov	x16, #4
-	svc	0
-
-	mov	x0, #0
-	mov	x16, #1
-	svc	0
-
-str:
-	.ascii	"Hello World!\n"
-```
-
 # 参考
 
 * [apple-m1-assembly-language-hello-world](https://smist08.wordpress.com/2021/01/08/apple-m1-assembly-language-hello-world/)
