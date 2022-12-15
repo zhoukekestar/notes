@@ -264,43 +264,43 @@ $ xxd -c 8 hello.wasm
 > - the actual _contents_, whose structure is depended on the section id.
 >
 > For most sections, the contents B encodes a [vector](https://webassembly.github.io/spec/core/binary/conventions.html#binary-vec).
-
-  每个区块由【区块 ID (即类型)】+ 【区块大小】 + 【区块内容】组成，区块内容在大多数情况下为向量。0x01 为类型、0x03 为函数、0x08 为开始、0x0a 为代码。
+>
+> 每个区块由【区块 ID (即类型)】+ 【区块大小】 + 【区块内容】组成，区块内容在大多数情况下为向量。0x01 为类型、0x03 为函数、0x08 为开始、0x0a 为代码。
 
 2. [https://webassembly.github.io/spec/core/binary/conventions.html#binary-vec](https://webassembly.github.io/spec/core/binary/conventions.html#binary-vec)
 > [Vectors](https://webassembly.github.io/spec/core/syntax/conventions.html#syntax-vec) are encoded with their u32 length followed by the encoding of their element sequence.
-
-  每个向量由【向量个数】+ 【向量】组成
+>
+> 每个向量由【向量个数】+ 【向量】组成
 
 3. [https://webassembly.github.io/spec/core/appendix/index-types.html](https://webassembly.github.io/spec/core/appendix/index-types.html)
 > 类型为 0x60 为函数类型
 
 4. [https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype](https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype)
 > _Function types_ classify the signature of [functions](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-func), mapping a vector of parameters to a vector of results.
-
-  函数类型，后续跟两个类型，分别为入参和出参。
+>
+> 函数类型，后续跟两个类型，分别为入参和出参。
 
 5. [https://webassembly.github.io/spec/core/binary/modules.html#binary-funcsec](https://webassembly.github.io/spec/core/binary/modules.html#binary-funcsec)
 > It decodes into a vector of [type indices](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx) that represent the type fields of the [functions](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-func) in the funcs component of a [module](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module).
-
-函数区块后面跟一个代码函数编码的向量。
+>
+> 函数区块后面跟一个代码函数编码的向量。
 
 6. [https://webassembly.github.io/spec/core/binary/modules.html#binary-startsec](https://webassembly.github.io/spec/core/binary/modules.html#binary-startsec)
 > The _start section_ has the id 8. It decodes into an optional [start function](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-start) that represents the start component of a [module](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module).
-
-开始区块，可以通过直接指定函数 id 编号来执行。
+>
+> 开始区块，可以通过直接指定函数 id 编号来执行。
 
 7. [https://webassembly.github.io/spec/core/binary/modules.html#code-section](https://webassembly.github.io/spec/core/binary/modules.html#code-section)
 > They represent the locals and body field of the [functions](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-func) in the funcs component of a [module](https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module).
 > codedesc = vec(code)
 > code = size + func
 > func = locals + expr
-
-  由于没有本地变量，所以直接是函数个数说明，已经后续跟进的函数体的大小。
+>
+> 由于没有本地变量，所以直接是函数个数说明，已经后续跟进的函数体的大小。
 
 8. [https://webassembly.github.io/spec/core/appendix/index-instructions.html](https://webassembly.github.io/spec/core/appendix/index-instructions.html)
-
-  表达式指令集
+>
+> 表达式指令集
 
 
 
