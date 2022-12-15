@@ -175,13 +175,13 @@ $ xxd -c 8 hello.wasm
 </tr>
 <tr>
 <td align="center">备注</td>
-<td align="center">类型区块<sup>[1]</sup></td>
+<td align="center"><b>类型区块<sup>[1]</sup></b></td>
 <td align="center">总 4 字节<sup>[1]</sup></td>
 <td align="center">类型向量 1 个<sup>[2]</sup></td>
 <td align="center">类型为函数<sup>[3]</sup><sup>[4]</sup></td>
 <td align="center">0 个入参<sup>[4]</sup></td>
 <td align="center">0 个出参<sup>[4]</sup></td>
-<td align="center">函数区块<sup>[1]</sup><sup>[5]</sup></td>
+<td align="center"><b>函数区块<sup>[1]</sup><sup>[5]</sup></b></td>
 <td align="center">共 2 字节<sup>[1]</sup></td>
 </tr>
 <tr>
@@ -199,10 +199,10 @@ $ xxd -c 8 hello.wasm
 <td align="center">备注</td>
 <td align="center">函数数量为1<sup>[2]</sup><sup>[5]</sup></td>
 <td align="center">函数编号为 0<sup>[5]</sup></td>
-<td align="center">开始区块<sup>[1]</sup><sup>[6]</sup></td>
+<td align="center"><b>开始区块<sup>[1]</sup><sup>[6]</sup></b></td>
 <td align="center">共 1 字节<sup>[1]</sup></td>
 <td align="center">调用函数编号为 0<sup>[6]</sup></td>
-<td align="center">代码区块<sup>[1]</sup></td>
+<td align="center"><b>代码区块<sup>[1]</sup></b></td>
 <td align="center">共 10 字节<sup>[1]</sup></td>
 <td align="center">代码向量个数为1<sup>[7]</sup></td>
 </tr>
