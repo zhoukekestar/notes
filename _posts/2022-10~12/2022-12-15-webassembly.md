@@ -302,7 +302,11 @@ $ xxd -c 8 hello.wasm
 >
 > 表达式指令集
 
+# Debug on Browser
 
+  Chrome 已原生支持 WASM 调试，当上述代码执行之后，可以看到 stack 的最终 value 为 3，符合预期。
+
+  ![image](https://user-images.githubusercontent.com/7157346/207794582-144e7e5c-8a67-4f15-8ccd-eb25760747c1.png)
 
 # 常见问题
 
@@ -317,3 +321,4 @@ $ xxd -c 8 hello.wasm
 * https://developer.mozilla.org/en-US/docs/WebAssembly/Text_format_to_wasm
 * https://github.com/webassembly/wabt
 * https://webassembly.github.io/spec/core/binary/index.html#high-level-structure
+* http://troubles.md/wasm-is-not-a-stack-machine/
