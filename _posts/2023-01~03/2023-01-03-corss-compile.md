@@ -9,6 +9,8 @@ tags: [note, system]
 
   Cross compile source C file to i386 (or x86-64) targeted machine on ARM M1 Mac by GCC.
 
+  > 最终目的是来分析一下 80386 指令集的实现方式（即 copy/v86 的源码），所以需要 16 位的机器码来看，最终选取 docker i386/gcc 来实现交叉编译。
+
 
 # 说明
 
