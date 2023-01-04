@@ -22,7 +22,7 @@ tags: [note, system]
 
 ```sh
 # 安装交叉编译器
-$ brew reinstall x86_64-elf-gcc
+$ brew install x86_64-elf-gcc
 
 # 简单的源码
 $ cat add.c
@@ -65,6 +65,33 @@ $ x86_64-elf-gcc -m32 ./add.c
 /opt/homebrew/opt/x86_64-elf-binutils/bin/x86_64-elf-ld: cannot find crt0.o: No such file or directory
 /opt/homebrew/opt/x86_64-elf-binutils/bin/x86_64-elf-ld: cannot find -lc: No such file or directory
 collect2: error: ld returned 1 exit status
+
+# 正常构建不指定目标代码也不行
+$ x86_64-elf-gcc  ./add.c
+/opt/homebrew/opt/x86_64-elf-binutils/bin/x86_64-elf-ld: cannot find crt0.o: No such file or directory
+/opt/homebrew/opt/x86_64-elf-binutils/bin/x86_64-elf-ld: cannot find -lc: No such file or directory
+collect2: error: ld returned 1 exit status
+
+# 查了较多资料，不指定标准库，以及重新指定 entry，是能正常编译的
+$ x86_64-elf-gcc -nostdlib --entry main ./add.c
+$  objdump -S a.out
+
+a.out:  file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000400078 <main>:
+  400078: 55                            pushq   %rbp
+  400079: 48 89 e5                      movq    %rsp, %rbp
+  40007c: c7 45 fc 01 00 00 00          movl    $1, -4(%rbp)
+  400083: c7 45 f8 02 00 00 00          movl    $2, -8(%rbp)
+  40008a: 8b 55 fc                      movl    -4(%rbp), %edx
+  40008d: 8b 45 f8                      movl    -8(%rbp), %eax
+  400090: 01 d0                         addl    %edx, %eax
+  400092: 89 45 f4                      movl    %eax, -12(%rbp)
+  400095: 8b 45 f4                      movl    -12(%rbp), %eax
+  400098: 5d                            popq    %rbp
+  400099: c3                            retq
 ```
 
 
