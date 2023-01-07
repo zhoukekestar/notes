@@ -103,6 +103,8 @@ Disassembly of section .text:
 * 参考 [Docker: Copying files from Docker container to host](https://stackoverflow.com/questions/22049212/docker-copying-files-from-docker-container-to-host) 来将需要构建的文件放入 docker 容器中。
   * `$ docker cp containerId:/source/hello.c ./hello.c`
   * `$ docker cp ./helloc containerId:/dest`
+* `docker run -it i386/gcc` 运行容器
+* `# echo "int main() { int a = 1; int b = 2; int c = a + b; return c; }" > hello.c` 添加测试代码
 * `gcc -mtune=i386 -m16 hello.c`
   * 用于交叉编译 i386 的 16 位程序，主要是为了和 [Opcode Table](https://pdos.csail.mit.edu/6.828/2018/readings/i386/appa.htm) 对应起来，32 位有 `movl` 等指令，无法较好的对应。
 * 参考 [How to disassemble a binary executable in Linux to get the assembly code?](https://stackoverflow.com/questions/5125896/how-to-disassemble-a-binary-executable-in-linux-to-get-the-assembly-code), [How to disassemble one single function using objdump?](https://stackoverflow.com/questions/22769246/how-to-disassemble-one-single-function-using-objdump) 将二进制文件反编译为汇编代码，并仅选取 `main` 函数
