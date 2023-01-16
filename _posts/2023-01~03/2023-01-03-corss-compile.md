@@ -105,6 +105,7 @@ Disassembly of section .text:
   * `$ docker cp ./helloc containerId:/dest`
 * `docker run -it i386/gcc` 运行容器
   * `docker run -it --name=gcc -v "$PWD:/home" i386/gcc` 或将当前目录直接挂接上去
+  * `docker exec -it <ID> bash` 在当前容器中新开 shell
 * `# echo "int main() { int a = 1; int b = 2; int c = a + b; return c; }" > hello.c` 添加测试代码
 * `gcc -mtune=i386 -m16 hello.c`
   * 用于交叉编译 i386 的 16 位程序，主要是为了和 [Opcode Table](https://pdos.csail.mit.edu/6.828/2018/readings/i386/appa.htm) 对应起来，32 位有 `movl` 等指令，无法较好的对应。
