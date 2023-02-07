@@ -117,13 +117,12 @@ module.exports = defineConfig({
 
 ```sh
 $ [ ! -d "not-exist" ] && echo "no"
-no
 $ [ -d "exist" ] && echo "yes"
-yes
+$ [ ! -d \"$BUILD_DEST\" ] && mkdir $BUILD_DEST
 
 # Mac can use rm -rf ./build/**/*.txt
 # BUT Linux can only delete first level files
-$ rm -rf ./bulid/*.txt
+$ rm -rf ./build/static/js/*.LICENSE.txt
 ```
 
 
