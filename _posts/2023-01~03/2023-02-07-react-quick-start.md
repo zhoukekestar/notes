@@ -113,6 +113,19 @@ module.exports = defineConfig({
 
 ```
 
+# Shell Tips
+
+```sh
+$ [ ! -d "not-exist" ] && echo "no"
+no
+$ [ -d "exist" ] && echo "yes"
+yes
+
+# Mac can use rm -rf ./build/**/*.txt
+# BUT Linux can only delete first level files
+$ rm -rf ./bulid/*.txt
+```
+
 
 # For Def
 
