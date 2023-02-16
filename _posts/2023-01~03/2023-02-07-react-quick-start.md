@@ -103,8 +103,8 @@ module.exports = defineConfig({
     target: 'es2015',
     // lib: {
     //   entry: './index.js',
-    //   name: 'alifooter',
-    //   format: "umd",
+    //   name: 'MyLib',
+    //   formats: ["iife"],
     // },
     //speed up build
     // minify: false,
