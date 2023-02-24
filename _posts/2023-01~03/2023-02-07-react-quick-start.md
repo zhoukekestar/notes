@@ -145,3 +145,63 @@ $ rm -rf ./build/static/js/*.LICENSE.txt
 }
 ```
 
+ts 其实不用以下代码
+```
+const { defineConfig } = require('vite');
+// const babel = require('vite-plugin-babel').default;
+// const transform = require('vite-plugin-require-transform');
+// const commonjs = require('vite-plugin-commonjs');
+
+module.exports = defineConfig({
+  server: {
+    host: 'localhost',
+    headers: {
+      'Cache-Control': 'no-store',
+    },
+  },
+  plugins: [
+    // commonjs(),
+    // babel({
+    //   babelConfig: {
+    //     // 部分 JS 新语法兼容
+    //     plugins: [
+    //       // ['@babel/plugin-proposal-decorators', { legacy: true }]
+    //     ],
+    //     // presets: ['@babel/preset-env'],
+
+    //     // 工作台大部分场景下，无需兼容 IE11，直接使用当前配置即可
+    //     // 如果有特殊场景，需要兼容 IE11 的，使用以下插件即可
+    //     // targets: {
+    //     //   ie: '11',
+    //     // },
+    //   },
+    // }),
+
+    // transform({}),
+  ],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `[name].js`,
+        chunkFileNames: `[name].js`,
+        assetFileNames: `[name].[ext]`,
+      },
+    },
+    // target: 'es2015',
+    lib: {
+      entry: './src/index.ts',
+      name: 'MyLib',
+      formats: ['iife'],
+    },
+    // 本地测试的时候，可以先关闭压缩，加快构建速度
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: false,
+      },
+    },
+  },
+});
+
+```
+
