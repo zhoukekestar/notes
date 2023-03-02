@@ -113,6 +113,26 @@ module.exports = defineConfig({
 
 ```
 
+### for IE11
+
+```js
+const { defineConfig } = require('vite');
+const babel = require('vite-plugin-babel').default;
+
+module.exports = defineConfig({
+  plugins: [
+    babel({
+      babelConfig: {
+        presets: ['@babel/preset-env'],
+        targets: {
+          ie: '11',
+        },
+      },
+    }),
+  ],
+});
+```
+
 # Shell Tips
 
 ```sh
