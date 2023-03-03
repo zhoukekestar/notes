@@ -133,6 +133,33 @@ module.exports = defineConfig({
 });
 ```
 
+or 
+
+### for rollup IE11
+
+```js
+const babel = require('@rollup/plugin-babel');
+
+// npm i @rollup/plugin-babel @babel/preset-env @babel/core -D
+
+module.exports = defineConfig({
+  build: {
+    emptyOutDir: false,
+    rollupOptions: {
+      plugins: [
+        babel({
+          presets: ['@babel/preset-env'],
+          targets: {
+            ie: '11',
+          },
+        }),
+      ],
+    }
+  }
+});
+
+```
+
 # Shell Tips
 
 ```sh
