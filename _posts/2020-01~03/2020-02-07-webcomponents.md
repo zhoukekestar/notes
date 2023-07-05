@@ -27,6 +27,11 @@ WebComponents 框架对比，npm 下载量，star 数量，最后一次发布，
   ![](https://img.shields.io/github/last-commit/WebReflection/lighterhtml?style=flat-square)
 
 #### Libraries
+* [Hellof2e/quarkc](https://github.com/hellof2e/quark-core)
+  ![](https://img.shields.io/npm/dw/quarkc?style=flat-square)
+  ![](https://img.shields.io/github/stars/hellof2e/quark-core?style=flat-square)
+  ![](https://img.shields.io/github/release-date/hellof2e/quark-core?style=flat-square)
+  ![](https://img.shields.io/github/last-commit/hellof2e/quark-core?style=flat-square)
 * [Tencent/omi](https://github.com/Tencent/omi)
   ![](https://img.shields.io/npm/dw/omi?style=flat-square)
   ![](https://img.shields.io/github/stars/Tencent/omi?style=flat-square)
