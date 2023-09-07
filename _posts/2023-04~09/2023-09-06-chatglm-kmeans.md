@@ -178,6 +178,51 @@ print(listToStr)
 
   ![image](https://github.com/zhoukekestar/notes/assets/7157346/31e55d5e-f277-40f0-bb55-f35054cf0cff)
 
+### PS 画图
+
+* 钢笔工具 - 弯曲钢笔工具
+  * 点击多个点，按 ESC 结束
+* 选择（鼠标图标）- 路径选择工具
+  * 按住 Shift 多选
+* 右键 - 描边路径 - 选择铅笔或画笔 - 确认即可
+
+### matplotlib 中文显示
+
+  参考 [mac 下 matplotlib 的中文显示](https://blog.csdn.net/qq_32590631/article/details/80509741)
+
+```python
+# 代码参考：https://www.w3schools.com/python/matplotlib_labels.asp
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2])
+y = np.array([4, 8])
+
+# 默认字体为 sans-serif
+# 设置字体，能支持中文的字体即可
+plt.rcParams["font.sans-serif"]=['Arial Unicode MS']
+
+plt.title("中文")
+
+plt.plot(x, y)
+plt.show()
+
+```
+
+  所有可用字体打印
+
+```python
+from matplotlib.font_manager import FontManager
+fm = FontManager()
+mat_fonts = set(f.name for f in fm.ttflist)
+
+print(mat_fonts)
+
+# 根据系统打印的结果，其实只要设置了以下中任意存在的字体，都能正常显示中文
+plt.rcParams["font.sans-serif"]=['Arial Unicode MS']
+plt.rcParams["font.sans-serif"]=['PingFang HK']
+plt.rcParams["font.sans-serif"]=['Heiti TC']
+```
 
 # References
 
