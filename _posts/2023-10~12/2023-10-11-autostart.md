@@ -22,7 +22,7 @@ $ echo "bash /root/autostart.sh" >> /etc/rc.d/rc.local
 ```sh
 #!/bin/bash
 
-now=$(date +"\%I:\%M:\%S")
+now=$(date +"百分号I:百分号M:百分号S")
 echo "autostart.sh at $now" >> ~/log
 
 sleep 3
@@ -32,7 +32,7 @@ nvidia-smi >> ~/log
 
 sleep 3
 
-now=$(date +"\%I:\%M:\%S")
+now=$(date +"百分号I:百分号M:百分号S")
 echo "autostart.sh end $now" >> ~/log
 ```
 
