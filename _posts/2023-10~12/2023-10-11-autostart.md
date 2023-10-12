@@ -22,7 +22,7 @@ $ echo "bash /root/autostart.sh" >> /etc/rc.d/rc.local
 ```sh
 #!/bin/bash
 
-now=$(date +"百分号I:百分号M:百分号S")
+now=$(date +"%I:%M:%S")
 echo "autostart.sh at $now" >> ~/log
 
 sleep 3
@@ -32,7 +32,7 @@ nvidia-smi >> ~/log
 
 sleep 3
 
-now=$(date +"百分号I:百分号M:百分号S")
+now=$(date +"%I:%M:%S")
 echo "autostart.sh end $now" >> ~/log
 ```
 
@@ -108,5 +108,5 @@ Client.main(process.argv.slice(2));
 
 * https://operavps.com/docs/run-command-after-boot-in-linux/
 * https://www.cyberciti.biz/faq/how-to-read-time-in-shell-script/
-* https://next.api.aliyun.com/api/Ecs/2014-05-26/RunInstances?params={%22RegionId%22:%22cn-zhangjiakou%22}
+* https://next.api.aliyun.com/api/Ecs/2014-05-26/RunInstances
 
