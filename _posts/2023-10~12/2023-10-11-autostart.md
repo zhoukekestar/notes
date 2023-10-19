@@ -11,6 +11,7 @@ tags: [note]
 
 ```sh
 $ touch /root/autostart.sh
+$ chmod +x /root/autostart.sh
 $ chmod +x /etc/rc.d/rc.local
 $ echo "bash /root/autostart.sh" >> /etc/rc.d/rc.local
 ```
