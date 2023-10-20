@@ -13,7 +13,7 @@ tags: [note, web]
 
 | Name | URL | Downloads | Stars | Last Commit |
 |---|---|---|---|--|
-| Google | [material-components/material-web](https://github.com/material-components/material-web) |  ![](https://img.shields.io/npm/dw/%40material/web?style=flat-square) | ![](https://img.shields.io/github/stars/material-components/material-web?style=flat-square) | ![](https://img.shields.io/github/last-commit/material-components/material-web/main) |
+| Google | [material-components/material-web](https://github.com/material-components/material-web) | ![](https://img.shields.io/npm/dw/%40material/web?style=flat-square) | ![](https://img.shields.io/github/stars/material-components/material-web?style=flat-square) | ![](https://img.shields.io/github/last-commit/material-components/material-web/main) |
 | SAP(思爱普ERP) | [SAP/ui5-webcomponents](https://github.com/SAP/ui5-webcomponents) |  ![](https://img.shields.io/npm/dw/%40ui5/webcomponents?style=flat-square) | ![](https://img.shields.io/github/stars/SAP/ui5-webcomponents?style=flat-square) | ![](https://img.shields.io/github/last-commit/SAP/ui5-webcomponents/main) |
 | MicroSoft | [microsoft/fluentui](https://github.com/microsoft/fluentui/tree/master/packages/web-components) |  ![](https://img.shields.io/npm/dw/%40fluentui/web-components?style=flat-square) | ![](https://img.shields.io/github/stars/microsoft/fluentui?style=flat-square) | ![](https://img.shields.io/github/last-commit/microsoft/fluentui/master) |
 | Salesforce | [salesforce/lwc](https://github.com/salesforce/lwc) |  ![](https://img.shields.io/npm/dw/lwc?style=flat-square) | ![](https://img.shields.io/github/stars/salesforce/lwc?style=flat-square) | ![](https://img.shields.io/github/last-commit/salesforce/lwc/master) |
