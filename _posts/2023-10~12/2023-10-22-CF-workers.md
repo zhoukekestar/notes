@@ -105,6 +105,38 @@ Hello World!%
 ```
 
 
+# 快速查找可用 IP 工具
+
+  基于社区的 dns-detector 添加了大量公开 dns 并过滤掉了 timeout 的记录。
+  
+```sh
+$ git clone git@github.com:zhoukekestar/dns-detector.git
+$ cd dns-detector
+$ npx . --host=worker-plain-unit-ff9d.zhoukekestar.workers.dev
+
+[=   ] Resolving <worker-plain-unit-ff9d.zhoukekestar.workers.dev> IP...          
+>>>>>> 103.200.30.143  103.246.246.144  172.64.80.1  104.21.65.129  188.114.96.2  188.114.97.2  172.67.145.125  
+(●   ) Querying <worker-plain-unit-ff9d.zhoukekestar.workers.dev> IP...
+IP                         DNS Server                 Received(B)                Time(ms)                   Latency                    
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+103.200.30.143             1.1.1.1                    704                        52.793                     |||||                      
+103.246.246.144            68.201.127.10              640                        70.118                     |||||||                    
+172.64.80.1                216.146.36.36              64                         178.155                    ||||||||||||||||||         
+188.114.97.2               45.90.28.169               64                         323.056                    |||||||||||||||||||||||||||
+104.21.65.129              8.8.8.8                    64                         327.355                    |||||||||||||||||||||||||||
+172.67.145.125             8.8.8.8                    192                        328.138                    |||||||||||||||||||||||||||
+188.114.97.3               149.112.112.11             256                        329.660                    |||||||||||||||||||||||||||
+188.114.96.3               149.112.112.11             64                         332.251                    |||||||||||||||||||||||||||
+188.114.96.2               45.90.28.169               448                        343.618                    |||||||||||||||||||||||||||
+```
+
+  可以看到当前笔者的环境，172.64.80.1 为最优，103.xx 为被污染 IP，不可用。是否能真实正常访问，可通过 curl 做测试：
+
+```sh
+$ curl -v http://worker-plain-unit-ff9d.zhoukekestar.workers.dev --resolve worker-plain-unit-ff9d.zhoukekestar.workers.dev:80:172.64.80.1
+```
+
+
 # References
 
 * [cloudflare](https://dash.cloudflare.com/)
