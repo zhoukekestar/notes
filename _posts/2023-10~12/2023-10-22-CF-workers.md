@@ -107,12 +107,10 @@ Hello World!%
 
 # 快速查找可用 IP 工具
 
-  基于社区的 dns-detector 添加了大量公开 dns 并过滤掉了 timeout 的记录。
+  基于社区的 dns-detector 添加了大量公开 dns 并过滤掉了 timeout 的记录。( npx 为 nodejs 命令行工具，请提前安装 nodejs 环境）
   
 ```sh
-$ git clone git@github.com:zhoukekestar/dns-detector.git
-$ cd dns-detector
-$ npx . --host=worker-plain-unit-ff9d.zhoukekestar.workers.dev
+$ npx dns-detectors --host=worker-plain-unit-ff9d.zhoukekestar.workers.dev
 
 [=   ] Resolving <worker-plain-unit-ff9d.zhoukekestar.workers.dev> IP...          
 >>>>>> 103.200.30.143  103.246.246.144  172.64.80.1  104.21.65.129  188.114.96.2  188.114.97.2  172.67.145.125  
@@ -142,3 +140,4 @@ $ curl -v http://worker-plain-unit-ff9d.zhoukekestar.workers.dev --resolve worke
 * [cloudflare](https://dash.cloudflare.com/)
 * [https://github.com/zizifn/edgetunnel](https://github.com/zizifn/edgetunnel)
 * [uuid](https://www.uuid.online/)
+* [dns-detector](https://github.com/zhoukekestar/dns-detector)
