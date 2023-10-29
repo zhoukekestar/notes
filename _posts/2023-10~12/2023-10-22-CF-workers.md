@@ -17,6 +17,13 @@ tags: [note, proxy]
 * [https://dnschecker.org/](https://dnschecker.org/#A/worker-plain-unit-ff9d.zhoukekestar.workers.dev)
 * [https://tcping8.com/ping/](https://tcping8.com/ping/)
 
+### 推荐 myhosts 
+
+  通过 myhosts 查找最快的 IP 地址。
+  
+```sh
+$ npx myhosts https://github.com
+```
 
 # 找到最快 IP
 
@@ -132,13 +139,6 @@ IP                         DNS Server                 Received(B)               
 
 ```sh
 $ curl -v http://worker-plain-unit-ff9d.zhoukekestar.workers.dev --resolve worker-plain-unit-ff9d.zhoukekestar.workers.dev:80:172.64.80.1
-```
-
-# myhosts
-  通过 myhosts 查找最快的 IP 地址。
-  
-```sh
-$ npx myhosts https://github.com
 ```
 
 
