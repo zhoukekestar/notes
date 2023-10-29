@@ -134,6 +134,13 @@ IP                         DNS Server                 Received(B)               
 $ curl -v http://worker-plain-unit-ff9d.zhoukekestar.workers.dev --resolve worker-plain-unit-ff9d.zhoukekestar.workers.dev:80:172.64.80.1
 ```
 
+# myhosts
+  通过 myhosts 查找最快的 IP 地址。
+  
+```sh
+$ npx myhosts https://github.com
+```
+
 
 # References
 
