@@ -1,9 +1,9 @@
----
-# layout: post
+<!-- ---
+layout: post
 title:  "再谈 Virtual DOM"
 date:  2023-12-19
 tags: [note]
----
+--- -->
 
 
 * DSL vs JSX
@@ -30,7 +30,14 @@ tags: [note]
 * diff
   * https://github.com/Matt-Esch/virtual-dom/blob/master/vtree/diff.js
 * patch
-*
+
+
+
+# Diff Alogrithm
+
+### RTED
+
+> RTED requires O(n2) space as the most space-efficient competitors, and its runtime complexity of O(n3) in the worst case is optimal.
 
 # References
 
@@ -40,3 +47,10 @@ tags: [note]
 * https://github.com/patrick-steele-idem/morphdom
 * https://zhoukekestar.github.io/notes/2017/08/07/webcomponents-demo.html
 * https://zhoukekestar.github.io/notes/2017/08/07/beyond-framework.html
+
+
+
+* [RTED: A Robust Algorithm for the Tree Edit Distance](https://vldb.org/pvldb/vol5/p334_mateuszpawlik_vldb2012.pdf)
+* [Minimal Edit-Based Diffs for Large Trees](https://dl.acm.org/doi/pdf/10.1145/3340531.3412026)
+* [Detecting Changes in XML Documents](https://people.cs.rutgers.edu/~amelie/papers/2002/diff.pdf)
+*
