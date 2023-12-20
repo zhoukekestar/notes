@@ -1,9 +1,9 @@
-<!-- ---
+---
 layout: post
 title:  "再谈 Virtual DOM"
-date:  2023-12-19
+date:  2023-12-20
 tags: [note]
---- -->
+---
 
 
 * DSL vs JSX
@@ -53,4 +53,4 @@ tags: [note]
 * [RTED: A Robust Algorithm for the Tree Edit Distance](https://vldb.org/pvldb/vol5/p334_mateuszpawlik_vldb2012.pdf)
 * [Minimal Edit-Based Diffs for Large Trees](https://dl.acm.org/doi/pdf/10.1145/3340531.3412026)
 * [Detecting Changes in XML Documents](https://people.cs.rutgers.edu/~amelie/papers/2002/diff.pdf)
-*
+* [Google String diff-match-patch](https://github.com/google/diff-match-patch)
