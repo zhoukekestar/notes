@@ -38,7 +38,10 @@ tags: [note]
 
   再次多次点击，bob 由于没有更新相关的值，所以后续的每次更新，bob 节点都无变化。
 
-<video src="https://github.com/zhoukekestar/notes/assets/7157346/496c65aa-62d4-43f3-97ec-531f2b0b7bf1"></video>
+<video width="320" autoplay controls>
+  <source src="https://github.com/zhoukekestar/notes/assets/7157346/496c65aa-62d4-43f3-97ec-531f2b0b7bf1" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 
 # Execute flow
