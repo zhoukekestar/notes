@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "再谈 Virtual DOM（二）"
-date:  2023-12-20
+date:  2023-12-30
 tags: [note]
 ---
 
@@ -12,6 +12,7 @@ tags: [note]
 * Web Application：WebApp 所遇到的问题和挑战
 * 维护 DOM：是最大的挑战之一
 * 更新 DOM：方案与优劣
+* 编写 DOM：HTML 的进化
 
 
 # 更新 DOM
@@ -76,7 +77,7 @@ patch(document.body, function() {
 * React Virtual DOM
 * Vue Virtual DOM
 
-# HTML 的进化
+# 编写 DOM：HTML 的进化
 
 * JSX
 * Template
