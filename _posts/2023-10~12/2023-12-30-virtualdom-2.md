@@ -83,7 +83,7 @@ render(helloTemplate('foo', 'bar'), document.body)
 * 后续的所有更新，直接拿 `Tagged Templates` 的 values 数组，即可做到索引级的更新
   * 无需对比 diff、无需 patch、无额外高内存消耗
 
-
+  可以查看一下 [toy-lit-html](https://github.com/zhoukekestar/toy-lit-html) 源码，查看 Demo 的运行逻辑。
 
 * https://zhoukekestar.github.io/notes/2023/12/24/lit-html-flow.html
 * https://github.com/zhoukekestar/toy-lit-html
