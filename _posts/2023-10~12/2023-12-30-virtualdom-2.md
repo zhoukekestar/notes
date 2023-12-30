@@ -31,7 +31,7 @@ tags: [note]
 
   此方案的优势，就是节省内存（相比 VDOM，基本没有额外的大内存开销），劣势是每次都要比对（相比 Lit），且无法有效复用节点，可以查看 [此视频](https://github.com/zhoukekestar/toy-lit-html/tree/main/idom)。
 
-```
+```js
 var data = {
   text: 'Hello World!',
   someCondition: true
