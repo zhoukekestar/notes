@@ -93,10 +93,55 @@ render(helloTemplate('foo', 'bar'), document.body)
 
 ### 其他
 
-* Ember Glimmer
+Ember Glimmer
+
+  使用 Handlebars 模板编写:
+
+```hbs
+<div>
+  <p>{{this.count}}</p>
+  <button type="button" {{on "click" this.increment}}>+1</button>
+  <button type="button" {{on "click" this.decrement}}>-1</button>
+</div>
+```
+
+  并用 glimmer 组件进行 client 渲染和处理
+
+```js
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+export default class CounterComponent extends Component {
+  @tracked count = 0;
+
+  @action
+  increment() {
+    debugger;
+    this.count = this.count + 1;
+  }
+
+  @action
+  decrement() {
+    this.count = this.count - 1;
+  }
+}
+```
+
+
+
+  ![image](https://github.com/zhoukekestar/notes/assets/7157346/e6250507-f0fc-4e21-a7f7-4557a37486bd)
+
+
+  [@glimmer/compiler](https://github.com/glimmerjs/glimmer-vm/blob/2ddbbc4a9b97db4f326c4d92021f089c464ab093/packages/%40glimmer/compiler/test/compiler-test.ts)
+
+  https://github.com/glimmerjs/glimmer-vm/blob/2ddbbc4a9b97db4f326c4d92021f089c464ab093/packages/%40glimmer/validator/lib/meta.ts#L19
+  *
+
   * Stream Tree
   * https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/
   * https://engineering.linkedin.com/blog/2017/06/glimmer--blazing-fast-rendering-for-ember-js--part-2
+  * https://blog.emberjs.com/glimmer-progress-report/
 * React Virtual DOM
 * Vue Virtual DOM
 
