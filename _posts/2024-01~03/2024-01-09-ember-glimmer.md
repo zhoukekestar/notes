@@ -274,140 +274,19 @@ console.log(JSON.stringify(debugActual, null, 2));
     "close-element"
   ]
 ]
-(base) ➜  ember-quickstart git:(master) ✗ node template-test.mjs
-Debugger attached.
-[
-  [
-    "append",
-    "\n"
-  ],
-  [
-    "open-element",
-    "div"
-  ],
-  [
-    "flush-element"
-  ],
-  [
-    "append",
-    "\n  "
-  ],
-  [
-    "open-element",
-    "p"
-  ],
-  [
-    "flush-element"
-  ],
-  [
-    "append",
-    [
-      "get-symbol",
-      "this",
-      [
-        "count"
-      ]
-    ]
-  ],
-  [
-    "close-element"
-  ],
-  [
-    "append",
-    "\n  "
-  ],
-  [
-    "open-element-with-splat",
-    "button"
-  ],
-  [
-    "static-component-attr",
-    "type",
-    "button",
-    null
-  ],
-  [
-    "modifier",
-    [
-      "GetFreeAsModifierHead",
-      "on",
-      null
-    ],
-    [
-      "click",
-      [
-        "get-symbol",
-        "this",
-        [
-          "increment"
-        ]
-      ]
-    ],
-    null
-  ],
-  [
-    "flush-element"
-  ],
-  [
-    "append",
-    "+1"
-  ],
-  [
-    "close-element"
-  ],
-  [
-    "append",
-    "\n  "
-  ],
-  [
-    "open-element-with-splat",
-    "button"
-  ],
-  [
-    "static-component-attr",
-    "type",
-    "button",
-    null
-  ],
-  [
-    "modifier",
-    [
-      "GetFreeAsModifierHead",
-      "on",
-      null
-    ],
-    [
-      "click",
-      [
-        "get-symbol",
-        "this",
-        [
-          "decrement"
-        ]
-      ]
-    ],
-    null
-  ],
-  [
-    "flush-element"
-  ],
-  [
-    "append",
-    "-1"
-  ],
-  [
-    "close-element"
-  ],
-  [
-    "append",
-    "\n"
-  ],
-  [
-    "close-element"
-  ]
-]
 ```
+
+# 运行时
+
+  ![image](https://github.com/zhoukekestar/notes/assets/7157346/e6250507-f0fc-4e21-a7f7-4557a37486bd)
+
+  [@glimmer/compiler](https://github.com/glimmerjs/glimmer-vm/blob/2ddbbc4a9b97db4f326c4d92021f089c464ab093/packages/%40glimmer/compiler/test/compiler-test.ts)
+
+  [validator](https://github.com/glimmerjs/glimmer-vm/blob/2ddbbc4a9b97db4f326c4d92021f089c464ab093/packages/%40glimmer/validator/lib/meta.ts#L19)
 
 # 参考
 
 * https://github.com/handlebars-lang/handlebars.js
+* https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/
+* https://engineering.linkedin.com/blog/2017/06/glimmer--blazing-fast-rendering-for-ember-js--part-2
+* https://blog.emberjs.com/glimmer-progress-report/

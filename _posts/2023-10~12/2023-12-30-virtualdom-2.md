@@ -139,9 +139,7 @@ export default class CounterComponent extends Component {
   *
 
   * Stream Tree
-  * https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/
-  * https://engineering.linkedin.com/blog/2017/06/glimmer--blazing-fast-rendering-for-ember-js--part-2
-  * https://blog.emberjs.com/glimmer-progress-report/
+
 * React Virtual DOM
 * Vue Virtual DOM
 
