@@ -46,8 +46,11 @@ tags: [note]
 
 ### React
 
+  批量更新使用 Fiber 优化，将原有的递归不可中断更新，变成循环可中断更新。
+
 * https://github.com/maoxiaoxing/react-study/tree/master/Fiber
 * https://juejin.cn/post/6993973502852202503
+* https://github.com/acdlite/react-fiber-architecture
 
 
 # Diff 算法
@@ -56,10 +59,18 @@ tags: [note]
 
   一个典型的 Diff 算法复杂度为 O(n^3)
 
+![image](https://github.com/zhoukekestar/notes/assets/7157346/66b183db-a3af-421f-8445-65e471419a7c)
+
+
 * [https://github.com/acdlite/react-fiber-architecture](https://github.com/acdlite/react-fiber-architecture)
 * [https://legacy.reactjs.org/docs/reconciliation.html](https://legacy.reactjs.org/docs/reconciliation.html)
 * [https://github.com/facebook/react/issues/6170](https://github.com/facebook/react/issues/6170)
 * [A Survey on Tree Edit Distance and Related Problems](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)
+
+
+### RTED
+
+> RTED requires O(n2) space as the most space-efficient competitors, and its runtime complexity of O(n3) in the worst case is optimal.
 
 
 # 权衡
@@ -71,7 +82,28 @@ tags: [note]
   这是【跨端需求、多端开发效率】与【单端性能、单端开发效率】之间平衡，并没有绝对的优劣，正如 VirtualDOM 的一棵树和二棵树的区别，也是一种平衡。
 
 > Note that a virtual DOM is pure overhead if you already have a real DOM to work with.
+>
 > https://news.ycombinator.com/item?id=34616031
+
+
+
+# Virtual DOM 核心作用
+
+
+
+* DSL vs JSX
+* Ecosystem
+  * Three.JS
+  *
+*
+
+> The big improvements that React brought to the mainstream were componentization, and popularizing declarative rendering.
+> https://news.ycombinator.com/item?id=34621279
+
+> For some reason I thought the virtual DOM was a native feature of the browser
+> https://news.ycombinator.com/item?id=34633339
+
+
 
 
 # References
