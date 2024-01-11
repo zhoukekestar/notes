@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "lit SSR"
+title:  "Ember Glimmer"
 date:  2024-01-09
 tags: [note]
 ---

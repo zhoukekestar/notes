@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "再谈 Virtual DOM（二）"
+title:  "再谈 Virtual DOM（三）"
 date:  2024-01-10
 tags: [note]
 ---
 
 
-  接上次 [再谈 Virtual DOM（一）](https://zhoukekestar.github.io/notes/2023/12/20/virtualdom.html)
+  接上次
+* [再谈 Virtual DOM（一）](https://zhoukekestar.github.io/notes/2023/12/20/virtualdom.html)
+* [再谈 Virtual DOM（二）](https://zhoukekestar.github.io/notes/2023/12/30/virtualdom-2.html)
 
 
 # 编写 DOM：HTML 的进化
@@ -86,21 +88,27 @@ ServerSide Template Engine
 
   因为页面大部分是前端的领域，而且随着 [前后端分离](https://www.google.com.hk/search?q=frontend+backend+separate) 的兴起，此方式受到了广泛的欢迎。
 
+  但本质上，JSX 已不再是模板语言，而是 JS 代码。所以，灵活性和模板语言已不可同日而语，其灵活性所带来的问题，也导致其优化的上限。
 
-* https://github.com/facebook/jsx
+* [facebook/jsx](https://github.com/facebook/jsx)
 
 ### Template Literals & Tagged templates
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates
-*
+```js
+// Template Literals
+`Hello ${name}`
+
+// Tagged templates
+html`
+  <div>
+    <h1>Hello ${name}</h1>
+  </div>`
+```
+
+* [tagged_templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+* [ecmascript-language-lexical-grammar](https://tc39.es/ecma262/multipage/ecmascript-language-lexical-grammar.html#sec-template-literal-lexical-components)
 
 # Virtual DOM 核心作用
-
-![image](https://github.com/zhoukekestar/notes/assets/7157346/9db66f3b-d2f0-4797-b407-e1e1862e1c88)
-
-from:
-* https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/
-* https://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html
 
 
 
@@ -116,22 +124,7 @@ from:
 > For some reason I thought the virtual DOM was a native feature of the browser
 > https://news.ycombinator.com/item?id=34633339
 
-# VDom is not just VDOM
 
-> Note that a virtual DOM is pure overhead if you already have a real DOM to work with.
-> https://news.ycombinator.com/item?id=34616031
->
-
-
-# Steps
-
-* diff
-  * https://github.com/Matt-Esch/virtual-dom/blob/master/vtree/diff.js
-* patch
-
-
-
-# Diff Alogrithm
 
 ### RTED
 
