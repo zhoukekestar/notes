@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "再谈 Virtual DOM（二）"
-date:  2024-01-10
+title:  "再谈 Virtual DOM（四）"
+date:  2024-01-11
 tags: [note]
 ---
 
