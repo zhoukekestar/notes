@@ -36,9 +36,9 @@ JavaScript Template Engine
 
 ```html
 <h2>Names</h2>
-{{#names}}
-  <strong>{{name}}</strong>
-{{/names}}
+{#names}
+  <strong>{name}</strong>
+{/names}
 ```
 
 ServerSide Template Engine
