@@ -86,25 +86,23 @@ tags: [note]
 > https://news.ycombinator.com/item?id=34616031
 
 
-
-# Virtual DOM 核心作用
-
-
-
-* DSL vs JSX
-* Ecosystem
-  * Three.JS
-  *
-*
-
-> The big improvements that React brought to the mainstream were componentization, and popularizing declarative rendering.
-> https://news.ycombinator.com/item?id=34621279
-
 > For some reason I thought the virtual DOM was a native feature of the browser
 > https://news.ycombinator.com/item?id=34633339
 
 
 
+# React 带来了什么？
+
+> The big improvements that React brought to the mainstream were componentization, and popularizing declarative rendering.
+> https://news.ycombinator.com/item?id=34621279
+
+  个人认为 React 最大的改进就是：组件化。而在当下，Universal Component 已成为标准 WebComponent.
+
+# 其他工作
+
+* Rax 与 VirtualDOM
+* Flutter
+* 鸿蒙
 
 # References
 

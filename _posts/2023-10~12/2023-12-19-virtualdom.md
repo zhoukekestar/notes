@@ -5,6 +5,7 @@ date:  2023-12-20
 tags: [note]
 ---
 
+维护 DOM 已成 WebApp 时代最大的挑战。
 
 * 背景：是从一开始的静态页面，发展到了 WebApp
 * Web Application：WebApp 所遇到的问题和挑战

@@ -1,110 +1,97 @@
 ---
 layout: post
 title:  "再谈 Virtual DOM（三）"
-date:  2024-01-10
+date:  2023-12-30
 tags: [note]
 ---
 
+  解决维护 DOM 问题的各种方案。
+  接上次 [再谈 Virtual DOM（一）](https://zhoukekestar.github.io/notes/2023/12/20/virtualdom.html)
 
-  接上次
-* [再谈 Virtual DOM（一）](https://zhoukekestar.github.io/notes/2023/12/20/virtualdom.html)
-* [再谈 Virtual DOM（二）](https://zhoukekestar.github.io/notes/2023/12/30/virtualdom-2.html)
+* 背景：是从一开始的静态页面，发展到了 WebApp
+* Web Application：WebApp 所遇到的问题和挑战
+* 维护 DOM：是最大的挑战之一
+* 更新 DOM：方案与优劣
+* 编写 DOM：HTML 的进化
 
 
-# 编写 DOM：HTML 的进化
+# 更新 DOM
 
-### 模板语言时代
+  现代框架的主要工作之一，便是维护、更新 DOM，所以，不同的框架便有了不同的实现。VirtualDOM 只是其中之一。
 
-  在早期的 Web 开发中，模板语言是最常用的一种技术。但由于没有规定其动态生成的规范，导致各自语言体系中，有各自的模板规范。比如：Java、C#、JS、PHP 等等。
+  以下是现有主流框架对于更新 DOM 的不同实现：
 
-  以下是一些常见的模板语言：
+### Virtual DOM (Facebook)
 
-JavaScript Template Engine
+  此处挖坑
 
-* [mustache](https://github.com/janl/mustache.js)
+### Incremental DOM (Google)
 
-  ![](https://cloud.githubusercontent.com/assets/288977/8779228/a3cf700e-2f02-11e5-869a-300312fb7a00.gif)
+  通过 `elementOpen`, `elementClose` 等函数，在真实 DOM 上做移动（比如 open 就进入子节点，close 就出子节点等等）、对比（tagname、属性是否相同等等）、标记（用于创建新节点、删除没有访问到的节点等等），将每次的 render 后的代码指令（就是 render 函数本身），通过 patch 做一步一步的执行，最终维护 DOM 的更新。
 
-* [handlebars](https://handlebarsjs.com/zh/)
-
-```html
-<h2>Names</h2>
-{{#names}}
-  <strong>{{name}}</strong>
-{{/names}}
-```
-
-ServerSide Template Engine
-
-* ASP.NET
-
-```html
-@foreach (var person in members)
-{
-  <p>@person</p>
-}
-  ```
-
-* JSP (Java Server Pages) & JSTL ( JSP Standard Tag Library)
-
-  ![image](https://github.com/zhoukekestar/notes/assets/7157346/3f8295b2-a0e2-4758-8cf7-86890ac641bd)
-
-```html
-<c:forEach items="${requestScope.empList}" var="emp">
-  <tr>
-    <td><c:out value="${emp.id}"></c:out></td>
-    <td><c:out value="${emp.name}"></c:out></td>
-    <td><c:out value="${emp.role}"></c:out></td>
-  </tr>
-</c:forEach>
-```
-* [art-template](https://aui.github.io/art-template/)
-
-```html
-<% for(var i = 0; i < target.length; i++){ %>
-    <%= i %> <%= target[i] %>
-<% } %>
-```
-
-* [Velocity](https://velocity.apache.org/engine/1.7/user-guide.html)
-
-```html
-<table>
-#foreach( $mud in $mudsOnSpecial )
-  #if ( $customer.hasPurchased($mud) )
-    <tr>
-      <td>
-        $flogger.getPromo( $mud )
-      </td>
-    </tr>
-  #end
-#end
-</table>
-```
-
-### JSX
-
-  随着 React 的崛起，框架侧引入了新的 JSX 语法，力求将模板语言的语法统一起来。
-
-  因为页面大部分是前端的领域，而且随着 [前后端分离](https://www.google.com.hk/search?q=frontend+backend+separate) 的兴起，此方式受到了广泛的欢迎。
-
-  但本质上，JSX 已不再是模板语言，而是 JS 代码。所以，灵活性和模板语言已不可同日而语，其灵活性所带来的问题，也导致其优化的上限。
-
-* [facebook/jsx](https://github.com/facebook/jsx)
-
-### Template Literals & Tagged templates
+  此方案的优势，就是节省内存（相比 VDOM，基本没有额外的大内存开销），劣势是每次都要比对（相比 Lit），且无法有效复用节点，可以查看 [此视频](https://github.com/zhoukekestar/toy-lit-html/tree/main/idom)。
 
 ```js
-// Template Literals
-`Hello ${name}`
+var data = {
+  text: 'Hello World!',
+  someCondition: true
+};
 
-// Tagged templates
-html`
-  <div>
-    <h1>Hello ${name}</h1>
-  </div>`
+function render(data) {
+  elementVoid('input', '', [ 'type', 'text' ]);
+  elementOpen('div', '', null);
+    if (data.someCondition) {
+      text(data.text);
+    }
+  elementClose('div');
+}
+
+patch(document.body, function() {
+  render(data);
+});
+
 ```
 
-* [tagged_templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
-* [ecmascript-language-lexical-grammar](https://tc39.es/ecma262/multipage/ecmascript-language-lexical-grammar.html#sec-template-literal-lexical-components)
+* https://github.com/google/incremental-dom
+* https://auth0.com/blog/incremental-dom/
+* https://github.com/zhoukekestar/toy-lit-html/tree/main/idom
+* https://www.reddit.com/r/Angular2/comments/8ytfc1/reacts_virtual_dom_vs_angulars_change_detection/
+
+
+### Lit DOM (Google)
+
+  Lit 的 DOM 维护，在目前这个时间点，个人看来是最优的，也是个人近期项目用的最多的方式。Demo 如下：
+
+```js
+import { html, render } from './lit.js';
+
+const helloTemplate = (name1, name2) => html`
+  <div>hi ${name1} !</div>
+  <div>hello ${name2} ?</div>
+`
+
+render(helloTemplate('foo', 'bar'), document.body)
+```
+
+  Lit 总体上看，和 Chrome 浏览器（或者说是标准浏览器接口）做了非常多的复用，使得整体框架非常的简约、优雅。
+
+* 首先是使用 `Template Literals` 创建模板（strings、values）
+  * [Tagged Templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+* 通过 `<template>` 创建并解析生成 DOM
+* 然后使用 `document.createTreeWalker` 的 walker 遍历一次 template 中的变量
+* `document.importNode` 到渲染容器中，绑定 template 中的变量（引用并放置到数组中），并做实时的更新
+* 后续的所有更新，直接拿 `Tagged Templates` 的 values 数组，即可做到索引级的更新
+  * 无需对比 diff、无需 patch、无额外高内存消耗
+
+  可以查看一下 [toy-lit-html](https://github.com/zhoukekestar/toy-lit-html) 源码，查看 Demo 的运行逻辑。
+
+* https://zhoukekestar.github.io/notes/2023/12/24/lit-html-flow.html
+* https://github.com/zhoukekestar/toy-lit-html
+* https://lit.dev/docs/templates/overview/
+
+
+
+### 其他
+
+[Ember Glimmer](https://zhoukekestar.github.io/notes/2024/01/09/ember-glimmer.html)
 
