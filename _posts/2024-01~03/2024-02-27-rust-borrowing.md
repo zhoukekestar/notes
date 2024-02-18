@@ -122,3 +122,7 @@ fn change(some_string: &mut String) {
   println!("{}", some_string)
 }
 ```
+
+# 参考
+
+* https://course.rs/basic/ownership/borrowing.html
