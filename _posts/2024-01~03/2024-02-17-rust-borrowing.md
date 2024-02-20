@@ -128,3 +128,4 @@ fn change(some_string: &mut String) {
 * https://course.rs/basic/ownership/borrowing.html
 * [cargo 速度](https://github.com/sunface/rust-course/blob/427ac6d3eca0c1dc04c0f5a22397ec194d020f7b/src/first-try/slowly-downloading.md#%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8)
   * [字节跳动源](https://rsproxy.cn/)
+* [C语言的类似实现](https://news.ycombinator.com/item?id=39436623)
