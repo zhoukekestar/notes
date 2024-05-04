@@ -62,5 +62,6 @@ curl http://172.64.80.2/\?text\=hi -H "host: gemini.zhoukekestar.workers.dev"
 
 # 总体效果
 
-
+  [视频](https://www.youtube.com/shorts/a4zQex_FmtM)
   
+
