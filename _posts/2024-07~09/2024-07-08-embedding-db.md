@@ -147,8 +147,11 @@ const results = await collection.get({ ids:
 ['0', '1'],
 include: ["embeddings", "metadatas", "documents"] })
 
+
 const jsons = {};
 results.embeddings.forEach((embedding, index) => {
+  // 因为后续的 k-means 聚类的格式是如此，所以我们适配一下想过数据格式
+  // 样例格式：{ "测试文本1": "[1, 2, 3]", "测试文本2": "[1, ,1, 2]"}
   jsons[results.documents[index]] = JSON.stringify(embedding);
 })
 
