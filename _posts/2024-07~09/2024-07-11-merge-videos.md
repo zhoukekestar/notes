@@ -3,6 +3,7 @@ layout: post
 title:  "合并视频"
 date:  2024-07-11
 tags: [tool]
+commentIssueId: 129
 ---
 
   使用 ffmpeg 合并视频
@@ -32,6 +33,10 @@ $ ffmpeg -i left.mp4 -i right.mp4 -filter_complex hstack output.mp4
 
 ![image](https://github.com/zhoukekestar/notes/assets/7157346/03f75f1c-ee79-4882-8434-5efedee327d8)
 
+
+# 效果
+
+[测试视频](https://github.com/zhoukekestar/notes/issues/129)
 
 # 参考
 
