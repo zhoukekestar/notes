@@ -85,6 +85,8 @@ Loaded image: siomiz/chrome:latest
 
   ![WX20240714-172429@2x](https://github.com/user-attachments/assets/7039b0ff-a0f1-4911-ab2f-4671b824ee7e)
 
+  ![](https://developer.ibm.com/developer/default/tutorials/os-multiuserloginsvnc/images/vnc-xdmcp.gif)
+
   Linux 中，相关图形应用程序，通过 x11 协议将视图指令传给 xvnc，然后 xvnc 将其视图转为 Remote Frame Buffer protocol (RFB) ，远程的 VNC Viewer 通过接收 RFB，然后将其转为 x11 协议传给 xserver 绘制，且接受来自远程的键盘、鼠标等输入，与远程服务器交互。
 
 # References
