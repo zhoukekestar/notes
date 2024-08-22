@@ -71,6 +71,14 @@ Build size: 90KB
 
 Build size: 10KB
 
+### teavm
+
+  目前 teavm 主要是 java 编译到 js，编译到 wasm 仅是实验性质，支持不完善。
+
+  [java wasm](https://github.com/topics/webassembly?l=java) 项目目前比较少且不活跃，按照 [部分用户的回答](https://stackoverflow.com/a/67158204/4992897)，wasm 可能并不适合运行 java：
+
+> GC, lack of many things: exception handling, stack walking, page protection, signal handling, etc
+
 
 # 其他对比
 
