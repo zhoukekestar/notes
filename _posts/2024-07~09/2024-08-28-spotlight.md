@@ -9,7 +9,7 @@ tags: [shell]
 
 # 可行性
 
-  spotlight 搜索可行性和他的边界问题。目前 spotlight 仅支持文件级别的搜索，[不支持参数输入](https://stackoverflow.com/questions/35711642/how-to-run-a-shell-script-using-spotlight-passing-a-parameter)（所以，迁移到 shell 中进行输入）。
+  spotlight 搜索可行性和他的边界问题。目前 spotlight 仅支持文件级别的搜索，[不支持参数输入](https://stackoverflow.com/questions/35711642/how-to-run-a-shell-script-using-spotlight-passing-a-parameter)，所以，需要迁移到 shell 中进行输入。
 
   spotlight 唤起 shell 的方式，可参考 [how-to-run-a-shell-script-using-spotlight](https://stackoverflow.com/questions/2877741/how-to-run-a-shell-script-using-spotlight)
 
@@ -23,7 +23,6 @@ echo "hello spotlight"
 # 配合 zx 脚本
 
   因为工作目录的问题，参考 [how-to-get-absolute-path-name-of-shell-script-on-macos](https://stackoverflow.com/questions/5756524/how-to-get-absolute-path-name-of-shell-script-on-macos)，获取当前路径，并使用 zx 来执行脚本逻辑。
-
 
 
 ```sh
