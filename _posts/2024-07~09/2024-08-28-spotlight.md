@@ -30,9 +30,13 @@ echo "hello spotlight"
 
 echo "hello spotlight"
 
-ABSPATH=$(cd "$(dirname "$0")"; pwd -P)
+# ABSPATH=$(cd "$(dirname "$0")"; pwd -P)
+# zx $ABSPATH/hello.mjs
 
-zx $ABSPATH/hello.mjs
+cd "$(dirname "$0")"
+PATH=$PATH:./node_modules/.bin
+
+zx ./hello.mjs
 
 # 需要立即关闭当前窗口的，执行下述代码，不需要的，则注释即可
 osascript -e 'tell application "Terminal" to close (every window whose name contains "cli-hello.command")' &
@@ -74,6 +78,24 @@ function fetchWithLocalCookie (url) {
     })
   })
 }
+```
+
+
+# 获取 chrome 信息
+
+```js
+// 当前页面地址
+const url = String(
+  await $`osascript -e 'tell application "Google Chrome" to return URL of active tab of front window'`
+);
+
+// 当前页面源码
+const source = String(
+  await $`osascript -e 'tell application "Google Chrome"' -e 'tell active tab of window 1' -e 'set sourcehtml to execute javascript "document.body.parentNode.outerHTML"' -e 'end tell'  -e 'end tell'`
+);
+
+// 执行脚本
+await $`sleep 1 && osascript -e 'tell application "Google Chrome"' -e 'tell active tab of window 1' -e 'set sourcehtml to execute javascript "document.forms[0].orderId.value = \\"${orderId.value}\\";document.forms[0].submit();"' -e 'end tell'  -e 'end tell'`
 ```
 
 
