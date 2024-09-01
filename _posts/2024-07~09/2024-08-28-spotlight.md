@@ -81,7 +81,7 @@ function fetchWithLocalCookie (url) {
 ```
 
 
-# 获取 chrome 信息
+# chrome 相关操作
 
 ```js
 // 当前页面地址
@@ -96,6 +96,12 @@ const source = String(
 
 // 执行脚本
 await $`sleep 1 && osascript -e 'tell application "Google Chrome"' -e 'tell active tab of window 1' -e 'set sourcehtml to execute javascript "document.forms[0].orderId.value = \\"${orderId.value}\\";document.forms[0].submit();"' -e 'end tell'  -e 'end tell'`
+
+// 登录操作提示
+// 未登录处理
+await $`open https://xxx.com`;
+await $`sleep 3`;
+await $`osascript -e 'tell application "Google Chrome"' -e 'tell active tab of window 1' -e 'set sourcehtml to execute javascript "alert(\\"重新登录 xxx 后，请重新执行脚本\\")"' -e 'end tell'  -e 'end tell'`;
 ```
 
 
