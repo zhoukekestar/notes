@@ -112,3 +112,5 @@ await $`osascript -e 'tell application "Google Chrome"' -e 'tell active tab of w
 * zx nodejs 脚本：[https://github.com/google/zx](https://github.com/google/zx)
 * cli 搜索：[https://github.com/mokkabonna/inquirer-autocomplete-prompt](https://github.com/mokkabonna/inquirer-autocomplete-prompt)
   * prompts: [https://github.com/terkelg/prompts](https://github.com/terkelg/prompts)
+* spinner: [https://github.com/sindresorhus/ora](https://github.com/sindresorhus/ora)
+  * cli-spinner: [https://github.com/sindresorhus/cli-spinners](https://github.com/sindresorhus/cli-spinners)
