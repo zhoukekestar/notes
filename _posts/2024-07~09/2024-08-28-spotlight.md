@@ -16,7 +16,7 @@ tags: [shell]
   新建一个 shell 脚本，并以 `.command` 结尾即可，例如：
 
 ```shell
-!/usr/bin/env sh
+#!/usr/bin/env sh
 echo "hello spotlight"
 ```
 
@@ -26,7 +26,7 @@ echo "hello spotlight"
 
 
 ```sh
-!/usr/bin/env sh
+#!/usr/bin/env sh
 
 echo "hello spotlight"
 
