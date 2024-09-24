@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "小程序开发钩子"
+title:  "对微信小程序开发的钩子扩展"
 date:  2024-09-24
 tags: [tool]
 ---
@@ -84,7 +84,7 @@ $ /Applications/wechatwebdevtools.app/Contents/MacOS/wechatdevtools /Application
 ![image](https://github.com/user-attachments/assets/37f56335-d801-48dc-be38-331ca5d687c7)
 
 
-# 最终效果
+# 测试效果
 
 * 对源码的 `123` 做字符串替换，改为 `###`
 * 重新启动小程序编辑器
@@ -142,12 +142,20 @@ const log = msg => {
   }
 }
 
+// 测试有 123 的文件做替换
 if (/123/.test(fileContent)) {
   log('filepath replaced:' + filePath);
   // 通过标准输出，输出替换后的文件内容
+  // 对所有的 123 做替换
   console.log(fileContent.replace(/123/g, '###'))
 }
 ```
+
+  至此，就可以直接正常打开小程序开发，并能做动态快速的语法扩展了。
+
+# 演示效果
+
+![](https://github.com/user-attachments/assets/dfb0b94c-1e03-4d90-a7c7-4d6f287e50b2)
 
 # 小结
 
