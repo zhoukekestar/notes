@@ -155,7 +155,7 @@ if (/123/.test(fileContent)) {
 
 # 演示效果
 
-![](https://github.com/user-attachments/assets/dfb0b94c-1e03-4d90-a7c7-4d6f287e50b2)
+<video src="https://github.com/user-attachments/assets/dfb0b94c-1e03-4d90-a7c7-4d6f287e50b2"></video>
 
 # 小结
 
