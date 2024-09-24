@@ -93,6 +93,62 @@ $ /Applications/wechatwebdevtools.app/Contents/MacOS/wechatdevtools /Application
 ![image](https://github.com/user-attachments/assets/6d1fc865-a443-4c89-be17-fbb9e8dc4926)
 
 
+# HOOK
+
+  修改 `/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/js/common/miniprogram-builder/project/baseProject.js`
+
+```js
+  // 引入 child_process
+  const cp = require('child_process');
+
+  ...
+
+  // 修改 getSrcFile
+  getSrcFile (t, e) {
+    t = t || ''
+    const i = this.getTargetPath(t, e),
+      r = (0, tools_1.normalizePath)(
+        path_1.default.posix.join(this.projectPath, i)
+      )
+    const content = fs_extra_1.default.readFileSync(r, null);
+
+    // 通过 shell 来透出 hook
+    try {
+      const { stdout, stderr } = cp.spawnSync('/usr/local/bin/node', ['/usr/local/bin/wehcat-miniprogram-getsrcfile-hook', r, String(content)])
+      return stdout.length ? stdout : content;
+    } catch(err) {
+    }
+
+    return content;
+  }
+```
+
+  hook 脚本，放在 `/usr/local/bin/wehcat-miniprogram-getsrcfile-hook` 或和前面透出的 hook 一致即可。
+
+```js
+#!/usr/bin/env node
+
+const fs = require('fs')
+const filePath = process.argv[2]
+const fileContent = process.argv[3]
+
+// 日志打印
+const logPath = '/Users/zhoukeke/hook.log'
+const log = msg => {
+  try {
+    fs.appendFileSync(logPath, String(msg))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+if (/123/.test(fileContent)) {
+  log('filepath replaced:' + filePath);
+  // 通过标准输出，输出替换后的文件内容
+  console.log(fileContent.replace(/123/g, '###'))
+}
+```
+
 # 小结
 
   本文通过对小程序 IDE 添加了一个文件 hook 的方式，对小程序的写法做了非常大的扩展，可以字符串替换、宏定义、AST 语法分析，修改等等。
