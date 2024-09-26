@@ -108,3 +108,8 @@ cherry-pick
 * c9f9fc5 (HEAD -> rollback, tag: publish/0.0.1, origin/master, origin/HEAD, master) Update README.md
 * c79305f Add new file
 ```
+
+
+# 参考
+
+* [Learn Git Branching](https://zhoukekestar.github.io/notes/2018/12/23/git-branch.html)
