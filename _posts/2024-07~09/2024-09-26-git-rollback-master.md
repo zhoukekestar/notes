@@ -23,9 +23,6 @@ tags: [git]
 * `git branch -f master rollback` 强制更新本地 master 分支指向到 rollback 分支
 * `git push --force origin master` 强制更新远程 origin/master 分支
 
-cherry-pick
-
-* `git cherry-pick xxx..xxx` cherry-pick the range of commit id
 
 ## 谨慎应对
 
@@ -108,6 +105,16 @@ cherry-pick
 * c9f9fc5 (HEAD -> rollback, tag: publish/0.0.1, origin/master, origin/HEAD, master) Update README.md
 * c79305f Add new file
 ```
+
+
+## CherryPick
+
+
+* `git cherry-pick xxx..xxx` cherry-pick 指定范围的 commit
+  * 但此处需保障两个 commit 之间是有关系的，而不是断开的，否则无法正常 pick
+* `git cherry-pick --continue` 执行 --continue
+  * 一般情况下，会有冲突，需一个个解决
+  * 解决完冲突后，需执行 `git add path/to/file`
 
 
 # 参考
