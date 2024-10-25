@@ -5,9 +5,14 @@ date:  2024-10-16
 tags: [system]
 ---
 
-在 ARM 机器上（Apple M1），通过 Docker 构建一个最小化的内核系统（打印 Hello World），使用 GRUB 来做引导，最终生成一个 iso 文件。
+通过 Docker 构建一个最小化的内核系统（打印 Hello World），使用 GRUB 来做引导，最终生成一个 iso 文件。
 
 最终的效果为，通过 CD-ROM 启动机器，并能在屏幕上打印 Hello World。
+
+> 本人机器是 ARM Apple M1，其他 CPU 和操作系统应该也没问题。
+>
+> 计算机启动过程概要：bios -> grub -> kernel -> application
+>
 
 # QuickStart
 
