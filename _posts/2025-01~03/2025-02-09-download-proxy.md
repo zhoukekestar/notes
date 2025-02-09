@@ -101,6 +101,8 @@ def lambda_handler(event, context):
 
   阿里云方案与 AWS 类似，只是换了 OSS，相关依赖也需要本地安装，并打包一起上传。
 
+> 为了适配当前海外下载资源的场景，FC 和 OSS 都部署在新加坡。
+
 ```js
 // index.mjs
 import OSSClient from 'ali-oss'
