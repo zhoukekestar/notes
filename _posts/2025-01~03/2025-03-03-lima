@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Use lima instead of Docker Desktop"
+date:  2025-03-03
+tags: [tool]
+---
+
+    Use lima instead of Docker Desktop
+
+# shell
+
+```sh
+
+# install
+$ brew install lima
+# https://github.com/lima-vm/lima/blob/bfac818e090fd18b69a9c47036bb4f6e4855f694/templates/docker.yaml
+$ curl https://raw.githubusercontent.com/lima-vm/lima/bfac818e090fd18b69a9c47036bb4f6e4855f694/templates/docker.yaml > docker.yaml
+
+
+# host operations
+$ limactl start ./docker.yaml
+$ limactl shell docker
+# limactl stop docker
+
+# guest
+$ sudo apt install docker.io
+$ sudo docker run mirror.gcr.io/hello-world
+```
