@@ -5,11 +5,11 @@ date:  2025-03-12
 tags: [tool]
 ---
 
-    You can't read anything from Chrome's Profile Folder. Everything is owned by yourself, but you just can't.
+You can't read anything from Chrome's Profile Folder. Everything is owned by yourself, but you just can't.
 
 # User Data Directory
 
-    check this document: https://chromium.googlesource.com/chromium/src/+/main/docs/user_data_dir.md
+check this document: https://chromium.googlesource.com/chromium/src/+/main/docs/user_data_dir.md
 
 ```sh
 $ cd ~/Library/Application\ Support/Google/Chrome/Default
@@ -40,13 +40,13 @@ cat: ./Cookies: Operation not permitted
 
 # Lock Profile Cookie Database
 
-    check this: https://stackoverflow.com/questions/76440733/unable-to-open-cookie-file
+check this: https://stackoverflow.com/questions/76440733/unable-to-open-cookie-file
 
-    All profile's files is locked by Chrome, even it's closed!
+All profile's files is locked by Chrome, even it's closed!
 
 # A method to steal the Running Cookies
 
-    This is found by myself, it works on MacOS. Copy it by `ln`
+This is found by myself, it works on MacOS. Copy it by `ln`
 
 ```sh
 $ cd ~/Library/Application\ Support/Google/Chrome
@@ -69,9 +69,9 @@ $ cat ./Cookies
 
 # One more thing
 
-    This fellowing command can't works on Mac & Chrome 134
+This fellowing command can't works on Mac & Chrome 134
     
-```
+```sh
 $ /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-features=LockProfileCookieDatabase
 ```
 
