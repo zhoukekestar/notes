@@ -93,3 +93,8 @@ docker build --tag chrome71 . && docker run -it --rm -p 8080:8080 --name chrome7
 # 进入 shell
 docker exec -it chrome71 bash
 ```
+
+# 其他
+
+* 不管是 selenium 还是手动安装 deb，首次启动 chrome 都比较慢，这个问题待排查
+* novnc 的剪切板对中文支持不够，目前仅能通过手动 base64 来绕过，有些麻烦，novnc 也没有支持的打算
