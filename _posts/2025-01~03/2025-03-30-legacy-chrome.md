@@ -45,6 +45,17 @@ $ apt-get install -y ./google-chrome-stable_${CHROME_VERSION}_amd64.deb
 COPY ./mirror /etc/apt/sources.list
 ```
 
+```dockerfile
+FROM --platform=linux/amd64 debian:bullseye
+
+# https://developer.aliyun.com/mirror/debian/
+RUN echo "deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian-security/ bullseye-security main\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib\n\
+" > /etc/apt/sources.list
+```
+
 PS:
 * heredocs 不支持 colima，https://zhoukekestar.github.io/notes/2025/03/25/colima.html
 
