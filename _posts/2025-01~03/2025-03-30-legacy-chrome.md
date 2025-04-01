@@ -110,6 +110,58 @@ docker exec -it chrome71 bash
 colima 启动记得加 `--arch x86_64`, 如：`colima start x86 --arch x86_64 --vm-type=vz --mount-type=virtiofs`
 否者 docker 中虽然指定了 `--paltform=linux/amd64`，编译能过，但跑不起来，https://github.com/microsoft/playwright/issues/17395#issuecomment-2768337664
 
+# 完整 dockerfile
+
+```dockerfile
+FROM --platform=linux/amd64 swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/theasp/novnc:latest
+
+# chrome 目前仅支持 amd64，不支持 arm64，https://github.com/microsoft/playwright/issues/17395#issuecomment-1250830493
+# 所以，docker 构建需要使用 amd64，colima 跑 docker 也需要使用 --arch x86_64
+# https://github.com/theasp/docker-novnc/blob/master/Dockerfile
+
+# 加速配置：https://developer.aliyun.com/mirror/debian/
+RUN echo "deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian-security/ bullseye-security main\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib\n\
+" > /etc/apt/sources.list
+
+# 安装下载工具，及对 utf8 等中文显示支持
+RUN apt-get update
+RUN apt-get install -y \
+        wget \
+        fonts-unifont
+
+# Download and install Google Chrome
+ENV CHROME_VERSION=71.0.3578.98-1
+# ENV CHROME_VERSION=79.0.3945.117-1
+# ENV CHROME_VERSION=81.0.4044.113-1
+# ENV CHROME_VERSION=90.0.4430.212-1
+# ENV CHROME_VERSION=100.0.4896.127-1
+
+RUN wget -q https://systemjs-dev.1688.com/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
+RUN apt-get install -y ./google-chrome-stable_${CHROME_VERSION}_amd64.deb
+
+# 启动 chrome
+RUN echo "[program:google-chrome-stable]\n\
+command=google-chrome-stable --disable-gpu --disable-software-rasterizer --disable-dev-shm-usage --no-sandbox --disable-gpu-sandbox --in-process-gpu\n\
+autorestart=true\n\
+" > /app/conf.d/chrome.conf
+
+# 配置屏幕大小，1688 用户分辨率占比最多的大小
+ENV DISPLAY_WIDTH=1920 \
+    DISPLAY_HEIGHT=1080
+
+
+# 更新到最新的novnc 版本
+# 修复剪切板 utf8 编码问题
+RUN cd /usr/share/novnc && wget -q https://github.com/zhoukekestar/noVNC/archive/refs/tags/v1.6.2.tar.gz && tar -zxvf v1.6.2.tar.gz
+
+
+# xclip -o | base64 --decode | xclip  -selection clipboard
+EXPOSE 8080
+```
+
 # 其他
 
 * 不管是 selenium 还是手动安装 deb，首次启动 chrome 都比较慢，这个问题待排查
