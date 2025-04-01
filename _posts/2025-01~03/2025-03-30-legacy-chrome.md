@@ -105,7 +105,13 @@ docker build --tag chrome71 . && docker run -it --rm -p 8080:8080 --name chrome7
 docker exec -it chrome71 bash
 ```
 
+# M1 Mac
+
+colima 启动记得加 `--arch x86_64`, 如：`colima start x86 --arch x86_64 --vm-type=vz --mount-type=virtiofs`
+否者 docker 中虽然指定了 `--paltform=linux/amd64`，编译能过，但跑不起来，https://github.com/microsoft/playwright/issues/17395#issuecomment-2768337664
+
 # 其他
 
 * 不管是 selenium 还是手动安装 deb，首次启动 chrome 都比较慢，这个问题待排查
 * novnc 的剪切板对中文支持不够，目前仅能通过手动 base64 来绕过，有些麻烦，novnc 也没有支持的打算
+
