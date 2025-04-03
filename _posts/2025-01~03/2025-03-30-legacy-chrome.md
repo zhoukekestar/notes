@@ -162,6 +162,70 @@ RUN cd /usr/share/novnc && wget -q https://github.com/zhoukekestar/noVNC/archive
 EXPOSE 8080
 ```
 
+
+# 简化后且支持 UTF8 的版本
+
+```dockerfile
+FROM --platform=linux/amd64 debian:bullseye
+
+# chrome 目前仅支持 amd64，不支持 arm64，https://github.com/microsoft/playwright/issues/17395#issuecomment-1250830493
+# 所以，docker 构建需要使用 amd64，colima 跑 docker 也需要使用 --arch x86_64，否者会出现编译能过，运行时报错的情况
+
+# 加速配置：https://developer.aliyun.com/mirror/debian/
+RUN echo "deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian-security/ bullseye-security main\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib\n\
+deb http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib\n\
+" > /etc/apt/sources.list
+
+# 安装基础工具
+# tigervnc、fluxbox 窗口管理工具、novnc 浏览器vnc支持、fonts-unifont utf8 等中文显示支持
+RUN apt-get update
+RUN apt-get install -y \
+        bash \
+        wget \
+        fonts-unifont \
+        fluxbox \
+        novnc \
+        tigervnc-standalone-server
+
+# 从 CDN 上下载不同版本的 Chrome 并安装，目前已覆盖以下版本
+ENV CHROME_VERSION=71.0.3578.98-1
+# ENV CHROME_VERSION=79.0.3945.117-1
+# ENV CHROME_VERSION=81.0.4044.113-1
+# ENV CHROME_VERSION=90.0.4430.212-1
+# ENV CHROME_VERSION=100.0.4896.127-1
+
+RUN wget -q https://systemjs-dev.1688.com/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
+RUN apt-get install -y ./google-chrome-stable_${CHROME_VERSION}_amd64.deb
+
+
+# 更新 novnc 版本，并指定 8080 的默认页面
+RUN wget -q https://systemjs-dev.1688.com/google-chrome-stable/noVNC-1.6.0.tar.gz
+RUN tar -zxvf noVNC-1.6.0.tar.gz -C /usr/share/novnc
+RUN echo "<script>location.href = '/noVNC-1.6.0/vnc.html?autoconnect=1'</script>" > /usr/share/novnc/index.html
+
+# 清理工作
+RUN rm -rf ./google-chrome-stable_${CHROME_VERSION}_amd64.deb noVNC-1.6.0.tar.gz
+RUN rm -rf /var/lib/apt/lists/*
+RUN apt clean
+
+# 设置默认显示器 :0
+# 设置 VNC 端口 5900
+# 设置 NOVNC 端口 8080
+# 设置显示器分辨率 1920x1080
+ENV DISPLAY=:0 \
+    VNC_PORT=5900 \
+    NO_VNC_PORT=8080 \
+    GEOMETRY=1920x1080
+
+# 启动设置
+WORKDIR /root
+COPY start.sh /root/start.sh
+CMD ["/root/start.sh"]
+```
+
+
 # 其他
 
 * 不管是 selenium 还是手动安装 deb，首次启动 chrome 都比较慢，这个问题待排查
