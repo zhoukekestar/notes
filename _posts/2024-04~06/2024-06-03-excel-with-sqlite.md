@@ -26,7 +26,9 @@ export PATH="/Users/your-user-name/bin/sqlite3/:$PATH"
 ```sh
 function sql() {
   echo "CREATE VIRTUAL TABLE t USING xlite ( FILENAME '$1', WORKSHEET 'Sheet1' );"
-  echo ".excel to output excel format"
+  echo "EXAMPLE: select A from t limit 2;"
+  echo ".excel to output excel format for a Single QUERY"
+  echo "Control + C to quit sqlite"
 
  /Users/your-user-name/bin/sqlite3/sqlite3 -cmd ".mode table" -cmd ".load /Users/your-user-name/bin/sqlite3/libxlite" -cmd "CREATE VIRTUAL TABLE t USING xlite ( FILENAME '$1', WORKSHEET 'Sheet1' );"
 }
