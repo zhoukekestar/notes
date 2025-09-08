@@ -43,6 +43,7 @@ tags: [search]
 * 网络反向代理
   * 由于云手机直连网络是云提供商的 IP，很有可能会被封 IP，所以，需要将出口 IP 换成自己家里的，避免封禁。
   * 此处可参考，v2ray 工具，https://toutyrater.github.io/app/reverse2.html
+  * android 客户端参考：https://github.com/2dust/v2rayNG
 
 
 ### 相关笔记
