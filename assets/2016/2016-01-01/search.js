@@ -15,6 +15,13 @@
     }
   });
 
+  document.querySelector("button[github]").onclick = function () {
+    link.href =
+      "https://github.com/search?type=code&q=" +
+      encodeURIComponent("repo:zhoukekestar/notes " + searchBox.value);
+    link.click();
+  };
+  
   document.querySelector("button[google]").onclick = function () {
     link.href =
       "https://www.google.com/search?q=" +
