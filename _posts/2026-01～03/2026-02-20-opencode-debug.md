@@ -19,7 +19,28 @@ $ git clone https://github.com/anomalyco/opencode
 $ vi ./debug.sh
 # bun run --inspect=ws://localhost:6499/ --cwd packages/opencode ./src/index.ts serve --port 4096
 $ chmod +x ./debug.sh
+
+# 启动之后，通过 tui 连接 server
+$ opencode attach http://127.0.0.1:4096
 ```
+
+### 常见路径
+
+```sh
+# 配置文件：~/.config/opencode/opencode.jsonc
+
+# 查看所有 opencode 路径
+$ opencode debug paths
+home       ~
+data       ~/.local/share/opencode
+bin        ~/.local/share/opencode/bin
+log        ~/.local/share/opencode/log
+cache      ~/.cache/opencode
+config     ~/.config/opencode
+state      ~/.local/state/opencode
+
+```
+
 
 ### 如果有部门 error 包找不到的情况
 
