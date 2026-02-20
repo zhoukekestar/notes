@@ -10,6 +10,10 @@ tags: [ai]
 
 # 代码
 
+重点参考 https://github.com/anomalyco/opencode/blob/dev/CONTRIBUTING.md#setting-up-a-debugger
+
+由于其为 CS/BS 架构，tui 和 browser、tauri 等均为不同客户端，和 server 是 https 协议交互，重点 debug server 即可。
+
 ```sh
 $ git clone https://github.com/anomalyco/opencode
 $ vi ./debug.sh
