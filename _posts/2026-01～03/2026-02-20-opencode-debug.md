@@ -124,3 +124,11 @@ killport 32142
 bun run --inspect=ws://localhost:6499/ --cwd packages/opencode ./src/index.ts serve --port 4096
 ```
 
+# 插件错误排查
+
+* 进入 `.local/share/opencode/log`
+* 查看日志，如：
+```
+ERROR 2026-02-21T13:40:43 +0ms service=default e={"name":"ResolveMessage","position":null,"message":"Cannot find module '@opencode-ai/plugin' from '/Users/zkk/Downloads/opencode-antigravity-auth/src/plugin.ts'","level":"error","specifier":"@opencode-ai/plugin","importKind":"import-statement","referrer":"/Users/zkk/Downloads/opencode-antigravity-auth/src/plugin.ts"} exception
+```
+* 本地插件代码，需自行 `bun install` 依赖
