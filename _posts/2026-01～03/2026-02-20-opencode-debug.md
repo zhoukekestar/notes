@@ -38,7 +38,9 @@ log        ~/.local/share/opencode/log
 cache      ~/.cache/opencode
 config     ~/.config/opencode
 state      ~/.local/state/opencode
-
+# 查看日志       /Users/zkk/.local/share/opencode
+# 插件安装路径      /Users/zkk/.cache/opencode
+# 配置路径     /Users/zkk/.config/opencode
 ```
 
 
