@@ -6,8 +6,9 @@ email: zhoukekestar@163.com
 description: >
   This site is hosted with ❤️ by Github. Powered by Jekyll.
   Thanks a lot.
-baseurl: "/notes"
-url: "https://zhoukekestar.github.io"
+baseurl: "/"
+# url: "https://zhoukekestar.github.io"
+url: "https://github.330810.xyz"
 github_username:  zhoukekestar
 
 # paging
