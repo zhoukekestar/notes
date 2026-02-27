@@ -67,6 +67,27 @@ state      ~/.local/state/opencode
 
 # vscode 配置
 
+## 方式 1
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "opencode (debug)",
+      "program": "${workspaceFolder}/packages/opencode/src/index.ts",
+      "args": ["serve", "--port", "4096"],
+      "runtimeArgs": ["run", "--inspect-brk=ws://localhost:6499/"],
+    }
+  ]
+}
+
+```
+
+## 方式 2
+
 ### tasks.json
 
 ```json
